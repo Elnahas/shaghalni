@@ -18,10 +18,10 @@ abstract class TextStyles {
   static TextStyle font14BlueW300 = GoogleFonts.poppins(
       fontSize: 14, fontWeight: FontWeight.w400, color: Colors.blue);
 
-        static TextStyle font14BlackW300 = GoogleFonts.poppins(
+  static TextStyle font14BlackW300 = GoogleFonts.poppins(
       fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black);
 
-        static TextStyle font14DarkBlueMedium = GoogleFonts.poppins(
+  static TextStyle font14DarkBlueMedium = GoogleFonts.poppins(
       fontSize: 14, fontWeight: FontWeight.w400, color: ColorsManager.darkBlue);
 
   static TextStyle font16Regular = GoogleFonts.poppins(
@@ -30,17 +30,23 @@ abstract class TextStyles {
   );
 
   static TextStyle font14LightGrayRegular = GoogleFonts.poppins(
-    fontSize: 14,
-    fontWeight: FontWeight.normal,
-    color: ColorsManager.lightGrey
-  );
+      fontSize: 14,
+      fontWeight: FontWeight.normal,
+      color: ColorsManager.lightGrey);
 
   static TextStyle font28SemiBoldWhite = GoogleFonts.poppins(
       fontSize: 28, fontWeight: FontWeight.w600, color: Colors.white);
 
-        static TextStyle font20SemiBoldWhite = GoogleFonts.poppins(
+  static TextStyle font20SemiBoldWhite = GoogleFonts.poppins(
       fontSize: 20, fontWeight: FontWeight.w600, color: Colors.white);
 
   static TextStyle font35SemiBoldBlue = GoogleFonts.poppins(
-      fontSize: 35, fontWeight: FontWeight.w600, color: ColorsManager.primaryColor);
+      fontSize: 35,
+      fontWeight: FontWeight.w600,
+      color: ColorsManager.primaryColor);
+
+        static TextStyle font24BoldBlack = GoogleFonts.poppins(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      color: Colors.black);
 }
