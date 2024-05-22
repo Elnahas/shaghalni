@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/routing/routes.dart';
+import 'package:shaghalni/features/auth/login/logic/cubit/phone_auth_cubit.dart';
 
+import '../../features/auth/login/ui/widgets/login_screen.dart';
 import '../../features/auth/welcome/ui/widgets/welcome_screen.dart';
 
 class Routing {
@@ -8,6 +11,13 @@ class Routing {
     switch (settings.name) {
       case Routes.welcomeScreen:
         return MaterialPageRoute(builder: (context) => const WelcomeScreen());
+
+      case Routes.login:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => PhoneAuthCubit(),
+                  child: const LoginScreen(),
+                ));
 
       default:
         return MaterialPageRoute(builder: (context) => const NoRouteScreen());
