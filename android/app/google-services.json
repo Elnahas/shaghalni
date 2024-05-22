@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1060511357758",
+    "project_id": "shaghalni-ec6bb",
+    "storage_bucket": "shaghalni-ec6bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060511357758:android:76588ecd37425af590aa6f",
+        "android_client_info": {
+          "package_name": "com.shaghalni"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcbyrqff7F0h4JJIcyYAGDBjn4ET7ej5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
