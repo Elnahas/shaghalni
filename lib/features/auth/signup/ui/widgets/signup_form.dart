@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/widgets/app_drop_down_button.dart';
-import 'package:shaghalni/features/auth/signup/ui/widgets/profile_widgets.dart';
+import 'package:shaghalni/features/auth/signup/ui/widgets/profile_picture_widget.dart';
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_text_styles.dart';
 import '../../../../../core/widgets/app_text_form_field.dart';
@@ -15,7 +15,7 @@ class SignupForm extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const ProfileWidget(),
+        const ProfilePicture(),
         verticalSpace(20),
         Text(
           "Phone Number",
