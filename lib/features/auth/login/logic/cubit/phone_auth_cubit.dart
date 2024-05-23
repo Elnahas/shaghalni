@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -9,6 +10,7 @@ class PhoneAuthCubit extends Cubit<PhoneAuthState> {
 
   late String verificationId;
   late String phoneNumber;
+  late String otpCode;
 
   Future<void> submitPhoneNumber() async {
     emit(PhoneAuthLoadingState());
@@ -24,28 +26,31 @@ class PhoneAuthCubit extends Cubit<PhoneAuthState> {
   }
 
   void verificationCompleted(PhoneAuthCredential credential) async {
-    print('verificationCompleted');
+    debugPrint('verificationCompleted');
     await signIn(credential);
   }
 
   void verificationFailed(FirebaseAuthException error) {
-    print('verificationFailed : ${error.toString()}');
+    debugPrint('verificationFailed : ${error.toString()}');
     emit(PhoneAuthFailureState(errorMsg: error.toString()));
   }
 
   void codeSent(String verificationId, int? resendToken) {
-    print('codeSent');
+    debugPrint('codeSent');
     this.verificationId = verificationId;
     emit(PhoneAuthSubmittedState());
   }
 
   void codeAutoRetrievalTimeout(String verificationId) {
-    print('codeAutoRetrievalTimeout');
+    debugPrint('codeAutoRetrievalTimeout');
   }
 
-  Future<void> submitOTP(String otpCode) async {
+  Future<void> submitOTP() async {
+    
+    emit(PhoneAuthLoadingState());
+
     PhoneAuthCredential credential = PhoneAuthProvider.credential(
-        verificationId: this.verificationId, smsCode: otpCode);
+        verificationId: verificationId, smsCode: otpCode);
 
     await signIn(credential);
   }

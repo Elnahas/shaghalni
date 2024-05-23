@@ -14,4 +14,6 @@ abstract class ColorsManager {
   static const Color white =  Color(0xFFFFFFFF);
   static const Color darkBlue = Color(0xFF242424);
   static const Color moreLightGray = Color(0xFFFDFDFF);
+    static const Color lightBlue = Color(0xffE5EFFD);
+
 }
