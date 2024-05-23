@@ -11,6 +11,7 @@ class AppTextFormField extends StatelessWidget {
   final TextStyle? hintStyle;
   final String hintText;
   final bool? isObscureText;
+  final bool? readOnly;
   final Widget? suffixIcon;
   final Color? backgroundColor;
   final TextEditingController? controller;
@@ -28,11 +29,12 @@ class AppTextFormField extends StatelessWidget {
       this.suffixIcon,
       this.backgroundColor,
       this.controller,
-      required this.validator});
+      required this.validator, this.readOnly});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      readOnly: readOnly ?? false,
       controller: controller,
       decoration: InputDecoration(
           isDense: true,

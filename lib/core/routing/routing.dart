@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/di/dependency_injection.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/features/auth/login/logic/cubit/phone_auth_cubit.dart';
+import 'package:shaghalni/features/auth/signup/ui/widgets/signup_screen.dart';
 
 import '../../features/auth/login/ui/widgets/login_screen.dart';
 import '../../features/auth/otp/ui/widgets/otp_screen.dart';
@@ -26,6 +27,13 @@ class Routing {
             builder: (context) => BlocProvider(
                   create: (context) => getIt<PhoneAuthCubit>(),
                   child: const OtpScreen(),
+                ));
+
+      case Routes.signup:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => getIt<PhoneAuthCubit>(),
+                  child: const SignupScreen(),
                 ));
 
       default:
