@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
-import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/features/auth/login/logic/cubit/phone_auth_cubit.dart';
 import 'package:shaghalni/features/auth/otp/ui/widgets/intro_texts.dart';
 import 'package:shaghalni/features/auth/otp/ui/widgets/phone_number_otp_listener.dart';

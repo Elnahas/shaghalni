@@ -18,16 +18,16 @@ class IntroTexts extends StatelessWidget {
         ),
         verticalSpace(30),
         Container(
-            margin: EdgeInsets.symmetric(horizontal: 2),
+            margin:const EdgeInsets.symmetric(horizontal: 2),
             child: RichText(
               text: TextSpan(
                 text: 'Enter your 6 digit code numbers sent to ',
                 style:
-                    TextStyle(color: Colors.black, fontSize: 18, height: 1.4),
+                   const TextStyle(color: Colors.black, fontSize: 18, height: 1.4),
                 children: <TextSpan>[
                   TextSpan(
-                    text: '$phoneNumber',
-                    style: TextStyle(color: Colors.blue),
+                    text: phoneNumber,
+                    style:const TextStyle(color: Colors.blue),
                   ),
                 ],
               ),
