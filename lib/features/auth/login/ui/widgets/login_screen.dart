@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/core/widgets/app_text_button.dart';
-import 'package:shaghalni/features/auth/login/ui/widgets/country_flag_widgets.dart';
-
-import '../../../../../core/functions/generate_country_flag.dart';
-import '../../../../../core/theming/app_colors.dart';
+import 'package:shaghalni/features/auth/login/logic/cubit/phone_auth_cubit.dart';
+import 'package:shaghalni/features/auth/login/ui/widgets/phone_number_submitted_listener.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -36,7 +35,10 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   initialCountryCode: 'EG',
-                  onChanged: (phone) {},
+                  onChanged: (phone) {
+                    context.read<PhoneAuthCubit>().phoneNumber =
+                        phone.completeNumber;
+                  },
                 ),
                 verticalSpace(50),
                 Align(
@@ -45,10 +47,14 @@ class LoginScreen extends StatelessWidget {
                       verticalPadding: 0,
                       buttonWidth: 130.w,
                       buttonText: "Next",
-                      onPressed: () {
-                        Navigator.pushNamed(context, "/otp");
+                      onPressed: () async {
+                        await context
+                            .read<PhoneAuthCubit>()
+                            .submitPhoneNumber();
+                        
                       }),
                 ),
+                const PhoneNumberSubmittedListener()
               ],
             )),
       ),
