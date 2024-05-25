@@ -1,10 +1,21 @@
 import 'package:get_it/get_it.dart';
-import 'package:shaghalni/features/auth/login/logic/cubit/phone_auth_cubit.dart';
+import 'package:shaghalni/features/auth/login/logic/cubit/login_cubit.dart';
+import 'package:shaghalni/features/auth/otp/logic/cubit/otp_cubit.dart';
+import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
 
+import '../../features/auth/auth_repository.dart';
 import '../database/cache/cache_helper.dart';
 
-final getIt = GetIt.instance ;
-void setupServiceLocator(){
+final getIt = GetIt.instance;
+void setupServiceLocator() {
   getIt.registerSingleton<CacheHelper>(CacheHelper());
-  getIt.registerSingleton<PhoneAuthCubit>(PhoneAuthCubit());
+
+  getIt.registerSingleton<AuthRepository>(AuthRepository());
+  //getIt.registerFactory<AuthRepository>(() => AuthRepository());
+
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt<AuthRepository>()));
+  getIt.registerFactory<OtpCubit>(() => OtpCubit(getIt<AuthRepository>()));
+  getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt<AuthRepository>()));
+
+  //getIt.registerSingleton<PhoneAuthCubit>(PhoneAuthCubit());
 }

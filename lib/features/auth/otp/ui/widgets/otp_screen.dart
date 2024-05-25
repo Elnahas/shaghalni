@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_it/get_it.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
-import 'package:shaghalni/core/routing/routes.dart';
-import 'package:shaghalni/features/auth/login/logic/cubit/phone_auth_cubit.dart';
 import 'package:shaghalni/features/auth/otp/ui/widgets/intro_texts.dart';
-import 'package:shaghalni/features/auth/otp/ui/widgets/phone_number_otp_listener.dart';
+import 'package:shaghalni/features/auth/otp/ui/widgets/otp_bloc_listener.dart';
 import 'package:shaghalni/features/auth/otp/ui/widgets/pin_code_fields.dart';
-
 import '../../../../../core/widgets/app_text_button.dart';
+import '../../../auth_repository.dart';
+import '../../logic/cubit/otp_cubit.dart';
 
 class OtpScreen extends StatelessWidget {
   const OtpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var phoneCubit = context.read<PhoneAuthCubit>();
+    final getIt = GetIt.instance;
+    var phoneNumber = getIt<AuthRepository>().phoneNumber;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -27,7 +28,7 @@ class OtpScreen extends StatelessWidget {
             children: [
               verticalSpace(50),
               IntroTexts(
-                phoneNumber: phoneCubit.phoneNumber,
+                phoneNumber: phoneNumber,
               ),
               verticalSpace(30),
               const PinCodeFields(),
@@ -39,10 +40,10 @@ class OtpScreen extends StatelessWidget {
                     buttonWidth: 130.w,
                     buttonText: "Verify",
                     onPressed: () async {
-                      await phoneCubit.submitOTP();
+                      context.read<OtpCubit>().verifyOtp();
                     }),
               ),
-              const PhoneNumberOtpListener(),
+              const OtpBlocListener(),
             ],
           ),
         ),

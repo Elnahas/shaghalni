@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
-import 'package:shaghalni/features/auth/login/logic/cubit/phone_auth_cubit.dart';
+
+import '../../logic/cubit/otp_cubit.dart';
 
 class PinCodeFields extends StatelessWidget {
   const PinCodeFields({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+      final TextEditingController otpController = TextEditingController();
+
      return PinCodeTextField(
+      controller: otpController,
        appContext: context,
        autoFocus: true,
        cursorColor: Colors.black,
@@ -35,7 +40,7 @@ class PinCodeFields extends StatelessWidget {
        enableActiveFill: true,
        
        onCompleted: (submittedCode) {
-        context.read<PhoneAuthCubit>().otpCode = submittedCode;
+         GetIt.instance<OtpCubit>().setOtpCode(submittedCode);
          debugPrint("Completed");
        },
        onChanged: (value) {

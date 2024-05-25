@@ -45,10 +45,19 @@ dependencies:
   intl_phone_field: ^3.2.0
   pin_code_fields: ^8.0.1
   shared_preferences: ^2.2.3
+  # Automatically generate code for converting to and from JSON by annotating Dart classes.
+  json_serializable: ^6.7.1
+  json_annotation: ^4.8.1
+  freezed: ^2.5.2
+  # Annotations for the freezed code-generator. This package does nothing without freezed too.
+  freezed_annotation: ^2.4.1
+  build_runner: ^2.4.9
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
+  bloc: ^8.1.4
+  image_picker: ^1.1.1
 
 dev_dependencies:
   flutter_test:
