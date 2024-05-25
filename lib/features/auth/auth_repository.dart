@@ -1,9 +1,15 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shaghalni/features/auth/signup/data/model/user_model.dart';
 
+import '../../core/utils/constants.dart';
+
 class AuthRepository {
+
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   late String _verificationId;
   late String _phoneNumber;
   late String _otpCode;
@@ -68,7 +74,11 @@ class AuthRepository {
   }
 
   Future<void> signUp(UserModel user) async {
-    // Implement sign-up logic, e.g., saving user data to Firestore
+    try {
+      await _firestore.collection(FirestoreCollections.users).doc(user.uid).set(user.toJson());
+    } catch (e) {
+      throw 'Failed to sign up: $e';
+    }
   }
 
   Future<void> signOut() async {

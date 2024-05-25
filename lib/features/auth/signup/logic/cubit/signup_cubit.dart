@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl.dart';
@@ -10,7 +12,14 @@ import '../../../auth_repository.dart';
 class SignupCubit extends Cubit<SignupState> {
   final AuthRepository _authRepository;
   var phoneNumber = GetIt.instance<AuthRepository>().phoneNumber;
-  TextEditingController dateController = TextEditingController();
+
+  TextEditingController birthDateController = TextEditingController();
+  TextEditingController fullNameController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+
+  String? selectedGender;
+  final List<String> genders = ["Male", "Female"];
+  final List<String> roles = ["User", "Worker", "Admin"];
 
   DateTime? selectedDate;
   Future<void> myShowDatePicker(BuildContext context) async {
@@ -22,16 +31,27 @@ class SignupCubit extends Cubit<SignupState> {
 
     if (picked != null && picked != selectedDate) {
       selectedDate = picked;
-      dateController.text = DateFormat('dd-MM-yyyy').format(selectedDate!);
+      birthDateController.text = DateFormat('dd-MM-yyyy').format(selectedDate!);
     }
   }
 
   SignupCubit(this._authRepository) : super(const SignupState.initial());
 
-  Future<void> signUp(UserModel user) async {
+  Future<void> signUp() async {
     try {
       emit(const SignupLoading());
-      await _authRepository.signUp(user);
+
+      final createdAt = Timestamp.fromMillisecondsSinceEpoch(
+          DateTime.now().millisecondsSinceEpoch);
+
+      await _authRepository.signUp(UserModel(
+          uid: FirebaseAuth.instance.currentUser!.uid,
+          fullName: fullNameController.text,
+          phoneNumber: phoneNumber,
+          birthDate: birthDateController.text,
+          gender: selectedGender!,
+          city: cityController.text,
+          createdAt: createdAt));
       emit(const SignupSuccess());
     } catch (e) {
       emit(SignupFailure(error: e.toString()));
