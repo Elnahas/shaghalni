@@ -26,7 +26,7 @@ class _AppDropDownButtonState extends State<AppDropDownButton> {
         underline: Container(),
         isExpanded: true,
         value: selectedGender,
-        hint: Text('Select Gender'),
+        hint: const Text('Select Gender'),
         items: genders.map((String list) {
           return DropdownMenuItem<String>(
             value: list,

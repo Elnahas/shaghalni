@@ -2,34 +2,41 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/functions/show_progress_indicator.dart';
 import 'package:shaghalni/core/routing/routes.dart';
-import 'package:shaghalni/features/auth/login/logic/cubit/phone_auth_cubit.dart';
+import 'package:shaghalni/features/auth/otp/logic/cubit/otp_cubit.dart';
+import 'package:shaghalni/features/auth/otp/logic/cubit/otp_state.dart';
 
-class PhoneNumberOtpListener extends StatelessWidget {
-  const PhoneNumberOtpListener({super.key});
+class OtpBlocListener extends StatelessWidget {
+  const OtpBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<PhoneAuthCubit, PhoneAuthState>(
+    return BlocListener<OtpCubit, OtpState>(
       listenWhen: (previous, current) {
-        if (current is PhoneAuthOTPVerifiedState ||
-            current is PhoneAuthLoadingState ||
-            current is PhoneAuthFailureState) {
+        if (current is OtpLoading ||
+            current is OtpSuccess ||
+            current is OtpNewUser ||
+            current is OtpFailure) {
           return true;
         } else {
           return false;
         }
       },
       listener: (context, state) {
-        if (state is PhoneAuthOTPVerifiedState) {
+        if (state is OtpNewUser) {
           Navigator.pop(context);
           Navigator.pushNamed(context, Routes.signup);
-        } else if (state is PhoneAuthLoadingState) {
+        }
+        else if (state is OtpNewUser) {
+          Navigator.pop(context);
+          Navigator.pushReplacementNamed(context, Routes.home);
+        }  else if (state is OtpLoading) {
+           debugPrint("listener OtpLoading");
           showProgressIndicator(context);
-        } else if (state is PhoneAuthFailureState) {
+        } else if (state is OtpFailure) {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(state.errorMsg),
+              content: Text(state.error),
               backgroundColor: Colors.black,
               duration: const Duration(seconds: 3),
             ),
