@@ -8,14 +8,14 @@ import '../database/cache/cache_helper.dart';
 
 final getIt = GetIt.instance;
 void setupServiceLocator() {
+
+
   getIt.registerSingleton<CacheHelper>(CacheHelper());
 
   getIt.registerSingleton<AuthRepository>(AuthRepository());
-  //getIt.registerFactory<AuthRepository>(() => AuthRepository());
 
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt<AuthRepository>()));
   getIt.registerFactory<OtpCubit>(() => OtpCubit(getIt<AuthRepository>()));
-  getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt<AuthRepository>()));
-
-  //getIt.registerSingleton<PhoneAuthCubit>(PhoneAuthCubit());
+  getIt
+      .registerFactory<SignupCubit>(() => SignupCubit(getIt<AuthRepository>()));
 }

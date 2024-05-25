@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
+
+import '../../features/auth/signup/logic/cubit/signup_cubit.dart';
 
 class AppDropDownButton extends StatefulWidget {
   const AppDropDownButton({super.key});
@@ -10,9 +13,6 @@ class AppDropDownButton extends StatefulWidget {
 }
 
 class _AppDropDownButtonState extends State<AppDropDownButton> {
-  String? selectedGender;
-  final List<String> genders = ["Male", "Female"];
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,17 +25,17 @@ class _AppDropDownButtonState extends State<AppDropDownButton> {
       child: DropdownButton(
         underline: Container(),
         isExpanded: true,
-        value: selectedGender,
+        value: context.read<SignupCubit>().selectedGender,
         hint: const Text('Select Gender'),
-        items: genders.map((String list) {
+        items: context.read<SignupCubit>().genders.map((String list) {
           return DropdownMenuItem<String>(
             value: list,
-            child: Text(list ),
+            child: Text(list),
           );
         }).toList(),
         onChanged: (String? newValue) {
           setState(() {
-            selectedGender = newValue;
+            context.read<SignupCubit>().selectedGender = newValue;
           });
         },
       ),

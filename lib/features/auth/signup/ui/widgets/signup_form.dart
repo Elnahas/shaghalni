@@ -15,13 +15,15 @@ class SignupForm extends StatefulWidget {
 }
 
 class _SignupFormState extends State<SignupForm> {
-
-
-  late TextEditingController dateController;
+  late TextEditingController birthDateController;
+  late TextEditingController fullNameController;
+  late TextEditingController cityController;
 
   @override
   void initState() {
-    dateController = context.read<SignupCubit>().dateController;
+    birthDateController = context.read<SignupCubit>().birthDateController;
+      fullNameController= context.read<SignupCubit>().fullNameController;
+      cityController= context.read<SignupCubit>().cityController;
     super.initState();
   }
 
@@ -48,14 +50,20 @@ class _SignupFormState extends State<SignupForm> {
             style: TextStyles.font18BoldBlack,
           ),
           verticalSpace(10),
-          AppTextFormField(hintText: "FullName", validator: (value) {}),
+          AppTextFormField(
+              controller: fullNameController,
+              hintText: "FullName",
+              validator: (value) {}),
           verticalSpace(20),
           Text(
             "City",
             style: TextStyles.font18BoldBlack,
           ),
           verticalSpace(10),
-          AppTextFormField(hintText: "City", validator: (value) {}),
+          AppTextFormField(
+              controller: cityController,
+              hintText: "City",
+              validator: (value) {}),
           verticalSpace(20),
           Text(
             "Birth Date",
@@ -63,7 +71,7 @@ class _SignupFormState extends State<SignupForm> {
           ),
           verticalSpace(10),
           AppTextFormField(
-            controller: dateController,
+            controller: birthDateController,
             hintText: "Birth Date",
             validator: (value) {},
             readOnly: true,

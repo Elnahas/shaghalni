@@ -10,7 +10,7 @@ class SignupRepo {
 
   Future<ApiResult> signup(UserModel userModel) async {
     try {
-      await firestore.doc(userModel.id).set(userModel.toJson());
+      await firestore.doc(userModel.uid).set(userModel.toJson());
 
       return ApiResult.success(userModel);
     } catch (e) {
