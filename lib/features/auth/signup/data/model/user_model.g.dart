@@ -13,10 +13,10 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) => UserModel(
       birthDate: json['birthDate'] as String,
       city: json['city'] as String,
       gender: json['gender'] as String,
-      isOnline: json['isOnline'] as bool,
-      isSuspended: json['isSuspended'] as bool,
+      isOnline: json['isOnline'] as bool? ?? false,
+      isSuspended: json['isSuspended'] as bool? ?? false,
       imageUrl: json['imageUrl'] as String?,
-      createAt: json['createAt'] as String,
+      createdAt: UserModel._timestampFromJson(json['createdAt']),
     );
 
 Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
@@ -29,5 +29,5 @@ Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
       'isOnline': instance.isOnline,
       'isSuspended': instance.isSuspended,
       'imageUrl': instance.imageUrl,
-      'createAt': instance.createAt,
+      'createdAt': UserModel._timestampToJson(instance.createdAt),
     };
