@@ -14,6 +14,7 @@ class UserModel {
   final bool isOnline;
   final bool isSuspended;
   final String? imageUrl;
+  @JsonKey(fromJson: _timestampFromJson, toJson: _timestampToJson)
   final Timestamp createdAt;
 
   UserModel(
@@ -33,30 +34,15 @@ class UserModel {
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
 
-  // factory UserModel.fromJson(Map<String, dynamic> json) {
-  //   return UserModel(
-  //       id: json['id'],
-  //       fullName: json['fullName'],
-  //       phone: json['phone'],
-  //       birthDate: json['birthDate'],
-  //       gender: json['gender'],
-  //       city: json['city'],
-  //       createAt: json['createAt'],
-  //       status: json['status'],
-  //       image: json['image']);
-  // }
+  static Timestamp _timestampFromJson(dynamic json) {
+    return json is Timestamp
+        ? json
+        : Timestamp.fromMillisecondsSinceEpoch(json as int);
+  }
 
-  // Map<String, dynamic> toJson() {
-  //   final Map<String, dynamic> data = new Map<String, dynamic>();
-  //   data['id'] = this.id;
-  //   data['fullName'] = this.fullName;
-  //   data['phone'] = this.phone;
-  //   data['birthDate'] = this.birthDate;
-  //   data['gender'] = this.gender;
-  //   data['city'] = this.city;
-  //   data['createAt'] = this.createAt;
-  //   data['status'] = this.status;
-  //   data['image'] = this.image;
-  //   return data;
-  // }
+  static dynamic _timestampToJson(Timestamp timestamp) =>
+      timestamp.millisecondsSinceEpoch;
+
+
+
 }
