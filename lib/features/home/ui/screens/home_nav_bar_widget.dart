@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
-import 'package:shaghalni/features/home/ui/widgets/home_screen.dart';
+import 'package:shaghalni/features/home/ui/screens/home_screen.dart';
 
 class HomeNavBarWidget extends StatefulWidget {
   const HomeNavBarWidget({super.key});
