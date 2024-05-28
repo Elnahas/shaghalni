@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WelcomeImagesWidget extends StatelessWidget {
   const WelcomeImagesWidget({
@@ -16,6 +17,7 @@ class WelcomeImagesWidget extends StatelessWidget {
       ),
       Container(
           margin: const EdgeInsets.only(top: 70, right: 20, left: 20),
+          height: 350.h,
           child: Image.asset(
             "assets/images/ic_welcome.png",
           )),
