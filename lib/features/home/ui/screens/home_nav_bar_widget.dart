@@ -13,7 +13,7 @@ class HomeNavBarWidget extends StatefulWidget {
 class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
   int currentIndex = 0;
   List<Widget> screens = [
-     HomeScreen(),
+    const HomeScreen(),
     const HomeScreen(),
     const HomeScreen(),
     const HomeScreen(),
@@ -28,7 +28,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
         child: AppBar(
           centerTitle: true,
           backgroundColor: Colors.white,
-          leading: IconButton(onPressed: (){}, icon: Icon(Icons.menu)),
+          leading: IconButton(onPressed: (){}, icon: const Icon(Icons.menu)),
           title: Text("شغلنى" , style: TextStyles.font24BoldBlack,),
         ),
         
@@ -68,7 +68,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
   }
 
   Widget buildNavIcon(IconData icon, int index) {
-    return Container(
+    return SizedBox(
       width: 50,
       height: 50,
       child: IconButton(

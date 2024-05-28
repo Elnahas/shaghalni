@@ -47,8 +47,12 @@ abstract class TextStyles {
       fontWeight: FontWeight.w600,
       color: ColorsManager.primaryColor);
 
-        static TextStyle font24BoldBlack = GoogleFonts.poppins(
-      fontSize: 24,
+  static TextStyle font24BoldBlack = GoogleFonts.poppins(
+      fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black);
+  static TextStyle font14BoldBlack = GoogleFonts.poppins(
+      fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black);
+  static TextStyle font14BoldBlue = GoogleFonts.poppins(
+      fontSize: 14,
       fontWeight: FontWeight.bold,
-      color: Colors.black);
+      color: ColorsManager.primaryColor);
 }

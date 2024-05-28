@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:shaghalni/core/widgets/custom_shimmer_slider.dart';
-import 'package:shimmer/shimmer.dart';
+import 'package:shaghalni/core/widgets/custom_shimmer_image.dart';
 
 class CustomImageViewer {
   CustomImageViewer._();
@@ -26,7 +25,10 @@ class CustomImageViewer {
                 ),
               ),
             ),
-        placeholder: (context, url) => const CustomShimmerSlider(),
+        placeholder: (context, url) => CustomShimmerImage(
+            height: 200,
+            width: MediaQuery.of(context).size.width,
+            borderRadius: 12),
         errorWidget: (context, url, error) => const Icon(Icons.error_outline));
   }
 }

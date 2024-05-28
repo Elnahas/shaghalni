@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../core/functions/image_viewer.dart';
-import '../../../../core/helpers/spacing.dart';
-import '../../data/model/slide_model.dart';
+import '../../../../../core/functions/image_viewer.dart';
+import '../../../../../core/helpers/spacing.dart';
+import '../../../data/model/slide_model.dart';
 
-class SliderAndIndicator extends StatefulWidget {
-  const SliderAndIndicator({super.key});
+class SliderAndIndicatorSection extends StatefulWidget {
+  const SliderAndIndicatorSection({super.key});
 
   @override
-  State<SliderAndIndicator> createState() => _SliderAndIndicatorState();
+  State<SliderAndIndicatorSection> createState() => _SliderAndIndicatorSectionState();
 }
 
-class _SliderAndIndicatorState extends State<SliderAndIndicator> {
+class _SliderAndIndicatorSectionState extends State<SliderAndIndicatorSection> {
 
     late CarouselController carouselController;
 
