@@ -6,7 +6,7 @@ abstract class ColorsManager {
   static const Color deepBrown =  Color(0xff6B4B3E);
   static const Color grey =  Color(0xffC4C4C4);
   static const Color deepGrey =  Color(0xff6F6460);
-  static const Color lightGrey =  Color(0xffB4B4B4);
+  static const Color lightGrey =  Color(0xffF1EEF5);
   static const Color black =  Color(0xff333333);
   static const Color inactiveColorPrimary =  Color(0xffB0846B);
   static const Color activeColorPrimary =  Color(0xff825743);
