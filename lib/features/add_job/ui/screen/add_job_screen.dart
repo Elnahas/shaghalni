@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shaghalni/core/functions/show_modal_bottom_sheet.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/widgets/app_text_button.dart';
 
@@ -17,52 +18,62 @@ class _AddJobScreenState extends State<AddJobScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ColorsManager.lightGrey,
-        elevation: 0,
-        centerTitle: true,
-        title: Text('Add Job'),
-        leading: IconButton(
-          onPressed: () {
-            if (currentStep > 1) {
-              setState(() {
-                currentStep--;
-              });
-            }else{
-              Navigator.pop(context);
-            }
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: ColorsManager.black,
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) async {
+        if (didPop) {
+          Navigator.pop(context);
+        } else {
+          await onWillPop(context, "Are you sure you want to exit?");
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: ColorsManager.lightGrey,
+          elevation: 0,
+          centerTitle: true,
+          title: Text('Add Job'),
+          leading: IconButton(
+            onPressed: () {
+              if (currentStep > 1) {
+                setState(() {
+                  currentStep--;
+                });
+              } else {
+                Navigator.pop(context);
+              }
+            },
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: ColorsManager.black,
+            ),
           ),
         ),
-      ),
-      backgroundColor: ColorsManager.lightGrey,
-      body: Padding(
-        padding: const EdgeInsets.all(14.0),
-        child: Column(
-          children: [
-            StepIndicator(
-              currentStep: currentStep,
-              totalSteps: totalSteps,
-            ),
-            Expanded(
-              child: SelectCategoryListWidget(),
-            ),
-            Padding(
-                padding: EdgeInsets.symmetric(vertical: 14),
-                child: currentStep == totalSteps
-                    ? AppTextButton(buttonText: "Submit", onPressed: () {})
-                    : AppTextButton(
-                        buttonText: "Next",
-                        onPressed: () {
-                          setState(() {
-                            if (currentStep < totalSteps) currentStep++;
-                          });
-                        })),
-          ],
+        backgroundColor: ColorsManager.lightGrey,
+        body: Padding(
+          padding: const EdgeInsets.all(14.0),
+          child: Column(
+            children: [
+              StepIndicator(
+                currentStep: currentStep,
+                totalSteps: totalSteps,
+              ),
+              Expanded(
+                child: SelectCategoryListWidget(),
+              ),
+              Padding(
+                  padding: EdgeInsets.symmetric(vertical: 14),
+                  child: currentStep == totalSteps
+                      ? AppTextButton(buttonText: "Submit", onPressed: () {})
+                      : AppTextButton(
+                          buttonText: "Next",
+                          onPressed: () {
+                            setState(() {
+                              if (currentStep < totalSteps) currentStep++;
+                            });
+                          })),
+            ],
+          ),
         ),
       ),
     );
