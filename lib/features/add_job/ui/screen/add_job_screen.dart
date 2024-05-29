@@ -3,6 +3,7 @@ import 'package:shaghalni/core/functions/show_modal_bottom_sheet.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/widgets/app_text_button.dart';
 
+import '../../../../core/widgets/select_list_widget.dart';
 import '../widgets/step_indicator_widgets.dart';
 
 class AddJobScreen extends StatefulWidget {
@@ -16,8 +17,36 @@ class _AddJobScreenState extends State<AddJobScreen> {
   int currentStep = 1;
   int totalSteps = 4;
 
+  int selectedCategoryIndex = 0;
+  int selectedCityIndex = 0;
+  final List<String> categories =
+      List.generate(20, (index) => 'Category $index');
+  final List<String> cities = List.generate(20, (index) => 'City $index');
+
   @override
   Widget build(BuildContext context) {
+
+    List<Widget> steps = [
+      SelectListWidget(
+        items: categories,
+        initialSelectedIndex: selectedCategoryIndex,
+        onItemSelected: (index) {
+          setState(() {
+            selectedCategoryIndex = index;
+          });
+        },
+      ),
+      SelectListWidget(
+        items: cities,
+        initialSelectedIndex: selectedCityIndex,
+        onItemSelected: (index) {
+          setState(() {
+            selectedCityIndex = index;
+          });
+        },
+      )
+    ];
+
     return PopScope(
       canPop: false,
       onPopInvoked: (didPop) async {
@@ -43,7 +72,7 @@ class _AddJobScreenState extends State<AddJobScreen> {
                 Navigator.pop(context);
               }
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios,
               color: ColorsManager.black,
             ),
@@ -59,10 +88,10 @@ class _AddJobScreenState extends State<AddJobScreen> {
                 totalSteps: totalSteps,
               ),
               Expanded(
-                child: SelectCategoryListWidget(),
+                child: steps[currentStep - 1],
               ),
               Padding(
-                  padding: EdgeInsets.symmetric(vertical: 14),
+                  padding: const EdgeInsets.symmetric(vertical: 14),
                   child: currentStep == totalSteps
                       ? AppTextButton(buttonText: "Submit", onPressed: () {})
                       : AppTextButton(
@@ -80,52 +109,3 @@ class _AddJobScreenState extends State<AddJobScreen> {
   }
 }
 
-class SelectCategoryListWidget extends StatefulWidget {
-  const SelectCategoryListWidget({super.key});
-
-  @override
-  State<SelectCategoryListWidget> createState() =>
-      _SelectCategoryListWidgetState();
-}
-
-class _SelectCategoryListWidgetState extends State<SelectCategoryListWidget> {
-  int currentIndexCategory = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: BouncingScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: 20,
-      itemBuilder: (context, index) {
-        return Container(
-          margin: EdgeInsets.symmetric(vertical: 5),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: currentIndexCategory == index ? Colors.blue : Colors.white,
-          ),
-          child: Material(
-            color: Colors
-                .transparent, // Important to make the ripple effect visible
-            borderRadius: BorderRadius.circular(10),
-
-            child: InkWell(
-              borderRadius: BorderRadius.circular(10),
-              onTap: () {
-                setState(() {
-                  currentIndexCategory = index;
-                });
-              },
-              child: ListTile(
-                selected: currentIndexCategory == index,
-                selectedColor: Colors.white,
-                trailing: Icon(Icons.chevron_right),
-                title: Text('Item $index'),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-}
