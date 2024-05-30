@@ -4,4 +4,5 @@ class Routes {
   static const String signup = '/signup';
   static const String otp = '/otp';
   static const String home = '/home';
+  static const String addJob = '/add-job';
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
+import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/features/home/ui/screens/home_screen.dart';
 
@@ -28,7 +29,10 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
         child: AppBar(
           centerTitle: true,
           backgroundColor: Colors.white,
-          leading: IconButton(onPressed: (){}, icon: const Icon(Icons.menu)),
+          leading: IconButton(onPressed: (){
+
+
+          }, icon: const Icon(Icons.menu)),
           title: Text("شغلنى" , style: TextStyles.font24BoldBlack,),
         ),
         
@@ -38,7 +42,10 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
       floatingActionButton: FloatingActionButton(
         shape:const CircleBorder(),
         elevation: 10,
-        onPressed: () {},
+        onPressed: () {
+            Navigator.of(context).pushNamed(Routes.addJob);
+
+        },
         backgroundColor: Colors.blue,
         child: const Icon(
           Icons.add,

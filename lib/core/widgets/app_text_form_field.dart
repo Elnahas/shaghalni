@@ -16,6 +16,8 @@ class AppTextFormField extends StatelessWidget {
   final Color? backgroundColor;
   final TextEditingController? controller;
   final Function(String?) validator;
+  final int? maxLines ; 
+  final TextInputType? keyboardType ; 
 
   const AppTextFormField(
       {super.key,
@@ -29,14 +31,17 @@ class AppTextFormField extends StatelessWidget {
       this.suffixIcon,
       this.backgroundColor,
       this.controller,
-      required this.validator, this.readOnly});
+      required this.validator, this.readOnly,  this.maxLines, this.keyboardType});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       readOnly: readOnly ?? false,
+      maxLines: maxLines ?? 1,
       controller: controller,
+      keyboardType:keyboardType ?? TextInputType.text,
       decoration: InputDecoration(
+        
           isDense: true,
           contentPadding: contentPadding ??
               EdgeInsets.symmetric(vertical: 18.h, horizontal: 20.w),
