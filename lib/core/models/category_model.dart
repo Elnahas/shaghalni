@@ -1,11 +1,13 @@
 import 'package:json_annotation/json_annotation.dart';
-part 'category_model.g.dart';
+ part 'category_model.g.dart';
 @JsonSerializable()
 class CategoryModel {
   final String id;
   final String name;
   final String description;
+   @JsonKey(name: 'icon_url')
   final String iconUrl;
+   @JsonKey(name: 'cover_image_url')
   final String coverImageUrl;
 
   CategoryModel(
