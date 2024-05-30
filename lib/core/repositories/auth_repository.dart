@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shaghalni/features/auth/signup/data/model/user_model.dart';
+import 'package:shaghalni/core/models/user_model.dart';
 
-import '../../core/utils/constants.dart';
+import '../utils/constants.dart';
 
 class AuthRepository {
 

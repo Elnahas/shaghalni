@@ -7,7 +7,7 @@ import 'package:shaghalni/features/auth/otp/ui/widgets/intro_texts.dart';
 import 'package:shaghalni/features/auth/otp/ui/widgets/otp_bloc_listener.dart';
 import 'package:shaghalni/features/auth/otp/ui/widgets/pin_code_fields.dart';
 import '../../../../../core/widgets/app_text_button.dart';
-import '../../../auth_repository.dart';
+import '../../../../../core/repositories/auth_repository.dart';
 import '../../logic/cubit/otp_cubit.dart';
 
 class OtpScreen extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../../../../core/networking/api_result.dart';
-import '../model/user_model.dart';
+import '../../../../../core/models/user_model.dart';
 
 class SignupRepo {
   final FirebaseFirestore firestore;
