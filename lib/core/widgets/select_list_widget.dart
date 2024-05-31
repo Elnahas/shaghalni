@@ -81,7 +81,7 @@ class _SelectListWidgetState<T> extends State<SelectListWidget<T>> {
                       selected: currentIndex == index,
                       selectedColor: Colors.white,
                       trailing: const Icon(Icons.chevron_right),
-                      title: Text(widget.itemBuilder(widget.items[index])),
+                      title: Text(widget.itemBuilder(widget.items[index]) ,),
                     ),
                   ),
                 ),

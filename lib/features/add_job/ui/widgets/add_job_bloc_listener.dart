@@ -15,7 +15,7 @@ class AddJobBlocListener extends StatelessWidget {
           current is AddJobSuccess ||
           current is AddJobFailure ||
           current is AddJobLoading ||
-          current is CategoryFailure,
+          current is CategoryAndCityFailure,
           
       listener: (context, state) {
         state.whenOrNull(
@@ -28,7 +28,7 @@ class AddJobBlocListener extends StatelessWidget {
             Navigator.pop(context);
             showSnackBar(context, error);
           },
-          categoryFailure: (error) {
+          categoryAndCityFailure: (error) {
             showSnackBar(context, error);
           },
         );

@@ -10,9 +10,9 @@ class AddJobState<T> with _$AddJobState<T> {
   const factory AddJobState.addJobSuccess(T data) = AddJobSuccess<T>;
   const factory AddJobState.addJobFailure({required String error})  = AddJobFailure;
 
-  const factory AddJobState.categoryLoading() = CategoryLoading;
-  const factory AddJobState.categorySuccess(T data) = CategorySuccess<T>;
-  const factory AddJobState.categoryFailure({required String error}) = CategoryFailure;
+  const factory AddJobState.categoryAndCityLoading() = CategoryAndCityLoading;
+  const factory AddJobState.categoryAndCitySuccess() = CategoryAndCitySuccess;
+  const factory AddJobState.categoryAndCityFailure({required String error}) = CategoryAndCityFailure;
 
   const factory AddJobState.updateSteps({required int index}) = UpdateSteps;
 

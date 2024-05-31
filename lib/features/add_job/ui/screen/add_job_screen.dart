@@ -24,7 +24,7 @@ class _AddJobScreenState extends State<AddJobScreen> {
   void initState() {
     super.initState();
     _cubit = context.read<AddJobCubit>();
-    _cubit.getCategories();
+    _cubit.getCategoryAndCity();
   }
 
   @override
@@ -98,9 +98,9 @@ class _AddJobScreenState extends State<AddJobScreen> {
 
   Widget _buildContent(AddJobState state) {
     switch (state) {
-      case CategoryLoading _:
+      case CategoryAndCityLoading _:
         return const ShimmerList();
-      case CategorySuccess _:
+      case CategoryAndCitySuccess _:
       case UpdateSteps _:
         return _cubit.getCurrentWidget();
       default:
