@@ -18,7 +18,11 @@ class ShimmerList extends StatelessWidget {
             child: Container(
               width: double.infinity,
               height: 50.0,
+              decoration: BoxDecoration(
               color: Colors.white,
+
+                borderRadius: BorderRadius.circular(10),
+              ),
             ),
           ),
         );

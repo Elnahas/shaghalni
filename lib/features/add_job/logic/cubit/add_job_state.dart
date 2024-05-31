@@ -14,4 +14,6 @@ class AddJobState<T> with _$AddJobState<T> {
   const factory AddJobState.categorySuccess(T data) = CategorySuccess<T>;
   const factory AddJobState.categoryFailure({required String error}) = CategoryFailure;
 
+  const factory AddJobState.updateSteps({required int index}) = UpdateSteps;
+
 }

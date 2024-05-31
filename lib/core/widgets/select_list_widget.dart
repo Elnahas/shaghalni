@@ -2,35 +2,58 @@ import 'package:flutter/material.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
 
-class SelectListWidget extends StatefulWidget {
+class SelectListWidget<T> extends StatefulWidget {
   final String title;
-  final List<String> items;
+  final List<T> items;
   final int initialSelectedIndex;
   final ValueChanged<int> onItemSelected;
+  final String Function(T) itemBuilder;
 
   const SelectListWidget({
-    super.key,
+    Key? key,
     required this.items,
     required this.initialSelectedIndex,
-    required this.onItemSelected, required this.title,
-  });
+    required this.onItemSelected,
+    required this.title,
+    required this.itemBuilder,
+  }) : super(key: key);
 
   @override
-  State<SelectListWidget> createState() => _SelectListWidgetState();
+  State<SelectListWidget<T>> createState() => _SelectListWidgetState<T>();
 }
 
-class _SelectListWidgetState extends State<SelectListWidget> {
+class _SelectListWidgetState<T> extends State<SelectListWidget<T>> {
+  late int currentIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    currentIndex = widget.initialSelectedIndex;
+  }
+
+  @override
+  void didUpdateWidget(covariant SelectListWidget<T> oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.initialSelectedIndex != widget.initialSelectedIndex) {
+      setState(() {
+        currentIndex = widget.initialSelectedIndex;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    var currentIndex = widget.initialSelectedIndex;
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           verticalSpace(20),
-           Text(widget.title , style: TextStyles.font18BoldBlack,),
-           verticalSpace(10),
+          Text(
+            widget.title,
+            style: TextStyles.font18BoldBlack,
+          ),
+          verticalSpace(10),
           ListView.builder(
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
@@ -52,12 +75,13 @@ class _SelectListWidgetState extends State<SelectListWidget> {
                         currentIndex = index;
                       });
                       widget.onItemSelected(index);
+                      debugPrint('currentIndex ....... $index');
                     },
                     child: ListTile(
                       selected: currentIndex == index,
                       selectedColor: Colors.white,
                       trailing: const Icon(Icons.chevron_right),
-                      title: Text(widget.items[index]),
+                      title: Text(widget.itemBuilder(widget.items[index])),
                     ),
                   ),
                 ),

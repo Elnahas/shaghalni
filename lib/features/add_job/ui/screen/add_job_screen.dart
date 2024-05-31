@@ -7,69 +7,35 @@ import 'package:shaghalni/core/widgets/app_text_button.dart';
 import 'package:shaghalni/core/widgets/shimmer_list_widget.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_cubit.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_state.dart';
-
-import '../../../../core/widgets/select_list_widget.dart';
 import '../widgets/add_job_bloc_listener.dart';
-import '../widgets/add_job_form.dart';
 import '../widgets/step_indicator_widgets.dart';
 
 class AddJobScreen extends StatefulWidget {
-  const AddJobScreen({super.key});
+  const AddJobScreen({Key? key}) : super(key: key);
 
   @override
   State<AddJobScreen> createState() => _AddJobScreenState();
 }
 
 class _AddJobScreenState extends State<AddJobScreen> {
-  int currentStep = 1;
-  int totalSteps = 3;
-
-  int selectedCategoryIndex = 0;
-  int selectedCityIndex = 0;
-  final List<String> categories =
-      List.generate(20, (index) => 'Category $index');
-  final List<String> cities = List.generate(20, (index) => 'City $index');
+  late final AddJobCubit _cubit;
 
   @override
   void initState() {
-    context.read<AddJobCubit>().getCategories();
-
     super.initState();
+    _cubit = context.read<AddJobCubit>();
+    _cubit.getCategories();
   }
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> steps = [
-      SelectListWidget(
-        title: "Select Category",
-        items: categories,
-        initialSelectedIndex: selectedCategoryIndex,
-        onItemSelected: (index) {
-          setState(() {
-            selectedCategoryIndex = index;
-          });
-        },
-      ),
-      SelectListWidget(
-        title: "Select City",
-        items: cities,
-        initialSelectedIndex: selectedCityIndex,
-        onItemSelected: (index) {
-          setState(() {
-            selectedCityIndex = index;
-          });
-        },
-      ),
-      const AddJobForm(),
-    ];
-
     return PopScope(
       canPop: false,
       onPopInvoked: (didPop) async {
         if (didPop) {
           Navigator.pop(context);
         } else {
-          await onWillPop(context, "Are you sure you want to exit?");
+          await onWillPop(context, 'Are you sure you want to exit?');
         }
       },
       child: Scaffold(
@@ -83,10 +49,8 @@ class _AddJobScreenState extends State<AddJobScreen> {
           ),
           leading: IconButton(
             onPressed: () {
-              if (currentStep > 1) {
-                setState(() {
-                  currentStep--;
-                });
+              if (_cubit.currentStep > 1) {
+                _cubit.previousStep();
               } else {
                 Navigator.pop(context);
               }
@@ -100,41 +64,47 @@ class _AddJobScreenState extends State<AddJobScreen> {
         backgroundColor: ColorsManager.lighterGray,
         body: Padding(
           padding: const EdgeInsets.all(14.0),
-          child: Column(
-            children: [
-              StepIndicator(
-                currentStep: currentStep,
-                totalSteps: totalSteps,
-              ),
-              Expanded(
-                child: BlocBuilder<AddJobCubit, AddJobState>(
-                  builder: (context, state) {
-                    if(state is CategoryLoading)
-                    {
-                      return const ShimmerList();
-                    }
-                    else if(state is CategorySuccess)
-                    return steps[currentStep - 1];
-                    else return Container();
-                  },
-                ),
-              ),
-              Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  child: currentStep == totalSteps
-                      ? AppTextButton(buttonText: "Submit", onPressed: () {})
-                      : AppTextButton(
-                          buttonText: "Next",
-                          onPressed: () {
-                            setState(() {
-                              if (currentStep < totalSteps) currentStep++;
-                            });
-                          })),
-              const AddJobBlocListener(),
-            ],
+          child: BlocBuilder<AddJobCubit, AddJobState>(
+            builder: (context, state) {
+              return Column(
+                children: [
+                  StepIndicator(
+                    currentStep: _cubit.currentStep,
+                    totalSteps: _cubit.totalSteps,
+                  ),
+                  Expanded(
+                    child: _buildContent(state),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    child: _cubit.currentStep == _cubit.totalSteps
+                        ? AppTextButton(buttonText: 'Submit', onPressed: () {})
+                        : AppTextButton(
+                            buttonText: 'Next',
+                            onPressed: () {
+                              _cubit.nextStep();
+                            },
+                          ),
+                  ),
+                  const AddJobBlocListener(),
+                ],
+              );
+            },
           ),
         ),
       ),
     );
+  }
+
+  Widget _buildContent(AddJobState state) {
+    switch (state) {
+      case CategoryLoading _:
+        return const ShimmerList();
+      case CategorySuccess _:
+      case UpdateSteps _:
+        return _cubit.getCurrentWidget();
+      default:
+        return Container();
+    }
   }
 }
