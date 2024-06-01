@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:shaghalni/core/models/city_model.dart';
+import 'package:shaghalni/core/data/models/city_model.dart';
 
 import '../utils/constants.dart';
 

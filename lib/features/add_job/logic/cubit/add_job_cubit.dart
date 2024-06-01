@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:shaghalni/core/models/category_model.dart';
-import 'package:shaghalni/core/models/city_model.dart';
+import 'package:shaghalni/core/data/models/category_model.dart';
+import 'package:shaghalni/core/data/models/city_model.dart';
 import 'package:shaghalni/core/repositories/category_repository.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_state.dart';
 
