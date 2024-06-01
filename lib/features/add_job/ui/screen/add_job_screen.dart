@@ -65,6 +65,9 @@ class _AddJobScreenState extends State<AddJobScreen> {
         body: Padding(
           padding: const EdgeInsets.all(14.0),
           child: BlocBuilder<AddJobCubit, AddJobState>(
+            buildWhen: (previous, current) =>
+              current is CategoryAndCityLoading ||current is CategoryAndCitySuccess || current is UpdateSteps
+            ,
             builder: (context, state) {
               return Column(
                 children: [

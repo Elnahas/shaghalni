@@ -15,12 +15,11 @@ class AddJobBlocListener extends StatelessWidget {
           current is AddJobSuccess ||
           current is AddJobFailure ||
           current is AddJobLoading ||
-          current is CategoryAndCityFailure,
-          
+          current is CategoryAndCityFailure ||
+          previous is CategoryAndCityFailure,
       listener: (context, state) {
         state.whenOrNull(
-          addJobLoading: () {
-          },
+          addJobLoading: () {},
           addJobSuccess: (data) {
             Navigator.pop(context);
           },

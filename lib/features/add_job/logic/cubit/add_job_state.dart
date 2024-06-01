@@ -16,4 +16,5 @@ class AddJobState<T> with _$AddJobState<T> {
 
   const factory AddJobState.updateSteps({required int index}) = UpdateSteps;
 
+
 }
