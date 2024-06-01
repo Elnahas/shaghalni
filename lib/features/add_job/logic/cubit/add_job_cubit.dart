@@ -21,8 +21,8 @@ class AddJobCubit extends Cubit<AddJobState> {
   int selectedCategoryIndex = -1;
   int selectedCityIndex = -1;
 
-    AddJobCubit(this._categoryRepository, this._cityRepository) : super(AddJobState.initial());
-
+  AddJobCubit(this._categoryRepository, this._cityRepository)
+      : super(AddJobState.initial());
 
   List<Widget> get steps => [
         SelectListWidget(
@@ -57,15 +57,19 @@ class AddJobCubit extends Cubit<AddJobState> {
 
   // Move to the next step
   void nextStep() {
-  if (currentStep == 1 && selectedCategoryIndex == -1) {
-    emit(const AddJobState.categoryAndCityFailure(error: "Please select Category"));
-  } else if (currentStep == 2 && selectedCityIndex == -1) {
-    emit(const AddJobState.categoryAndCityFailure(error: "Please select City"));
-  } else {
-    currentStep++;
-    emit(AddJobState.updateSteps(index: currentStep));
+    if (_categoryList.isNotEmpty && _cityList.isNotEmpty) {
+      if (currentStep == 1 && selectedCategoryIndex == -1) {
+        emit(const AddJobState.categoryAndCityFailure(
+            error: "Please select Category"));
+      } else if (currentStep == 2 && selectedCityIndex == -1) {
+        emit(const AddJobState.categoryAndCityFailure(
+            error: "Please select City"));
+      } else {
+        currentStep++;
+        emit(AddJobState.updateSteps(index: currentStep));
+      }
+    }
   }
-}
 
   // Move to the previous step
   void previousStep() {
