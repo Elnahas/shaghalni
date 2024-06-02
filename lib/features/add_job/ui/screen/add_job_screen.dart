@@ -120,7 +120,7 @@ class _AddJobScreenState extends State<AddJobScreen> {
   }
 
   void validateAddJob() {
-    
+     
     if (_cubit.formKey.currentState!.validate()) {
       var uuid = const Uuid();
       String customId = uuid.v4();
