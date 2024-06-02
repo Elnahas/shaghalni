@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:shaghalni/features/auth/login/logic/cubit/login_state.dart';
 
-import '../../../auth_repository.dart';
+import '../../../../../core/repositories/auth_repository.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   final AuthRepository _authRepository;

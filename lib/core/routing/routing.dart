@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/di/service_locator.dart';
 import 'package:shaghalni/core/routing/routes.dart';
+import 'package:shaghalni/features/add_job/logic/cubit/add_job_cubit.dart';
 import 'package:shaghalni/features/add_job/ui/screen/add_job_screen.dart';
 import 'package:shaghalni/features/auth/login/logic/cubit/login_cubit.dart';
 import 'package:shaghalni/features/auth/otp/logic/cubit/otp_cubit.dart';
@@ -43,7 +44,11 @@ class Routing {
         return MaterialPageRoute(
             builder: (context) => const HomeNavBarWidget());
       case Routes.addJob:
-        return MaterialPageRoute(builder: (context) => const AddJobScreen());
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => getIt<AddJobCubit>(),
+                  child: const AddJobScreen(),
+                ));
 
       default:
         return MaterialPageRoute(builder: (context) => const NoRouteScreen());
