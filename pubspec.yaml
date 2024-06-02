@@ -63,6 +63,7 @@ dependencies:
   cached_network_image: ^3.3.1
   shimmer: ^3.0.0
   step_progress_indicator: ^1.0.2
+  uuid: ^4.4.0
 
 dev_dependencies:
   flutter_test:

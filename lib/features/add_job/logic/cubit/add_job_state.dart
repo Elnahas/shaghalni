@@ -7,7 +7,7 @@ class AddJobState<T> with _$AddJobState<T> {
   
   const factory AddJobState.initial() = _Initial;
   const factory AddJobState.addJobLoading() = AddJobLoading;
-  const factory AddJobState.addJobSuccess(T data) = AddJobSuccess<T>;
+  const factory AddJobState.addJobSuccess() = AddJobSuccess;
   const factory AddJobState.addJobFailure({required String error})  = AddJobFailure;
 
   const factory AddJobState.categoryAndCityLoading() = CategoryAndCityLoading;
