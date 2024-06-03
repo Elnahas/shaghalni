@@ -1,11 +1,9 @@
 import 'dart:io';
-
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:intl/intl.dart';
 import 'package:shaghalni/core/data/models/user_model.dart';
 import 'package:shaghalni/core/repositories/city_repository.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_state.dart';

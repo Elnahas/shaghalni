@@ -118,8 +118,8 @@ class _SignupFormState extends State<SignupForm> {
                       controller: birthDateController,
                       hintText: "Birth Date",
                       validator: (value) {},
-                      onTap: () {
-                        datePickerHelper.myShowDatePicker(context);
+                      onTap: () async{
+                        await datePickerHelper.myShowDatePicker(context);
                       },
                       readOnly: true,
                       suffixIcon:  const Icon(Icons.calendar_month)),
