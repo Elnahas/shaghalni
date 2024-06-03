@@ -5,11 +5,11 @@ import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_state.dart';
 import 'package:shaghalni/features/auth/signup/ui/widgets/profile_picture_widget.dart';
 import 'package:shaghalni/features/auth/signup/ui/widgets/shimmer_signup_widget.dart';
+import '../../../../../core/helpers/date_picker_helper.dart';
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_text_styles.dart';
 import '../../../../../core/widgets/app_text_form_field.dart';
 import '../../../../../core/widgets/select_list_widget.dart';
-import '../../../../../core/widgets/shimmer_list_widget.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
@@ -19,6 +19,8 @@ class SignupForm extends StatefulWidget {
 }
 
 class _SignupFormState extends State<SignupForm> {
+  late DatePickerHelper datePickerHelper;
+
   late TextEditingController birthDateController;
   late TextEditingController fullNameController;
   late TextEditingController cityController;
@@ -31,6 +33,8 @@ class _SignupFormState extends State<SignupForm> {
     birthDateController = _cubit.birthDateController;
     fullNameController = _cubit.fullNameController;
     cityController = _cubit.cityController;
+
+    datePickerHelper = DatePickerHelper(dateController: birthDateController);
 
     _cubit.getCity();
 
@@ -87,11 +91,13 @@ class _SignupFormState extends State<SignupForm> {
                                     items: _cubit.cityList,
                                     title: "Select City",
                                     onItemSelected: (value) {
-                                      cityController.text = _cubit.cityList[value].name;
+                                      cityController.text =
+                                          _cubit.cityList[value].name;
                                       _cubit.selectedCityIndex = value;
                                       Navigator.of(context).pop();
                                     },
-                                    initialSelectedIndex: _cubit.selectedCityIndex,
+                                    initialSelectedIndex:
+                                        _cubit.selectedCityIndex,
                                     itemBuilder: (city) {
                                       return city.name;
                                     },
@@ -112,15 +118,11 @@ class _SignupFormState extends State<SignupForm> {
                       controller: birthDateController,
                       hintText: "Birth Date",
                       validator: (value) {},
+                      onTap: () {
+                        datePickerHelper.myShowDatePicker(context);
+                      },
                       readOnly: true,
-                      suffixIcon: IconButton(
-                          onPressed: () {
-                            context
-                                .read<SignupCubit>()
-                                .myShowDatePicker(context);
-                          },
-                          icon: const Icon(Icons.calendar_month)),
-                    ),
+                      suffixIcon:  const Icon(Icons.calendar_month)),
                     verticalSpace(20),
                     Text(
                       "Select Gender",

@@ -32,8 +32,6 @@ class SignupCubit extends Cubit<SignupState> {
   String? selectedGender;
   final List<String> genders = ["male", "female"];
 
-  DateTime? selectedDate;
-
   File? imageFile;
   String _imageUrl = "";
 
@@ -41,19 +39,6 @@ class SignupCubit extends Cubit<SignupState> {
   int selectedCityIndex = -1;
   List<CityModel> cityList = [];
   CityModel get city => cityList[selectedCityIndex];
-
-  Future<void> myShowDatePicker(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate ?? DateTime.now(),
-        firstDate: DateTime.now(),
-        lastDate: DateTime.now().add(const Duration(days: 30)));
-
-    if (picked != null && picked != selectedDate) {
-      selectedDate = picked;
-      birthDateController.text = DateFormat('dd-MM-yyyy').format(selectedDate!);
-    }
-  }
 
   Future<void> signUp() async {
     try {
