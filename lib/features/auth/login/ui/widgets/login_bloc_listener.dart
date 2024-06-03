@@ -12,7 +12,6 @@ class LoginBlocListener extends StatelessWidget {
     return BlocListener<LoginCubit, LoginState>(
 
       listenWhen: (previous, current) =>
-          current is LoginLoading ||
           current is LoginSuccess ||
           current is LoginFailure,
       listener: (context, state) {
@@ -25,7 +24,6 @@ class LoginBlocListener extends StatelessWidget {
             Navigator.pushNamed(context, Routes.otp);
           },
           loginFailure: (error) {
-            Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content: Text(error),
               backgroundColor: Colors.black,
