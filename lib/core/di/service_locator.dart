@@ -24,8 +24,8 @@ void setupServiceLocator() {
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt<AuthRepository>()));
   getIt.registerFactory<OtpCubit>(
       () => OtpCubit(getIt<AuthRepository>(), getIt<UserRepository>()));
-  getIt
-      .registerFactory<SignupCubit>(() => SignupCubit(getIt<AuthRepository>()));
+  getIt.registerFactory<SignupCubit>(
+      () => SignupCubit(getIt<AuthRepository>(), getIt<UserRepository>()));
 
   getIt.registerFactory<AddJobCubit>(() => AddJobCubit(
       getIt<CategoryRepository>(),

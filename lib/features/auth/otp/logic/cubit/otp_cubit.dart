@@ -18,6 +18,7 @@ class OtpCubit extends Cubit<OtpState> {
 
   Future<void> verifyOtp() async {
     try {
+      
       emit(const OtpLoading());
 
       await _authRepository.verifyOtp(

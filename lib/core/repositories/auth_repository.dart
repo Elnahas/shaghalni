@@ -7,8 +7,7 @@ import 'package:shaghalni/core/data/models/user_model.dart';
 import '../utils/constants.dart';
 
 class AuthRepository {
-
-    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   late String _verificationId;
   late String _phoneNumber;
@@ -58,7 +57,7 @@ class AuthRepository {
       },
     );
 
-     return completer.future;
+    return completer.future;
   }
 
   Future<void> verifyOtp(String verificationId, String otpCode) async {
@@ -75,7 +74,10 @@ class AuthRepository {
 
   Future<void> signUp(UserModel user) async {
     try {
-      await _firestore.collection(FirestoreCollections.users).doc(user.uid).set(user.toJson());
+      await _firestore
+          .collection(FirestoreCollections.users)
+          .doc(user.uid)
+          .set(user.toJson());
     } catch (e) {
       throw 'Failed to sign up: $e';
     }
@@ -85,5 +87,4 @@ class AuthRepository {
     await FirebaseAuth.instance.signOut();
   }
 
-  User get currentUser => FirebaseAuth.instance.currentUser!;
 }

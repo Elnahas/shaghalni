@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,9 +10,12 @@ import 'package:shaghalni/core/data/models/user_model.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_state.dart';
 
 import '../../../../../core/repositories/auth_repository.dart';
+import '../../../../../core/repositories/user_repository.dart';
 
 class SignupCubit extends Cubit<SignupState> {
   final AuthRepository _authRepository;
+  final UserRepository _userRepository;
+
   var phoneNumber = GetIt.instance<AuthRepository>().phoneNumber;
 
   TextEditingController birthDateController = TextEditingController();
@@ -22,6 +27,10 @@ class SignupCubit extends Cubit<SignupState> {
   final List<String> roles = ["User", "Worker", "Admin"];
 
   DateTime? selectedDate;
+
+  File? imageFile;
+  String _imageUrl = "";
+
   Future<void> myShowDatePicker(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
         context: context,
@@ -35,11 +44,16 @@ class SignupCubit extends Cubit<SignupState> {
     }
   }
 
-  SignupCubit(this._authRepository) : super(const SignupState.initial());
+  SignupCubit(this._authRepository, this._userRepository)
+      : super(const SignupState.initial());
 
   Future<void> signUp() async {
     try {
       emit(const SignupLoading());
+
+      if (imageFile != null) {
+        _imageUrl = await _userRepository.uploadImage(imageFile!);
+      }
 
       final createdAt = Timestamp.fromMillisecondsSinceEpoch(
           DateTime.now().millisecondsSinceEpoch);
@@ -51,6 +65,7 @@ class SignupCubit extends Cubit<SignupState> {
           birthDate: birthDateController.text,
           gender: selectedGender!,
           city: cityController.text,
+          imageUrl: _imageUrl,
           createdAt: createdAt));
       emit(const SignupSuccess());
     } catch (e) {
