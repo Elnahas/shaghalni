@@ -22,6 +22,9 @@ mixin _$SignupState<T> {
     required TResult Function() signupSuccess,
     required TResult Function() signupLoading,
     required TResult Function(String error) signupFailure,
+    required TResult Function() cityLoading,
+    required TResult Function() citySuccess,
+    required TResult Function(String error) cityFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +33,9 @@ mixin _$SignupState<T> {
     TResult? Function()? signupSuccess,
     TResult? Function()? signupLoading,
     TResult? Function(String error)? signupFailure,
+    TResult? Function()? cityLoading,
+    TResult? Function()? citySuccess,
+    TResult? Function(String error)? cityFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +44,9 @@ mixin _$SignupState<T> {
     TResult Function()? signupSuccess,
     TResult Function()? signupLoading,
     TResult Function(String error)? signupFailure,
+    TResult Function()? cityLoading,
+    TResult Function()? citySuccess,
+    TResult Function(String error)? cityFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +56,9 @@ mixin _$SignupState<T> {
     required TResult Function(SignupSuccess<T> value) signupSuccess,
     required TResult Function(SignupLoading<T> value) signupLoading,
     required TResult Function(SignupFailure<T> value) signupFailure,
+    required TResult Function(CityLoading<T> value) cityLoading,
+    required TResult Function(CitySuccess<T> value) citySuccess,
+    required TResult Function(CityFailure<T> value) cityFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +67,9 @@ mixin _$SignupState<T> {
     TResult? Function(SignupSuccess<T> value)? signupSuccess,
     TResult? Function(SignupLoading<T> value)? signupLoading,
     TResult? Function(SignupFailure<T> value)? signupFailure,
+    TResult? Function(CityLoading<T> value)? cityLoading,
+    TResult? Function(CitySuccess<T> value)? citySuccess,
+    TResult? Function(CityFailure<T> value)? cityFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +78,9 @@ mixin _$SignupState<T> {
     TResult Function(SignupSuccess<T> value)? signupSuccess,
     TResult Function(SignupLoading<T> value)? signupLoading,
     TResult Function(SignupFailure<T> value)? signupFailure,
+    TResult Function(CityLoading<T> value)? cityLoading,
+    TResult Function(CitySuccess<T> value)? citySuccess,
+    TResult Function(CityFailure<T> value)? cityFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +146,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() signupSuccess,
     required TResult Function() signupLoading,
     required TResult Function(String error) signupFailure,
+    required TResult Function() cityLoading,
+    required TResult Function() citySuccess,
+    required TResult Function(String error) cityFailure,
   }) {
     return initial();
   }
@@ -139,6 +160,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? signupSuccess,
     TResult? Function()? signupLoading,
     TResult? Function(String error)? signupFailure,
+    TResult? Function()? cityLoading,
+    TResult? Function()? citySuccess,
+    TResult? Function(String error)? cityFailure,
   }) {
     return initial?.call();
   }
@@ -150,6 +174,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? signupSuccess,
     TResult Function()? signupLoading,
     TResult Function(String error)? signupFailure,
+    TResult Function()? cityLoading,
+    TResult Function()? citySuccess,
+    TResult Function(String error)? cityFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -165,6 +192,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(SignupSuccess<T> value) signupSuccess,
     required TResult Function(SignupLoading<T> value) signupLoading,
     required TResult Function(SignupFailure<T> value) signupFailure,
+    required TResult Function(CityLoading<T> value) cityLoading,
+    required TResult Function(CitySuccess<T> value) citySuccess,
+    required TResult Function(CityFailure<T> value) cityFailure,
   }) {
     return initial(this);
   }
@@ -176,6 +206,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(SignupSuccess<T> value)? signupSuccess,
     TResult? Function(SignupLoading<T> value)? signupLoading,
     TResult? Function(SignupFailure<T> value)? signupFailure,
+    TResult? Function(CityLoading<T> value)? cityLoading,
+    TResult? Function(CitySuccess<T> value)? citySuccess,
+    TResult? Function(CityFailure<T> value)? cityFailure,
   }) {
     return initial?.call(this);
   }
@@ -187,6 +220,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(SignupSuccess<T> value)? signupSuccess,
     TResult Function(SignupLoading<T> value)? signupLoading,
     TResult Function(SignupFailure<T> value)? signupFailure,
+    TResult Function(CityLoading<T> value)? cityLoading,
+    TResult Function(CitySuccess<T> value)? citySuccess,
+    TResult Function(CityFailure<T> value)? cityFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -242,6 +278,9 @@ class _$SignupSuccessImpl<T> implements SignupSuccess<T> {
     required TResult Function() signupSuccess,
     required TResult Function() signupLoading,
     required TResult Function(String error) signupFailure,
+    required TResult Function() cityLoading,
+    required TResult Function() citySuccess,
+    required TResult Function(String error) cityFailure,
   }) {
     return signupSuccess();
   }
@@ -253,6 +292,9 @@ class _$SignupSuccessImpl<T> implements SignupSuccess<T> {
     TResult? Function()? signupSuccess,
     TResult? Function()? signupLoading,
     TResult? Function(String error)? signupFailure,
+    TResult? Function()? cityLoading,
+    TResult? Function()? citySuccess,
+    TResult? Function(String error)? cityFailure,
   }) {
     return signupSuccess?.call();
   }
@@ -264,6 +306,9 @@ class _$SignupSuccessImpl<T> implements SignupSuccess<T> {
     TResult Function()? signupSuccess,
     TResult Function()? signupLoading,
     TResult Function(String error)? signupFailure,
+    TResult Function()? cityLoading,
+    TResult Function()? citySuccess,
+    TResult Function(String error)? cityFailure,
     required TResult orElse(),
   }) {
     if (signupSuccess != null) {
@@ -279,6 +324,9 @@ class _$SignupSuccessImpl<T> implements SignupSuccess<T> {
     required TResult Function(SignupSuccess<T> value) signupSuccess,
     required TResult Function(SignupLoading<T> value) signupLoading,
     required TResult Function(SignupFailure<T> value) signupFailure,
+    required TResult Function(CityLoading<T> value) cityLoading,
+    required TResult Function(CitySuccess<T> value) citySuccess,
+    required TResult Function(CityFailure<T> value) cityFailure,
   }) {
     return signupSuccess(this);
   }
@@ -290,6 +338,9 @@ class _$SignupSuccessImpl<T> implements SignupSuccess<T> {
     TResult? Function(SignupSuccess<T> value)? signupSuccess,
     TResult? Function(SignupLoading<T> value)? signupLoading,
     TResult? Function(SignupFailure<T> value)? signupFailure,
+    TResult? Function(CityLoading<T> value)? cityLoading,
+    TResult? Function(CitySuccess<T> value)? citySuccess,
+    TResult? Function(CityFailure<T> value)? cityFailure,
   }) {
     return signupSuccess?.call(this);
   }
@@ -301,6 +352,9 @@ class _$SignupSuccessImpl<T> implements SignupSuccess<T> {
     TResult Function(SignupSuccess<T> value)? signupSuccess,
     TResult Function(SignupLoading<T> value)? signupLoading,
     TResult Function(SignupFailure<T> value)? signupFailure,
+    TResult Function(CityLoading<T> value)? cityLoading,
+    TResult Function(CitySuccess<T> value)? citySuccess,
+    TResult Function(CityFailure<T> value)? cityFailure,
     required TResult orElse(),
   }) {
     if (signupSuccess != null) {
@@ -356,6 +410,9 @@ class _$SignupLoadingImpl<T> implements SignupLoading<T> {
     required TResult Function() signupSuccess,
     required TResult Function() signupLoading,
     required TResult Function(String error) signupFailure,
+    required TResult Function() cityLoading,
+    required TResult Function() citySuccess,
+    required TResult Function(String error) cityFailure,
   }) {
     return signupLoading();
   }
@@ -367,6 +424,9 @@ class _$SignupLoadingImpl<T> implements SignupLoading<T> {
     TResult? Function()? signupSuccess,
     TResult? Function()? signupLoading,
     TResult? Function(String error)? signupFailure,
+    TResult? Function()? cityLoading,
+    TResult? Function()? citySuccess,
+    TResult? Function(String error)? cityFailure,
   }) {
     return signupLoading?.call();
   }
@@ -378,6 +438,9 @@ class _$SignupLoadingImpl<T> implements SignupLoading<T> {
     TResult Function()? signupSuccess,
     TResult Function()? signupLoading,
     TResult Function(String error)? signupFailure,
+    TResult Function()? cityLoading,
+    TResult Function()? citySuccess,
+    TResult Function(String error)? cityFailure,
     required TResult orElse(),
   }) {
     if (signupLoading != null) {
@@ -393,6 +456,9 @@ class _$SignupLoadingImpl<T> implements SignupLoading<T> {
     required TResult Function(SignupSuccess<T> value) signupSuccess,
     required TResult Function(SignupLoading<T> value) signupLoading,
     required TResult Function(SignupFailure<T> value) signupFailure,
+    required TResult Function(CityLoading<T> value) cityLoading,
+    required TResult Function(CitySuccess<T> value) citySuccess,
+    required TResult Function(CityFailure<T> value) cityFailure,
   }) {
     return signupLoading(this);
   }
@@ -404,6 +470,9 @@ class _$SignupLoadingImpl<T> implements SignupLoading<T> {
     TResult? Function(SignupSuccess<T> value)? signupSuccess,
     TResult? Function(SignupLoading<T> value)? signupLoading,
     TResult? Function(SignupFailure<T> value)? signupFailure,
+    TResult? Function(CityLoading<T> value)? cityLoading,
+    TResult? Function(CitySuccess<T> value)? citySuccess,
+    TResult? Function(CityFailure<T> value)? cityFailure,
   }) {
     return signupLoading?.call(this);
   }
@@ -415,6 +484,9 @@ class _$SignupLoadingImpl<T> implements SignupLoading<T> {
     TResult Function(SignupSuccess<T> value)? signupSuccess,
     TResult Function(SignupLoading<T> value)? signupLoading,
     TResult Function(SignupFailure<T> value)? signupFailure,
+    TResult Function(CityLoading<T> value)? cityLoading,
+    TResult Function(CitySuccess<T> value)? citySuccess,
+    TResult Function(CityFailure<T> value)? cityFailure,
     required TResult orElse(),
   }) {
     if (signupLoading != null) {
@@ -497,6 +569,9 @@ class _$SignupFailureImpl<T> implements SignupFailure<T> {
     required TResult Function() signupSuccess,
     required TResult Function() signupLoading,
     required TResult Function(String error) signupFailure,
+    required TResult Function() cityLoading,
+    required TResult Function() citySuccess,
+    required TResult Function(String error) cityFailure,
   }) {
     return signupFailure(error);
   }
@@ -508,6 +583,9 @@ class _$SignupFailureImpl<T> implements SignupFailure<T> {
     TResult? Function()? signupSuccess,
     TResult? Function()? signupLoading,
     TResult? Function(String error)? signupFailure,
+    TResult? Function()? cityLoading,
+    TResult? Function()? citySuccess,
+    TResult? Function(String error)? cityFailure,
   }) {
     return signupFailure?.call(error);
   }
@@ -519,6 +597,9 @@ class _$SignupFailureImpl<T> implements SignupFailure<T> {
     TResult Function()? signupSuccess,
     TResult Function()? signupLoading,
     TResult Function(String error)? signupFailure,
+    TResult Function()? cityLoading,
+    TResult Function()? citySuccess,
+    TResult Function(String error)? cityFailure,
     required TResult orElse(),
   }) {
     if (signupFailure != null) {
@@ -534,6 +615,9 @@ class _$SignupFailureImpl<T> implements SignupFailure<T> {
     required TResult Function(SignupSuccess<T> value) signupSuccess,
     required TResult Function(SignupLoading<T> value) signupLoading,
     required TResult Function(SignupFailure<T> value) signupFailure,
+    required TResult Function(CityLoading<T> value) cityLoading,
+    required TResult Function(CitySuccess<T> value) citySuccess,
+    required TResult Function(CityFailure<T> value) cityFailure,
   }) {
     return signupFailure(this);
   }
@@ -545,6 +629,9 @@ class _$SignupFailureImpl<T> implements SignupFailure<T> {
     TResult? Function(SignupSuccess<T> value)? signupSuccess,
     TResult? Function(SignupLoading<T> value)? signupLoading,
     TResult? Function(SignupFailure<T> value)? signupFailure,
+    TResult? Function(CityLoading<T> value)? cityLoading,
+    TResult? Function(CitySuccess<T> value)? citySuccess,
+    TResult? Function(CityFailure<T> value)? cityFailure,
   }) {
     return signupFailure?.call(this);
   }
@@ -556,6 +643,9 @@ class _$SignupFailureImpl<T> implements SignupFailure<T> {
     TResult Function(SignupSuccess<T> value)? signupSuccess,
     TResult Function(SignupLoading<T> value)? signupLoading,
     TResult Function(SignupFailure<T> value)? signupFailure,
+    TResult Function(CityLoading<T> value)? cityLoading,
+    TResult Function(CitySuccess<T> value)? citySuccess,
+    TResult Function(CityFailure<T> value)? cityFailure,
     required TResult orElse(),
   }) {
     if (signupFailure != null) {
@@ -572,5 +662,434 @@ abstract class SignupFailure<T> implements SignupState<T> {
   String get error;
   @JsonKey(ignore: true)
   _$$SignupFailureImplCopyWith<T, _$SignupFailureImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CityLoadingImplCopyWith<T, $Res> {
+  factory _$$CityLoadingImplCopyWith(_$CityLoadingImpl<T> value,
+          $Res Function(_$CityLoadingImpl<T>) then) =
+      __$$CityLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$CityLoadingImplCopyWithImpl<T, $Res>
+    extends _$SignupStateCopyWithImpl<T, $Res, _$CityLoadingImpl<T>>
+    implements _$$CityLoadingImplCopyWith<T, $Res> {
+  __$$CityLoadingImplCopyWithImpl(
+      _$CityLoadingImpl<T> _value, $Res Function(_$CityLoadingImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CityLoadingImpl<T> implements CityLoading<T> {
+  const _$CityLoadingImpl();
+
+  @override
+  String toString() {
+    return 'SignupState<$T>.cityLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CityLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signupSuccess,
+    required TResult Function() signupLoading,
+    required TResult Function(String error) signupFailure,
+    required TResult Function() cityLoading,
+    required TResult Function() citySuccess,
+    required TResult Function(String error) cityFailure,
+  }) {
+    return cityLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signupSuccess,
+    TResult? Function()? signupLoading,
+    TResult? Function(String error)? signupFailure,
+    TResult? Function()? cityLoading,
+    TResult? Function()? citySuccess,
+    TResult? Function(String error)? cityFailure,
+  }) {
+    return cityLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signupSuccess,
+    TResult Function()? signupLoading,
+    TResult Function(String error)? signupFailure,
+    TResult Function()? cityLoading,
+    TResult Function()? citySuccess,
+    TResult Function(String error)? cityFailure,
+    required TResult orElse(),
+  }) {
+    if (cityLoading != null) {
+      return cityLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(SignupSuccess<T> value) signupSuccess,
+    required TResult Function(SignupLoading<T> value) signupLoading,
+    required TResult Function(SignupFailure<T> value) signupFailure,
+    required TResult Function(CityLoading<T> value) cityLoading,
+    required TResult Function(CitySuccess<T> value) citySuccess,
+    required TResult Function(CityFailure<T> value) cityFailure,
+  }) {
+    return cityLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(SignupSuccess<T> value)? signupSuccess,
+    TResult? Function(SignupLoading<T> value)? signupLoading,
+    TResult? Function(SignupFailure<T> value)? signupFailure,
+    TResult? Function(CityLoading<T> value)? cityLoading,
+    TResult? Function(CitySuccess<T> value)? citySuccess,
+    TResult? Function(CityFailure<T> value)? cityFailure,
+  }) {
+    return cityLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(SignupSuccess<T> value)? signupSuccess,
+    TResult Function(SignupLoading<T> value)? signupLoading,
+    TResult Function(SignupFailure<T> value)? signupFailure,
+    TResult Function(CityLoading<T> value)? cityLoading,
+    TResult Function(CitySuccess<T> value)? citySuccess,
+    TResult Function(CityFailure<T> value)? cityFailure,
+    required TResult orElse(),
+  }) {
+    if (cityLoading != null) {
+      return cityLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CityLoading<T> implements SignupState<T> {
+  const factory CityLoading() = _$CityLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$CitySuccessImplCopyWith<T, $Res> {
+  factory _$$CitySuccessImplCopyWith(_$CitySuccessImpl<T> value,
+          $Res Function(_$CitySuccessImpl<T>) then) =
+      __$$CitySuccessImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$CitySuccessImplCopyWithImpl<T, $Res>
+    extends _$SignupStateCopyWithImpl<T, $Res, _$CitySuccessImpl<T>>
+    implements _$$CitySuccessImplCopyWith<T, $Res> {
+  __$$CitySuccessImplCopyWithImpl(
+      _$CitySuccessImpl<T> _value, $Res Function(_$CitySuccessImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CitySuccessImpl<T> implements CitySuccess<T> {
+  const _$CitySuccessImpl();
+
+  @override
+  String toString() {
+    return 'SignupState<$T>.citySuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CitySuccessImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signupSuccess,
+    required TResult Function() signupLoading,
+    required TResult Function(String error) signupFailure,
+    required TResult Function() cityLoading,
+    required TResult Function() citySuccess,
+    required TResult Function(String error) cityFailure,
+  }) {
+    return citySuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signupSuccess,
+    TResult? Function()? signupLoading,
+    TResult? Function(String error)? signupFailure,
+    TResult? Function()? cityLoading,
+    TResult? Function()? citySuccess,
+    TResult? Function(String error)? cityFailure,
+  }) {
+    return citySuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signupSuccess,
+    TResult Function()? signupLoading,
+    TResult Function(String error)? signupFailure,
+    TResult Function()? cityLoading,
+    TResult Function()? citySuccess,
+    TResult Function(String error)? cityFailure,
+    required TResult orElse(),
+  }) {
+    if (citySuccess != null) {
+      return citySuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(SignupSuccess<T> value) signupSuccess,
+    required TResult Function(SignupLoading<T> value) signupLoading,
+    required TResult Function(SignupFailure<T> value) signupFailure,
+    required TResult Function(CityLoading<T> value) cityLoading,
+    required TResult Function(CitySuccess<T> value) citySuccess,
+    required TResult Function(CityFailure<T> value) cityFailure,
+  }) {
+    return citySuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(SignupSuccess<T> value)? signupSuccess,
+    TResult? Function(SignupLoading<T> value)? signupLoading,
+    TResult? Function(SignupFailure<T> value)? signupFailure,
+    TResult? Function(CityLoading<T> value)? cityLoading,
+    TResult? Function(CitySuccess<T> value)? citySuccess,
+    TResult? Function(CityFailure<T> value)? cityFailure,
+  }) {
+    return citySuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(SignupSuccess<T> value)? signupSuccess,
+    TResult Function(SignupLoading<T> value)? signupLoading,
+    TResult Function(SignupFailure<T> value)? signupFailure,
+    TResult Function(CityLoading<T> value)? cityLoading,
+    TResult Function(CitySuccess<T> value)? citySuccess,
+    TResult Function(CityFailure<T> value)? cityFailure,
+    required TResult orElse(),
+  }) {
+    if (citySuccess != null) {
+      return citySuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CitySuccess<T> implements SignupState<T> {
+  const factory CitySuccess() = _$CitySuccessImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$CityFailureImplCopyWith<T, $Res> {
+  factory _$$CityFailureImplCopyWith(_$CityFailureImpl<T> value,
+          $Res Function(_$CityFailureImpl<T>) then) =
+      __$$CityFailureImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$CityFailureImplCopyWithImpl<T, $Res>
+    extends _$SignupStateCopyWithImpl<T, $Res, _$CityFailureImpl<T>>
+    implements _$$CityFailureImplCopyWith<T, $Res> {
+  __$$CityFailureImplCopyWithImpl(
+      _$CityFailureImpl<T> _value, $Res Function(_$CityFailureImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$CityFailureImpl<T>(
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CityFailureImpl<T> implements CityFailure<T> {
+  const _$CityFailureImpl({required this.error});
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'SignupState<$T>.cityFailure(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CityFailureImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CityFailureImplCopyWith<T, _$CityFailureImpl<T>> get copyWith =>
+      __$$CityFailureImplCopyWithImpl<T, _$CityFailureImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signupSuccess,
+    required TResult Function() signupLoading,
+    required TResult Function(String error) signupFailure,
+    required TResult Function() cityLoading,
+    required TResult Function() citySuccess,
+    required TResult Function(String error) cityFailure,
+  }) {
+    return cityFailure(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signupSuccess,
+    TResult? Function()? signupLoading,
+    TResult? Function(String error)? signupFailure,
+    TResult? Function()? cityLoading,
+    TResult? Function()? citySuccess,
+    TResult? Function(String error)? cityFailure,
+  }) {
+    return cityFailure?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signupSuccess,
+    TResult Function()? signupLoading,
+    TResult Function(String error)? signupFailure,
+    TResult Function()? cityLoading,
+    TResult Function()? citySuccess,
+    TResult Function(String error)? cityFailure,
+    required TResult orElse(),
+  }) {
+    if (cityFailure != null) {
+      return cityFailure(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(SignupSuccess<T> value) signupSuccess,
+    required TResult Function(SignupLoading<T> value) signupLoading,
+    required TResult Function(SignupFailure<T> value) signupFailure,
+    required TResult Function(CityLoading<T> value) cityLoading,
+    required TResult Function(CitySuccess<T> value) citySuccess,
+    required TResult Function(CityFailure<T> value) cityFailure,
+  }) {
+    return cityFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(SignupSuccess<T> value)? signupSuccess,
+    TResult? Function(SignupLoading<T> value)? signupLoading,
+    TResult? Function(SignupFailure<T> value)? signupFailure,
+    TResult? Function(CityLoading<T> value)? cityLoading,
+    TResult? Function(CitySuccess<T> value)? citySuccess,
+    TResult? Function(CityFailure<T> value)? cityFailure,
+  }) {
+    return cityFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(SignupSuccess<T> value)? signupSuccess,
+    TResult Function(SignupLoading<T> value)? signupLoading,
+    TResult Function(SignupFailure<T> value)? signupFailure,
+    TResult Function(CityLoading<T> value)? cityLoading,
+    TResult Function(CitySuccess<T> value)? citySuccess,
+    TResult Function(CityFailure<T> value)? cityFailure,
+    required TResult orElse(),
+  }) {
+    if (cityFailure != null) {
+      return cityFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CityFailure<T> implements SignupState<T> {
+  const factory CityFailure({required final String error}) =
+      _$CityFailureImpl<T>;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$CityFailureImplCopyWith<T, _$CityFailureImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

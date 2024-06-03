@@ -75,7 +75,6 @@ class _SelectListWidgetState<T> extends State<SelectListWidget<T>> {
                         currentIndex = index;
                       });
                       widget.onItemSelected(index);
-                      debugPrint('currentIndex ....... $index');
                     },
                     child: ListTile(
                       selected: currentIndex == index,

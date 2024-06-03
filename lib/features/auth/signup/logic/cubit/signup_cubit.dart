@@ -7,14 +7,21 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl.dart';
 import 'package:shaghalni/core/data/models/user_model.dart';
+import 'package:shaghalni/core/repositories/city_repository.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_state.dart';
 
+import '../../../../../core/data/models/city_model.dart';
 import '../../../../../core/repositories/auth_repository.dart';
 import '../../../../../core/repositories/user_repository.dart';
 
 class SignupCubit extends Cubit<SignupState> {
+  SignupCubit(this._authRepository, this._userRepository, this._cityRepository)
+      : super(const SignupState.initial());
+
+  // Repositories
   final AuthRepository _authRepository;
   final UserRepository _userRepository;
+  final CityRepository _cityRepository;
 
   var phoneNumber = GetIt.instance<AuthRepository>().phoneNumber;
 
@@ -23,13 +30,17 @@ class SignupCubit extends Cubit<SignupState> {
   TextEditingController cityController = TextEditingController();
 
   String? selectedGender;
-  final List<String> genders = ["Male", "Female"];
-  final List<String> roles = ["User", "Worker", "Admin"];
+  final List<String> genders = ["male", "female"];
 
   DateTime? selectedDate;
 
   File? imageFile;
   String _imageUrl = "";
+
+  //City
+  int selectedCityIndex = -1;
+  List<CityModel> cityList = [];
+  CityModel get city => cityList[selectedCityIndex];
 
   Future<void> myShowDatePicker(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -43,9 +54,6 @@ class SignupCubit extends Cubit<SignupState> {
       birthDateController.text = DateFormat('dd-MM-yyyy').format(selectedDate!);
     }
   }
-
-  SignupCubit(this._authRepository, this._userRepository)
-      : super(const SignupState.initial());
 
   Future<void> signUp() async {
     try {
@@ -70,6 +78,17 @@ class SignupCubit extends Cubit<SignupState> {
       emit(const SignupSuccess());
     } catch (e) {
       emit(SignupFailure(error: e.toString()));
+    }
+  }
+
+  Future<void> getCity() async {
+    try {
+      emit(const CityLoading());
+      var cityList = await _cityRepository.getCities();
+      this.cityList = cityList;
+      emit(const CitySuccess());
+    } catch (e) {
+      emit(CityFailure(error: e.toString()));
     }
   }
 }

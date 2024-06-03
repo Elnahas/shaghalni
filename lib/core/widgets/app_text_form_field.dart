@@ -21,6 +21,7 @@ class AppTextFormField extends StatelessWidget {
   final int? maxLength;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
+  final void Function()? onTap;
 
   const AppTextFormField(
       {super.key,
@@ -39,11 +40,13 @@ class AppTextFormField extends StatelessWidget {
       this.maxLines,
       this.keyboardType,
       this.maxLength,
-      this.inputFormatters});
+      this.inputFormatters,
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: onTap,
       readOnly: readOnly ?? false,
       maxLines: maxLines ?? 1,
       maxLength: maxLength,

@@ -8,6 +8,8 @@ class ShimmerList extends StatelessWidget {
   Widget build(BuildContext context) {
     // Implement shimmer effect here
     return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       itemCount: 10,
       itemBuilder: (context, index) {
         return Padding(
