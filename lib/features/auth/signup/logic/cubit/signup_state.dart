@@ -10,4 +10,8 @@ class SignupState<T> with _$SignupState<T> {
   const factory SignupState.signupSuccess() = SignupSuccess;
   const factory SignupState.signupLoading() = SignupLoading;
   const factory SignupState.signupFailure({required String error}) = SignupFailure;
+
+  const factory SignupState.cityLoading() = CityLoading;
+  const factory SignupState.citySuccess() = CitySuccess;
+  const factory SignupState.cityFailure({required String error}) = CityFailure;
 }

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
-import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/core/widgets/app_text_button.dart';
+import 'package:shaghalni/features/auth/login/logic/cubit/login_state.dart';
+import 'package:shaghalni/features/auth/login/ui/widgets/header_text_login_widgets.dart';
 import 'package:shaghalni/features/auth/login/ui/widgets/login_bloc_listener.dart';
+import 'package:shaghalni/features/auth/login/ui/widgets/login_form.dart';
 
 import '../../logic/cubit/login_cubit.dart';
 
@@ -14,52 +15,45 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController phoneController = TextEditingController();
-
     return Scaffold(
       body: SafeArea(
         child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                verticalSpace(50),
-                Text("What is your phone number?",
-                    style: TextStyles.font24BoldBlack),
-                verticalSpace(20),
-                Text("Please enter you phone number to verify your account",
-                    style: TextStyles.font14BlackW300),
-                verticalSpace(50),
-                IntlPhoneField(
-                  controller: phoneController,
-                  decoration: const InputDecoration(
-                    labelText: 'Phone Number',
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(),
+            child: BlocBuilder<LoginCubit, LoginState>(
+              builder: (context, state) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    verticalSpace(50),
+                    const HeaderTextLoginWidgets(),
+                    verticalSpace(50),
+                    const LoginForm(),
+                    verticalSpace(50),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: AppTextButton(
+                          isLoading: state is LoginLoading,
+                          verticalPadding: 0,
+                          buttonWidth: 130.w,
+                          buttonText: "Next",
+                          onPressed: () {
+                            validateLogin(context);
+                          }),
                     ),
-                  ),
-                  initialCountryCode: 'EG',
-                  onChanged: (phone) {
-                    context
-                        .read<LoginCubit>()
-                        .setPhoneNumber(phone.completeNumber);
-                  },
-                ),
-                verticalSpace(50),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: AppTextButton(
-                      verticalPadding: 0,
-                      buttonWidth: 130.w,
-                      buttonText: "Next",
-                      onPressed: () async {
-                        await context.read<LoginCubit>().sendOtp();
-                      }),
-                ),
-                const LoginBlocListener()
-              ],
+                    const LoginBlocListener()
+                  ],
+                );
+              },
             )),
       ),
     );
+  }
+
+  void validateLogin(BuildContext context) {
+    var cubit = context.read<LoginCubit>();
+    if (cubit.loginFormKey.currentState!.validate()) {
+      cubit.setPhoneNumber(cubit.phoneNumber);
+      cubit.sendOtp();
+    }
   }
 }

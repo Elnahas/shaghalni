@@ -1,7 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../../logic/cubit/signup_cubit.dart';
 
 class ProfilePicture extends StatefulWidget {
   const ProfilePicture({super.key});
@@ -12,15 +15,22 @@ class ProfilePicture extends StatefulWidget {
 }
 
 class _ProfilePictureState extends State<ProfilePicture> {
-  File? _imageFile;
-  final ImagePicker _picker = ImagePicker();
+  late final SignupCubit _cubit;
+  late final ImagePicker _picker;
+
+  @override
+  void initState() {
+    _cubit = context.read<SignupCubit>();
+    _picker = ImagePicker();
+    super.initState();
+  }
 
   Future<void> _pickImage(ImageSource source) async {
     final pickedFile = await _picker.pickImage(source: source);
 
     setState(() {
       if (pickedFile != null) {
-        _imageFile = File(pickedFile.path);
+        _cubit.imageFile = File(pickedFile.path);
       }
     });
   }
@@ -33,9 +43,9 @@ class _ProfilePictureState extends State<ProfilePicture> {
         children: [
           CircleAvatar(
             radius: 50,
-            backgroundImage: _imageFile != null
-                ? FileImage(_imageFile!)
-                : const AssetImage("assets/images/ic_profile_placeholder.png") ,
+            backgroundImage: _cubit.imageFile != null
+                ? FileImage(_cubit.imageFile!)
+                : const AssetImage("assets/images/ic_profile_placeholder.png"),
           ),
           Positioned(
             bottom: -5,
@@ -51,7 +61,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
                       children: [
                         ListTile(
                           leading: const Icon(Icons.camera),
-                          title:const Text('Camera'),
+                          title: const Text('Camera'),
                           onTap: () {
                             Navigator.of(context).pop();
                             _pickImage(ImageSource.camera);
@@ -80,7 +90,4 @@ class _ProfilePictureState extends State<ProfilePicture> {
       ),
     );
   }
-
-
-
 }

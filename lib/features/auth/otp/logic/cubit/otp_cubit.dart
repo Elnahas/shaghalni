@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:shaghalni/features/auth/otp/logic/cubit/otp_state.dart';
 
 import '../../../../../core/repositories/auth_repository.dart';
+import '../../../../../core/repositories/user_repository.dart';
 
 class OtpCubit extends Cubit<OtpState> {
   final AuthRepository _authRepository;
-  OtpCubit(this._authRepository) : super(const OtpState.initial());
+  final UserRepository _userRepository;
+
+  OtpCubit(this._authRepository, this._userRepository)
+      : super(const OtpState.initial());
 
   void setOtpCode(String otpCode) {
     _authRepository.saveOtpCode(otpCode);
@@ -14,23 +18,24 @@ class OtpCubit extends Cubit<OtpState> {
 
   Future<void> verifyOtp() async {
     try {
-      debugPrint("verifyOtp");
+      
       emit(const OtpLoading());
+
       await _authRepository.verifyOtp(
         _authRepository.verificationId,
         _authRepository.otpCode,
       );
 
+      var user = await _userRepository.getUser();
 
-      emit(const OtpNewUser());
-
-      // if (_authRepository.currentUser != null) { // !! Here we should check if the user is new or not form firebase firestore this fun with get from AuthRepository
-      //   emit(const OtpSuccess());
-      // } else {
-        
-      // }
+      if (user != null) {
+        await _userRepository.saveUserToPreferences(user);
+        emit(OtpState.otpSuccess(data: user));
+      } else {
+        emit(const OtpNewUser());
+      }
     } catch (e) {
-       debugPrint("OtpFailure ${e.toString()}");
+      debugPrint("OtpFailure ${e.toString()}");
       emit(OtpFailure(error: e.toString()));
     }
   }

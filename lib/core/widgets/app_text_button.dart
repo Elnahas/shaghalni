@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
+import 'package:shaghalni/core/widgets/btn_loader.dart';
 
 import '../theming/app_text_styles.dart';
 
@@ -14,6 +15,8 @@ class AppTextButton extends StatelessWidget {
   final String buttonText;
   final TextStyle? textStyle;
   final VoidCallback onPressed;
+  final bool isLoading;
+
   const AppTextButton({
     super.key,
     this.borderRadius,
@@ -25,6 +28,7 @@ class AppTextButton extends StatelessWidget {
     required this.buttonText,
     this.textStyle,
     required this.onPressed,
+    this.isLoading = false,
   });
 
   @override
@@ -49,11 +53,13 @@ class AppTextButton extends StatelessWidget {
           Size(buttonWidth?.w ?? double.maxFinite, buttonHeight ?? 50.h),
         ),
       ),
-      onPressed: onPressed,
-      child: Text(
-        buttonText,
-        style: textStyle ?? TextStyles.font20SemiBoldWhite,
-      ),
+      onPressed: isLoading ? null : onPressed,
+      child: isLoading
+          ? const BtnLoader()
+          : Text(
+              buttonText,
+              style: textStyle ?? TextStyles.font20SemiBoldWhite,
+            ),
     );
   }
 }

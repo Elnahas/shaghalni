@@ -20,7 +20,7 @@ mixin _$OtpState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() otpLoading,
-    required TResult Function() otpSuccess,
+    required TResult Function(T data) otpSuccess,
     required TResult Function() otpNewUser,
     required TResult Function(String error) otpFailure,
   }) =>
@@ -29,7 +29,7 @@ mixin _$OtpState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? otpLoading,
-    TResult? Function()? otpSuccess,
+    TResult? Function(T data)? otpSuccess,
     TResult? Function()? otpNewUser,
     TResult? Function(String error)? otpFailure,
   }) =>
@@ -38,7 +38,7 @@ mixin _$OtpState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? otpLoading,
-    TResult Function()? otpSuccess,
+    TResult Function(T data)? otpSuccess,
     TResult Function()? otpNewUser,
     TResult Function(String error)? otpFailure,
     required TResult orElse(),
@@ -132,7 +132,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() otpLoading,
-    required TResult Function() otpSuccess,
+    required TResult Function(T data) otpSuccess,
     required TResult Function() otpNewUser,
     required TResult Function(String error) otpFailure,
   }) {
@@ -144,7 +144,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? otpLoading,
-    TResult? Function()? otpSuccess,
+    TResult? Function(T data)? otpSuccess,
     TResult? Function()? otpNewUser,
     TResult? Function(String error)? otpFailure,
   }) {
@@ -156,7 +156,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? otpLoading,
-    TResult Function()? otpSuccess,
+    TResult Function(T data)? otpSuccess,
     TResult Function()? otpNewUser,
     TResult Function(String error)? otpFailure,
     required TResult orElse(),
@@ -252,7 +252,7 @@ class _$OtpLoadingImpl<T> implements OtpLoading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() otpLoading,
-    required TResult Function() otpSuccess,
+    required TResult Function(T data) otpSuccess,
     required TResult Function() otpNewUser,
     required TResult Function(String error) otpFailure,
   }) {
@@ -264,7 +264,7 @@ class _$OtpLoadingImpl<T> implements OtpLoading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? otpLoading,
-    TResult? Function()? otpSuccess,
+    TResult? Function(T data)? otpSuccess,
     TResult? Function()? otpNewUser,
     TResult? Function(String error)? otpFailure,
   }) {
@@ -276,7 +276,7 @@ class _$OtpLoadingImpl<T> implements OtpLoading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? otpLoading,
-    TResult Function()? otpSuccess,
+    TResult Function(T data)? otpSuccess,
     TResult Function()? otpNewUser,
     TResult Function(String error)? otpFailure,
     required TResult orElse(),
@@ -337,6 +337,8 @@ abstract class _$$OtpSuccessImplCopyWith<T, $Res> {
   factory _$$OtpSuccessImplCopyWith(
           _$OtpSuccessImpl<T> value, $Res Function(_$OtpSuccessImpl<T>) then) =
       __$$OtpSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T data});
 }
 
 /// @nodoc
@@ -346,37 +348,62 @@ class __$$OtpSuccessImplCopyWithImpl<T, $Res>
   __$$OtpSuccessImplCopyWithImpl(
       _$OtpSuccessImpl<T> _value, $Res Function(_$OtpSuccessImpl<T>) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$OtpSuccessImpl<T>(
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$OtpSuccessImpl<T> implements OtpSuccess<T> {
-  const _$OtpSuccessImpl();
+  const _$OtpSuccessImpl({required this.data});
+
+  @override
+  final T data;
 
   @override
   String toString() {
-    return 'OtpState<$T>.otpSuccess()';
+    return 'OtpState<$T>.otpSuccess(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$OtpSuccessImpl<T>);
+        (other.runtimeType == runtimeType &&
+            other is _$OtpSuccessImpl<T> &&
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OtpSuccessImplCopyWith<T, _$OtpSuccessImpl<T>> get copyWith =>
+      __$$OtpSuccessImplCopyWithImpl<T, _$OtpSuccessImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() otpLoading,
-    required TResult Function() otpSuccess,
+    required TResult Function(T data) otpSuccess,
     required TResult Function() otpNewUser,
     required TResult Function(String error) otpFailure,
   }) {
-    return otpSuccess();
+    return otpSuccess(data);
   }
 
   @override
@@ -384,11 +411,11 @@ class _$OtpSuccessImpl<T> implements OtpSuccess<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? otpLoading,
-    TResult? Function()? otpSuccess,
+    TResult? Function(T data)? otpSuccess,
     TResult? Function()? otpNewUser,
     TResult? Function(String error)? otpFailure,
   }) {
-    return otpSuccess?.call();
+    return otpSuccess?.call(data);
   }
 
   @override
@@ -396,13 +423,13 @@ class _$OtpSuccessImpl<T> implements OtpSuccess<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? otpLoading,
-    TResult Function()? otpSuccess,
+    TResult Function(T data)? otpSuccess,
     TResult Function()? otpNewUser,
     TResult Function(String error)? otpFailure,
     required TResult orElse(),
   }) {
     if (otpSuccess != null) {
-      return otpSuccess();
+      return otpSuccess(data);
     }
     return orElse();
   }
@@ -449,7 +476,12 @@ class _$OtpSuccessImpl<T> implements OtpSuccess<T> {
 }
 
 abstract class OtpSuccess<T> implements OtpState<T> {
-  const factory OtpSuccess() = _$OtpSuccessImpl<T>;
+  const factory OtpSuccess({required final T data}) = _$OtpSuccessImpl<T>;
+
+  T get data;
+  @JsonKey(ignore: true)
+  _$$OtpSuccessImplCopyWith<T, _$OtpSuccessImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -492,7 +524,7 @@ class _$OtpNewUserImpl<T> implements OtpNewUser<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() otpLoading,
-    required TResult Function() otpSuccess,
+    required TResult Function(T data) otpSuccess,
     required TResult Function() otpNewUser,
     required TResult Function(String error) otpFailure,
   }) {
@@ -504,7 +536,7 @@ class _$OtpNewUserImpl<T> implements OtpNewUser<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? otpLoading,
-    TResult? Function()? otpSuccess,
+    TResult? Function(T data)? otpSuccess,
     TResult? Function()? otpNewUser,
     TResult? Function(String error)? otpFailure,
   }) {
@@ -516,7 +548,7 @@ class _$OtpNewUserImpl<T> implements OtpNewUser<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? otpLoading,
-    TResult Function()? otpSuccess,
+    TResult Function(T data)? otpSuccess,
     TResult Function()? otpNewUser,
     TResult Function(String error)? otpFailure,
     required TResult orElse(),
@@ -638,7 +670,7 @@ class _$OtpFailureImpl<T> implements OtpFailure<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() otpLoading,
-    required TResult Function() otpSuccess,
+    required TResult Function(T data) otpSuccess,
     required TResult Function() otpNewUser,
     required TResult Function(String error) otpFailure,
   }) {
@@ -650,7 +682,7 @@ class _$OtpFailureImpl<T> implements OtpFailure<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? otpLoading,
-    TResult? Function()? otpSuccess,
+    TResult? Function(T data)? otpSuccess,
     TResult? Function()? otpNewUser,
     TResult? Function(String error)? otpFailure,
   }) {
@@ -662,7 +694,7 @@ class _$OtpFailureImpl<T> implements OtpFailure<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? otpLoading,
-    TResult Function()? otpSuccess,
+    TResult Function(T data)? otpSuccess,
     TResult Function()? otpNewUser,
     TResult Function(String error)? otpFailure,
     required TResult orElse(),
