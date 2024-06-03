@@ -29,17 +29,13 @@ class UserRepository {
     }
   }
 
-  Future<String> uploadImage(File imageFile) async {
+   Future<String> uploadImage(File imageFile) async {
     try {
-      // Generate a unique name for the image
       final imageName = DateTime.now().millisecondsSinceEpoch.toString();
       final imageRef = storageRef.child('images_users/$imageName');
-
-      // Upload the image
       final uploadTask = imageRef.putFile(imageFile);
-
-      // Wait for the upload to complete
-      final downloadUrl = await uploadTask.snapshot.ref.getDownloadURL();
+      final TaskSnapshot taskSnapshot = await uploadTask;
+      final downloadUrl = await taskSnapshot.ref.getDownloadURL();
 
       return downloadUrl;
     } catch (e) {
