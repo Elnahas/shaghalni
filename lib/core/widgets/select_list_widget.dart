@@ -10,13 +10,13 @@ class SelectListWidget<T> extends StatefulWidget {
   final String Function(T) itemBuilder;
 
   const SelectListWidget({
-    Key? key,
+    super.key,
     required this.items,
     required this.initialSelectedIndex,
     required this.onItemSelected,
     required this.title,
     required this.itemBuilder,
-  }) : super(key: key);
+  });
 
   @override
   State<SelectListWidget<T>> createState() => _SelectListWidgetState<T>();

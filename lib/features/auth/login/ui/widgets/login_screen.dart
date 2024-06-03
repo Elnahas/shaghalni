@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/widgets/app_text_button.dart';
-import 'package:shaghalni/core/widgets/btn_loader.dart';
 import 'package:shaghalni/features/auth/login/logic/cubit/login_state.dart';
 import 'package:shaghalni/features/auth/login/ui/widgets/header_text_login_widgets.dart';
 import 'package:shaghalni/features/auth/login/ui/widgets/login_bloc_listener.dart';
@@ -38,7 +37,6 @@ class LoginScreen extends StatelessWidget {
                           buttonWidth: 130.w,
                           buttonText: "Next",
                           onPressed: () {
-                            print("NextNextNextNextNextNextNextNextNextNextNextNext");
                             validateLogin(context);
                           }),
                     ),

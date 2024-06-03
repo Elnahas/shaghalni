@@ -14,7 +14,7 @@ import '../widgets/add_job_bloc_listener.dart';
 import '../widgets/step_indicator_widgets.dart';
 
 class AddJobScreen extends StatefulWidget {
-  const AddJobScreen({Key? key}) : super(key: key);
+  const AddJobScreen({super.key});
 
   @override
   State<AddJobScreen> createState() => _AddJobScreenState();

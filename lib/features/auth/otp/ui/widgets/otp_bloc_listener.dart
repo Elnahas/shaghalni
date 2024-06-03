@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shaghalni/core/functions/show_progress_indicator.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/features/auth/otp/logic/cubit/otp_cubit.dart';
 import 'package:shaghalni/features/auth/otp/logic/cubit/otp_state.dart';
@@ -12,8 +11,7 @@ class OtpBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<OtpCubit, OtpState>(
       listenWhen: (previous, current) {
-        if (current is OtpLoading ||
-            current is OtpSuccess ||
+        if (current is OtpSuccess ||
             current is OtpNewUser ||
             current is OtpFailure) {
           return true;
@@ -25,13 +23,9 @@ class OtpBlocListener extends StatelessWidget {
         if (state is OtpNewUser) {
           Navigator.pop(context);
           Navigator.pushNamed(context, Routes.signup);
-        }
-        else if (state is OtpNewUser) {
+        } else if (state is OtpNewUser) {
           Navigator.pop(context);
           Navigator.pushReplacementNamed(context, Routes.home);
-        }  else if (state is OtpLoading) {
-           debugPrint("listener OtpLoading");
-          showProgressIndicator(context);
         } else if (state is OtpFailure) {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
