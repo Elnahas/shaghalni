@@ -42,7 +42,6 @@ dependencies:
   firebase_auth: ^4.19.6
   firebase_core: ^2.31.0
   flutter_svg: ^2.0.10+1
-  intl_phone_field: ^3.2.0
   pin_code_fields: ^8.0.1
   shared_preferences: ^2.2.3
   # Automatically generate code for converting to and from JSON by annotating Dart classes.
@@ -64,7 +63,7 @@ dependencies:
   shimmer: ^3.0.0
   step_progress_indicator: ^1.0.2
   uuid: ^4.4.0
-  country_picker: ^2.0.26
+  country_code_picker: ^3.0.0
 
 
 dev_dependencies:
