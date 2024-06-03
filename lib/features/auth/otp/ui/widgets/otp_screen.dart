@@ -24,33 +24,33 @@ class OtpScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: BlocBuilder<OtpCubit, OtpState>(
-            builder: (context, state) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  verticalSpace(50),
-                  IntroTexts(
-                    phoneNumber: phoneNumber,
-                  ),
-                  verticalSpace(30),
-                  const PinCodeFields(),
-                  verticalSpace(30),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: AppTextButton(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              verticalSpace(50),
+              IntroTexts(
+                phoneNumber: phoneNumber,
+              ),
+              verticalSpace(30),
+              const PinCodeFields(),
+              verticalSpace(30),
+              Align(
+                alignment: Alignment.centerRight,
+                child: BlocBuilder<OtpCubit, OtpState>(
+                  builder: (context, state) {
+                    return AppTextButton(
                         verticalPadding: 0,
                         buttonWidth: 130.w,
                         buttonText: "Verify",
-                        isLoading:  state is OtpLoading,
+                        isLoading: state is OtpLoading,
                         onPressed: () async {
                           context.read<OtpCubit>().verifyOtp();
-                        }),
-                  ),
-                  const OtpBlocListener(),
-                ],
-              );
-            },
+                        });
+                  },
+                ),
+              ),
+              const OtpBlocListener(),
+            ],
           ),
         ),
       ),

@@ -20,14 +20,14 @@ class OtpBlocListener extends StatelessWidget {
         }
       },
       listener: (context, state) {
-        if (state is OtpNewUser) {
-          Navigator.pop(context);
-          Navigator.pushNamed(context, Routes.signup);
+        if (state is OtpSuccess) {
+                    
+          Navigator.pushNamedAndRemoveUntil(
+              context, Routes.home, (Route<dynamic> route) => false);
         } else if (state is OtpNewUser) {
-          Navigator.pop(context);
-          Navigator.pushReplacementNamed(context, Routes.home);
+          Navigator.pushNamed(context, Routes.signup);
+
         } else if (state is OtpFailure) {
-          Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(state.error),
