@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:shaghalni/core/data/models/city_model.dart';
 
 part 'user_model.g.dart';
 
@@ -9,7 +10,7 @@ class UserModel {
   final String fullName;
   final String phoneNumber;
   final String birthDate;
-  final String city;
+  final CityModel city;
   final String gender;
   final bool isOnline;
   final bool isSuspended;

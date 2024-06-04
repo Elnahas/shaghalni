@@ -11,7 +11,7 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) => UserModel(
       fullName: json['fullName'] as String,
       phoneNumber: json['phoneNumber'] as String,
       birthDate: json['birthDate'] as String,
-      city: json['city'] as String,
+      city: CityModel.fromJson(json['city'] as Map<String, dynamic>),
       gender: json['gender'] as String,
       isOnline: json['isOnline'] as bool? ?? false,
       isSuspended: json['isSuspended'] as bool? ?? false,
