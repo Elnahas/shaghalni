@@ -3,6 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shaghalni/core/data/models/user_model.dart';
 import 'package:shaghalni/core/repositories/city_repository.dart';
@@ -23,6 +24,9 @@ class SignupCubit extends Cubit<SignupState> {
 
   var phoneNumber = GetIt.instance<AuthRepository>().phoneNumber;
 
+  GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
+
+  //Controllers
   TextEditingController birthDateController = TextEditingController();
   TextEditingController fullNameController = TextEditingController();
   TextEditingController cityController = TextEditingController();

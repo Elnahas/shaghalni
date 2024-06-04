@@ -42,6 +42,7 @@ class _SignupFormState extends State<SignupForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _cubit.signupFormKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
