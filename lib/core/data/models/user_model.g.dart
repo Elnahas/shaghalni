@@ -11,12 +11,12 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) => UserModel(
       fullName: json['fullName'] as String,
       phoneNumber: json['phoneNumber'] as String,
       birthDate: json['birthDate'] as String,
-      city: CityModel.fromJson(json['city'] as Map<String, dynamic>),
+      city: cityModelFromJson(json['city']),
       gender: json['gender'] as String,
       isOnline: json['isOnline'] as bool? ?? false,
       isSuspended: json['isSuspended'] as bool? ?? false,
       imageUrl: json['imageUrl'] as String?,
-      createdAt: UserModel._timestampFromJson(json['createdAt']),
+      createdAt: timestampFromJson(json['createdAt']),
     );
 
 Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
@@ -24,10 +24,10 @@ Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
       'fullName': instance.fullName,
       'phoneNumber': instance.phoneNumber,
       'birthDate': instance.birthDate,
-      'city': instance.city,
+      'city': cityModelToJson(instance.city),
       'gender': instance.gender,
       'isOnline': instance.isOnline,
       'isSuspended': instance.isSuspended,
       'imageUrl': instance.imageUrl,
-      'createdAt': UserModel._timestampToJson(instance.createdAt),
+      'createdAt': timestampToJson(instance.createdAt),
     };

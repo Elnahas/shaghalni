@@ -55,7 +55,7 @@ class SignupCubit extends Cubit<SignupState> {
           phoneNumber: phoneNumber,
           birthDate: birthDateController.text,
           gender: selectedGender!,
-          city: cityController.text,
+          city: city,
           imageUrl: _imageUrl,
           createdAt: createdAt));
       emit(const SignupSuccess());
