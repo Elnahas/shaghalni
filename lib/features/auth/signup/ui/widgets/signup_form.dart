@@ -34,8 +34,6 @@ class _SignupFormState extends State<SignupForm> {
 
     datePickerHelper = DatePickerHelper(dateController: birthDateController);
 
-    _cubit.getCity();
-
     super.initState();
   }
 
@@ -66,7 +64,12 @@ class _SignupFormState extends State<SignupForm> {
           AppTextFormField(
               controller: fullNameController,
               hintText: "FullName",
-              validator: (value) {}),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return "Please enter your full name";
+                }
+                return null;
+              }),
           verticalSpace(20),
           Text(
             "City",
@@ -100,7 +103,12 @@ class _SignupFormState extends State<SignupForm> {
               },
               controller: cityController,
               hintText: "City",
-              validator: (value) {}),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return "Please select your city";
+                }
+                return null;
+              }),
           verticalSpace(20),
           Text(
             "Birth Date",
@@ -110,7 +118,12 @@ class _SignupFormState extends State<SignupForm> {
           AppTextFormField(
               controller: birthDateController,
               hintText: "Birth Date",
-              validator: (value) {},
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return "Please select your birth date";
+                }
+                return null;
+              },
               onTap: () async {
                 await datePickerHelper.myShowDatePicker(context);
               },

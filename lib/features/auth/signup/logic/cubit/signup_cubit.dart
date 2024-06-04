@@ -31,7 +31,7 @@ class SignupCubit extends Cubit<SignupState> {
   TextEditingController fullNameController = TextEditingController();
   TextEditingController cityController = TextEditingController();
 
-  String? selectedGender;
+  String? selectedGender = "male";
   final List<String> genders = ["male", "female"];
 
   File? imageFile;

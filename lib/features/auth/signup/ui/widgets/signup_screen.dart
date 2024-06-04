@@ -10,8 +10,21 @@ import 'package:shaghalni/features/auth/signup/ui/widgets/signup_form.dart';
 import '../../../../../core/functions/show_snack_bar.dart';
 import '../../../../../core/routing/routes.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+
+  @override
+  void initState() {
+    context.read<SignupCubit>().getCity();
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +36,12 @@ class SignupScreen extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           child: BlocConsumer<SignupCubit, SignupState>(
             listenWhen: (previous, current) =>
-                current is SignupSuccess ||
-                current is SignupFailure,
+                current is SignupSuccess || current is SignupFailure,
             listener: (context, state) {
               state.whenOrNull(
                 signupSuccess: () {
-                  Navigator.of(context).pop();
-                  Navigator.of(context).pushReplacementNamed(Routes.home);
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, Routes.home, (Route<dynamic> route) => false);
                 },
                 signupFailure: (error) {
                   Navigator.of(context).pop();
@@ -55,8 +67,8 @@ class SignupScreen extends StatelessWidget {
                   AppTextButton(
                       isLoading: state is SignupLoading,
                       buttonText: "Register",
-                      onPressed: () async {
-                        await context.read<SignupCubit>().signUp();
+                      onPressed: () {
+                        validateSignup(context);
                       })
                 ],
               );
@@ -65,5 +77,12 @@ class SignupScreen extends StatelessWidget {
         ),
       )),
     );
+  }
+
+  void validateSignup(BuildContext context) async {
+    var cubit = context.read<SignupCubit>();
+    if (cubit.signupFormKey.currentState!.validate()) {
+      await cubit.signUp();
+    }
   }
 }
