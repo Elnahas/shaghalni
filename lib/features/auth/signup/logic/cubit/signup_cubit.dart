@@ -53,7 +53,7 @@ class SignupCubit extends Cubit<SignupState> {
       final createdAt = Timestamp.fromMillisecondsSinceEpoch(
           DateTime.now().millisecondsSinceEpoch);
 
-      await _authRepository.signUp(UserModel(
+      UserModel userModel = UserModel(
           uid: FirebaseAuth.instance.currentUser!.uid,
           fullName: fullNameController.text,
           phoneNumber: phoneNumber,
@@ -61,7 +61,11 @@ class SignupCubit extends Cubit<SignupState> {
           gender: selectedGender!,
           city: city,
           imageUrl: _imageUrl,
-          createdAt: createdAt));
+          createdAt: createdAt);
+
+      await _authRepository.signUp(userModel);
+      await _userRepository.saveUserToPreferences(userModel);
+
       emit(const SignupSuccess());
     } catch (e) {
       emit(SignupFailure(error: e.toString()));
