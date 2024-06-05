@@ -3,9 +3,11 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shaghalni/core/data/models/user_model.dart';
 import 'package:shaghalni/core/repositories/city_repository.dart';
+import 'package:shaghalni/core/services/sharedprefs.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_state.dart';
 
 import '../../../../../core/data/models/city_model.dart';
@@ -23,11 +25,14 @@ class SignupCubit extends Cubit<SignupState> {
 
   var phoneNumber = GetIt.instance<AuthRepository>().phoneNumber;
 
+  GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
+
+  //Controllers
   TextEditingController birthDateController = TextEditingController();
   TextEditingController fullNameController = TextEditingController();
   TextEditingController cityController = TextEditingController();
 
-  String? selectedGender;
+  String? selectedGender = "male";
   final List<String> genders = ["male", "female"];
 
   File? imageFile;
@@ -49,15 +54,21 @@ class SignupCubit extends Cubit<SignupState> {
       final createdAt = Timestamp.fromMillisecondsSinceEpoch(
           DateTime.now().millisecondsSinceEpoch);
 
-      await _authRepository.signUp(UserModel(
+      UserModel userModel = UserModel(
           uid: FirebaseAuth.instance.currentUser!.uid,
           fullName: fullNameController.text,
           phoneNumber: phoneNumber,
           birthDate: birthDateController.text,
           gender: selectedGender!,
-          city: cityController.text,
+          city: city,
           imageUrl: _imageUrl,
-          createdAt: createdAt));
+          createdAt: createdAt);
+
+      await _authRepository.signUp(userModel);
+      updateLoginStatus(true);
+      await _userRepository.saveUserToPreferences(userModel);
+      
+
       emit(const SignupSuccess());
     } catch (e) {
       emit(SignupFailure(error: e.toString()));

@@ -70,6 +70,7 @@ dependencies:
   uuid: ^4.4.0
   country_code_picker: ^3.0.0
   syncfusion_flutter_datepicker: ^25.2.6
+  image_cropper: ^6.0.0
 
 
 dev_dependencies:

@@ -2,10 +2,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shaghalni/core/theming/app_colors.dart';
 
 import '../../logic/cubit/signup_cubit.dart';
 
+// !! this class need to refactor to can be reusable
 class ProfilePicture extends StatefulWidget {
   const ProfilePicture({super.key});
 
@@ -25,12 +28,41 @@ class _ProfilePictureState extends State<ProfilePicture> {
     super.initState();
   }
 
-  Future<void> _pickImage(ImageSource source) async {
+  Future<void> _pickAndCropImage(ImageSource source) async {
     final pickedFile = await _picker.pickImage(source: source);
+    late final CroppedFile? croppedFile;
+
+    if (pickedFile != null) {
+      
+      croppedFile = await ImageCropper().cropImage(
+        sourcePath: pickedFile.path,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          CropAspectRatioPreset.ratio3x2,
+          CropAspectRatioPreset.original,
+          CropAspectRatioPreset.ratio4x3,
+          CropAspectRatioPreset.ratio16x9
+        ],
+        uiSettings: [
+          AndroidUiSettings(
+              toolbarTitle: 'Cropper',
+              toolbarColor: ColorsManager.primaryColor,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              lockAspectRatio: false),
+          IOSUiSettings(
+            title: 'Cropper',
+          ),
+          WebUiSettings(
+            context: context,
+          ),
+        ],
+      );
+    }
 
     setState(() {
-      if (pickedFile != null) {
-        _cubit.imageFile = File(pickedFile.path);
+      if (croppedFile != null) {
+        _cubit.imageFile = File(croppedFile.path);
       }
     });
   }
@@ -54,30 +86,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
               onPressed: () async {
                 showModalBottomSheet(
                   context: context,
-                  builder: (context) => BottomSheet(
-                    onClosing: () {},
-                    builder: (context) => Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        ListTile(
-                          leading: const Icon(Icons.camera),
-                          title: const Text('Camera'),
-                          onTap: () {
-                            Navigator.of(context).pop();
-                            _pickImage(ImageSource.camera);
-                          },
-                        ),
-                        ListTile(
-                          leading: const Icon(Icons.photo_library),
-                          title: const Text('Gallery'),
-                          onTap: () {
-                            Navigator.of(context).pop();
-                            _pickImage(ImageSource.gallery);
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
+                  builder: (context) => _buildBottomSheet(),
                 );
               },
               icon: const Icon(
@@ -85,6 +94,33 @@ class _ProfilePictureState extends State<ProfilePicture> {
                 color: Colors.white,
               ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+    Widget _buildBottomSheet() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ListTile(
+            leading: const Icon(Icons.camera),
+            title: const Text('Camera'),
+            onTap: () {
+              Navigator.of(context).pop();
+              _pickAndCropImage(ImageSource.camera);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.photo_library),
+            title: const Text('Gallery'),
+            onTap: () {
+              Navigator.of(context).pop();
+              _pickAndCropImage(ImageSource.gallery);
+            },
           ),
         ],
       ),

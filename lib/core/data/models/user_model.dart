@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:shaghalni/core/data/models/city_model.dart';
+
+import '../../helpers/json_helpers.dart';
 
 part 'user_model.g.dart';
 
@@ -9,12 +12,13 @@ class UserModel {
   final String fullName;
   final String phoneNumber;
   final String birthDate;
-  final String city;
+  @JsonKey(fromJson: cityModelFromJson, toJson: cityModelToJson)
+  final CityModel city;
   final String gender;
   final bool isOnline;
   final bool isSuspended;
   final String? imageUrl;
-  @JsonKey(fromJson: _timestampFromJson, toJson: _timestampToJson)
+  @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
   final Timestamp createdAt;
 
   UserModel(
@@ -34,14 +38,6 @@ class UserModel {
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
 
-  static Timestamp _timestampFromJson(dynamic json) {
-    return json is Timestamp
-        ? json
-        : Timestamp.fromMillisecondsSinceEpoch(json as int);
-  }
-
-  static dynamic _timestampToJson(Timestamp timestamp) =>
-      timestamp.millisecondsSinceEpoch;
 
 
 

@@ -4,6 +4,7 @@ import 'package:shaghalni/features/auth/otp/logic/cubit/otp_state.dart';
 
 import '../../../../../core/repositories/auth_repository.dart';
 import '../../../../../core/repositories/user_repository.dart';
+import '../../../../../core/services/sharedprefs.dart';
 
 class OtpCubit extends Cubit<OtpState> {
   final AuthRepository _authRepository;
@@ -29,6 +30,7 @@ class OtpCubit extends Cubit<OtpState> {
       var user = await _userRepository.getUser();
 
       if (user != null) {
+        updateLoginStatus(true);
         await _userRepository.saveUserToPreferences(user);
         emit(OtpState.otpSuccess(data: user));
       } else {
