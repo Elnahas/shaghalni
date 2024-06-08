@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/core/routing/routing.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shaghalni/core/services/sharedprefs.dart';
 
 class MyApp extends StatelessWidget {
   final Routing routing;
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         onGenerateRoute: routing.onGenerateRoute,
-        initialRoute: getLoginStatus() == true ? Routes.home : Routes.welcomeScreen,
+        initialRoute: isLoggedInUser ? Routes.home : Routes.welcomeScreen,
       ),
     );
   }

@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:shaghalni/core/data/database/cache/cache_helper.dart';
 import 'package:shaghalni/core/data/models/user_model.dart';
 import 'package:shaghalni/core/di/service_locator.dart';
-import 'package:shaghalni/core/utils/constants.dart';
+import 'package:shaghalni/core/helpers/shared_pref_helper.dart';
+import 'package:shaghalni/core/helpers/constants.dart';
 
 class UserRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -44,12 +43,18 @@ class UserRepository {
   }
 
   Future<void> saveUserToPreferences(UserModel user) async {
-    await getIt<CacheHelper>()
-        .saveData(key: "user", value: jsonEncode(user.toJson()));
+
+    await SharedPrefHelper.setSecuredString(SharedPrefKeys.userData, jsonEncode(user.toJson())); 
+
+    // await getIt<CacheHelper>()
+    //     .saveData(key: "user", value: jsonEncode(user.toJson()));
   }
 
   Future<UserModel?> getUserFromPreferences() async {
-    String? userJson = getIt<CacheHelper>().getData(key: 'user');
+
+    // String? userJson = getIt<CacheHelper>().getData(key: 'user');
+    String? userJson = SharedPrefHelper.getSecuredString(SharedPrefKeys.userData);
+
     if (userJson != null) {
       Map<String, dynamic> userMap = jsonDecode(userJson);
       return UserModel.fromJson(userMap);
