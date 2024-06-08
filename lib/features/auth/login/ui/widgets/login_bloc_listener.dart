@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/features/auth/login/logic/cubit/login_cubit.dart';
 import 'package:shaghalni/features/auth/login/logic/cubit/login_state.dart';
@@ -17,7 +18,7 @@ class LoginBlocListener extends StatelessWidget {
         state.whenOrNull(
           loginSuccess: (data) {
             Navigator.pop(context);
-            Navigator.pushNamed(context, Routes.otp);
+            context.pushNamed( Routes.otp);
           },
           loginFailure: (error) {
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(

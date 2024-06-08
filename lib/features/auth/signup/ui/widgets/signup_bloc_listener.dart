@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/functions/show_progress_indicator.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_state.dart';
 
@@ -24,7 +25,8 @@ class SignupBlocListener extends StatelessWidget {
           },
           signupSuccess: () {
             Navigator.of(context).pop();
-            Navigator.of(context).pushReplacementNamed(Routes.home);
+            context.pushNamedAndRemoveUntil(Routes.home,
+                predicate: (Route<dynamic> route) => false);
           },
           signupFailure: (error) {
             Navigator.of(context).pop();

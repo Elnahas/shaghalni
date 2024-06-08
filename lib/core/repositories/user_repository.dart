@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:shaghalni/core/data/models/user_model.dart';
-import 'package:shaghalni/core/di/service_locator.dart';
 import 'package:shaghalni/core/helpers/shared_pref_helper.dart';
 import 'package:shaghalni/core/helpers/constants.dart';
 

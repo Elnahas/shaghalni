@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
@@ -43,7 +44,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
         shape:const CircleBorder(),
         elevation: 10,
         onPressed: () {
-            Navigator.of(context).pushNamed(Routes.addJob);
+            context.pushNamed(Routes.addJob);
 
         },
         backgroundColor: Colors.blue,

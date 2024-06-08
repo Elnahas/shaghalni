@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/core/widgets/app_text_button.dart';
@@ -18,13 +19,11 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-
   @override
   void initState() {
     context.read<SignupCubit>().getCity();
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +39,8 @@ class _SignupScreenState extends State<SignupScreen> {
             listener: (context, state) {
               state.whenOrNull(
                 signupSuccess: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, Routes.home, (Route<dynamic> route) => false);
+                  context.pushNamedAndRemoveUntil(Routes.home,
+                      predicate: (Route<dynamic> route) => false);
                 },
                 signupFailure: (error) {
                   Navigator.of(context).pop();
