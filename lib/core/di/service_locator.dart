@@ -28,5 +28,6 @@ void setupServiceLocator() {
   getIt.registerFactory<AddJobCubit>(() => AddJobCubit(
       getIt<CategoryRepository>(),
       getIt<CityRepository>(),
-      getIt<AddJobRepository>()));
+      getIt<AddJobRepository>(),
+      getIt<UserRepository>()));
 }

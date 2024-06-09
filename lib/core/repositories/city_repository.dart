@@ -11,9 +11,9 @@ class CityRepository {
       QuerySnapshot<Map<String, dynamic>> snapshot =
           await _firestore.collection(FirestoreCollections.cities).get();
 
-      List<CityModel> categories =
+      List<CityModel> cityModel =
           snapshot.docs.map((e) => CityModel.fromJson(e.data())).toList();
-      return categories;
+      return cityModel;
     } catch (e) {
       rethrow;
     }

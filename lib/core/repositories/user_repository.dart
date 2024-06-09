@@ -27,7 +27,7 @@ class UserRepository {
     }
   }
 
-   Future<String> uploadImage(File imageFile) async {
+  Future<String> uploadImage(File imageFile) async {
     try {
       final imageName = DateTime.now().millisecondsSinceEpoch.toString();
       final imageRef = storageRef.child('images_users/$imageName');
@@ -42,22 +42,20 @@ class UserRepository {
   }
 
   Future<void> saveUserToPreferences(UserModel user) async {
-
-    await SharedPrefHelper.setSecuredString(SharedPrefKeys.userData, jsonEncode(user.toJson())); 
+    await SharedPrefHelper.setSecuredString(
+        SharedPrefKeys.userData, jsonEncode(user.toJson()));
 
     // await getIt<CacheHelper>()
     //     .saveData(key: "user", value: jsonEncode(user.toJson()));
   }
 
-  Future<UserModel?> getUserFromPreferences() async {
+  Future<UserModel> getUserFromPreferences() async {
 
-    // String? userJson = getIt<CacheHelper>().getData(key: 'user');
-    String? userJson = SharedPrefHelper.getSecuredString(SharedPrefKeys.userData);
+    String? userData =
+        await SharedPrefHelper.getSecuredString(SharedPrefKeys.userData);
+    Map<String, dynamic> userMap = jsonDecode(userData!);
+    UserModel user = UserModel.fromJson(userMap);
 
-    if (userJson != null) {
-      Map<String, dynamic> userMap = jsonDecode(userJson);
-      return UserModel.fromJson(userMap);
-    }
-    return null;
+    return user;
   }
 }

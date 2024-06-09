@@ -80,7 +80,13 @@ class _AddJobFormState extends State<AddJobForm> {
             AppTextFormField(
                 hintText: "Salary",
                 keyboardType: TextInputType.number,
-                validator: (value) {}, controller: _cubit.jobSalaryController),
+                validator: (value) {
+                  if(!_cubit.isHideSalary){
+                    if(value == null || value.isEmpty){
+                      return "Please enter the salary";
+                    }
+                  }
+                }, controller: _cubit.jobSalaryController),
             verticalSpace(20),
             CheckboxListTile(
               value: _cubit.isHideSalary,

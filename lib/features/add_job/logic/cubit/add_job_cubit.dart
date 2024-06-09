@@ -1,13 +1,19 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shaghalni/core/data/models/category_model.dart';
 import 'package:shaghalni/core/data/models/city_model.dart';
+import 'package:shaghalni/core/data/models/user_model.dart';
+import 'package:shaghalni/core/helpers/shared_pref_helper.dart';
 import 'package:shaghalni/core/repositories/category_repository.dart';
+import 'package:shaghalni/core/repositories/user_repository.dart';
 import 'package:shaghalni/features/add_job/data/repo/add_job_repository.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_state.dart';
 
 import '../../../../core/data/models/job_model.dart';
+import '../../../../core/helpers/constants.dart';
 import '../../../../core/repositories/city_repository.dart';
 import '../../../../core/widgets/select_list_widget.dart';
 import '../../ui/widgets/add_job_form.dart';
@@ -17,14 +23,15 @@ class AddJobCubit extends Cubit<AddJobState> {
   final CategoryRepository _categoryRepository;
   final CityRepository _cityRepository;
   final AddJobRepository _addJobRepository;
+  final UserRepository _userRepository;
 
   // Lists
   List<CategoryModel> _categoryList = [];
   List<CityModel> _cityList = [];
 
   //city and category
-  CategoryModel  get category => _categoryList[selectedCategoryIndex];
-  CityModel  get city => _cityList[selectedCityIndex];
+  CategoryModel get category => _categoryList[selectedCategoryIndex];
+  CityModel get city => _cityList[selectedCityIndex];
 
   // Steps
   int currentStep = 1;
@@ -58,8 +65,8 @@ class AddJobCubit extends Cubit<AddJobState> {
         const AddJobForm(),
       ];
 
-  AddJobCubit(
-      this._categoryRepository, this._cityRepository, this._addJobRepository)
+  AddJobCubit(this._categoryRepository, this._cityRepository,
+      this._addJobRepository, this._userRepository)
       : super(const AddJobState.initial());
 
   // add Job
@@ -67,6 +74,13 @@ class AddJobCubit extends Cubit<AddJobState> {
     try {
       if (formKey.currentState!.validate()) {
         emit(const AddJobState.addJobLoading());
+
+        UserModel? user = await _userRepository.getUserFromPreferences();
+
+        job.postedBy = PostedBy(
+            phoneNumber: user.phoneNumber,
+            userId: user.uid,
+            name: user.fullName);
 
         await _addJobRepository.addJob(job);
 

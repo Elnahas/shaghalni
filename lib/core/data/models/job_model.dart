@@ -23,27 +23,27 @@ class JobModel {
   final DateTime createdAt;
   @JsonKey(name: 'updated_at')
   final DateTime updatedAt;
-  @JsonKey(name: 'views')
-  final int views; 
-  @JsonKey(name: 'posted_by' , fromJson: _postedByFromJson, toJson: _postedByToJson)
-  final PostedBy postedBy;
+  final int views;
+  @JsonKey(name: 'posted_by', fromJson: _postedByFromJson, toJson: _postedByToJson)
+  PostedBy? postedBy; 
+  
+  JobModel({
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.city,
+    required this.category,
+    required this.salary,
+    required this.isHideSalary,
+    required this.status,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.views,
+    this.postedBy,
+  });
 
-  factory JobModel.fromJson(Map<String, dynamic> json) =>
-      _$JobModelFromJson(json);
+  factory JobModel.fromJson(Map<String, dynamic> json) => _$JobModelFromJson(json);
 
-  JobModel(
-      {required this.id,
-      required this.title,
-      required this.description,
-      required this.city,
-      required this.category,
-      required this.salary,
-      required this.isHideSalary,
-      required this.status,
-      required this.createdAt,
-      required this.updatedAt,
-      required this.views,
-      required this.postedBy});
   Map<String, dynamic> toJson() => _$JobModelToJson(this);
 
   static CategoryModel _categoryModelFromJson(dynamic json) {
@@ -54,7 +54,7 @@ class JobModel {
     return category.toJson();
   }
 
-    static CityModel _cityModelFromJson(dynamic json) {
+  static CityModel _cityModelFromJson(dynamic json) {
     return CityModel.fromJson(json);
   }
 
@@ -70,15 +70,12 @@ class JobModel {
     return status.toShortString();
   }
 
-
-
-
-    static PostedBy _postedByFromJson(dynamic json) {
-    return PostedBy.fromJson(json);
+  static PostedBy? _postedByFromJson(dynamic json) {
+    return json == null ? null : PostedBy.fromJson(json);
   }
 
-  static dynamic _postedByToJson(PostedBy postedBy) {
-    return postedBy.toJson();
+  static dynamic _postedByToJson(PostedBy? postedBy) {
+    return postedBy?.toJson();
   }
 }
 
@@ -89,13 +86,12 @@ class PostedBy {
   @JsonKey(name: "phone_number")
   final String phoneNumber;
 
-  PostedBy(
-    {required this.phoneNumber, 
+  PostedBy({
+    required this.phoneNumber,
     required this.userId,
     required this.name,
   });
 
-  factory PostedBy.fromJson(Map<String, dynamic> json) =>
-      _$PostedByFromJson(json);
+  factory PostedBy.fromJson(Map<String, dynamic> json) => _$PostedByFromJson(json);
   Map<String, dynamic> toJson() => _$PostedByToJson(this);
 }

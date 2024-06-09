@@ -17,21 +17,15 @@ class AddJobBlocListener extends StatelessWidget {
       listenWhen: (previous, current) =>
           current is AddJobSuccess ||
           current is AddJobFailure ||
-          current is AddJobLoading ||
           current is CategoryAndCityFailure ||
           previous is CategoryAndCityFailure,
       listener: (context, state) {
         state.whenOrNull(
-          addJobLoading: () {
-            debugPrint('addJobLoading');
-            showProgressIndicator(context);
-          },
           addJobSuccess: () {
-
-            context.pushNamedAndRemoveUntil(Routes.home, predicate: (Route<dynamic> route) => false);
+            context.pushNamedAndRemoveUntil(Routes.home,
+                predicate: (Route<dynamic> route) => false);
           },
           addJobFailure: (error) {
-            Navigator.pop(context);
             showSnackBar(context, error);
           },
           categoryAndCityFailure: (error) {
