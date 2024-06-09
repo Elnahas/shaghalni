@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/features/auth/otp/logic/cubit/otp_cubit.dart';
 import 'package:shaghalni/features/auth/otp/logic/cubit/otp_state.dart';
@@ -21,12 +22,11 @@ class OtpBlocListener extends StatelessWidget {
       },
       listener: (context, state) {
         if (state is OtpSuccess) {
-                    
-          Navigator.pushNamedAndRemoveUntil(
-              context, Routes.home, (Route<dynamic> route) => false);
+         
+          context.pushNamedAndRemoveUntil(Routes.home,
+              predicate: (Route<dynamic> route) => false);
         } else if (state is OtpNewUser) {
-          Navigator.pushNamed(context, Routes.signup);
-
+          context.pushNamed(Routes.signup);
         } else if (state is OtpFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

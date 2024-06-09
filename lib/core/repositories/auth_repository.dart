@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shaghalni/core/data/models/user_model.dart';
 
-import '../utils/constants.dart';
+import '../helpers/constants.dart';
 
 class AuthRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

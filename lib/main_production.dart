@@ -1,29 +1,42 @@
+import 'dart:convert';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shaghalni/core/data/database/cache/cache_helper.dart';
+import 'package:shaghalni/core/data/models/user_model.dart';
 import 'package:shaghalni/core/di/service_locator.dart';
+import 'package:shaghalni/core/helpers/constants.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/helpers/my_bloc_observer.dart';
+import 'package:shaghalni/core/helpers/shared_pref_helper.dart';
 import 'package:shaghalni/core/routing/routing.dart';
 import 'package:shaghalni/firebase_options.dart';
 import 'package:shaghalni/my_app.dart';
 
-void main()  async{
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-    WidgetsFlutterBinding.ensureInitialized();
-  
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
   setupServiceLocator();
-  await getIt<CacheHelper>().init();
+  await checkIfLoggedInUser();
 
-    // Set up the global Bloc observer
+  // Set up the global Bloc observer
   Bloc.observer = MyBlocObserver();
 
-  runApp( 
-    MyApp(
+  runApp(MyApp(
     routing: Routing(),
   ));
+}
+
+checkIfLoggedInUser() async {
+  String? userData =
+      await SharedPrefHelper.getSecuredString(SharedPrefKeys.userData);
+  if (!userData.isNullOrEmpty()) {
+    isLoggedInUser = true;
+  } else {
+    isLoggedInUser = false;
+  }
 }

@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shaghalni/core/data/models/category_model.dart';
-import '../utils/constants.dart';
+import '../helpers/constants.dart';
 
 class CategoryRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

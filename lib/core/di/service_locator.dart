@@ -8,12 +8,10 @@ import 'package:shaghalni/features/auth/otp/logic/cubit/otp_cubit.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
 
 import '../repositories/auth_repository.dart';
-import '../data/database/cache/cache_helper.dart';
 import '../repositories/city_repository.dart';
 
 final getIt = GetIt.instance;
 void setupServiceLocator() {
-  getIt.registerSingleton<CacheHelper>(CacheHelper());
 
   getIt.registerSingleton<AuthRepository>(AuthRepository());
   getIt.registerSingleton<CategoryRepository>(CategoryRepository());
@@ -30,5 +28,6 @@ void setupServiceLocator() {
   getIt.registerFactory<AddJobCubit>(() => AddJobCubit(
       getIt<CategoryRepository>(),
       getIt<CityRepository>(),
-      getIt<AddJobRepository>()));
+      getIt<AddJobRepository>(),
+      getIt<UserRepository>()));
 }

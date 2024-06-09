@@ -7,7 +7,6 @@ import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shaghalni/core/data/models/user_model.dart';
 import 'package:shaghalni/core/repositories/city_repository.dart';
-import 'package:shaghalni/core/services/sharedprefs.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_state.dart';
 
 import '../../../../../core/data/models/city_model.dart';
@@ -65,7 +64,6 @@ class SignupCubit extends Cubit<SignupState> {
           createdAt: createdAt);
 
       await _authRepository.signUp(userModel);
-      updateLoginStatus(true);
       await _userRepository.saveUserToPreferences(userModel);
       
 

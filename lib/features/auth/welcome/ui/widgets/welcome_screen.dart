@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
+import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/features/auth/welcome/ui/widgets/welcome_images_widget.dart';
 import 'package:shaghalni/features/auth/welcome/ui/widgets/welcome_text_widgets.dart';
 import '../../../../../core/widgets/app_text_button.dart';
@@ -21,7 +23,7 @@ class WelcomeScreen extends StatelessWidget {
             verticalSpace(50),
             AppTextButton(
               onPressed: () {
-                Navigator.pushNamed(context, "/login");
+              context.pushNamed(Routes.login);
               },
               buttonText: "Let's Get Started",
               buttonWidth: 250.w,

@@ -33,23 +33,22 @@ class _ProfilePictureState extends State<ProfilePicture> {
     late final CroppedFile? croppedFile;
 
     if (pickedFile != null) {
-      
       croppedFile = await ImageCropper().cropImage(
         sourcePath: pickedFile.path,
-        aspectRatioPresets: [
-          CropAspectRatioPreset.square,
-          CropAspectRatioPreset.ratio3x2,
-          CropAspectRatioPreset.original,
-          CropAspectRatioPreset.ratio4x3,
-          CropAspectRatioPreset.ratio16x9
-        ],
         uiSettings: [
           AndroidUiSettings(
               toolbarTitle: 'Cropper',
               toolbarColor: ColorsManager.primaryColor,
               toolbarWidgetColor: Colors.white,
               initAspectRatio: CropAspectRatioPreset.original,
-              lockAspectRatio: false),
+              lockAspectRatio: false,
+              aspectRatioPresets: [
+                CropAspectRatioPreset.square,
+                CropAspectRatioPreset.ratio3x2,
+                CropAspectRatioPreset.original,
+                CropAspectRatioPreset.ratio4x3,
+                CropAspectRatioPreset.ratio16x9
+              ]),
           IOSUiSettings(
             title: 'Cropper',
           ),
@@ -100,7 +99,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
     );
   }
 
-    Widget _buildBottomSheet() {
+  Widget _buildBottomSheet() {
     return Container(
       padding: const EdgeInsets.all(16),
       child: Column(
