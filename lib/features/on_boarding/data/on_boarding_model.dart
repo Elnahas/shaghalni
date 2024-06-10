@@ -11,21 +11,21 @@
         imagePath: 'assets/images/onboarding_1.png',
         title: 'Welcome to Shaghalni',
         subTitle:
-            'Shaghalni is an innovative platform aimed at simplifying\n the hiring process and connecting employers with the right candidates'),
+            'Shaghalni app connects employers and job seekers\n directly to achieve the best possible result.'),
     OnBoardingModel(
         imagePath: 'assets/images/onboarding_2.png',
-        title: 'Looking for a new job opportunity?',
+        title: 'Looking for your dream job',
         subTitle:
-            'Explore thousands of available jobs and connect\n with employers easily and effortlessly'),
+            'You can search and communicate with\n advertisers easily without having to wait'),
     OnBoardingModel(
         imagePath: 'assets/images/onboarding_3.png',
-        title: 'Want to find the perfect candidate?',
+        title: 'Looking for the ideal employee',
         subTitle:
-            'Posting job ads on Shaghalni allows you to reach\n a wide range of talents quickly and easily.'),
+            'Post your ad and receive applications quickly\n and easily without the need for a third party'),
     OnBoardingModel(
         imagePath: 'assets/images/onboarding_4.png',
-        title: 'Join Now',
+        title: 'Register and start now',
         subTitle:
-            'Start your journey with Shaghalni\n and take advantage of the best services to hire talents')
+            'Start now and get the best talents\n or secure your dream opportunity')
   ];
 }

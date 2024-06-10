@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/features/on_boarding/data/on_boarding_model.dart';
 import 'package:shaghalni/features/on_boarding/ui/widgets/on_boarding_item.dart';
 
+import '../../logic/cubit/page_cubit.dart';
 import '../widgets/bottom_section.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -31,21 +33,26 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   itemBuilder: (context, index) {
                     return OnBoardingItem(
                         controller: myController,
-                        imagePath: OnBoardingModel.onBoardingList[index].imagePath,
+                        imagePath:
+                            OnBoardingModel.onBoardingList[index].imagePath,
                         title: OnBoardingModel.onBoardingList[index].title,
-                        subTitle: OnBoardingModel.onBoardingList[index].subTitle);
+                        subTitle:
+                            OnBoardingModel.onBoardingList[index].subTitle);
                   },
                   controller: myController,
                   onPageChanged: (page) {
-                    setState(() {
-                      isLastScreen = (page == 3);
-                    });
+                    context.read<PageCubit>().setPage(page);
                   },
                 ),
               ),
-              BottomSection(
-                isLastScreen: isLastScreen,
-                controller: myController,
+              BlocBuilder<PageCubit, int>(
+                builder: (context, currentPage) {
+                  return BottomSection(
+                    isLastScreen: currentPage ==3,
+                    controller: myController,
+                     currentPage: currentPage,
+                  );
+                },
               ),
               verticalSpace(15)
             ],
