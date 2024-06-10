@@ -1,19 +1,14 @@
-import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shaghalni/core/data/models/category_model.dart';
 import 'package:shaghalni/core/data/models/city_model.dart';
 import 'package:shaghalni/core/data/models/user_model.dart';
-import 'package:shaghalni/core/helpers/shared_pref_helper.dart';
 import 'package:shaghalni/core/repositories/category_repository.dart';
 import 'package:shaghalni/core/repositories/user_repository.dart';
 import 'package:shaghalni/features/add_job/data/repo/add_job_repository.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_state.dart';
-
 import '../../../../core/data/models/job_model.dart';
-import '../../../../core/helpers/constants.dart';
 import '../../../../core/repositories/city_repository.dart';
 import '../../../../core/widgets/select_list_widget.dart';
 import '../../ui/widgets/add_job_form.dart';
