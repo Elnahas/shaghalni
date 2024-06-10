@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         onGenerateRoute: routing.onGenerateRoute,
-        initialRoute: isLoggedInUser ? Routes.home : Routes.welcomeScreen,
+        // initialRoute: isLoggedInUser ? Routes.home : Routes.welcomeScreen,
+        initialRoute: isLoggedInUser ? Routes.onBoarding : Routes.onBoarding,
       ),
     );
   }

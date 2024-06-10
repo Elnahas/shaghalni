@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
+
+import '../helpers/font_weight_helper.dart';
 
 abstract class TextStyles {
   static TextStyle font18BoldWhite = GoogleFonts.poppins(
@@ -55,4 +58,16 @@ abstract class TextStyles {
       fontSize: 14,
       fontWeight: FontWeight.bold,
       color: ColorsManager.primaryColor);
+
+
+
+              static TextStyle get font15DarkMedium => GoogleFonts.fredoka(
+      color: ColorsManager.dark,
+      fontSize: 18.sp,
+      fontWeight: FontWeightHelper.medium);
+
+  static TextStyle get font15Dark60Regular => GoogleFonts.fredoka(
+      color: ColorsManager.dark60,
+      fontSize: 14.sp,
+      fontWeight: FontWeightHelper.regular);
 }

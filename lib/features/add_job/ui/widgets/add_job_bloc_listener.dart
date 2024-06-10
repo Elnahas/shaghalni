@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shaghalni/core/functions/show_progress_indicator.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_cubit.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_state.dart';
-
 import '../../../../core/functions/show_snack_bar.dart';
 import '../../../../core/routing/routes.dart';
 
