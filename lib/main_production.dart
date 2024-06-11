@@ -8,7 +8,7 @@ import 'package:shaghalni/core/helpers/my_bloc_observer.dart';
 import 'package:shaghalni/core/helpers/shared_pref_helper.dart';
 import 'package:shaghalni/core/routing/routing.dart';
 import 'package:shaghalni/firebase_options.dart';
-import 'package:shaghalni/my_app.dart';
+import 'package:shaghalni/app/my_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
