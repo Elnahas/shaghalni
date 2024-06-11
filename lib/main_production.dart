@@ -19,6 +19,7 @@ void main() async {
 
   setupServiceLocator();
   await checkIfLoggedInUser();
+  await checkIfSeenOnboarding();
 
   // Set up the global Bloc observer
   Bloc.observer = MyBlocObserver();
@@ -36,4 +37,9 @@ checkIfLoggedInUser() async {
   } else {
     isLoggedInUser = false;
   }
+}
+
+checkIfSeenOnboarding() async {
+  isSeenOnboarding =
+      await SharedPrefHelper.getBool(SharedPrefKeys.hasSeenOnboarding);
 }
