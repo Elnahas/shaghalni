@@ -6,6 +6,7 @@ import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/core/routing/routing.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/features/language/ui/screen/language_screen.dart';
 
 import '../core/di/service_locator.dart';
 import '../generated/l10n.dart';
@@ -37,7 +38,8 @@ class MyApp extends StatelessWidget {
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
                 useMaterial3: true,
               ),
-              onGenerateRoute: routing.onGenerateRoute,
+              // onGenerateRoute: routing.onGenerateRoute,
+              home: LanguageScreen(),
               initialRoute: getInitialRoute(),
             );
           },

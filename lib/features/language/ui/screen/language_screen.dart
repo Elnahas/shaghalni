@@ -5,12 +5,18 @@ class LanguageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: Column(
-        children: [
-          Text('Select Language'),
-          Container()
-        ],
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Text('Select Language'),
+            Container(
+              child: Column(children: [
+                Image.asset('assets/icons/flag_ar.png'),
+              ]),
+            )
+          ],
+        ),
       ),
     );
   }
