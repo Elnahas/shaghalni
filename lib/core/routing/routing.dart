@@ -46,7 +46,7 @@ class Routing {
         return MaterialPageRoute(
             builder: (context) => const HomeNavBarWidget());
 
-      case Routes.onBoarding:
+      case Routes.onboarding:
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
                   create: (context) => PageCubit(),

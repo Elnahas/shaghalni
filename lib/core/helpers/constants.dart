@@ -1,8 +1,10 @@
 bool isLoggedInUser = false;
+bool isSeenOnboarding = false;
 
 class SharedPrefKeys {
   static const String userToken = 'userToken';
   static const String userData = 'userData';
+  static const String hasSeenOnboarding = 'hasSeenOnboarding';
 }
 
 class FirestoreCollections {

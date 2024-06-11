@@ -20,9 +20,20 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         onGenerateRoute: routing.onGenerateRoute,
-        // initialRoute: isLoggedInUser ? Routes.home : Routes.welcomeScreen,
-        initialRoute: isLoggedInUser ? Routes.onBoarding : Routes.onBoarding,
+        initialRoute: getInitialRoute(),
       ),
     );
+  }
+
+  String getInitialRoute() {
+    if (isLoggedInUser) {
+      return Routes.home;
+    } else {
+      if (isSeenOnboarding) {
+        return Routes.login;
+      } else {
+        return Routes.onboarding;
+      }
+    }
   }
 }
