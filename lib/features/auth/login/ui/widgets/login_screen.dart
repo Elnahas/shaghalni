@@ -7,8 +7,6 @@ import 'package:shaghalni/features/auth/login/logic/cubit/login_state.dart';
 import 'package:shaghalni/features/auth/login/ui/widgets/header_text_login_widgets.dart';
 import 'package:shaghalni/features/auth/login/ui/widgets/login_bloc_listener.dart';
 import 'package:shaghalni/features/auth/login/ui/widgets/login_form.dart';
-
-import '../../../../../app/language_cubit.dart';
 import '../../../../../generated/l10n.dart';
 import '../../logic/cubit/login_cubit.dart';
 
