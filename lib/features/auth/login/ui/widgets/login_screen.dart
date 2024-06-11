@@ -8,6 +8,8 @@ import 'package:shaghalni/features/auth/login/ui/widgets/header_text_login_widge
 import 'package:shaghalni/features/auth/login/ui/widgets/login_bloc_listener.dart';
 import 'package:shaghalni/features/auth/login/ui/widgets/login_form.dart';
 
+import '../../../../../app/language_cubit.dart';
+import '../../../../../generated/l10n.dart';
 import '../../logic/cubit/login_cubit.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -35,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                           isLoading: state is LoginLoading,
                           verticalPadding: 0,
                           buttonWidth: 130.w,
-                          buttonText: "Next",
+                          buttonText: S.of(context).next,
                           onPressed: () {
                             validateLogin(context);
                           }),
