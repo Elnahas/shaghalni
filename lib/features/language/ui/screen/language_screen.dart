@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/core/helpers/constants.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
+import 'package:shaghalni/core/helpers/shared_pref_helper.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
+import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
+import 'package:shaghalni/generated/l10n.dart';
+
+import '../../../../app/language_cubit.dart';
+import '../widgets/flag_item_widget.dart';
 
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({super.key});
@@ -12,8 +21,7 @@ class LanguageScreen extends StatefulWidget {
 }
 
 class _LanguageScreenState extends State<LanguageScreen> {
-  bool isEnglishSelected = false;
-  bool isArabicSelected = true;
+  String selectedLanguage = "ar";
 
   @override
   Widget build(BuildContext context) {
@@ -28,89 +36,66 @@ class _LanguageScreenState extends State<LanguageScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Select Language',
+                S.of(context).select_language,
                 style: TextStyles.font18BoldBlack,
               ),
               verticalSpace(20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  FlagItem(
+                  FlagItemWidget(
                       flagImagePath: "assets/icons/flag_en.png",
                       name: "English",
-                      isSelected: isEnglishSelected,
+                      isSelected: selectedLanguage == "en",
                       onTap: () {
                         setState(() {
-                          isEnglishSelected = true;
-                          isArabicSelected = false;
+                          selectedLanguage = "en";
+                          context
+                              .read<LanguageCubit>()
+                              .changeLanguage(selectedLanguage);
                         });
                       }),
-                  FlagItem(
+                  FlagItemWidget(
                       flagImagePath: "assets/icons/flag_ar.png",
                       name: "العربية",
-                      isSelected: isArabicSelected,
+                      isSelected: selectedLanguage == "ar",
                       onTap: () {
-                         setState(() {
-                          isArabicSelected = true;
-                          isEnglishSelected = false;
+                        setState(() {
+                          selectedLanguage = "ar";
+                          context
+                              .read<LanguageCubit>()
+                              .changeLanguage(selectedLanguage);
                         });
                       }),
                 ],
+              ),
+              verticalSpace(50),
+              ElevatedButton(
+                onPressed: () async {
+                  await SharedPrefHelper.setData(
+                      SharedPrefKeys.selectedLanguage, selectedLanguage);
+                  context.pushNamed(Routes.onboarding);
+                },
+                child: Text(
+                  S.of(context).continue_,
+                  style: TextStyles.font18BoldWhite,
+                ),
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(double.infinity, 50.h),
+                  backgroundColor: ColorsManager.primaryColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.r),
+                  ),
+                ),
+              ),
+              verticalSpace(20),
+              Text(
+                S.of(context).You_can_change_the_language_at_any_time,
+                style: TextStyles.font13GreyW300,
               )
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class FlagItem extends StatelessWidget {
-  final String flagImagePath;
-  final String name;
-  final bool isSelected;
-  final void Function()? onTap;
-
-  const FlagItem({
-    super.key,
-    required this.flagImagePath,
-    required this.name,
-    required this.isSelected,
-    this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          border: isSelected
-              ? Border.all(color: ColorsManager.primaryColor, width: 2)
-              : null,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.blue.withOpacity(0.1),
-              spreadRadius: 5,
-              blurRadius: 8,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Container(
-              height: 75,
-              width: 125,
-              child: Image.asset(
-                flagImagePath,
-                fit: BoxFit.fill,
-              )),
-          verticalSpace(20),
-          Text(name, style: TextStyles.font18BoldBlack),
-        ]),
       ),
     );
   }

@@ -20,6 +20,7 @@ void main() async {
   setupServiceLocator();
   await checkIfLoggedInUser();
   await checkIfSeenOnboarding();
+  await getLanguage();
 
   // Set up the global Bloc observer
   Bloc.observer = MyBlocObserver();
@@ -42,4 +43,9 @@ checkIfLoggedInUser() async {
 checkIfSeenOnboarding() async {
   isSeenOnboarding =
       await SharedPrefHelper.getBool(SharedPrefKeys.hasSeenOnboarding);
+}
+
+getLanguage() async {
+  selectedLanguage = await SharedPrefHelper.getString(
+      SharedPrefKeys.selectedLanguage);
 }

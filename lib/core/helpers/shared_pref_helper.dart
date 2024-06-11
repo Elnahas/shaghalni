@@ -64,10 +64,10 @@ class SharedPrefHelper {
   }
 
   /// Gets an String value from SharedPreferences with given [key].
-  static getString(String key) async {
+  static getString(String key , {String defaultValue = ''}) async {
     debugPrint('SharedPrefHelper : getString with key : $key');
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    return sharedPreferences.getString(key) ?? '';
+    return sharedPreferences.getString(key) ?? defaultValue;
   }
 
   /// Saves a [value] with a [key] in the FlutterSecureStorage.

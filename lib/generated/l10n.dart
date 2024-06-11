@@ -59,6 +59,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Continue`
+  String get continue_ {
+    return Intl.message(
+      'Continue',
+      name: 'continue_',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Language`
+  String get select_language {
+    return Intl.message(
+      'Select Language',
+      name: 'select_language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can change the language at any time`
+  String get You_can_change_the_language_at_any_time {
+    return Intl.message(
+      'You can change the language at any time',
+      name: 'You_can_change_the_language_at_any_time',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
