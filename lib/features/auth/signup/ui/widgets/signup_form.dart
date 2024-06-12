@@ -20,7 +20,7 @@ class _SignupFormState extends State<SignupForm> {
   late DatePickerHelper datePickerHelper;
 
   late TextEditingController birthDateController;
-  late TextEditingController fullNameController;
+  late TextEditingController firstNameController;
   late TextEditingController cityController;
 
   late final SignupCubit _cubit;
@@ -29,7 +29,7 @@ class _SignupFormState extends State<SignupForm> {
   void initState() {
     _cubit = context.read<SignupCubit>();
     birthDateController = _cubit.birthDateController;
-    fullNameController = _cubit.fullNameController;
+    firstNameController = _cubit.firstNameController;
     cityController = _cubit.cityController;
 
     datePickerHelper = DatePickerHelper(dateController: birthDateController);
@@ -46,30 +46,40 @@ class _SignupFormState extends State<SignupForm> {
         children: [
           const ProfilePicture(),
           verticalSpace(20),
-          Text(
-            "Phone Number",
-            style: AppTextStyles.font18BoldBlack,
-          ),
-          verticalSpace(10),
           AppTextFormField(
+              labelText: "Phone Number",
               readOnly: true,
               hintText: context.read<SignupCubit>().phoneNumber,
               validator: (value) {}),
           verticalSpace(20),
-          Text(
-            "Full Name",
-            style: AppTextStyles.font18BoldBlack,
+          Row(
+            children: [
+              Expanded(
+                child: AppTextFormField(
+                    labelText: "First Name",
+                    controller: firstNameController,
+                    hintText: "First Name",
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Please enter your first name";
+                      }
+                      return null;
+                    }),
+              ),
+              horizontalSpace(10),
+              Expanded(
+                child: AppTextFormField(
+                    labelText: "Last Name",
+                    hintText: "Last Name",
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Please enter your last name";
+                      }
+                      return null;
+                    }),
+              )
+            ],
           ),
-          verticalSpace(10),
-          AppTextFormField(
-              controller: fullNameController,
-              hintText: "FullName",
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return "Please enter your full name";
-                }
-                return null;
-              }),
           verticalSpace(20),
           Text(
             "City",

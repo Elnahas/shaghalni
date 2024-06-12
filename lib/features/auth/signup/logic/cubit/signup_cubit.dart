@@ -30,6 +30,7 @@ class SignupCubit extends Cubit<SignupState> {
   TextEditingController birthDateController = TextEditingController();
   TextEditingController fullNameController = TextEditingController();
   TextEditingController cityController = TextEditingController();
+  TextEditingController firstNameController = TextEditingController();
 
   String? selectedGender = "male";
   final List<String> genders = ["male", "female"];

@@ -6,6 +6,15 @@ import 'package:shaghalni/core/theming/app_colors.dart';
 import '../helpers/font_weight_helper.dart';
 
 abstract class AppTextStyles {
+
+    static final poppins14Normal = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: AppColors.dark,
+    fontFamily: "Poppins",
+  );
+
+
   static TextStyle font18BoldWhite = GoogleFonts.poppins(
       fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white);
   static TextStyle font18BoldBlack = GoogleFonts.poppins(

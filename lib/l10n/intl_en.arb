@@ -2,5 +2,6 @@
     "next": "Next",
     "continue_": "Continue",
     "select_language": "Select Language",
-    "You_can_change_the_language_at_any_time": "You can change the language at any time"
+    "You_can_change_the_language_at_any_time": "You can change the language at any time",
+    "phoneNumber": "phoneNumber",
 }
