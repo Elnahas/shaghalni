@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/core/widgets/app_drop_down_button.dart';
+import 'package:shaghalni/core/widgets/app_label_text.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
+import 'package:shaghalni/features/auth/signup/logic/cubit/signup_state.dart';
 import 'package:shaghalni/features/auth/signup/ui/widgets/profile_picture_widget.dart';
 import '../../../../../core/helpers/date_picker_helper.dart';
 import '../../../../../core/helpers/spacing.dart';
-import '../../../../../core/theming/app_text_styles.dart';
 import '../../../../../core/widgets/app_text_form_field.dart';
 import '../../../../../core/widgets/select_list_widget.dart';
 
@@ -21,6 +23,7 @@ class _SignupFormState extends State<SignupForm> {
 
   late TextEditingController birthDateController;
   late TextEditingController firstNameController;
+  late TextEditingController lastNameController;
   late TextEditingController cityController;
 
   late final SignupCubit _cubit;
@@ -30,6 +33,7 @@ class _SignupFormState extends State<SignupForm> {
     _cubit = context.read<SignupCubit>();
     birthDateController = _cubit.birthDateController;
     firstNameController = _cubit.firstNameController;
+    lastNameController = _cubit.lastNameController;
     cityController = _cubit.cityController;
 
     datePickerHelper = DatePickerHelper(dateController: birthDateController);
@@ -70,6 +74,7 @@ class _SignupFormState extends State<SignupForm> {
               Expanded(
                 child: AppTextFormField(
                     labelText: "Last Name",
+                    controller: lastNameController,
                     hintText: "Last Name",
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -81,12 +86,8 @@ class _SignupFormState extends State<SignupForm> {
             ],
           ),
           verticalSpace(20),
-          Text(
-            "City",
-            style: AppTextStyles.font18BoldBlack,
-          ),
-          verticalSpace(10),
           AppTextFormField(
+              labelText: "City",
               suffixIcon: const Icon(Icons.arrow_drop_down),
               readOnly: true,
               onTap: () {
@@ -120,12 +121,8 @@ class _SignupFormState extends State<SignupForm> {
                 return null;
               }),
           verticalSpace(20),
-          Text(
-            "Birth Date",
-            style: AppTextStyles.font18BoldBlack,
-          ),
-          verticalSpace(10),
           AppTextFormField(
+              labelText: "Birth Date",
               controller: birthDateController,
               hintText: "Birth Date",
               validator: (value) {
@@ -140,12 +137,24 @@ class _SignupFormState extends State<SignupForm> {
               readOnly: true,
               suffixIcon: const Icon(Icons.calendar_month)),
           verticalSpace(20),
-          Text(
-            "Select Gender",
-            style: AppTextStyles.font18BoldBlack,
-          ),
+          AppLabelText(labelText: "Gender"),
           verticalSpace(10),
           const AppDropDownButton(),
+          verticalSpace(20),
+          BlocBuilder<SignupCubit, SignupState>(
+            buildWhen: (previous, current) => current is AgreementState,
+            builder: (context, state) {
+              return CheckboxListTile(
+                value: _cubit.isAgreed,
+                onChanged: (value) {
+                  print(value);
+                  _cubit.setAgreement(value!);
+                },
+                title: Text("I agree with the Terms and Conditions",
+                    style: AppTextStyles.font15Dark60Regular),
+              );
+            },
+          ),
         ],
       ),
     );

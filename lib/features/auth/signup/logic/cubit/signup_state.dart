@@ -14,4 +14,6 @@ class SignupState<T> with _$SignupState<T> {
   const factory SignupState.cityLoading() = CityLoading;
   const factory SignupState.citySuccess() = CitySuccess;
   const factory SignupState.cityFailure({required String error}) = CityFailure;
+
+    const factory SignupState.agreementState({required bool isAgreed}) = AgreementState;
 }

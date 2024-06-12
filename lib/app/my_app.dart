@@ -7,7 +7,6 @@ import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/core/routing/routing.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shaghalni/features/auth/signup/ui/widgets/signup_screen.dart';
 import '../core/di/service_locator.dart';
 import '../generated/l10n.dart';
 

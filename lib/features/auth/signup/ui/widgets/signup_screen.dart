@@ -65,7 +65,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   verticalSpace(20),
                   AppTextButton(
                       isLoading: state is SignupLoading,
-                      buttonText: "Register",
+                      buttonText: "Create an account",
                       onPressed: () {
                         validateSignup(context);
                       })
@@ -81,7 +81,11 @@ class _SignupScreenState extends State<SignupScreen> {
   void validateSignup(BuildContext context) async {
     var cubit = context.read<SignupCubit>();
     if (cubit.signupFormKey.currentState!.validate()) {
-      await cubit.signUp();
+      if(cubit.isAgreed)
+      {await cubit.signUp();}
+      else{
+        showSnackBar(context, "Please accept the terms and conditions");
+      }
     }
   }
 }

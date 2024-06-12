@@ -6,6 +6,8 @@ import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
 
+import 'app_label_text.dart';
+
 class AppTextFormField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? focusedBorder;
@@ -53,9 +55,8 @@ class AppTextFormField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (!labelText.isNullOrEmpty()) ...[
-          Text(
-            labelText!,
-            style: AppTextStyles.poppins14Normal,
+          AppLabelText(
+            labelText: labelText!,
           ),
           verticalSpace(10),
         ],
@@ -90,9 +91,11 @@ class AppTextFormField extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                   ),
               errorBorder: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(16)),
                 borderSide: BorderSide(color: Colors.red, width: 1.3),
               ),
               focusedErrorBorder: const OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(16)),
                   borderSide: BorderSide(color: Colors.red, width: 1.3)),
               hintStyle: hintStyle ?? AppTextStyles.font14LightGrayRegular,
               hintText: hintText,

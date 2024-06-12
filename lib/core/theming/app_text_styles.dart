@@ -14,6 +14,16 @@ abstract class AppTextStyles {
     fontFamily: "Poppins",
   );
 
+    static TextStyle font14LightGrayRegular = 
+    
+    TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: AppColors.lightGrey,
+    fontFamily: "Poppins",
+  );
+    
+
 
   static TextStyle font18BoldWhite = GoogleFonts.poppins(
       fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white);
@@ -43,10 +53,7 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.normal,
   );
 
-  static TextStyle font14LightGrayRegular = GoogleFonts.poppins(
-      fontSize: 14,
-      fontWeight: FontWeight.normal,
-      color: AppColors.lightGrey);
+
 
   static TextStyle font28SemiBoldWhite = GoogleFonts.poppins(
       fontSize: 28, fontWeight: FontWeight.w600, color: Colors.white);
