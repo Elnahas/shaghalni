@@ -7,7 +7,7 @@ import 'package:shaghalni/core/helpers/extentions.dart';
 class LanguageCubit extends Cubit<Locale> {
   LanguageCubit()
       : super(
-            Locale(selectedLanguage.isNullOrEmpty() ? "ar" : selectedLanguage));
+            Locale(selectedLanguage.isNullOrEmpty() ? "en" : selectedLanguage));
 
   void changeLanguage(String languageCode) {
     emit(Locale(languageCode));

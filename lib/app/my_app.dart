@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:shaghalni/app/language_cubit.dart';
+import 'package:shaghalni/features/language/logic/language_cubit.dart';
 import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/core/routing/routing.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/features/auth/signup/ui/widgets/signup_screen.dart';
 import '../core/di/service_locator.dart';
 import '../generated/l10n.dart';
 
@@ -38,8 +39,9 @@ class MyApp extends StatelessWidget {
                 useMaterial3: true,
               ),
               onGenerateRoute: routing.onGenerateRoute,
-              // home: LanguageScreen(),
-              initialRoute: getInitialRoute(),
+              // home: SignupScreen(),
+              // initialRoute: getInitialRoute(),
+              initialRoute: Routes.login,
             );
           },
         ),

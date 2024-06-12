@@ -38,7 +38,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
         uiSettings: [
           AndroidUiSettings(
               toolbarTitle: 'Cropper',
-              toolbarColor: ColorsManager.primaryColor,
+              toolbarColor: AppColors.primaryColor,
               toolbarWidgetColor: Colors.white,
               initAspectRatio: CropAspectRatioPreset.original,
               lockAspectRatio: false,

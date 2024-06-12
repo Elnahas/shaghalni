@@ -41,7 +41,7 @@ class AppTextButton extends StatelessWidget {
           ),
         ),
         backgroundColor: WidgetStatePropertyAll(
-          backgroundColor ?? ColorsManager.primaryColor,
+          backgroundColor ?? AppColors.primaryColor,
         ),
         padding: WidgetStateProperty.all<EdgeInsets>(
           EdgeInsets.symmetric(
@@ -58,7 +58,7 @@ class AppTextButton extends StatelessWidget {
           ? const BtnLoader()
           : Text(
               buttonText,
-              style: textStyle ?? TextStyles.font20SemiBoldWhite,
+              style: textStyle ?? AppTextStyles.font20SemiBoldWhite,
             ),
     );
   }

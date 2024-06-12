@@ -11,10 +11,10 @@ class HeaderTextLoginWidgets extends StatelessWidget {
     return  Column(
       children: [
                         Text("What is your phone number?",
-                    style: TextStyles.font24BoldBlack),
+                    style: AppTextStyles.font24BoldBlack),
                 verticalSpace(20),
                 Text("Please enter you phone number to verify your account",
-                    style: TextStyles.font14BlackW300),
+                    style: AppTextStyles.font14BlackW300),
       ],
     );
   }

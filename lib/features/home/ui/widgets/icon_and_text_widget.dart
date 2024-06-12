@@ -21,12 +21,12 @@ class IconAndTextWidget extends StatelessWidget {
       Icon(
         icon,
         size: 24,
-        color: ColorsManager.primaryColor,
+        color: AppColors.primaryColor,
       ),
       horizontalSpace(5),
       Text(
         text,
-        style: TextStyles.font14LightGrayRegular,
+        style: AppTextStyles.font14LightGrayRegular,
       )
     ]);
   }

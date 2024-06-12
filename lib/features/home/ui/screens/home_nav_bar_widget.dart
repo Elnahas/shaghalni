@@ -34,7 +34,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
 
 
           }, icon: const Icon(Icons.menu)),
-          title: Text("شغلنى" , style: TextStyles.font24BoldBlack,),
+          title: Text("شغلنى" , style: AppTextStyles.font24BoldBlack,),
         ),
         
       ),

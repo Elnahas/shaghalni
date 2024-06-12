@@ -14,7 +14,7 @@ class JobItemsDetailsWidget extends StatelessWidget {
       children: [
         Text(
           "Job Casher",
-          style: TextStyles.font18BoldBlack,
+          style: AppTextStyles.font18BoldBlack,
         ),
         verticalSpace(10),
         const IconAndTextWidget(

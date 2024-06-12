@@ -48,7 +48,7 @@ class _SignupFormState extends State<SignupForm> {
           verticalSpace(20),
           Text(
             "Phone Number",
-            style: TextStyles.font18BoldBlack,
+            style: AppTextStyles.font18BoldBlack,
           ),
           verticalSpace(10),
           AppTextFormField(
@@ -58,7 +58,7 @@ class _SignupFormState extends State<SignupForm> {
           verticalSpace(20),
           Text(
             "Full Name",
-            style: TextStyles.font18BoldBlack,
+            style: AppTextStyles.font18BoldBlack,
           ),
           verticalSpace(10),
           AppTextFormField(
@@ -73,7 +73,7 @@ class _SignupFormState extends State<SignupForm> {
           verticalSpace(20),
           Text(
             "City",
-            style: TextStyles.font18BoldBlack,
+            style: AppTextStyles.font18BoldBlack,
           ),
           verticalSpace(10),
           AppTextFormField(
@@ -112,7 +112,7 @@ class _SignupFormState extends State<SignupForm> {
           verticalSpace(20),
           Text(
             "Birth Date",
-            style: TextStyles.font18BoldBlack,
+            style: AppTextStyles.font18BoldBlack,
           ),
           verticalSpace(10),
           AppTextFormField(
@@ -132,7 +132,7 @@ class _SignupFormState extends State<SignupForm> {
           verticalSpace(20),
           Text(
             "Select Gender",
-            style: TextStyles.font18BoldBlack,
+            style: AppTextStyles.font18BoldBlack,
           ),
           verticalSpace(10),
           const AppDropDownButton(),

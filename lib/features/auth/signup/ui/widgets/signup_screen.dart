@@ -55,7 +55,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   verticalSpace(30),
                   Text(
                     "Create Account",
-                    style: TextStyles.font24BoldBlack,
+                    style: AppTextStyles.font24BoldBlack,
                   ),
                   verticalSpace(30),
                   state is CityLoading

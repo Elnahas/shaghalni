@@ -19,7 +19,7 @@ class _AppDropDownButtonState extends State<AppDropDownButton> {
       width: double.maxFinite,
       padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 20.w),
       decoration: BoxDecoration(
-          border: Border.all(color: ColorsManager.lighterGrey, width: 1.3),
+          border: Border.all(color: AppColors.lighterGrey, width: 1.3),
           borderRadius: BorderRadius.circular(16),
           color: Colors.white),
       child: DropdownButton(
