@@ -11,6 +11,7 @@ import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/generated/l10n.dart';
 
 import '../../../../app/language_cubit.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../widgets/flag_item_widget.dart';
 
 class LanguageScreen extends StatefulWidget {
@@ -40,6 +41,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                 style: TextStyles.font18BoldBlack,
               ),
               verticalSpace(20),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -69,25 +71,17 @@ class _LanguageScreenState extends State<LanguageScreen> {
                       }),
                 ],
               ),
+              
               verticalSpace(50),
-              ElevatedButton(
-                onPressed: () async {
-                  await SharedPrefHelper.setData(
-                      SharedPrefKeys.selectedLanguage, selectedLanguage);
-                  context.pushNamed(Routes.onboarding);
-                },
-                child: Text(
-                  S.of(context).continue_,
-                  style: TextStyles.font18BoldWhite,
-                ),
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 50.h),
-                  backgroundColor: ColorsManager.primaryColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.r),
+              AppElevatedButton(
+                  buttonText: S.of(context).continue_,
+                  onPressed: () async {
+                    await SharedPrefHelper.setData(
+                        SharedPrefKeys.selectedLanguage, selectedLanguage);
+
+                    context.pushNamed(Routes.onboarding);
+                  }
                   ),
-                ),
-              ),
               verticalSpace(20),
               Text(
                 S.of(context).You_can_change_the_language_at_any_time,
