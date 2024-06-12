@@ -23,7 +23,7 @@ class CategoryItemsWidget extends StatelessWidget {
       child: TextButton(
         style: ButtonStyle(
             padding: const WidgetStatePropertyAll(EdgeInsets.all(8)),
-            backgroundColor: WidgetStateProperty.all(ColorsManager.lighterGrey),
+            backgroundColor: WidgetStateProperty.all(AppColors.lighterGrey),
             shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12)))),
         onPressed: () {},
@@ -43,7 +43,7 @@ class CategoryItemsWidget extends StatelessWidget {
             horizontalSpace(10),
             Text(
               categoryModel[index].name,
-              style: TextStyles.font14BoldBlack,
+              style: AppTextStyles.font14BoldBlack,
             )
           ],
         ),

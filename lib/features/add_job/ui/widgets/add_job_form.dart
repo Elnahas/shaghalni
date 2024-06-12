@@ -44,7 +44,7 @@ class _AddJobFormState extends State<AddJobForm> {
             verticalSpace(20),
             Text(
               "Title of the job",
-              style: TextStyles.font18BoldBlack,
+              style: AppTextStyles.font18BoldBlack,
             ),
             verticalSpace(10),
             AppTextFormField(
@@ -59,7 +59,7 @@ class _AddJobFormState extends State<AddJobForm> {
             verticalSpace(20),
             Text(
               "Description of the job",
-              style: TextStyles.font18BoldBlack,
+              style: AppTextStyles.font18BoldBlack,
 
             ),
             verticalSpace(10),
@@ -74,7 +74,7 @@ class _AddJobFormState extends State<AddJobForm> {
             verticalSpace(20),
             Text(
               "Salary",
-              style: TextStyles.font18BoldBlack,
+              style: AppTextStyles.font18BoldBlack,
             ),
             verticalSpace(10),
             AppTextFormField(
@@ -97,12 +97,12 @@ class _AddJobFormState extends State<AddJobForm> {
               },
               title: Text(
                 "Hide the salary from the job advertisement",
-                style: TextStyles.font14BlackW300,
+                style: AppTextStyles.font14BlackW300,
               ),
             ),
             verticalSpace(30),
             Text(
-                "By clicking on the Publish Ad button, you agree to the terms of use and that all data is real and the Shaghalni application has no connection to it." ,style: TextStyles.font14BoldBlack,)
+                "By clicking on the Publish Ad button, you agree to the terms of use and that all data is real and the Shaghalni application has no connection to it." ,style: AppTextStyles.font14BoldBlack,)
           ],
         ),
       ),

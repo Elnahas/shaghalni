@@ -13,7 +13,7 @@ class BtnLoader extends StatelessWidget {
       height: 25,
       child: CircularProgressIndicator(
 
-        color: color ?? ColorsManager.white,
+        color: color ?? AppColors.white,
 
         strokeWidth: 5,
       ),

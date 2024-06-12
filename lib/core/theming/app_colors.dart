@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class ColorsManager {
+abstract class AppColors {
   static const Color primaryColor =  Color(0xff1F41BB);
   static const Color offWhite =  Color(0xffF8F9FF);
   static const Color deepBrown =  Color(0xff6B4B3E);

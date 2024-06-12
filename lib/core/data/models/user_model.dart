@@ -9,21 +9,31 @@ part 'user_model.g.dart';
 @JsonSerializable()
 class UserModel {
   final String uid;
-  final String fullName;
+  @JsonKey(name: 'first_name')
+  final String firstName;
+  @JsonKey(name: 'last_name')
+  final String lastName;
+  String get fullName => '$firstName $lastName';
+  @JsonKey(name: 'phone_number')
   final String phoneNumber;
+  @JsonKey(name: 'birth_date')
   final String birthDate;
   @JsonKey(fromJson: cityModelFromJson, toJson: cityModelToJson)
   final CityModel city;
   final String gender;
+  @JsonKey(name: 'is_online')
   final bool isOnline;
+  @JsonKey(name: 'is_suspended')
   final bool isSuspended;
+  @JsonKey(name: 'image_url')
   final String? imageUrl;
-  @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
+  @JsonKey(name: "created_at",fromJson: timestampFromJson, toJson: timestampToJson)
   final Timestamp createdAt;
 
   UserModel(
       {required this.uid,
-      required this.fullName,
+      required this.firstName,
+      required this.lastName,
       required this.phoneNumber,
       required this.birthDate,
       required this.city,
@@ -37,8 +47,4 @@ class UserModel {
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
-
-
-
-
 }

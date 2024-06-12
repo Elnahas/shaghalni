@@ -44,10 +44,10 @@ class BottomSection extends StatelessWidget {
             animationDuration: 300,
             percent: getPercent(),
             animateFromLastPercent: true,
-            progressColor: ColorsManager.primaryColor,
+            progressColor: AppColors.primaryColor,
             center: CircleAvatar(
               radius: 30,
-              backgroundColor: ColorsManager.primaryColor,
+              backgroundColor: AppColors.primaryColor,
               child: IconButton(
                   onPressed: () {
                     isLastScreen

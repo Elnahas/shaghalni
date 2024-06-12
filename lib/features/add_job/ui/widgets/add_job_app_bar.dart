@@ -12,12 +12,12 @@ class AddJobAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: ColorsManager.lighterGray,
+      backgroundColor: AppColors.lighterGray,
       elevation: 0,
       centerTitle: true,
       title: Text(
         'Job Vacancy Announcement',
-        style: TextStyles.font18BoldBlack,
+        style: AppTextStyles.font18BoldBlack,
       ),
       leading: IconButton(
         onPressed: () {
@@ -29,7 +29,7 @@ class AddJobAppBar extends StatelessWidget implements PreferredSizeWidget {
         },
         icon: const Icon(
           Icons.arrow_back_ios,
-          color: ColorsManager.black,
+          color: AppColors.black,
         ),
       ),
     );

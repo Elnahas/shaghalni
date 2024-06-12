@@ -18,14 +18,14 @@ class CustomShimmerImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: ColorsManager.grey,
+      baseColor: AppColors.grey,
       highlightColor: Colors.white,
       child: Container(
         width: width.h,
         height: height.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(borderRadius.r),
-          color: ColorsManager.grey,
+          color: AppColors.grey,
         ),
       ),
     );

@@ -25,7 +25,7 @@ class _AddJobScreenState extends State<AddJobScreen> {
       },
       child: Scaffold(
         appBar: AddJobAppBar(),
-        backgroundColor: ColorsManager.lighterGray,
+        backgroundColor: AppColors.lighterGray,
         body: Padding(
           padding: const EdgeInsets.all(14.0),
           child: Column(

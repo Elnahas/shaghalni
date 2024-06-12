@@ -14,7 +14,7 @@ class IntroTexts extends StatelessWidget {
       children: [
         Text(
           "Verification your phone number",
-          style: TextStyles.font24BoldBlack,
+          style: AppTextStyles.font24BoldBlack,
         ),
         verticalSpace(30),
         Container(

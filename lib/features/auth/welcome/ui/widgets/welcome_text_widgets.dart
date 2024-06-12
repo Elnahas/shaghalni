@@ -13,12 +13,12 @@ class WelcomeTextWidgets extends StatelessWidget {
         Text(
             textAlign: TextAlign.center,
             "Discover Your \n Dream Job here",
-            style: TextStyles.font35SemiBoldBlue),
+            style: AppTextStyles.font35SemiBoldBlue),
         verticalSpace(20),
         Text(
             "Explore all the existing job roles based on your \n interest and study major.",
             textAlign: TextAlign.center,
-            style: TextStyles.font14BlackW300),
+            style: AppTextStyles.font14BlackW300),
       ],
     );
   }

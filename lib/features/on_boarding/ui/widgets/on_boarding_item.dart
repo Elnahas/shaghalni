@@ -34,13 +34,13 @@ class OnBoardingItem extends StatelessWidget {
           verticalSpace(25),
           Text(
             title,
-            style: TextStyles.font15DarkMedium,
+            style: AppTextStyles.font15DarkMedium,
             textAlign: TextAlign.center,
           ),
           verticalSpace(10),
           Text(
             subTitle,
-            style: TextStyles.font15Dark60Regular,
+            style: AppTextStyles.font15Dark60Regular,
             textAlign: TextAlign.center,
           ),
         ],

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/spacing.dart';
@@ -29,7 +28,7 @@ class FlagItemWidget extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
           border: isSelected
-              ? Border.all(color: ColorsManager.primaryColor, width: 2)
+              ? Border.all(color: AppColors.primaryColor, width: 2)
               : null,
           boxShadow: [
             BoxShadow(
@@ -50,7 +49,7 @@ class FlagItemWidget extends StatelessWidget {
                 fit: BoxFit.fill,
               )),
           verticalSpace(20),
-          Text(name, style: TextStyles.font18BoldBlack),
+          Text(name, style: AppTextStyles.font18BoldBlack),
         ]),
       ),
     );

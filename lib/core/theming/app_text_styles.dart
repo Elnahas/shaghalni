@@ -5,7 +5,26 @@ import 'package:shaghalni/core/theming/app_colors.dart';
 
 import '../helpers/font_weight_helper.dart';
 
-abstract class TextStyles {
+abstract class AppTextStyles {
+
+    static final poppins14Normal = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: AppColors.dark,
+    fontFamily: "Poppins",
+  );
+
+    static TextStyle font14LightGrayRegular = 
+    
+    TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: AppColors.lightGrey,
+    fontFamily: "Poppins",
+  );
+    
+
+
   static TextStyle font18BoldWhite = GoogleFonts.poppins(
       fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white);
   static TextStyle font18BoldBlack = GoogleFonts.poppins(
@@ -27,17 +46,14 @@ abstract class TextStyles {
       fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black);
 
   static TextStyle font14DarkBlueMedium = GoogleFonts.poppins(
-      fontSize: 14, fontWeight: FontWeight.w400, color: ColorsManager.darkBlue);
+      fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.darkBlue);
 
   static TextStyle font16Regular = GoogleFonts.poppins(
     fontSize: 16,
     fontWeight: FontWeight.normal,
   );
 
-  static TextStyle font14LightGrayRegular = GoogleFonts.poppins(
-      fontSize: 14,
-      fontWeight: FontWeight.normal,
-      color: ColorsManager.lightGrey);
+
 
   static TextStyle font28SemiBoldWhite = GoogleFonts.poppins(
       fontSize: 28, fontWeight: FontWeight.w600, color: Colors.white);
@@ -48,7 +64,7 @@ abstract class TextStyles {
   static TextStyle font35SemiBoldBlue = GoogleFonts.poppins(
       fontSize: 35,
       fontWeight: FontWeight.w600,
-      color: ColorsManager.primaryColor);
+      color: AppColors.primaryColor);
 
   static TextStyle font24BoldBlack = GoogleFonts.poppins(
       fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black);
@@ -57,17 +73,17 @@ abstract class TextStyles {
   static TextStyle font14BoldBlue = GoogleFonts.poppins(
       fontSize: 14,
       fontWeight: FontWeight.bold,
-      color: ColorsManager.primaryColor);
+      color: AppColors.primaryColor);
 
 
 
               static TextStyle get font15DarkMedium => GoogleFonts.fredoka(
-      color: ColorsManager.dark,
+      color: AppColors.dark,
       fontSize: 18.sp,
       fontWeight: FontWeightHelper.medium);
 
   static TextStyle get font15Dark60Regular => GoogleFonts.fredoka(
-      color: ColorsManager.dark60,
+      color: AppColors.dark60,
       fontSize: 14.sp,
       fontWeight: FontWeightHelper.regular);
 }

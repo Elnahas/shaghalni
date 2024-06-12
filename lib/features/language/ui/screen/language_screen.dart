@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shaghalni/app/language_cubit.dart';
+import 'package:shaghalni/features/language/logic/language_cubit.dart';
 import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/helpers/shared_pref_helper.dart';
@@ -19,7 +19,7 @@ class LanguageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsManager.lighterGray,
+      backgroundColor: AppColors.lighterGray,
       body: SafeArea(
         child: BlocBuilder<LanguageCubit, Locale>(
           builder: (context, locale) {
@@ -32,7 +32,7 @@ class LanguageScreen extends StatelessWidget {
                 children: [
                   Text(
                     S.of(context).select_language,
-                    style: TextStyles.font18BoldBlack,
+                    style: AppTextStyles.font18BoldBlack,
                   ),
                   verticalSpace(20),
                   FlagSection(selectedLanguage: locale.languageCode),
@@ -51,7 +51,7 @@ class LanguageScreen extends StatelessWidget {
                   verticalSpace(20),
                   Text(
                     S.of(context).You_can_change_the_language_at_any_time,
-                    style: TextStyles.font13GreyW300,
+                    style: AppTextStyles.font13GreyW300,
                   ),
                 ],
               ),

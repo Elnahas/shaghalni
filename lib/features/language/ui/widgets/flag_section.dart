@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/features/language/ui/widgets/flag_item_widget.dart';
 
-import '../../../../app/language_cubit.dart';
+import '../../logic/language_cubit.dart';
 
 class FlagSection extends StatelessWidget {
   final String selectedLanguage;

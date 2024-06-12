@@ -25,6 +25,7 @@ mixin _$SignupState<T> {
     required TResult Function() cityLoading,
     required TResult Function() citySuccess,
     required TResult Function(String error) cityFailure,
+    required TResult Function(bool isAgreed) agreementState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +37,7 @@ mixin _$SignupState<T> {
     TResult? Function()? cityLoading,
     TResult? Function()? citySuccess,
     TResult? Function(String error)? cityFailure,
+    TResult? Function(bool isAgreed)? agreementState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +49,7 @@ mixin _$SignupState<T> {
     TResult Function()? cityLoading,
     TResult Function()? citySuccess,
     TResult Function(String error)? cityFailure,
+    TResult Function(bool isAgreed)? agreementState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +62,7 @@ mixin _$SignupState<T> {
     required TResult Function(CityLoading<T> value) cityLoading,
     required TResult Function(CitySuccess<T> value) citySuccess,
     required TResult Function(CityFailure<T> value) cityFailure,
+    required TResult Function(AgreementState<T> value) agreementState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +74,7 @@ mixin _$SignupState<T> {
     TResult? Function(CityLoading<T> value)? cityLoading,
     TResult? Function(CitySuccess<T> value)? citySuccess,
     TResult? Function(CityFailure<T> value)? cityFailure,
+    TResult? Function(AgreementState<T> value)? agreementState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +86,7 @@ mixin _$SignupState<T> {
     TResult Function(CityLoading<T> value)? cityLoading,
     TResult Function(CitySuccess<T> value)? citySuccess,
     TResult Function(CityFailure<T> value)? cityFailure,
+    TResult Function(AgreementState<T> value)? agreementState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,6 +155,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() cityLoading,
     required TResult Function() citySuccess,
     required TResult Function(String error) cityFailure,
+    required TResult Function(bool isAgreed) agreementState,
   }) {
     return initial();
   }
@@ -163,6 +170,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? cityLoading,
     TResult? Function()? citySuccess,
     TResult? Function(String error)? cityFailure,
+    TResult? Function(bool isAgreed)? agreementState,
   }) {
     return initial?.call();
   }
@@ -177,6 +185,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? cityLoading,
     TResult Function()? citySuccess,
     TResult Function(String error)? cityFailure,
+    TResult Function(bool isAgreed)? agreementState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -195,6 +204,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(CityLoading<T> value) cityLoading,
     required TResult Function(CitySuccess<T> value) citySuccess,
     required TResult Function(CityFailure<T> value) cityFailure,
+    required TResult Function(AgreementState<T> value) agreementState,
   }) {
     return initial(this);
   }
@@ -209,6 +219,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(CityLoading<T> value)? cityLoading,
     TResult? Function(CitySuccess<T> value)? citySuccess,
     TResult? Function(CityFailure<T> value)? cityFailure,
+    TResult? Function(AgreementState<T> value)? agreementState,
   }) {
     return initial?.call(this);
   }
@@ -223,6 +234,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(CityLoading<T> value)? cityLoading,
     TResult Function(CitySuccess<T> value)? citySuccess,
     TResult Function(CityFailure<T> value)? cityFailure,
+    TResult Function(AgreementState<T> value)? agreementState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -281,6 +293,7 @@ class _$SignupSuccessImpl<T> implements SignupSuccess<T> {
     required TResult Function() cityLoading,
     required TResult Function() citySuccess,
     required TResult Function(String error) cityFailure,
+    required TResult Function(bool isAgreed) agreementState,
   }) {
     return signupSuccess();
   }
@@ -295,6 +308,7 @@ class _$SignupSuccessImpl<T> implements SignupSuccess<T> {
     TResult? Function()? cityLoading,
     TResult? Function()? citySuccess,
     TResult? Function(String error)? cityFailure,
+    TResult? Function(bool isAgreed)? agreementState,
   }) {
     return signupSuccess?.call();
   }
@@ -309,6 +323,7 @@ class _$SignupSuccessImpl<T> implements SignupSuccess<T> {
     TResult Function()? cityLoading,
     TResult Function()? citySuccess,
     TResult Function(String error)? cityFailure,
+    TResult Function(bool isAgreed)? agreementState,
     required TResult orElse(),
   }) {
     if (signupSuccess != null) {
@@ -327,6 +342,7 @@ class _$SignupSuccessImpl<T> implements SignupSuccess<T> {
     required TResult Function(CityLoading<T> value) cityLoading,
     required TResult Function(CitySuccess<T> value) citySuccess,
     required TResult Function(CityFailure<T> value) cityFailure,
+    required TResult Function(AgreementState<T> value) agreementState,
   }) {
     return signupSuccess(this);
   }
@@ -341,6 +357,7 @@ class _$SignupSuccessImpl<T> implements SignupSuccess<T> {
     TResult? Function(CityLoading<T> value)? cityLoading,
     TResult? Function(CitySuccess<T> value)? citySuccess,
     TResult? Function(CityFailure<T> value)? cityFailure,
+    TResult? Function(AgreementState<T> value)? agreementState,
   }) {
     return signupSuccess?.call(this);
   }
@@ -355,6 +372,7 @@ class _$SignupSuccessImpl<T> implements SignupSuccess<T> {
     TResult Function(CityLoading<T> value)? cityLoading,
     TResult Function(CitySuccess<T> value)? citySuccess,
     TResult Function(CityFailure<T> value)? cityFailure,
+    TResult Function(AgreementState<T> value)? agreementState,
     required TResult orElse(),
   }) {
     if (signupSuccess != null) {
@@ -413,6 +431,7 @@ class _$SignupLoadingImpl<T> implements SignupLoading<T> {
     required TResult Function() cityLoading,
     required TResult Function() citySuccess,
     required TResult Function(String error) cityFailure,
+    required TResult Function(bool isAgreed) agreementState,
   }) {
     return signupLoading();
   }
@@ -427,6 +446,7 @@ class _$SignupLoadingImpl<T> implements SignupLoading<T> {
     TResult? Function()? cityLoading,
     TResult? Function()? citySuccess,
     TResult? Function(String error)? cityFailure,
+    TResult? Function(bool isAgreed)? agreementState,
   }) {
     return signupLoading?.call();
   }
@@ -441,6 +461,7 @@ class _$SignupLoadingImpl<T> implements SignupLoading<T> {
     TResult Function()? cityLoading,
     TResult Function()? citySuccess,
     TResult Function(String error)? cityFailure,
+    TResult Function(bool isAgreed)? agreementState,
     required TResult orElse(),
   }) {
     if (signupLoading != null) {
@@ -459,6 +480,7 @@ class _$SignupLoadingImpl<T> implements SignupLoading<T> {
     required TResult Function(CityLoading<T> value) cityLoading,
     required TResult Function(CitySuccess<T> value) citySuccess,
     required TResult Function(CityFailure<T> value) cityFailure,
+    required TResult Function(AgreementState<T> value) agreementState,
   }) {
     return signupLoading(this);
   }
@@ -473,6 +495,7 @@ class _$SignupLoadingImpl<T> implements SignupLoading<T> {
     TResult? Function(CityLoading<T> value)? cityLoading,
     TResult? Function(CitySuccess<T> value)? citySuccess,
     TResult? Function(CityFailure<T> value)? cityFailure,
+    TResult? Function(AgreementState<T> value)? agreementState,
   }) {
     return signupLoading?.call(this);
   }
@@ -487,6 +510,7 @@ class _$SignupLoadingImpl<T> implements SignupLoading<T> {
     TResult Function(CityLoading<T> value)? cityLoading,
     TResult Function(CitySuccess<T> value)? citySuccess,
     TResult Function(CityFailure<T> value)? cityFailure,
+    TResult Function(AgreementState<T> value)? agreementState,
     required TResult orElse(),
   }) {
     if (signupLoading != null) {
@@ -572,6 +596,7 @@ class _$SignupFailureImpl<T> implements SignupFailure<T> {
     required TResult Function() cityLoading,
     required TResult Function() citySuccess,
     required TResult Function(String error) cityFailure,
+    required TResult Function(bool isAgreed) agreementState,
   }) {
     return signupFailure(error);
   }
@@ -586,6 +611,7 @@ class _$SignupFailureImpl<T> implements SignupFailure<T> {
     TResult? Function()? cityLoading,
     TResult? Function()? citySuccess,
     TResult? Function(String error)? cityFailure,
+    TResult? Function(bool isAgreed)? agreementState,
   }) {
     return signupFailure?.call(error);
   }
@@ -600,6 +626,7 @@ class _$SignupFailureImpl<T> implements SignupFailure<T> {
     TResult Function()? cityLoading,
     TResult Function()? citySuccess,
     TResult Function(String error)? cityFailure,
+    TResult Function(bool isAgreed)? agreementState,
     required TResult orElse(),
   }) {
     if (signupFailure != null) {
@@ -618,6 +645,7 @@ class _$SignupFailureImpl<T> implements SignupFailure<T> {
     required TResult Function(CityLoading<T> value) cityLoading,
     required TResult Function(CitySuccess<T> value) citySuccess,
     required TResult Function(CityFailure<T> value) cityFailure,
+    required TResult Function(AgreementState<T> value) agreementState,
   }) {
     return signupFailure(this);
   }
@@ -632,6 +660,7 @@ class _$SignupFailureImpl<T> implements SignupFailure<T> {
     TResult? Function(CityLoading<T> value)? cityLoading,
     TResult? Function(CitySuccess<T> value)? citySuccess,
     TResult? Function(CityFailure<T> value)? cityFailure,
+    TResult? Function(AgreementState<T> value)? agreementState,
   }) {
     return signupFailure?.call(this);
   }
@@ -646,6 +675,7 @@ class _$SignupFailureImpl<T> implements SignupFailure<T> {
     TResult Function(CityLoading<T> value)? cityLoading,
     TResult Function(CitySuccess<T> value)? citySuccess,
     TResult Function(CityFailure<T> value)? cityFailure,
+    TResult Function(AgreementState<T> value)? agreementState,
     required TResult orElse(),
   }) {
     if (signupFailure != null) {
@@ -710,6 +740,7 @@ class _$CityLoadingImpl<T> implements CityLoading<T> {
     required TResult Function() cityLoading,
     required TResult Function() citySuccess,
     required TResult Function(String error) cityFailure,
+    required TResult Function(bool isAgreed) agreementState,
   }) {
     return cityLoading();
   }
@@ -724,6 +755,7 @@ class _$CityLoadingImpl<T> implements CityLoading<T> {
     TResult? Function()? cityLoading,
     TResult? Function()? citySuccess,
     TResult? Function(String error)? cityFailure,
+    TResult? Function(bool isAgreed)? agreementState,
   }) {
     return cityLoading?.call();
   }
@@ -738,6 +770,7 @@ class _$CityLoadingImpl<T> implements CityLoading<T> {
     TResult Function()? cityLoading,
     TResult Function()? citySuccess,
     TResult Function(String error)? cityFailure,
+    TResult Function(bool isAgreed)? agreementState,
     required TResult orElse(),
   }) {
     if (cityLoading != null) {
@@ -756,6 +789,7 @@ class _$CityLoadingImpl<T> implements CityLoading<T> {
     required TResult Function(CityLoading<T> value) cityLoading,
     required TResult Function(CitySuccess<T> value) citySuccess,
     required TResult Function(CityFailure<T> value) cityFailure,
+    required TResult Function(AgreementState<T> value) agreementState,
   }) {
     return cityLoading(this);
   }
@@ -770,6 +804,7 @@ class _$CityLoadingImpl<T> implements CityLoading<T> {
     TResult? Function(CityLoading<T> value)? cityLoading,
     TResult? Function(CitySuccess<T> value)? citySuccess,
     TResult? Function(CityFailure<T> value)? cityFailure,
+    TResult? Function(AgreementState<T> value)? agreementState,
   }) {
     return cityLoading?.call(this);
   }
@@ -784,6 +819,7 @@ class _$CityLoadingImpl<T> implements CityLoading<T> {
     TResult Function(CityLoading<T> value)? cityLoading,
     TResult Function(CitySuccess<T> value)? citySuccess,
     TResult Function(CityFailure<T> value)? cityFailure,
+    TResult Function(AgreementState<T> value)? agreementState,
     required TResult orElse(),
   }) {
     if (cityLoading != null) {
@@ -842,6 +878,7 @@ class _$CitySuccessImpl<T> implements CitySuccess<T> {
     required TResult Function() cityLoading,
     required TResult Function() citySuccess,
     required TResult Function(String error) cityFailure,
+    required TResult Function(bool isAgreed) agreementState,
   }) {
     return citySuccess();
   }
@@ -856,6 +893,7 @@ class _$CitySuccessImpl<T> implements CitySuccess<T> {
     TResult? Function()? cityLoading,
     TResult? Function()? citySuccess,
     TResult? Function(String error)? cityFailure,
+    TResult? Function(bool isAgreed)? agreementState,
   }) {
     return citySuccess?.call();
   }
@@ -870,6 +908,7 @@ class _$CitySuccessImpl<T> implements CitySuccess<T> {
     TResult Function()? cityLoading,
     TResult Function()? citySuccess,
     TResult Function(String error)? cityFailure,
+    TResult Function(bool isAgreed)? agreementState,
     required TResult orElse(),
   }) {
     if (citySuccess != null) {
@@ -888,6 +927,7 @@ class _$CitySuccessImpl<T> implements CitySuccess<T> {
     required TResult Function(CityLoading<T> value) cityLoading,
     required TResult Function(CitySuccess<T> value) citySuccess,
     required TResult Function(CityFailure<T> value) cityFailure,
+    required TResult Function(AgreementState<T> value) agreementState,
   }) {
     return citySuccess(this);
   }
@@ -902,6 +942,7 @@ class _$CitySuccessImpl<T> implements CitySuccess<T> {
     TResult? Function(CityLoading<T> value)? cityLoading,
     TResult? Function(CitySuccess<T> value)? citySuccess,
     TResult? Function(CityFailure<T> value)? cityFailure,
+    TResult? Function(AgreementState<T> value)? agreementState,
   }) {
     return citySuccess?.call(this);
   }
@@ -916,6 +957,7 @@ class _$CitySuccessImpl<T> implements CitySuccess<T> {
     TResult Function(CityLoading<T> value)? cityLoading,
     TResult Function(CitySuccess<T> value)? citySuccess,
     TResult Function(CityFailure<T> value)? cityFailure,
+    TResult Function(AgreementState<T> value)? agreementState,
     required TResult orElse(),
   }) {
     if (citySuccess != null) {
@@ -1001,6 +1043,7 @@ class _$CityFailureImpl<T> implements CityFailure<T> {
     required TResult Function() cityLoading,
     required TResult Function() citySuccess,
     required TResult Function(String error) cityFailure,
+    required TResult Function(bool isAgreed) agreementState,
   }) {
     return cityFailure(error);
   }
@@ -1015,6 +1058,7 @@ class _$CityFailureImpl<T> implements CityFailure<T> {
     TResult? Function()? cityLoading,
     TResult? Function()? citySuccess,
     TResult? Function(String error)? cityFailure,
+    TResult? Function(bool isAgreed)? agreementState,
   }) {
     return cityFailure?.call(error);
   }
@@ -1029,6 +1073,7 @@ class _$CityFailureImpl<T> implements CityFailure<T> {
     TResult Function()? cityLoading,
     TResult Function()? citySuccess,
     TResult Function(String error)? cityFailure,
+    TResult Function(bool isAgreed)? agreementState,
     required TResult orElse(),
   }) {
     if (cityFailure != null) {
@@ -1047,6 +1092,7 @@ class _$CityFailureImpl<T> implements CityFailure<T> {
     required TResult Function(CityLoading<T> value) cityLoading,
     required TResult Function(CitySuccess<T> value) citySuccess,
     required TResult Function(CityFailure<T> value) cityFailure,
+    required TResult Function(AgreementState<T> value) agreementState,
   }) {
     return cityFailure(this);
   }
@@ -1061,6 +1107,7 @@ class _$CityFailureImpl<T> implements CityFailure<T> {
     TResult? Function(CityLoading<T> value)? cityLoading,
     TResult? Function(CitySuccess<T> value)? citySuccess,
     TResult? Function(CityFailure<T> value)? cityFailure,
+    TResult? Function(AgreementState<T> value)? agreementState,
   }) {
     return cityFailure?.call(this);
   }
@@ -1075,6 +1122,7 @@ class _$CityFailureImpl<T> implements CityFailure<T> {
     TResult Function(CityLoading<T> value)? cityLoading,
     TResult Function(CitySuccess<T> value)? citySuccess,
     TResult Function(CityFailure<T> value)? cityFailure,
+    TResult Function(AgreementState<T> value)? agreementState,
     required TResult orElse(),
   }) {
     if (cityFailure != null) {
@@ -1091,5 +1139,177 @@ abstract class CityFailure<T> implements SignupState<T> {
   String get error;
   @JsonKey(ignore: true)
   _$$CityFailureImplCopyWith<T, _$CityFailureImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AgreementStateImplCopyWith<T, $Res> {
+  factory _$$AgreementStateImplCopyWith(_$AgreementStateImpl<T> value,
+          $Res Function(_$AgreementStateImpl<T>) then) =
+      __$$AgreementStateImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({bool isAgreed});
+}
+
+/// @nodoc
+class __$$AgreementStateImplCopyWithImpl<T, $Res>
+    extends _$SignupStateCopyWithImpl<T, $Res, _$AgreementStateImpl<T>>
+    implements _$$AgreementStateImplCopyWith<T, $Res> {
+  __$$AgreementStateImplCopyWithImpl(_$AgreementStateImpl<T> _value,
+      $Res Function(_$AgreementStateImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isAgreed = null,
+  }) {
+    return _then(_$AgreementStateImpl<T>(
+      isAgreed: null == isAgreed
+          ? _value.isAgreed
+          : isAgreed // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AgreementStateImpl<T> implements AgreementState<T> {
+  const _$AgreementStateImpl({required this.isAgreed});
+
+  @override
+  final bool isAgreed;
+
+  @override
+  String toString() {
+    return 'SignupState<$T>.agreementState(isAgreed: $isAgreed)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AgreementStateImpl<T> &&
+            (identical(other.isAgreed, isAgreed) ||
+                other.isAgreed == isAgreed));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isAgreed);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AgreementStateImplCopyWith<T, _$AgreementStateImpl<T>> get copyWith =>
+      __$$AgreementStateImplCopyWithImpl<T, _$AgreementStateImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signupSuccess,
+    required TResult Function() signupLoading,
+    required TResult Function(String error) signupFailure,
+    required TResult Function() cityLoading,
+    required TResult Function() citySuccess,
+    required TResult Function(String error) cityFailure,
+    required TResult Function(bool isAgreed) agreementState,
+  }) {
+    return agreementState(isAgreed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signupSuccess,
+    TResult? Function()? signupLoading,
+    TResult? Function(String error)? signupFailure,
+    TResult? Function()? cityLoading,
+    TResult? Function()? citySuccess,
+    TResult? Function(String error)? cityFailure,
+    TResult? Function(bool isAgreed)? agreementState,
+  }) {
+    return agreementState?.call(isAgreed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signupSuccess,
+    TResult Function()? signupLoading,
+    TResult Function(String error)? signupFailure,
+    TResult Function()? cityLoading,
+    TResult Function()? citySuccess,
+    TResult Function(String error)? cityFailure,
+    TResult Function(bool isAgreed)? agreementState,
+    required TResult orElse(),
+  }) {
+    if (agreementState != null) {
+      return agreementState(isAgreed);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(SignupSuccess<T> value) signupSuccess,
+    required TResult Function(SignupLoading<T> value) signupLoading,
+    required TResult Function(SignupFailure<T> value) signupFailure,
+    required TResult Function(CityLoading<T> value) cityLoading,
+    required TResult Function(CitySuccess<T> value) citySuccess,
+    required TResult Function(CityFailure<T> value) cityFailure,
+    required TResult Function(AgreementState<T> value) agreementState,
+  }) {
+    return agreementState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(SignupSuccess<T> value)? signupSuccess,
+    TResult? Function(SignupLoading<T> value)? signupLoading,
+    TResult? Function(SignupFailure<T> value)? signupFailure,
+    TResult? Function(CityLoading<T> value)? cityLoading,
+    TResult? Function(CitySuccess<T> value)? citySuccess,
+    TResult? Function(CityFailure<T> value)? cityFailure,
+    TResult? Function(AgreementState<T> value)? agreementState,
+  }) {
+    return agreementState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(SignupSuccess<T> value)? signupSuccess,
+    TResult Function(SignupLoading<T> value)? signupLoading,
+    TResult Function(SignupFailure<T> value)? signupFailure,
+    TResult Function(CityLoading<T> value)? cityLoading,
+    TResult Function(CitySuccess<T> value)? citySuccess,
+    TResult Function(CityFailure<T> value)? cityFailure,
+    TResult Function(AgreementState<T> value)? agreementState,
+    required TResult orElse(),
+  }) {
+    if (agreementState != null) {
+      return agreementState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AgreementState<T> implements SignupState<T> {
+  const factory AgreementState({required final bool isAgreed}) =
+      _$AgreementStateImpl<T>;
+
+  bool get isAgreed;
+  @JsonKey(ignore: true)
+  _$$AgreementStateImplCopyWith<T, _$AgreementStateImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

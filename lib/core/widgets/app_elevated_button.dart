@@ -19,11 +19,11 @@ class AppElevatedButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         buttonText,
-        style: TextStyles.font18BoldWhite,
+        style: AppTextStyles.font18BoldWhite,
       ),
       style: ElevatedButton.styleFrom(
         minimumSize: Size(double.infinity, 50.h),
-        backgroundColor: ColorsManager.primaryColor,
+        backgroundColor: AppColors.primaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.r),
         ),

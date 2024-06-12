@@ -16,7 +16,7 @@ class CustomHeaderSection extends StatelessWidget {
         children: [
           Text(
             text,
-            style: TextStyles.font18BoldBlack,
+            style: AppTextStyles.font18BoldBlack,
           ),
           TextButton(
               style: ButtonStyle(
@@ -27,7 +27,7 @@ class CustomHeaderSection extends StatelessWidget {
               onPressed: () {},
               child: Text(
                 "View All > ",
-                style: TextStyles.font14BoldBlue,
+                style: AppTextStyles.font14BoldBlue,
               ))
         ],
       ),

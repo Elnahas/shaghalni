@@ -51,7 +51,7 @@ class _SelectListWidgetState<T> extends State<SelectListWidget<T>> {
           verticalSpace(20),
           Text(
             widget.title,
-            style: TextStyles.font18BoldBlack,
+            style: AppTextStyles.font18BoldBlack,
           ),
           verticalSpace(10),
           ListView.builder(

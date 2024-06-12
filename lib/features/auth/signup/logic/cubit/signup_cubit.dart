@@ -28,8 +28,9 @@ class SignupCubit extends Cubit<SignupState> {
 
   //Controllers
   TextEditingController birthDateController = TextEditingController();
-  TextEditingController fullNameController = TextEditingController();
   TextEditingController cityController = TextEditingController();
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
 
   String? selectedGender = "male";
   final List<String> genders = ["male", "female"];
@@ -41,6 +42,9 @@ class SignupCubit extends Cubit<SignupState> {
   int selectedCityIndex = -1;
   List<CityModel> cityList = [];
   CityModel get city => cityList[selectedCityIndex];
+
+  //TermsAndConditions
+  bool isAgreed = true;
 
   Future<void> signUp() async {
     try {
@@ -55,7 +59,8 @@ class SignupCubit extends Cubit<SignupState> {
 
       UserModel userModel = UserModel(
           uid: FirebaseAuth.instance.currentUser!.uid,
-          fullName: fullNameController.text,
+          firstName: firstNameController.text,
+          lastName: lastNameController.text,
           phoneNumber: phoneNumber,
           birthDate: birthDateController.text,
           gender: selectedGender!,
@@ -65,7 +70,6 @@ class SignupCubit extends Cubit<SignupState> {
 
       await _authRepository.signUp(userModel);
       await _userRepository.saveUserToPreferences(userModel);
-      
 
       emit(const SignupSuccess());
     } catch (e) {
@@ -82,5 +86,10 @@ class SignupCubit extends Cubit<SignupState> {
     } catch (e) {
       emit(CityFailure(error: e.toString()));
     }
+  }
+
+  void setAgreement(bool isAgreed) {
+    this.isAgreed = isAgreed;
+    emit(SignupState.agreementState(isAgreed: isAgreed));
   }
 }
