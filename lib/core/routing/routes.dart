@@ -7,5 +7,6 @@ class Routes {
   static const String otp = '/otp';
   static const String home = '/home';
   static const String addJob = '/add-job';
+  static const String language = '/language';
 
 }
