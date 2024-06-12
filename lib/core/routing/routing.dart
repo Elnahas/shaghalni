@@ -9,6 +9,7 @@ import 'package:shaghalni/features/auth/otp/logic/cubit/otp_cubit.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:shaghalni/features/auth/signup/ui/widgets/signup_screen.dart';
 import 'package:shaghalni/features/home/ui/screens/home_nav_bar_widget.dart';
+import 'package:shaghalni/features/language/ui/screen/language_screen.dart';
 import 'package:shaghalni/features/on_boarding/logic/cubit/page_cubit.dart';
 import 'package:shaghalni/features/on_boarding/ui/screen/on_boarding_screen.dart';
 import '../../features/auth/login/ui/widgets/login_screen.dart';
@@ -45,6 +46,11 @@ class Routing {
       case Routes.home:
         return MaterialPageRoute(
             builder: (context) => const HomeNavBarWidget());
+
+      case Routes.language:
+        return MaterialPageRoute(
+            builder: (context) => const LanguageScreen());
+
 
       case Routes.onboarding:
         return MaterialPageRoute(
