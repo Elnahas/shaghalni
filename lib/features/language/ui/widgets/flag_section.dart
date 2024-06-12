@@ -14,19 +14,21 @@ class FlagSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         FlagItemWidget(
-            flagImagePath: "assets/icons/flag_en.png",
-            name: "English",
-            isSelected: selectedLanguage == "en",
-            onTap: () {
-              context.read<LanguageCubit>().changeLanguage(selectedLanguage);
-            }),
+          flagImagePath: "assets/icons/flag_en.png",
+          name: "English",
+          isSelected: selectedLanguage == "en",
+          onTap: () {
+            context.read<LanguageCubit>().changeLanguage("en");
+          },
+        ),
         FlagItemWidget(
-            flagImagePath: "assets/icons/flag_ar.png",
-            name: "العربية",
-            isSelected: selectedLanguage == "ar",
-            onTap: () {
-              context.read<LanguageCubit>().changeLanguage(selectedLanguage);
-            }),
+          flagImagePath: "assets/icons/flag_ar.png",
+          name: "العربية",
+          isSelected: selectedLanguage == "ar",
+          onTap: () {
+            context.read<LanguageCubit>().changeLanguage("ar");
+          },
+        ),
       ],
     );
   }

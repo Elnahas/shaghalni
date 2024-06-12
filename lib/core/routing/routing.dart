@@ -48,9 +48,7 @@ class Routing {
             builder: (context) => const HomeNavBarWidget());
 
       case Routes.language:
-        return MaterialPageRoute(
-            builder: (context) => const LanguageScreen());
-
+        return MaterialPageRoute(builder: (context) => const LanguageScreen());
 
       case Routes.onboarding:
         return MaterialPageRoute(
@@ -58,7 +56,6 @@ class Routing {
                   create: (context) => PageCubit(),
                   child: const OnBoardingScreen(),
                 ));
-
 
       case Routes.addJob:
         return MaterialPageRoute(

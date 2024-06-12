@@ -31,5 +31,5 @@ void setupServiceLocator() {
       getIt<AddJobRepository>(),
       getIt<UserRepository>()));
 
-  getIt.registerLazySingleton(() => LanguageCubit());
+  getIt.registerSingleton<LanguageCubit>(LanguageCubit());
 }
