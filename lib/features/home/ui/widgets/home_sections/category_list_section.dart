@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/widgets/custom_header_section.dart';
 import 'package:shaghalni/features/home/ui/widgets/category_items_widget.dart';
 import '../../../../../core/helpers/spacing.dart';
@@ -12,15 +13,14 @@ class CategoryListSection extends StatelessWidget {
     return   Column(
             children: [
              const CustomHeaderSection(text: "Categories",),
-              verticalSpace(20),
+              verticalSpace(10),
               SizedBox(
-                height: 50,
+                height: 50.h,
                 width: double.infinity,
-                child: ListView.separated(
+                child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => CategoryItemsWidget(index: index),
-                  separatorBuilder: (context, index) => horizontalSpace(0),
                   itemCount: categoryModel.length,
                 ),
               )

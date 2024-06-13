@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
           verticalSpace(10),
           JobsBlueContainer(),
           //const SliderAndIndicatorSection(),
-          verticalSpace(40),
+          verticalSpace(20),
           const CategoryListSection(),
           verticalSpace(20),
           const JobListSection()
