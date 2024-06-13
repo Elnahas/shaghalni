@@ -17,7 +17,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(390, 844),
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
       child: BlocProvider(
         create: (context) => getIt<LanguageCubit>(),
         child: BlocBuilder<LanguageCubit, Locale>(
@@ -39,8 +41,8 @@ class MyApp extends StatelessWidget {
               ),
               onGenerateRoute: routing.onGenerateRoute,
               // home: SignupScreen(),
-              // initialRoute: getInitialRoute(),
-              initialRoute: Routes.login,
+              initialRoute: getInitialRoute(),
+              // initialRoute: Routes.login,
             );
           },
         ),

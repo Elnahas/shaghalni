@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/widgets/custom_shimmer_image.dart';
+import '../../../../../core/widgets/custom_shimmer_image.dart';
 
 class JobItemsImageWidget extends StatelessWidget {
   const JobItemsImageWidget({super.key});
@@ -29,9 +29,9 @@ class JobItemsImageWidget extends StatelessWidget {
       },
       placeholder: (context, url) {
         return CustomShimmerImage(
-            height: 150,
+            height: 150.h,
             width: MediaQuery.of(context).size.width,
-            borderRadius: 12);
+            borderRadius: 12.r);
       },
     );
   }

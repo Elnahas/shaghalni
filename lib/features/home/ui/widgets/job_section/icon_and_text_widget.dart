@@ -1,9 +1,8 @@
 
 import 'package:flutter/material.dart';
-
-import '../../../../core/helpers/spacing.dart';
-import '../../../../core/theming/app_colors.dart';
-import '../../../../core/theming/app_text_styles.dart';
+import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/theming/app_colors.dart';
+import '../../../../../core/theming/app_text_styles.dart';
 
 class IconAndTextWidget extends StatelessWidget {
   final String text;
@@ -20,13 +19,16 @@ class IconAndTextWidget extends StatelessWidget {
     return Row(children: [
       Icon(
         icon,
-        size: 24,
+        size: 20,
         color: AppColors.primaryColor,
       ),
       horizontalSpace(5),
-      Text(
-        text,
-        style: AppTextStyles.font14LightGrayRegular,
+      Expanded(
+        child: Text(
+          overflow: TextOverflow.ellipsis,
+          text,
+          style: AppTextStyles.font12LightGrayRegular,
+        ),
       )
     ]);
   }
