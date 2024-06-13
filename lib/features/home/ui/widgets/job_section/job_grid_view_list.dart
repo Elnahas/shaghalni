@@ -22,7 +22,7 @@ class JobGridViewList extends StatelessWidget {
             crossAxisCount: crossAxisCount,
             mainAxisSpacing: 16.w,
             crossAxisSpacing: 16.w,
-            childAspectRatio: 0.50,
+            mainAxisExtent: 345.h,
           ),
           itemBuilder: (context, index) => const JobItemsGridViewWidget(),
         );

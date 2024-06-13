@@ -26,6 +26,7 @@ void main() async {
   // Set up the global Bloc observer
   Bloc.observer = MyBlocObserver();
 
+  //!!This code for close rotation screen
   //   SystemChrome.setPreferredOrientations([
   //   DeviceOrientation.portraitUp,
   //   DeviceOrientation.portraitDown,
