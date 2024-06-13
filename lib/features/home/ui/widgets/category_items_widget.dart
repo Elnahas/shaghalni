@@ -30,7 +30,7 @@ class CategoryItemsWidget extends StatelessWidget {
             horizontalSpace(10),
             Text(
               categoryModel[index].name,
-              style: AppTextStyles.font14BoldBlack,
+              style: AppTextStyles.font12BlackRegular,
             )
           ],
         ),

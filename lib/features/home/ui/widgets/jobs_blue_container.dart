@@ -6,13 +6,13 @@ import '../../../../core/helpers/spacing.dart';
 
 class JobsBlueContainer extends StatelessWidget {
   const JobsBlueContainer({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 14.w),
       height: 220.h,
+      width: double.infinity,
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
@@ -35,26 +35,28 @@ class JobsBlueContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
                   'Explore nearby job\nvacancies\neffortlessly',
                   style: AppTextStyles.font18WhiteMedium,
                   textAlign: TextAlign.start,
                 ),
                 verticalSpace(16),
-                   Expanded(
-                     child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(48.0),
-                        ),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(48.0),
                       ),
-                      child: Text(
-                        'Find Nearby',
-                        style: AppTextStyles.font12BlueRegular,
-                      ),
-                                       ),
-                   ),
+                    ),
+                    child: Text(
+                      'Find Nearby',
+                      style: AppTextStyles.font12BlueRegular,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
