@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../../core/helpers/spacing.dart';
-import '../../../../core/theming/app_colors.dart';
-import '../../../../core/theming/app_text_styles.dart';
+import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/theming/app_colors.dart';
+import '../../../../../core/theming/app_text_styles.dart';
 
 class IconAndTextWidget extends StatelessWidget {
   final String text;

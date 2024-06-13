@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shaghalni/features/home/ui/widgets/job_items_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/features/home/ui/widgets/job_section/job_items_grid_view_widget.dart';
+import 'package:shaghalni/features/home/ui/widgets/job_section/job_grid_view_list.dart';
 
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/widgets/custom_header_section.dart';
@@ -16,20 +18,11 @@ class JobListSection extends StatelessWidget {
         ),
         verticalSpace(10),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 14),
-          child: GridView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: 10,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 16.0,
-                crossAxisSpacing: 16.0,
-                childAspectRatio: 0.55,
-              ),
-              itemBuilder: (context, index) => const JobItemsWidget()),
+          padding: EdgeInsets.symmetric(horizontal: 14.w),
+          child: JobGridViewList(),
         ),
       ],
     );
   }
 }
+

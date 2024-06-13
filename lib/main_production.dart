@@ -26,15 +26,18 @@ void main() async {
   // Set up the global Bloc observer
   Bloc.observer = MyBlocObserver();
 
-    SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]).then((_) {
-    runApp(MyApp(
+  //   SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  // ]).then((_) {
+  //   runApp(MyApp(
+  //   routing: Routing(),
+  // ));
+  // });
+  
+  runApp(MyApp(
     routing: Routing(),
   ));
-  });
-
 }
 
 checkIfLoggedInUser() async {

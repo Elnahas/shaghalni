@@ -34,11 +34,22 @@ abstract class AppTextStyles {
     fontFamily: "Poppins",
   );
 
+  static TextStyle font15NormalBlack = TextStyle(
+    fontSize: 15.sp,
+    fontWeight: FontWeight.normal,
+    color: Colors.black,
+    fontFamily: "Poppins",
+  );
+
+  static TextStyle font18BoldBlack = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    fontFamily: "Poppins",
+  );
+
   static TextStyle font18BoldWhite = GoogleFonts.poppins(
       fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white);
-
-  static TextStyle font18BoldBlack = GoogleFonts.poppins(
-      fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black);
 
   static TextStyle font18GreyW300 = GoogleFonts.poppins(
       fontSize: 18, fontWeight: FontWeight.w300, color: Colors.grey);

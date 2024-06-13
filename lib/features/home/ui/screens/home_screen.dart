@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/features/home/ui/widgets/home_sections/job_list_section.dart';
-import 'package:shaghalni/features/home/ui/widgets/home_sections/slider_and_indicator_section.dart';
 import '../widgets/home_sections/category_list_section.dart';
 import '../widgets/home_top_bar.dart';
 import '../widgets/jobs_blue_container.dart';
