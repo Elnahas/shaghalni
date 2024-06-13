@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: [
           verticalSpace(10),
-          const SliderAndIndicatorSection(),
+          //const SliderAndIndicatorSection(),
           verticalSpace(40),
           const CategoryListSection(),
           verticalSpace(20),
