@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
@@ -16,7 +16,7 @@ class HomeTopBar extends StatelessWidget {
       child: Row(
         children: [
 
-          CircularImage(imageUrl: "",
+          CircularImage(imageUrl: userModel!.imageUrl ?? "",
           radius: 25,
           errorWidget: Image.asset("assets/images/ic_profile_placeholder.png"),),
 
@@ -25,7 +25,7 @@ class HomeTopBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Hello, Hazem",
+                "Hello, ${userModel!.firstName}",
                 style: AppTextStyles.font15DarkMedium,
               ),
               Text(

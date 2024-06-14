@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shaghalni/core/data/models/user_model.dart';
+import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/core/repositories/city_repository.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_state.dart';
 
@@ -57,7 +58,7 @@ class SignupCubit extends Cubit<SignupState> {
       final createdAt = Timestamp.fromMillisecondsSinceEpoch(
           DateTime.now().millisecondsSinceEpoch);
 
-      UserModel userModel = UserModel(
+      UserModel _userModel = UserModel(
           uid: FirebaseAuth.instance.currentUser!.uid,
           firstName: firstNameController.text,
           lastName: lastNameController.text,
@@ -68,8 +69,9 @@ class SignupCubit extends Cubit<SignupState> {
           imageUrl: _imageUrl,
           createdAt: createdAt);
 
-      await _authRepository.signUp(userModel);
-      await _userRepository.saveUserToPreferences(userModel);
+      await _authRepository.signUp(_userModel);
+      await _userRepository.saveUserToPreferences(_userModel);
+      userModel = _userModel;
 
       emit(const SignupSuccess());
     } catch (e) {
