@@ -1,8 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
-
 import 'job_items_grid_view_widget.dart';
 
 class JobGridViewList extends StatelessWidget {

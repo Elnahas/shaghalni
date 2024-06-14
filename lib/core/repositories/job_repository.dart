@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
 import 'package:shaghalni/core/helpers/constants.dart';
 
-import '../data/enum/job_status.dart';
-
 class JobRepository {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
