@@ -1,3 +1,6 @@
+import 'package:shaghalni/core/data/models/user_model.dart';
+
+UserModel? userModel;
 bool isLoggedInUser = false;
 bool isSeenOnboarding = false;
 String selectedLanguage = ""; //Default Language

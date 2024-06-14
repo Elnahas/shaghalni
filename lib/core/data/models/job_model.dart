@@ -81,15 +81,17 @@ class JobModel {
 
 @JsonSerializable()
 class PostedBy {
+  @JsonKey(name: "uid")
   final String userId;
-  final String name;
+  @JsonKey(name: "user_name")
+  final String userName;
   @JsonKey(name: "phone_number")
   final String phoneNumber;
 
   PostedBy({
     required this.phoneNumber,
     required this.userId,
-    required this.name,
+    required this.userName,
   });
 
   factory PostedBy.fromJson(Map<String, dynamic> json) => _$PostedByFromJson(json);

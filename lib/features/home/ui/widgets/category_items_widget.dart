@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:shaghalni/core/data/models/category_model.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/core/widgets/circular_image.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
-import '../../data/model/category_model.dart';
 
 class CategoryItemsWidget extends StatelessWidget {
   final int index;
+  final int length ;
+  final CategoryModel categoryModel;
   const CategoryItemsWidget({
     super.key,
-    required this.index,
+    required this.index, required this.categoryModel, required this.length,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsetsDirectional.only(
-          start: 14, end: index == categoryModel.length - 1 ? 14 : 0),
+         margin: EdgeInsetsDirectional.only(
+          start: 14, end: index == length - 1 ? 14 : 0),
       child: TextButton(
         style: ButtonStyle(
             padding: const WidgetStatePropertyAll(EdgeInsets.all(8)),
@@ -26,10 +28,13 @@ class CategoryItemsWidget extends StatelessWidget {
         onPressed: () {},
         child: Row(
           children: [
-            CircularImage(imageUrl: categoryModel[index].imageUrl , radius: 20,),
+            CircularImage(
+              imageUrl: categoryModel.iconUrl,
+              radius: 20,
+            ),
             horizontalSpace(10),
             Text(
-              categoryModel[index].name,
+              categoryModel.name,
               style: AppTextStyles.font12BlackRegular,
             )
           ],

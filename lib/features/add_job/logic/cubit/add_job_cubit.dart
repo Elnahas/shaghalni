@@ -6,7 +6,7 @@ import 'package:shaghalni/core/data/models/city_model.dart';
 import 'package:shaghalni/core/data/models/user_model.dart';
 import 'package:shaghalni/core/repositories/category_repository.dart';
 import 'package:shaghalni/core/repositories/user_repository.dart';
-import 'package:shaghalni/features/add_job/data/repo/add_job_repository.dart';
+import 'package:shaghalni/core/repositories/job_repository.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_state.dart';
 import '../../../../core/data/models/job_model.dart';
 import '../../../../core/repositories/city_repository.dart';
@@ -17,7 +17,7 @@ class AddJobCubit extends Cubit<AddJobState> {
   // Repos
   final CategoryRepository _categoryRepository;
   final CityRepository _cityRepository;
-  final AddJobRepository _addJobRepository;
+  final JobRepository _addJobRepository;
   final UserRepository _userRepository;
 
   // Lists
@@ -75,7 +75,7 @@ class AddJobCubit extends Cubit<AddJobState> {
         job.postedBy = PostedBy(
             phoneNumber: user.phoneNumber,
             userId: user.uid,
-            name: user.fullName);
+            userName: user.fullName);
 
         await _addJobRepository.addJob(job);
 

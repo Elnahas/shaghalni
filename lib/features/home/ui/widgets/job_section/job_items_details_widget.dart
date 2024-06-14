@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:shaghalni/core/data/models/job_model.dart';
 import 'package:shaghalni/features/home/ui/widgets/job_section/icon_and_text_widget.dart';
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_text_styles.dart';
 
 class JobItemsDetailsWidget extends StatelessWidget {
-  const JobItemsDetailsWidget({super.key});
+
+  final JobModel jobModel;
+  const JobItemsDetailsWidget({super.key, required this.jobModel});
 
   @override
   Widget build(BuildContext context) {
@@ -12,28 +15,28 @@ class JobItemsDetailsWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Job Casher",
+          jobModel.title,
           overflow: TextOverflow.ellipsis,
           style: AppTextStyles.font14BoldBlack,
         ),
         verticalSpace(10),
-        const IconAndTextWidget(
-          text: "Hazem Elnahas",
+         IconAndTextWidget(
+          text: jobModel.postedBy?.userName ?? "",
           icon: Icons.person,
         ),
         verticalSpace(10),
-        const IconAndTextWidget(
-          text: "Programmer",
+         IconAndTextWidget(
+          text: jobModel.category.name,
           icon: Icons.business,
         ),
         verticalSpace(10),
-        const IconAndTextWidget(
-          text: "Egypt",
+         IconAndTextWidget(
+          text: jobModel.city.name,
           icon: Icons.location_on,
         ),
         verticalSpace(10),
-        const IconAndTextWidget(
-          text: "5000 EGP",
+         IconAndTextWidget(
+          text: "${jobModel.salary} EGP",
           icon: Icons.money_outlined,
         ),
       ],

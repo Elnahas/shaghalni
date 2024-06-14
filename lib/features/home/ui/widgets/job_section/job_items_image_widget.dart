@@ -5,13 +5,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/widgets/custom_shimmer_image.dart';
 
 class JobItemsImageWidget extends StatelessWidget {
-  const JobItemsImageWidget({super.key});
+  final String imagePath;
+  const JobItemsImageWidget({super.key, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
-    return   CachedNetworkImage(
-      imageUrl:
-          "https://media.licdn.com/dms/image/sync/D4D27AQHKXlRcxlsPbw/articleshare-shrink_800/0/1711275137389?e=2147483647&v=beta&t=n9CUzhIXlT141I20hUPNGDOFI6834lALs_K-h5bqlPw",
+    return CachedNetworkImage(
+      imageUrl: imagePath,
       imageBuilder: (context, imageProvider) {
         return Container(
           width: double.infinity,

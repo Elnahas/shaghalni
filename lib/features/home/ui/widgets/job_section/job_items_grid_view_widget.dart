@@ -3,11 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/features/home/ui/widgets/job_section/job_items_details_widget.dart';
 import 'package:shaghalni/features/home/ui/widgets/job_section/job_items_image_widget.dart';
 
+import '../../../../../core/data/models/job_model.dart';
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_colors.dart';
 
 class JobItemsGridViewWidget extends StatelessWidget {
-  const JobItemsGridViewWidget({super.key});
+  final JobModel? jobModel;
+  final int index;
+
+  const JobItemsGridViewWidget({super.key, this.jobModel, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +32,11 @@ class JobItemsGridViewWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const JobItemsImageWidget(),
+          JobItemsImageWidget(imagePath: jobModel!.category.coverImageUrl),
           verticalSpace(10),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.w),
-            child: const JobItemsDetailsWidget(),
+            child:  JobItemsDetailsWidget(jobModel : jobModel!),
           ),
         ],
       ),
