@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,6 +12,8 @@ import 'package:shaghalni/core/helpers/shared_pref_helper.dart';
 import 'package:shaghalni/core/routing/routing.dart';
 import 'package:shaghalni/firebase_options.dart';
 import 'package:shaghalni/app/my_app.dart';
+
+import 'core/data/models/user_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +39,7 @@ void main() async {
   //   routing: Routing(),
   // ));
   // });
-  
+
   runApp(MyApp(
     routing: Routing(),
   ));
@@ -45,6 +49,8 @@ checkIfLoggedInUser() async {
   String? userData =
       await SharedPrefHelper.getSecuredString(SharedPrefKeys.userData);
   if (!userData.isNullOrEmpty()) {
+    Map<String, dynamic> userMap = jsonDecode(userData!);
+    userModel = UserModel.fromJson(userMap);
     isLoggedInUser = true;
   } else {
     isLoggedInUser = false;
@@ -57,6 +63,6 @@ checkIfSeenOnboarding() async {
 }
 
 getLanguage() async {
-  selectedLanguage = await SharedPrefHelper.getString(
-      SharedPrefKeys.selectedLanguage);
+  selectedLanguage =
+      await SharedPrefHelper.getString(SharedPrefKeys.selectedLanguage);
 }
