@@ -36,12 +36,12 @@ class CategoriesAndJobsBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget setupSuccess(List<CategoryModel> categoryModel, List<JobModel> jobs) {
+  Widget setupSuccess(List<CategoryModel> categoryList, List<JobModel> jobList) {
     return Column(
       children: [
-        CategoryListSection(categoryModel: categoryModel),
+        CategoryListSection(categoryList: categoryList),
         verticalSpace(20),
-        JobListSection(),
+        JobListSection(jobList : jobList),
       ],
     );
   }

@@ -1,11 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/core/data/models/job_model.dart';
 
 import 'job_items_grid_view_widget.dart';
 
 class JobGridViewList extends StatelessWidget {
+  final List<JobModel> jobList;
   const JobGridViewList({
     super.key,
+    required this.jobList,
   });
 
   @override
@@ -17,14 +21,17 @@ class JobGridViewList extends StatelessWidget {
         return GridView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: 10,
+          itemCount: jobList.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: crossAxisCount,
             mainAxisSpacing: 16.w,
             crossAxisSpacing: 16.w,
             mainAxisExtent: 345.h,
           ),
-          itemBuilder: (context, index) => const JobItemsGridViewWidget(),
+          itemBuilder: (context, index) => JobItemsGridViewWidget(
+            jobModel: jobList[index],
+            index: index,
+          ),
         );
       },
     );

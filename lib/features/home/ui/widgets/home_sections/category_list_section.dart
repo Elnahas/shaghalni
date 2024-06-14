@@ -6,8 +6,8 @@ import 'package:shaghalni/features/home/ui/widgets/category_items_widget.dart';
 import '../../../../../core/helpers/spacing.dart';
 
 class CategoryListSection extends StatelessWidget {
-  final List<CategoryModel> categoryModel;
-  const CategoryListSection({super.key, required this.categoryModel});
+  final List<CategoryModel> categoryList;
+  const CategoryListSection({super.key, required this.categoryList});
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +23,8 @@ class CategoryListSection extends StatelessWidget {
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => CategoryItemsWidget(index: index , categoryModel:categoryModel[index] , length: categoryModel.length,),
-            itemCount: categoryModel.length,
+            itemBuilder: (context, index) => CategoryItemsWidget(index: index , categoryModel:categoryList[index] , length: categoryList.length,),
+            itemCount: categoryList.length,
           ),
         )
       ],

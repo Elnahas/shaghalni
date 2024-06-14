@@ -20,7 +20,6 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
   List<Widget> screens = [
     BlocProvider(
       create: (context) => HomeCubit(getIt(), getIt())
-        ..getUser()
         ..getCategoriesAndJobs(),
       child: HomeScreen(),
     ),
