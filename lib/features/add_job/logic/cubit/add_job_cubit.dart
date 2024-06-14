@@ -75,7 +75,7 @@ class AddJobCubit extends Cubit<AddJobState> {
         job.postedBy = PostedBy(
             phoneNumber: user.phoneNumber,
             userId: user.uid,
-            name: user.fullName);
+            userName: user.fullName);
 
         await _addJobRepository.addJob(job);
 

@@ -38,12 +38,12 @@ Map<String, dynamic> _$JobModelToJson(JobModel instance) => <String, dynamic>{
 
 PostedBy _$PostedByFromJson(Map<String, dynamic> json) => PostedBy(
       phoneNumber: json['phone_number'] as String,
-      userId: json['userId'] as String,
-      name: json['name'] as String,
+      userId: json['uid'] as String,
+      userName: json['user_name'] as String,
     );
 
 Map<String, dynamic> _$PostedByToJson(PostedBy instance) => <String, dynamic>{
-      'userId': instance.userId,
-      'name': instance.name,
+      'uid': instance.userId,
+      'user_name': instance.userName,
       'phone_number': instance.phoneNumber,
     };
