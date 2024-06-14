@@ -12,7 +12,7 @@ class HomeState with _$HomeState {
 
     const factory HomeState.categoriesAndJobsLoading() = CategoriesAndJobsLoading;
 
-  const factory HomeState.categoriesAndJobsSuccess( List<CategoryModel> categoryModel , List<JobModel> jobs) = SpecializationsSuccess;
+  const factory HomeState.categoriesAndJobsSuccess( List<CategoryModel> categoryModel , List<JobModel> jobs) = CategoriesAndJobsSuccess;
 
   const factory HomeState.categoriesAndJobsFailure(String error) = CategoriesAndJobsFailure;
 

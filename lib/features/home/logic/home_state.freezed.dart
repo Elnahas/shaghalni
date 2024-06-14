@@ -50,7 +50,7 @@ mixin _$HomeState {
     required TResult Function(_Initial value) initial,
     required TResult Function(CategoriesAndJobsLoading value)
         categoriesAndJobsLoading,
-    required TResult Function(SpecializationsSuccess value)
+    required TResult Function(CategoriesAndJobsSuccess value)
         categoriesAndJobsSuccess,
     required TResult Function(CategoriesAndJobsFailure value)
         categoriesAndJobsFailure,
@@ -60,7 +60,7 @@ mixin _$HomeState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(CategoriesAndJobsLoading value)? categoriesAndJobsLoading,
-    TResult? Function(SpecializationsSuccess value)? categoriesAndJobsSuccess,
+    TResult? Function(CategoriesAndJobsSuccess value)? categoriesAndJobsSuccess,
     TResult? Function(CategoriesAndJobsFailure value)? categoriesAndJobsFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -68,7 +68,7 @@ mixin _$HomeState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(CategoriesAndJobsLoading value)? categoriesAndJobsLoading,
-    TResult Function(SpecializationsSuccess value)? categoriesAndJobsSuccess,
+    TResult Function(CategoriesAndJobsSuccess value)? categoriesAndJobsSuccess,
     TResult Function(CategoriesAndJobsFailure value)? categoriesAndJobsFailure,
     required TResult orElse(),
   }) =>
@@ -174,7 +174,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(CategoriesAndJobsLoading value)
         categoriesAndJobsLoading,
-    required TResult Function(SpecializationsSuccess value)
+    required TResult Function(CategoriesAndJobsSuccess value)
         categoriesAndJobsSuccess,
     required TResult Function(CategoriesAndJobsFailure value)
         categoriesAndJobsFailure,
@@ -187,7 +187,7 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(CategoriesAndJobsLoading value)? categoriesAndJobsLoading,
-    TResult? Function(SpecializationsSuccess value)? categoriesAndJobsSuccess,
+    TResult? Function(CategoriesAndJobsSuccess value)? categoriesAndJobsSuccess,
     TResult? Function(CategoriesAndJobsFailure value)? categoriesAndJobsFailure,
   }) {
     return initial?.call(this);
@@ -198,7 +198,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(CategoriesAndJobsLoading value)? categoriesAndJobsLoading,
-    TResult Function(SpecializationsSuccess value)? categoriesAndJobsSuccess,
+    TResult Function(CategoriesAndJobsSuccess value)? categoriesAndJobsSuccess,
     TResult Function(CategoriesAndJobsFailure value)? categoriesAndJobsFailure,
     required TResult orElse(),
   }) {
@@ -298,7 +298,7 @@ class _$CategoriesAndJobsLoadingImpl implements CategoriesAndJobsLoading {
     required TResult Function(_Initial value) initial,
     required TResult Function(CategoriesAndJobsLoading value)
         categoriesAndJobsLoading,
-    required TResult Function(SpecializationsSuccess value)
+    required TResult Function(CategoriesAndJobsSuccess value)
         categoriesAndJobsSuccess,
     required TResult Function(CategoriesAndJobsFailure value)
         categoriesAndJobsFailure,
@@ -311,7 +311,7 @@ class _$CategoriesAndJobsLoadingImpl implements CategoriesAndJobsLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(CategoriesAndJobsLoading value)? categoriesAndJobsLoading,
-    TResult? Function(SpecializationsSuccess value)? categoriesAndJobsSuccess,
+    TResult? Function(CategoriesAndJobsSuccess value)? categoriesAndJobsSuccess,
     TResult? Function(CategoriesAndJobsFailure value)? categoriesAndJobsFailure,
   }) {
     return categoriesAndJobsLoading?.call(this);
@@ -322,7 +322,7 @@ class _$CategoriesAndJobsLoadingImpl implements CategoriesAndJobsLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(CategoriesAndJobsLoading value)? categoriesAndJobsLoading,
-    TResult Function(SpecializationsSuccess value)? categoriesAndJobsSuccess,
+    TResult Function(CategoriesAndJobsSuccess value)? categoriesAndJobsSuccess,
     TResult Function(CategoriesAndJobsFailure value)? categoriesAndJobsFailure,
     required TResult orElse(),
   }) {
@@ -338,22 +338,22 @@ abstract class CategoriesAndJobsLoading implements HomeState {
 }
 
 /// @nodoc
-abstract class _$$SpecializationsSuccessImplCopyWith<$Res> {
-  factory _$$SpecializationsSuccessImplCopyWith(
-          _$SpecializationsSuccessImpl value,
-          $Res Function(_$SpecializationsSuccessImpl) then) =
-      __$$SpecializationsSuccessImplCopyWithImpl<$Res>;
+abstract class _$$CategoriesAndJobsSuccessImplCopyWith<$Res> {
+  factory _$$CategoriesAndJobsSuccessImplCopyWith(
+          _$CategoriesAndJobsSuccessImpl value,
+          $Res Function(_$CategoriesAndJobsSuccessImpl) then) =
+      __$$CategoriesAndJobsSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<CategoryModel> categoryModel, List<JobModel> jobs});
 }
 
 /// @nodoc
-class __$$SpecializationsSuccessImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$SpecializationsSuccessImpl>
-    implements _$$SpecializationsSuccessImplCopyWith<$Res> {
-  __$$SpecializationsSuccessImplCopyWithImpl(
-      _$SpecializationsSuccessImpl _value,
-      $Res Function(_$SpecializationsSuccessImpl) _then)
+class __$$CategoriesAndJobsSuccessImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$CategoriesAndJobsSuccessImpl>
+    implements _$$CategoriesAndJobsSuccessImplCopyWith<$Res> {
+  __$$CategoriesAndJobsSuccessImplCopyWithImpl(
+      _$CategoriesAndJobsSuccessImpl _value,
+      $Res Function(_$CategoriesAndJobsSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -362,7 +362,7 @@ class __$$SpecializationsSuccessImplCopyWithImpl<$Res>
     Object? categoryModel = null,
     Object? jobs = null,
   }) {
-    return _then(_$SpecializationsSuccessImpl(
+    return _then(_$CategoriesAndJobsSuccessImpl(
       null == categoryModel
           ? _value._categoryModel
           : categoryModel // ignore: cast_nullable_to_non_nullable
@@ -377,8 +377,8 @@ class __$$SpecializationsSuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SpecializationsSuccessImpl implements SpecializationsSuccess {
-  const _$SpecializationsSuccessImpl(
+class _$CategoriesAndJobsSuccessImpl implements CategoriesAndJobsSuccess {
+  const _$CategoriesAndJobsSuccessImpl(
       final List<CategoryModel> categoryModel, final List<JobModel> jobs)
       : _categoryModel = categoryModel,
         _jobs = jobs;
@@ -408,7 +408,7 @@ class _$SpecializationsSuccessImpl implements SpecializationsSuccess {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SpecializationsSuccessImpl &&
+            other is _$CategoriesAndJobsSuccessImpl &&
             const DeepCollectionEquality()
                 .equals(other._categoryModel, _categoryModel) &&
             const DeepCollectionEquality().equals(other._jobs, _jobs));
@@ -423,9 +423,9 @@ class _$SpecializationsSuccessImpl implements SpecializationsSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SpecializationsSuccessImplCopyWith<_$SpecializationsSuccessImpl>
-      get copyWith => __$$SpecializationsSuccessImplCopyWithImpl<
-          _$SpecializationsSuccessImpl>(this, _$identity);
+  _$$CategoriesAndJobsSuccessImplCopyWith<_$CategoriesAndJobsSuccessImpl>
+      get copyWith => __$$CategoriesAndJobsSuccessImplCopyWithImpl<
+          _$CategoriesAndJobsSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -474,7 +474,7 @@ class _$SpecializationsSuccessImpl implements SpecializationsSuccess {
     required TResult Function(_Initial value) initial,
     required TResult Function(CategoriesAndJobsLoading value)
         categoriesAndJobsLoading,
-    required TResult Function(SpecializationsSuccess value)
+    required TResult Function(CategoriesAndJobsSuccess value)
         categoriesAndJobsSuccess,
     required TResult Function(CategoriesAndJobsFailure value)
         categoriesAndJobsFailure,
@@ -487,7 +487,7 @@ class _$SpecializationsSuccessImpl implements SpecializationsSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(CategoriesAndJobsLoading value)? categoriesAndJobsLoading,
-    TResult? Function(SpecializationsSuccess value)? categoriesAndJobsSuccess,
+    TResult? Function(CategoriesAndJobsSuccess value)? categoriesAndJobsSuccess,
     TResult? Function(CategoriesAndJobsFailure value)? categoriesAndJobsFailure,
   }) {
     return categoriesAndJobsSuccess?.call(this);
@@ -498,7 +498,7 @@ class _$SpecializationsSuccessImpl implements SpecializationsSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(CategoriesAndJobsLoading value)? categoriesAndJobsLoading,
-    TResult Function(SpecializationsSuccess value)? categoriesAndJobsSuccess,
+    TResult Function(CategoriesAndJobsSuccess value)? categoriesAndJobsSuccess,
     TResult Function(CategoriesAndJobsFailure value)? categoriesAndJobsFailure,
     required TResult orElse(),
   }) {
@@ -509,15 +509,15 @@ class _$SpecializationsSuccessImpl implements SpecializationsSuccess {
   }
 }
 
-abstract class SpecializationsSuccess implements HomeState {
-  const factory SpecializationsSuccess(
+abstract class CategoriesAndJobsSuccess implements HomeState {
+  const factory CategoriesAndJobsSuccess(
           final List<CategoryModel> categoryModel, final List<JobModel> jobs) =
-      _$SpecializationsSuccessImpl;
+      _$CategoriesAndJobsSuccessImpl;
 
   List<CategoryModel> get categoryModel;
   List<JobModel> get jobs;
   @JsonKey(ignore: true)
-  _$$SpecializationsSuccessImplCopyWith<_$SpecializationsSuccessImpl>
+  _$$CategoriesAndJobsSuccessImplCopyWith<_$CategoriesAndJobsSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -632,7 +632,7 @@ class _$CategoriesAndJobsFailureImpl implements CategoriesAndJobsFailure {
     required TResult Function(_Initial value) initial,
     required TResult Function(CategoriesAndJobsLoading value)
         categoriesAndJobsLoading,
-    required TResult Function(SpecializationsSuccess value)
+    required TResult Function(CategoriesAndJobsSuccess value)
         categoriesAndJobsSuccess,
     required TResult Function(CategoriesAndJobsFailure value)
         categoriesAndJobsFailure,
@@ -645,7 +645,7 @@ class _$CategoriesAndJobsFailureImpl implements CategoriesAndJobsFailure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(CategoriesAndJobsLoading value)? categoriesAndJobsLoading,
-    TResult? Function(SpecializationsSuccess value)? categoriesAndJobsSuccess,
+    TResult? Function(CategoriesAndJobsSuccess value)? categoriesAndJobsSuccess,
     TResult? Function(CategoriesAndJobsFailure value)? categoriesAndJobsFailure,
   }) {
     return categoriesAndJobsFailure?.call(this);
@@ -656,7 +656,7 @@ class _$CategoriesAndJobsFailureImpl implements CategoriesAndJobsFailure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(CategoriesAndJobsLoading value)? categoriesAndJobsLoading,
-    TResult Function(SpecializationsSuccess value)? categoriesAndJobsSuccess,
+    TResult Function(CategoriesAndJobsSuccess value)? categoriesAndJobsSuccess,
     TResult Function(CategoriesAndJobsFailure value)? categoriesAndJobsFailure,
     required TResult orElse(),
   }) {
