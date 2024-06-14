@@ -4,6 +4,7 @@ import 'package:shaghalni/core/data/models/category_model.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
 import 'package:shaghalni/features/home/logic/home_cubit.dart';
 import 'package:shaghalni/features/home/logic/home_state.dart';
+import 'package:shaghalni/features/home/ui/widgets/home_shimmer_widget.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import 'home_sections/category_list_section.dart';
@@ -31,17 +32,16 @@ class CategoriesAndJobsBlocBuilder extends StatelessWidget {
   }
 
   Widget setupLoading() {
-    return const Center(
-      child: CircularProgressIndicator(),
-    );
+    return HomeShimmerWidget();
   }
 
-  Widget setupSuccess(List<CategoryModel> categoryList, List<JobModel> jobList) {
+  Widget setupSuccess(
+      List<CategoryModel> categoryList, List<JobModel> jobList) {
     return Column(
       children: [
         CategoryListSection(categoryList: categoryList),
         verticalSpace(20),
-        JobListSection(jobList : jobList),
+        JobListSection(jobList: jobList),
       ],
     );
   }

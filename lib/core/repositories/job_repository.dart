@@ -22,7 +22,7 @@ class JobRepository {
     try {
       QuerySnapshot<Map<String, dynamic>> snapshot = await firestore
           .collection(FirestoreCollections.jobs)
-          // .where('status', isEqualTo: JobStatus.pending)
+          // .where('status', isEqualTo: JobStatus.pending.name)
           .get();
       List<JobModel> jobs = snapshot.docs
           .map((e) => JobModel.fromJson(e.data()))
