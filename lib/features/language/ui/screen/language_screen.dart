@@ -35,7 +35,10 @@ class LanguageScreen extends StatelessWidget {
                     style: AppTextStyles.font18BoldBlack,
                   ),
                   verticalSpace(20),
-                  FlagSection(selectedLanguage: locale.languageCode),
+                  Directionality(
+                      textDirection: TextDirection.ltr,
+                      child:
+                          FlagSection(selectedLanguage: locale.languageCode)),
                   verticalSpace(50),
                   AppElevatedButton(
                     buttonText: S.of(context).continue_,
