@@ -16,6 +16,7 @@ class StepIndicator extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: StepProgressIndicator(
+        
         totalSteps: totalSteps,
         currentStep: currentStep,
         selectedColor: Colors.blue,
