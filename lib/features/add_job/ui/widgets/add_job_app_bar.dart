@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
+import 'package:shaghalni/core/routing/routes.dart';
 
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/app_text_styles.dart';
@@ -24,7 +26,7 @@ class AddJobAppBar extends StatelessWidget implements PreferredSizeWidget {
           if (context.read<AddJobCubit>().currentStep > 1) {
             context.read<AddJobCubit>().previousStep();
           } else {
-            Navigator.pop(context);
+             context.pushNamedAndRemoveUntil(Routes.home, predicate: (Route<dynamic> route) => false);
           }
         },
         icon: const Icon(

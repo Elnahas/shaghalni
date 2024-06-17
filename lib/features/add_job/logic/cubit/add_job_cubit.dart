@@ -40,6 +40,8 @@ class AddJobCubit extends Cubit<AddJobState> {
   TextEditingController jobDescriptionController = TextEditingController();
   TextEditingController jobSalaryController = TextEditingController();
   bool isHideSalary = false;
+  //
+  PageController pageController = PageController();
 
   // Steps Widgets List
   List<Widget> get steps => [
@@ -94,7 +96,7 @@ class AddJobCubit extends Cubit<AddJobState> {
       var cityList = await _cityRepository.getCities();
       _categoryList = categoryList;
       _cityList = cityList;
-      emit(const AddJobState.categoryAndCitySuccess());
+      emit(AddJobState.categoryAndCitySuccess(categoryList, cityList));
     } catch (e) {
       emit(AddJobState.categoryAndCityFailure(error: e.toString()));
     }
@@ -127,17 +129,22 @@ class AddJobCubit extends Cubit<AddJobState> {
   // Update selected index for category
   void updateSelectedCategoryIndex(int index) {
     selectedCategoryIndex = index;
-    emit(AddJobState.updateSteps(index: currentStep));
+    emit(CategoryIndexUpdated(index: selectedCategoryIndex));
   }
 
   // Update selected index for city
   void updateSelectedCityIndex(int index) {
     selectedCityIndex = index;
-    emit(AddJobState.updateSteps(index: currentStep));
+    emit(CityIndexUpdated(index: selectedCityIndex));
   }
 
   // Get current widget
   Widget getCurrentWidget() {
     return steps[currentStep - 1];
+  }
+
+  void updateCurrentStep(int step) {
+    currentStep = step;
+    emit(StepUpdated(index: currentStep));
   }
 }

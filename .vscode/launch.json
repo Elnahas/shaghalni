@@ -1,6 +1,16 @@
   {
     "version": "0.2.0",
     "configurations": [
+
+      
+      {
+        "name": "profile mode",
+        "request": "launch",
+        "type": "dart",
+        "program": "lib/main_production.dart",
+        "flutterMode": "profile"
+      },
+
       {
         "name": "Shaghalni Development",
         "request": "launch",

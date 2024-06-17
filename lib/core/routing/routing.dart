@@ -60,7 +60,7 @@ class Routing {
       case Routes.addJob:
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
-                  create: (context) => getIt<AddJobCubit>(),
+                  create: (context) => getIt<AddJobCubit>()..getCategoryAndCity(),
                   child: const AddJobScreen(),
                 ));
 

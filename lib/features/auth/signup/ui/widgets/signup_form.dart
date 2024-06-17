@@ -90,8 +90,8 @@ class _SignupFormState extends State<SignupForm> {
               labelText: "City",
               suffixIcon: const Icon(Icons.arrow_drop_down),
               readOnly: true,
-              onTap: () {
-                showModalBottomSheet(
+              onTap: () async {
+              await  showModalBottomSheet(
                   context: context,
                   builder: (context) {
                     return Container(
