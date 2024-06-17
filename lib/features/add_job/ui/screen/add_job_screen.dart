@@ -58,56 +58,52 @@ class _AddJobScreenState extends State<AddJobScreen> {
               MyPageIndicator(pageController),
               verticalSpace(10),
               Expanded(
-                child: BlocBuilder<AddJobCubit, AddJobState>(
+                child: BlocConsumer<AddJobCubit, AddJobState>(
+                  listenWhen: (previous, current) =>
+                      current is AddJobSuccess || current is AddJobFailure,
+                  listener: (context, state) {},
                   buildWhen: (previous, current) =>
                       current is CategoryAndCityLoading ||
                       current is CategoryAndCitySuccess ||
-                      current is StepUpdated,
+                      current is CityIndexUpdated || current is CategoryIndexUpdated,
                   builder: (context, state) {
-                    return state.maybeWhen(
-                      categoryAndCityLoading: () => ShimmerList(),
-                      categoryAndCitySuccess: (categoryModel, cityModel) {
-                        return PageView(
-                          onPageChanged: (value) {
+
+                    return state is CategoryAndCityLoading ? ShimmerList() : PageView(
+                      onPageChanged: (value) {
+                       //context.read<AddJobCubit>().currentStep = value +1 ;
+
+                      },
+                      //physics: NeverScrollableScrollPhysics(),
+                      children: [
+                        SelectListWidget(
+                          title: "Select Category",
+                          items: _cubit.getCategoryList,
+                          initialSelectedIndex:
+                              context.read<AddJobCubit>().selectedCategoryIndex,
+                          onItemSelected: (index) {
                             context
                                 .read<AddJobCubit>()
-                                .updateCurrentStep(value);
+                                .updateSelectedCategoryIndex(index);
                           },
-                          //physics: NeverScrollableScrollPhysics(),
-                          children: [
-                            SelectListWidget(
-                              title: "Select Category",
-                              items: categoryModel,
-                              initialSelectedIndex: context
-                                  .read<AddJobCubit>()
-                                  .selectedCategoryIndex,
-                              onItemSelected: (index) {
-                                context
-                                    .read<AddJobCubit>()
-                                    .updateSelectedCategoryIndex(index);
-                              },
-                              itemBuilder: (category) => category.name,
-                              paddingHorizontal: 14.w,
-                            ),
-                            SelectListWidget(
-                              title: "Select City",
-                              items: cityModel,
-                              initialSelectedIndex:
-                                  context.read<AddJobCubit>().selectedCityIndex,
-                              onItemSelected: (index) {
-                                context
-                                    .read<AddJobCubit>()
-                                    .updateSelectedCityIndex(index);
-                              },
-                              itemBuilder: (city) => city.name,
-                              paddingHorizontal: 14.w,
-                            ),
-                            const AddJobForm(),
-                          ],
-                          controller: pageController,
-                        );
-                      },
-                      orElse: () => SizedBox.shrink(),
+                          itemBuilder: (category) => category.name,
+                          paddingHorizontal: 14.w,
+                        ),
+                        SelectListWidget(
+                          title: "Select City",
+                          items: _cubit.getCityList,
+                          initialSelectedIndex:
+                              context.read<AddJobCubit>().selectedCityIndex,
+                          onItemSelected: (index) {
+                            context
+                                .read<AddJobCubit>()
+                                .updateSelectedCityIndex(index);
+                          },
+                          itemBuilder: (city) => city.name,
+                          paddingHorizontal: 14.w,
+                        ),
+                        const AddJobForm(),
+                      ],
+                      controller: pageController,
                     );
                   },
                 ),

@@ -23,6 +23,9 @@ class AddJobCubit extends Cubit<AddJobState> {
   // Lists
   List<CategoryModel> _categoryList = [];
   List<CityModel> _cityList = [];
+  // getList
+  List<CategoryModel> get getCategoryList => _categoryList;
+  List<CityModel> get getCityList => _cityList;
 
   //city and category
   CategoryModel get category => _categoryList[selectedCategoryIndex];
@@ -113,6 +116,9 @@ class AddJobCubit extends Cubit<AddJobState> {
             error: "Please select City"));
       } else {
         currentStep++;
+        pageController.nextPage(
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.fastOutSlowIn);
         emit(AddJobState.updateSteps(index: currentStep));
       }
     }
@@ -143,8 +149,8 @@ class AddJobCubit extends Cubit<AddJobState> {
     return steps[currentStep - 1];
   }
 
-  void updateCurrentStep(int step) {
-    currentStep = step;
+  void updateCurrentStep() {
+    //currentStep = step;
     emit(StepUpdated(index: currentStep));
   }
 }

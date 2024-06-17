@@ -17,7 +17,7 @@ class ButtonAddJobBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 14),
-          child: context.read<AddJobCubit>().currentStep == 2
+          child: context.read<AddJobCubit>().currentStep == 3
               ? AppTextButton(
                   isLoading: state is AddJobLoading,
                   buttonText: 'Submit',
@@ -27,9 +27,7 @@ class ButtonAddJobBlocBuilder extends StatelessWidget {
               : AppTextButton(
                   buttonText: 'Next',
                   onPressed: () {
-                    context.read<AddJobCubit>().pageController.nextPage(
-                        duration: const Duration(milliseconds: 100),
-                        curve: Curves.fastOutSlowIn);
+                    context.read<AddJobCubit>().nextStep();
                   },
                 ),
         );
