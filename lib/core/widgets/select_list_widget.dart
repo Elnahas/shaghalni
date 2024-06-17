@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
 
@@ -6,6 +7,7 @@ class SelectListWidget<T> extends StatefulWidget {
   final String title;
   final List<T> items;
   final int initialSelectedIndex;
+  final double? paddingHorizontal;
   final ValueChanged<int> onItemSelected;
   final String Function(T) itemBuilder;
 
@@ -15,7 +17,7 @@ class SelectListWidget<T> extends StatefulWidget {
     required this.initialSelectedIndex,
     required this.onItemSelected,
     required this.title,
-    required this.itemBuilder,
+    required this.itemBuilder, this.paddingHorizontal,
   });
 
   @override
@@ -45,49 +47,52 @@ class _SelectListWidgetState<T> extends State<SelectListWidget<T>> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          verticalSpace(20),
-          Text(
-            widget.title,
-            style: AppTextStyles.font18BoldBlack,
-          ),
-          verticalSpace(10),
-          ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: widget.items.length,
-            itemBuilder: (context, index) {
-              return Container(
-                margin: const EdgeInsets.symmetric(vertical: 5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: currentIndex == index ? Colors.blue : Colors.white,
-                ),
-                child: Material(
-                  color: Colors.transparent,
-                  borderRadius: BorderRadius.circular(10),
-                  child: InkWell(
+      child: Padding(
+        padding:  EdgeInsets.symmetric(horizontal: widget.paddingHorizontal ?? 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            verticalSpace(20),
+            Text(
+              widget.title,
+              style: AppTextStyles.font18BoldBlack,
+            ),
+            verticalSpace(10),
+            ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: widget.items.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: const EdgeInsets.symmetric(vertical: 5),
+                  decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    onTap: () {
-                      setState(() {
-                        currentIndex = index;
-                      });
-                      widget.onItemSelected(index);
-                    },
-                    child: ListTile(
-                      selected: currentIndex == index,
-                      selectedColor: Colors.white,
-                      trailing: const Icon(Icons.chevron_right),
-                      title: Text(widget.itemBuilder(widget.items[index]) ,),
+                    color: currentIndex == index ? Colors.blue : Colors.white,
+                  ),
+                  child: Material(
+                    color: Colors.transparent,
+                    borderRadius: BorderRadius.circular(10),
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(10),
+                      onTap: () {
+                        setState(() {
+                          currentIndex = index;
+                        });
+                        widget.onItemSelected(index);
+                      },
+                      child: ListTile(
+                        selected: currentIndex == index,
+                        selectedColor: Colors.white,
+                        trailing: const Icon(Icons.chevron_right),
+                        title: Text(widget.itemBuilder(widget.items[index]) ,),
+                      ),
                     ),
                   ),
-                ),
-              );
-            },
-          ),
-        ],
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

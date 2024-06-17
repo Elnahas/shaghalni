@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/functions/show_modal_bottom_sheet.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/widgets/app_text_button.dart';
+import 'package:shaghalni/features/add_job/logic/cubit/add_job_cubit.dart';
+import 'package:shaghalni/features/add_job/logic/cubit/add_job_state.dart';
 import '../../../../core/widgets/select_list_widget.dart';
+import '../../../../core/widgets/shimmer_list_widget.dart';
 import '../widgets/add_job_app_bar.dart';
 import '../widgets/add_job_form.dart';
 import '../widgets/my_page_indicator.dart';
@@ -48,26 +53,50 @@ class _AddJobScreenState extends State<AddJobScreen> {
                 ],
               ),
               Expanded(
-                child: PageView(
-                  //physics: NeverScrollableScrollPhysics(),
-                  children: [
-                    SelectListWidget(
-                      title: "Select Category",
-                      items: [],
-                      initialSelectedIndex: -1,
-                      onItemSelected: (asd) {},
-                      itemBuilder: (category) => category.name,
-                    ),
-                    SelectListWidget(
-                      title: "Select City",
-                      items: [],
-                      initialSelectedIndex: -1,
-                      onItemSelected: (asd) {},
-                      itemBuilder: (city) => city.name,
-                    ),
-                    const AddJobForm(),
-                  ],
-                  controller: myController,
+                child: BlocBuilder<AddJobCubit, AddJobState>(
+                  buildWhen: (previous, current) =>
+                      current is CategoryAndCityLoading ||
+                      current is CategoryAndCitySuccess,
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      categoryAndCityLoading: () => ShimmerList(),
+                      categoryAndCitySuccess: (categoryModel, cityModel) =>
+                          PageView(
+                        onPageChanged: (value) {
+                          setState(() {});
+                        },
+                        //physics: NeverScrollableScrollPhysics(),
+                        children: [
+                          SelectListWidget(
+                            title: "Select Category",
+                            items: categoryModel,
+                            initialSelectedIndex: context
+                                .read<AddJobCubit>()
+                                .selectedCategoryIndex,
+                            onItemSelected: context
+                                .read<AddJobCubit>()
+                                .updateSelectedCategoryIndex,
+                            itemBuilder: (category) => category.name,
+                            paddingHorizontal: 14.w,
+                          ),
+                          SelectListWidget(
+                            title: "Select City",
+                            items: cityModel,
+                            initialSelectedIndex:
+                                context.read<AddJobCubit>().selectedCityIndex,
+                            onItemSelected: context
+                                .read<AddJobCubit>()
+                                .updateSelectedCityIndex,
+                            itemBuilder: (city) => city.name,
+                            paddingHorizontal: 14.w,
+                          ),
+                          const AddJobForm(),
+                        ],
+                        controller: myController,
+                      ),
+                      orElse: () => const SizedBox.shrink(),
+                    );
+                  },
                 ),
               ),
               AppTextButton(

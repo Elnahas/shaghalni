@@ -13,7 +13,6 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   PageController myController = PageController();
-  bool isLastScreen = false;
 
   @override
   void dispose() {

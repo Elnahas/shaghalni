@@ -94,7 +94,7 @@ class AddJobCubit extends Cubit<AddJobState> {
       var cityList = await _cityRepository.getCities();
       _categoryList = categoryList;
       _cityList = cityList;
-      emit(const AddJobState.categoryAndCitySuccess());
+      emit(AddJobState.categoryAndCitySuccess( categoryList , cityList));
     } catch (e) {
       emit(AddJobState.categoryAndCityFailure(error: e.toString()));
     }
@@ -139,5 +139,15 @@ class AddJobCubit extends Cubit<AddJobState> {
   // Get current widget
   Widget getCurrentWidget() {
     return steps[currentStep - 1];
+  }
+
+    void updateState() {
+    final currentState = state;
+    if (currentState is CategoryAndCitySuccess) {
+      emit(CategoryAndCitySuccess(
+        currentState.categoryList,
+        currentState.cityList
+      ));
+    }
   }
 }
