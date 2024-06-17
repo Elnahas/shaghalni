@@ -33,6 +33,7 @@ class AddJobCubit extends Cubit<AddJobState> {
   int totalSteps = 3;
   int selectedCategoryIndex = -1;
   int selectedCityIndex = -1;
+  
 
   // Add Job Form
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -149,5 +150,10 @@ class AddJobCubit extends Cubit<AddJobState> {
         currentState.cityList
       ));
     }
+  }
+
+    void updateStep(int index) {
+    currentStep = index;
+    emit(AddJobState.updateSteps(index: index));
   }
 }

@@ -6,6 +6,9 @@ import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/widgets/app_text_button.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_cubit.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_state.dart';
+import 'package:uuid/uuid.dart';
+import '../../../../core/data/enum/job_status.dart';
+import '../../../../core/data/models/job_model.dart';
 import '../../../../core/widgets/select_list_widget.dart';
 import '../../../../core/widgets/shimmer_list_widget.dart';
 import '../widgets/add_job_app_bar.dart';
@@ -21,6 +24,13 @@ class AddJobScreen extends StatefulWidget {
 
 class _AddJobScreenState extends State<AddJobScreen> {
   PageController myController = PageController();
+  late final AddJobCubit _cubit;
+
+  @override
+  void initState() {
+    _cubit = context.read<AddJobCubit>();
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -63,6 +73,7 @@ class _AddJobScreenState extends State<AddJobScreen> {
                       categoryAndCitySuccess: (categoryModel, cityModel) =>
                           PageView(
                         onPageChanged: (value) {
+                          _cubit.currentStep = value;
                           setState(() {});
                         },
                         //physics: NeverScrollableScrollPhysics(),
@@ -82,8 +93,7 @@ class _AddJobScreenState extends State<AddJobScreen> {
                           SelectListWidget(
                             title: "Select City",
                             items: cityModel,
-                            initialSelectedIndex:
-                                context.read<AddJobCubit>().selectedCityIndex,
+                            initialSelectedIndex: _cubit.selectedCityIndex,
                             onItemSelected: context
                                 .read<AddJobCubit>()
                                 .updateSelectedCityIndex,
@@ -99,17 +109,53 @@ class _AddJobScreenState extends State<AddJobScreen> {
                   },
                 ),
               ),
-              AppTextButton(
-                  buttonText: "Next",
-                  onPressed: () {
-                    myController.nextPage(
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeInOutCubic);
-                  })
+              BlocBuilder<AddJobCubit, AddJobState>(
+                builder: (context, state) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    child: _cubit.currentStep == 2
+                        ? AppTextButton(
+                            isLoading: state is AddJobLoading,
+                            buttonText: 'Submit',
+                            onPressed: () {
+                              validateAddJob();
+                            })
+                        : AppTextButton(
+                            buttonText: 'Next',
+                            onPressed: () {
+                              myController.nextPage(
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeIn);
+                            },
+                          ),
+                  );
+                },
+              )
             ],
           ),
         ),
       ),
     );
+  }
+
+  void validateAddJob() {
+    if (_cubit.formKey.currentState!.validate()) {
+      var uuid = const Uuid();
+      String customId = uuid.v4();
+
+      final job = JobModel(
+          id: customId,
+          title: _cubit.jobTitleController.text,
+          description: _cubit.jobDescriptionController.text,
+          city: _cubit.city,
+          category: _cubit.category,
+          salary: double.tryParse(_cubit.jobSalaryController.text) ?? 0.0,
+          isHideSalary: _cubit.isHideSalary,
+          status: JobStatus.pending,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+          views: 0);
+      _cubit.addJob(job);
+    }
   }
 }
