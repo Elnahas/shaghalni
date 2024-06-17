@@ -36,28 +36,33 @@ class _MyPageIndicatorState extends State<MyPageIndicator> {
 
   @override
   Widget build(BuildContext context) {
-    return SmoothPageIndicator(
-      controller: widget.myController,
-      count: 3,
-      axisDirection: Axis.horizontal,
-      effect: CustomizableEffect(
-        spacing: 10.0,
-        activeDotDecoration: DotDecoration(
-          width: 100.0,
-          height: 12.0,
-          color: Colors.indigo,
-          borderRadius: BorderRadius.circular(4.0),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SmoothPageIndicator(
+          controller: widget.myController,
+          count: 3,
+          axisDirection: Axis.horizontal,
+          effect: CustomizableEffect(
+            spacing: 10.0,
+            activeDotDecoration: DotDecoration(
+              width: 100.0,
+              height: 12.0,
+              color: Colors.indigo,
+              borderRadius: BorderRadius.circular(4.0),
+            ),
+            dotDecoration: DotDecoration(
+              width: 100.0,
+              height: 12.0,
+              color: Colors.grey[300]!,
+              borderRadius: BorderRadius.circular(4.0),
+            ),
+            inActiveColorOverride: (index) {
+              return index <= currentPage ? Colors.indigo : Colors.grey[300]!;
+            }
+          ),
         ),
-        dotDecoration: DotDecoration(
-          width: 100.0,
-          height: 12.0,
-          color: Colors.grey[300]!,
-          borderRadius: BorderRadius.circular(4.0),
-        ),
-        inActiveColorOverride: (index) {
-          return index <= currentPage ? Colors.indigo : Colors.grey[300]!;
-        }
-      ),
+      ],
     );
   }
 }

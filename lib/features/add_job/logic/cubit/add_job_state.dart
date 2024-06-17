@@ -20,5 +20,8 @@ class AddJobState<T> with _$AddJobState<T> {
       CategoryAndCityFailure;
 
   const factory AddJobState.updateSteps({required int index}) = UpdateSteps;
-  const factory AddJobState.setPage({required int index}) = SetPage;
+
+  const factory AddJobState.categoryIndexUpdated({required int index}) = CategoryIndexUpdated;
+  const factory AddJobState.cityIndexUpdated({required int index}) = CityIndexUpdated;
+  const factory AddJobState.stepUpdated({required int index}) = StepUpdated;
 }

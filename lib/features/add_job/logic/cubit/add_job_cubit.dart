@@ -33,7 +33,6 @@ class AddJobCubit extends Cubit<AddJobState> {
   int totalSteps = 3;
   int selectedCategoryIndex = -1;
   int selectedCityIndex = -1;
-  
 
   // Add Job Form
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -41,6 +40,8 @@ class AddJobCubit extends Cubit<AddJobState> {
   TextEditingController jobDescriptionController = TextEditingController();
   TextEditingController jobSalaryController = TextEditingController();
   bool isHideSalary = false;
+  //
+  PageController pageController = PageController();
 
   // Steps Widgets List
   List<Widget> get steps => [
@@ -95,7 +96,7 @@ class AddJobCubit extends Cubit<AddJobState> {
       var cityList = await _cityRepository.getCities();
       _categoryList = categoryList;
       _cityList = cityList;
-      emit(AddJobState.categoryAndCitySuccess( categoryList , cityList));
+      emit(AddJobState.categoryAndCitySuccess(categoryList, cityList));
     } catch (e) {
       emit(AddJobState.categoryAndCityFailure(error: e.toString()));
     }
@@ -128,13 +129,13 @@ class AddJobCubit extends Cubit<AddJobState> {
   // Update selected index for category
   void updateSelectedCategoryIndex(int index) {
     selectedCategoryIndex = index;
-    emit(AddJobState.updateSteps(index: currentStep));
+    emit(CategoryIndexUpdated(index: selectedCategoryIndex));
   }
 
   // Update selected index for city
   void updateSelectedCityIndex(int index) {
     selectedCityIndex = index;
-    emit(AddJobState.updateSteps(index: currentStep));
+    emit(CityIndexUpdated(index: selectedCityIndex));
   }
 
   // Get current widget
@@ -142,18 +143,8 @@ class AddJobCubit extends Cubit<AddJobState> {
     return steps[currentStep - 1];
   }
 
-    void updateState() {
-    final currentState = state;
-    if (currentState is CategoryAndCitySuccess) {
-      emit(CategoryAndCitySuccess(
-        currentState.categoryList,
-        currentState.cityList
-      ));
-    }
-  }
-
-    void updateStep(int index) {
-    currentStep = index;
-    emit(AddJobState.updateSteps(index: index));
+  void updateCurrentStep(int step) {
+    currentStep = step;
+    emit(StepUpdated(index: currentStep));
   }
 }

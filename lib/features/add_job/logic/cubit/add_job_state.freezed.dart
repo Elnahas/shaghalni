@@ -28,7 +28,9 @@ mixin _$AddJobState<T> {
         categoryAndCitySuccess,
     required TResult Function(String error) categoryAndCityFailure,
     required TResult Function(int index) updateSteps,
-    required TResult Function(int index) setPage,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,7 +45,9 @@ mixin _$AddJobState<T> {
         categoryAndCitySuccess,
     TResult? Function(String error)? categoryAndCityFailure,
     TResult? Function(int index)? updateSteps,
-    TResult? Function(int index)? setPage,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,7 +62,9 @@ mixin _$AddJobState<T> {
         categoryAndCitySuccess,
     TResult Function(String error)? categoryAndCityFailure,
     TResult Function(int index)? updateSteps,
-    TResult Function(int index)? setPage,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,7 +81,10 @@ mixin _$AddJobState<T> {
     required TResult Function(CategoryAndCityFailure<T> value)
         categoryAndCityFailure,
     required TResult Function(UpdateSteps<T> value) updateSteps,
-    required TResult Function(SetPage<T> value) setPage,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,7 +97,9 @@ mixin _$AddJobState<T> {
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult? Function(UpdateSteps<T> value)? updateSteps,
-    TResult? Function(SetPage<T> value)? setPage,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -101,7 +112,9 @@ mixin _$AddJobState<T> {
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult Function(UpdateSteps<T> value)? updateSteps,
-    TResult Function(SetPage<T> value)? setPage,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -173,7 +186,9 @@ class _$InitialImpl<T> implements _Initial<T> {
         categoryAndCitySuccess,
     required TResult Function(String error) categoryAndCityFailure,
     required TResult Function(int index) updateSteps,
-    required TResult Function(int index) setPage,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
   }) {
     return initial();
   }
@@ -191,7 +206,9 @@ class _$InitialImpl<T> implements _Initial<T> {
         categoryAndCitySuccess,
     TResult? Function(String error)? categoryAndCityFailure,
     TResult? Function(int index)? updateSteps,
-    TResult? Function(int index)? setPage,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
   }) {
     return initial?.call();
   }
@@ -209,7 +226,9 @@ class _$InitialImpl<T> implements _Initial<T> {
         categoryAndCitySuccess,
     TResult Function(String error)? categoryAndCityFailure,
     TResult Function(int index)? updateSteps,
-    TResult Function(int index)? setPage,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -232,7 +251,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(CategoryAndCityFailure<T> value)
         categoryAndCityFailure,
     required TResult Function(UpdateSteps<T> value) updateSteps,
-    required TResult Function(SetPage<T> value) setPage,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
   }) {
     return initial(this);
   }
@@ -248,7 +270,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult? Function(UpdateSteps<T> value)? updateSteps,
-    TResult? Function(SetPage<T> value)? setPage,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
   }) {
     return initial?.call(this);
   }
@@ -264,7 +288,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult Function(UpdateSteps<T> value)? updateSteps,
-    TResult Function(SetPage<T> value)? setPage,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -326,7 +352,9 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
         categoryAndCitySuccess,
     required TResult Function(String error) categoryAndCityFailure,
     required TResult Function(int index) updateSteps,
-    required TResult Function(int index) setPage,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
   }) {
     return addJobLoading();
   }
@@ -344,7 +372,9 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
         categoryAndCitySuccess,
     TResult? Function(String error)? categoryAndCityFailure,
     TResult? Function(int index)? updateSteps,
-    TResult? Function(int index)? setPage,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
   }) {
     return addJobLoading?.call();
   }
@@ -362,7 +392,9 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
         categoryAndCitySuccess,
     TResult Function(String error)? categoryAndCityFailure,
     TResult Function(int index)? updateSteps,
-    TResult Function(int index)? setPage,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
     required TResult orElse(),
   }) {
     if (addJobLoading != null) {
@@ -385,7 +417,10 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     required TResult Function(CategoryAndCityFailure<T> value)
         categoryAndCityFailure,
     required TResult Function(UpdateSteps<T> value) updateSteps,
-    required TResult Function(SetPage<T> value) setPage,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
   }) {
     return addJobLoading(this);
   }
@@ -401,7 +436,9 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult? Function(UpdateSteps<T> value)? updateSteps,
-    TResult? Function(SetPage<T> value)? setPage,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
   }) {
     return addJobLoading?.call(this);
   }
@@ -417,7 +454,9 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult Function(UpdateSteps<T> value)? updateSteps,
-    TResult Function(SetPage<T> value)? setPage,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
     required TResult orElse(),
   }) {
     if (addJobLoading != null) {
@@ -479,7 +518,9 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
         categoryAndCitySuccess,
     required TResult Function(String error) categoryAndCityFailure,
     required TResult Function(int index) updateSteps,
-    required TResult Function(int index) setPage,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
   }) {
     return addJobSuccess();
   }
@@ -497,7 +538,9 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
         categoryAndCitySuccess,
     TResult? Function(String error)? categoryAndCityFailure,
     TResult? Function(int index)? updateSteps,
-    TResult? Function(int index)? setPage,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
   }) {
     return addJobSuccess?.call();
   }
@@ -515,7 +558,9 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
         categoryAndCitySuccess,
     TResult Function(String error)? categoryAndCityFailure,
     TResult Function(int index)? updateSteps,
-    TResult Function(int index)? setPage,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
     required TResult orElse(),
   }) {
     if (addJobSuccess != null) {
@@ -538,7 +583,10 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
     required TResult Function(CategoryAndCityFailure<T> value)
         categoryAndCityFailure,
     required TResult Function(UpdateSteps<T> value) updateSteps,
-    required TResult Function(SetPage<T> value) setPage,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
   }) {
     return addJobSuccess(this);
   }
@@ -554,7 +602,9 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult? Function(UpdateSteps<T> value)? updateSteps,
-    TResult? Function(SetPage<T> value)? setPage,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
   }) {
     return addJobSuccess?.call(this);
   }
@@ -570,7 +620,9 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult Function(UpdateSteps<T> value)? updateSteps,
-    TResult Function(SetPage<T> value)? setPage,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
     required TResult orElse(),
   }) {
     if (addJobSuccess != null) {
@@ -659,7 +711,9 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
         categoryAndCitySuccess,
     required TResult Function(String error) categoryAndCityFailure,
     required TResult Function(int index) updateSteps,
-    required TResult Function(int index) setPage,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
   }) {
     return addJobFailure(error);
   }
@@ -677,7 +731,9 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
         categoryAndCitySuccess,
     TResult? Function(String error)? categoryAndCityFailure,
     TResult? Function(int index)? updateSteps,
-    TResult? Function(int index)? setPage,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
   }) {
     return addJobFailure?.call(error);
   }
@@ -695,7 +751,9 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
         categoryAndCitySuccess,
     TResult Function(String error)? categoryAndCityFailure,
     TResult Function(int index)? updateSteps,
-    TResult Function(int index)? setPage,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
     required TResult orElse(),
   }) {
     if (addJobFailure != null) {
@@ -718,7 +776,10 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     required TResult Function(CategoryAndCityFailure<T> value)
         categoryAndCityFailure,
     required TResult Function(UpdateSteps<T> value) updateSteps,
-    required TResult Function(SetPage<T> value) setPage,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
   }) {
     return addJobFailure(this);
   }
@@ -734,7 +795,9 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult? Function(UpdateSteps<T> value)? updateSteps,
-    TResult? Function(SetPage<T> value)? setPage,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
   }) {
     return addJobFailure?.call(this);
   }
@@ -750,7 +813,9 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult Function(UpdateSteps<T> value)? updateSteps,
-    TResult Function(SetPage<T> value)? setPage,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
     required TResult orElse(),
   }) {
     if (addJobFailure != null) {
@@ -821,7 +886,9 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
         categoryAndCitySuccess,
     required TResult Function(String error) categoryAndCityFailure,
     required TResult Function(int index) updateSteps,
-    required TResult Function(int index) setPage,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
   }) {
     return categoryAndCityLoading();
   }
@@ -839,7 +906,9 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
         categoryAndCitySuccess,
     TResult? Function(String error)? categoryAndCityFailure,
     TResult? Function(int index)? updateSteps,
-    TResult? Function(int index)? setPage,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
   }) {
     return categoryAndCityLoading?.call();
   }
@@ -857,7 +926,9 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
         categoryAndCitySuccess,
     TResult Function(String error)? categoryAndCityFailure,
     TResult Function(int index)? updateSteps,
-    TResult Function(int index)? setPage,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
     required TResult orElse(),
   }) {
     if (categoryAndCityLoading != null) {
@@ -880,7 +951,10 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
     required TResult Function(CategoryAndCityFailure<T> value)
         categoryAndCityFailure,
     required TResult Function(UpdateSteps<T> value) updateSteps,
-    required TResult Function(SetPage<T> value) setPage,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
   }) {
     return categoryAndCityLoading(this);
   }
@@ -896,7 +970,9 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult? Function(UpdateSteps<T> value)? updateSteps,
-    TResult? Function(SetPage<T> value)? setPage,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
   }) {
     return categoryAndCityLoading?.call(this);
   }
@@ -912,7 +988,9 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult Function(UpdateSteps<T> value)? updateSteps,
-    TResult Function(SetPage<T> value)? setPage,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
     required TResult orElse(),
   }) {
     if (categoryAndCityLoading != null) {
@@ -1029,7 +1107,9 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
         categoryAndCitySuccess,
     required TResult Function(String error) categoryAndCityFailure,
     required TResult Function(int index) updateSteps,
-    required TResult Function(int index) setPage,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
   }) {
     return categoryAndCitySuccess(categoryList, cityList);
   }
@@ -1047,7 +1127,9 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
         categoryAndCitySuccess,
     TResult? Function(String error)? categoryAndCityFailure,
     TResult? Function(int index)? updateSteps,
-    TResult? Function(int index)? setPage,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
   }) {
     return categoryAndCitySuccess?.call(categoryList, cityList);
   }
@@ -1065,7 +1147,9 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
         categoryAndCitySuccess,
     TResult Function(String error)? categoryAndCityFailure,
     TResult Function(int index)? updateSteps,
-    TResult Function(int index)? setPage,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
     required TResult orElse(),
   }) {
     if (categoryAndCitySuccess != null) {
@@ -1088,7 +1172,10 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
     required TResult Function(CategoryAndCityFailure<T> value)
         categoryAndCityFailure,
     required TResult Function(UpdateSteps<T> value) updateSteps,
-    required TResult Function(SetPage<T> value) setPage,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
   }) {
     return categoryAndCitySuccess(this);
   }
@@ -1104,7 +1191,9 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult? Function(UpdateSteps<T> value)? updateSteps,
-    TResult? Function(SetPage<T> value)? setPage,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
   }) {
     return categoryAndCitySuccess?.call(this);
   }
@@ -1120,7 +1209,9 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult Function(UpdateSteps<T> value)? updateSteps,
-    TResult Function(SetPage<T> value)? setPage,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
     required TResult orElse(),
   }) {
     if (categoryAndCitySuccess != null) {
@@ -1218,7 +1309,9 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
         categoryAndCitySuccess,
     required TResult Function(String error) categoryAndCityFailure,
     required TResult Function(int index) updateSteps,
-    required TResult Function(int index) setPage,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
   }) {
     return categoryAndCityFailure(error);
   }
@@ -1236,7 +1329,9 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
         categoryAndCitySuccess,
     TResult? Function(String error)? categoryAndCityFailure,
     TResult? Function(int index)? updateSteps,
-    TResult? Function(int index)? setPage,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
   }) {
     return categoryAndCityFailure?.call(error);
   }
@@ -1254,7 +1349,9 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
         categoryAndCitySuccess,
     TResult Function(String error)? categoryAndCityFailure,
     TResult Function(int index)? updateSteps,
-    TResult Function(int index)? setPage,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
     required TResult orElse(),
   }) {
     if (categoryAndCityFailure != null) {
@@ -1277,7 +1374,10 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
     required TResult Function(CategoryAndCityFailure<T> value)
         categoryAndCityFailure,
     required TResult Function(UpdateSteps<T> value) updateSteps,
-    required TResult Function(SetPage<T> value) setPage,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
   }) {
     return categoryAndCityFailure(this);
   }
@@ -1293,7 +1393,9 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult? Function(UpdateSteps<T> value)? updateSteps,
-    TResult? Function(SetPage<T> value)? setPage,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
   }) {
     return categoryAndCityFailure?.call(this);
   }
@@ -1309,7 +1411,9 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult Function(UpdateSteps<T> value)? updateSteps,
-    TResult Function(SetPage<T> value)? setPage,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
     required TResult orElse(),
   }) {
     if (categoryAndCityFailure != null) {
@@ -1404,7 +1508,9 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
         categoryAndCitySuccess,
     required TResult Function(String error) categoryAndCityFailure,
     required TResult Function(int index) updateSteps,
-    required TResult Function(int index) setPage,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
   }) {
     return updateSteps(index);
   }
@@ -1422,7 +1528,9 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
         categoryAndCitySuccess,
     TResult? Function(String error)? categoryAndCityFailure,
     TResult? Function(int index)? updateSteps,
-    TResult? Function(int index)? setPage,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
   }) {
     return updateSteps?.call(index);
   }
@@ -1440,7 +1548,9 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
         categoryAndCitySuccess,
     TResult Function(String error)? categoryAndCityFailure,
     TResult Function(int index)? updateSteps,
-    TResult Function(int index)? setPage,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
     required TResult orElse(),
   }) {
     if (updateSteps != null) {
@@ -1463,7 +1573,10 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
     required TResult Function(CategoryAndCityFailure<T> value)
         categoryAndCityFailure,
     required TResult Function(UpdateSteps<T> value) updateSteps,
-    required TResult Function(SetPage<T> value) setPage,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
   }) {
     return updateSteps(this);
   }
@@ -1479,7 +1592,9 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult? Function(UpdateSteps<T> value)? updateSteps,
-    TResult? Function(SetPage<T> value)? setPage,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
   }) {
     return updateSteps?.call(this);
   }
@@ -1495,7 +1610,9 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult Function(UpdateSteps<T> value)? updateSteps,
-    TResult Function(SetPage<T> value)? setPage,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
     required TResult orElse(),
   }) {
     if (updateSteps != null) {
@@ -1515,20 +1632,21 @@ abstract class UpdateSteps<T> implements AddJobState<T> {
 }
 
 /// @nodoc
-abstract class _$$SetPageImplCopyWith<T, $Res> {
-  factory _$$SetPageImplCopyWith(
-          _$SetPageImpl<T> value, $Res Function(_$SetPageImpl<T>) then) =
-      __$$SetPageImplCopyWithImpl<T, $Res>;
+abstract class _$$CategoryIndexUpdatedImplCopyWith<T, $Res> {
+  factory _$$CategoryIndexUpdatedImplCopyWith(
+          _$CategoryIndexUpdatedImpl<T> value,
+          $Res Function(_$CategoryIndexUpdatedImpl<T>) then) =
+      __$$CategoryIndexUpdatedImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$SetPageImplCopyWithImpl<T, $Res>
-    extends _$AddJobStateCopyWithImpl<T, $Res, _$SetPageImpl<T>>
-    implements _$$SetPageImplCopyWith<T, $Res> {
-  __$$SetPageImplCopyWithImpl(
-      _$SetPageImpl<T> _value, $Res Function(_$SetPageImpl<T>) _then)
+class __$$CategoryIndexUpdatedImplCopyWithImpl<T, $Res>
+    extends _$AddJobStateCopyWithImpl<T, $Res, _$CategoryIndexUpdatedImpl<T>>
+    implements _$$CategoryIndexUpdatedImplCopyWith<T, $Res> {
+  __$$CategoryIndexUpdatedImplCopyWithImpl(_$CategoryIndexUpdatedImpl<T> _value,
+      $Res Function(_$CategoryIndexUpdatedImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1536,7 +1654,7 @@ class __$$SetPageImplCopyWithImpl<T, $Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$SetPageImpl<T>(
+    return _then(_$CategoryIndexUpdatedImpl<T>(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -1547,22 +1665,22 @@ class __$$SetPageImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$SetPageImpl<T> implements SetPage<T> {
-  const _$SetPageImpl({required this.index});
+class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
+  const _$CategoryIndexUpdatedImpl({required this.index});
 
   @override
   final int index;
 
   @override
   String toString() {
-    return 'AddJobState<$T>.setPage(index: $index)';
+    return 'AddJobState<$T>.categoryIndexUpdated(index: $index)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetPageImpl<T> &&
+            other is _$CategoryIndexUpdatedImpl<T> &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -1572,8 +1690,9 @@ class _$SetPageImpl<T> implements SetPage<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SetPageImplCopyWith<T, _$SetPageImpl<T>> get copyWith =>
-      __$$SetPageImplCopyWithImpl<T, _$SetPageImpl<T>>(this, _$identity);
+  _$$CategoryIndexUpdatedImplCopyWith<T, _$CategoryIndexUpdatedImpl<T>>
+      get copyWith => __$$CategoryIndexUpdatedImplCopyWithImpl<T,
+          _$CategoryIndexUpdatedImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1588,9 +1707,11 @@ class _$SetPageImpl<T> implements SetPage<T> {
         categoryAndCitySuccess,
     required TResult Function(String error) categoryAndCityFailure,
     required TResult Function(int index) updateSteps,
-    required TResult Function(int index) setPage,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
   }) {
-    return setPage(index);
+    return categoryIndexUpdated(index);
   }
 
   @override
@@ -1606,9 +1727,11 @@ class _$SetPageImpl<T> implements SetPage<T> {
         categoryAndCitySuccess,
     TResult? Function(String error)? categoryAndCityFailure,
     TResult? Function(int index)? updateSteps,
-    TResult? Function(int index)? setPage,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
   }) {
-    return setPage?.call(index);
+    return categoryIndexUpdated?.call(index);
   }
 
   @override
@@ -1624,11 +1747,13 @@ class _$SetPageImpl<T> implements SetPage<T> {
         categoryAndCitySuccess,
     TResult Function(String error)? categoryAndCityFailure,
     TResult Function(int index)? updateSteps,
-    TResult Function(int index)? setPage,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
     required TResult orElse(),
   }) {
-    if (setPage != null) {
-      return setPage(index);
+    if (categoryIndexUpdated != null) {
+      return categoryIndexUpdated(index);
     }
     return orElse();
   }
@@ -1647,9 +1772,12 @@ class _$SetPageImpl<T> implements SetPage<T> {
     required TResult Function(CategoryAndCityFailure<T> value)
         categoryAndCityFailure,
     required TResult Function(UpdateSteps<T> value) updateSteps,
-    required TResult Function(SetPage<T> value) setPage,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
   }) {
-    return setPage(this);
+    return categoryIndexUpdated(this);
   }
 
   @override
@@ -1663,9 +1791,11 @@ class _$SetPageImpl<T> implements SetPage<T> {
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult? Function(UpdateSteps<T> value)? updateSteps,
-    TResult? Function(SetPage<T> value)? setPage,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
   }) {
-    return setPage?.call(this);
+    return categoryIndexUpdated?.call(this);
   }
 
   @override
@@ -1679,21 +1809,421 @@ class _$SetPageImpl<T> implements SetPage<T> {
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
     TResult Function(UpdateSteps<T> value)? updateSteps,
-    TResult Function(SetPage<T> value)? setPage,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
     required TResult orElse(),
   }) {
-    if (setPage != null) {
-      return setPage(this);
+    if (categoryIndexUpdated != null) {
+      return categoryIndexUpdated(this);
     }
     return orElse();
   }
 }
 
-abstract class SetPage<T> implements AddJobState<T> {
-  const factory SetPage({required final int index}) = _$SetPageImpl<T>;
+abstract class CategoryIndexUpdated<T> implements AddJobState<T> {
+  const factory CategoryIndexUpdated({required final int index}) =
+      _$CategoryIndexUpdatedImpl<T>;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$SetPageImplCopyWith<T, _$SetPageImpl<T>> get copyWith =>
+  _$$CategoryIndexUpdatedImplCopyWith<T, _$CategoryIndexUpdatedImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CityIndexUpdatedImplCopyWith<T, $Res> {
+  factory _$$CityIndexUpdatedImplCopyWith(_$CityIndexUpdatedImpl<T> value,
+          $Res Function(_$CityIndexUpdatedImpl<T>) then) =
+      __$$CityIndexUpdatedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$CityIndexUpdatedImplCopyWithImpl<T, $Res>
+    extends _$AddJobStateCopyWithImpl<T, $Res, _$CityIndexUpdatedImpl<T>>
+    implements _$$CityIndexUpdatedImplCopyWith<T, $Res> {
+  __$$CityIndexUpdatedImplCopyWithImpl(_$CityIndexUpdatedImpl<T> _value,
+      $Res Function(_$CityIndexUpdatedImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$CityIndexUpdatedImpl<T>(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
+  const _$CityIndexUpdatedImpl({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'AddJobState<$T>.cityIndexUpdated(index: $index)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CityIndexUpdatedImpl<T> &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CityIndexUpdatedImplCopyWith<T, _$CityIndexUpdatedImpl<T>> get copyWith =>
+      __$$CityIndexUpdatedImplCopyWithImpl<T, _$CityIndexUpdatedImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() addJobLoading,
+    required TResult Function() addJobSuccess,
+    required TResult Function(String error) addJobFailure,
+    required TResult Function() categoryAndCityLoading,
+    required TResult Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)
+        categoryAndCitySuccess,
+    required TResult Function(String error) categoryAndCityFailure,
+    required TResult Function(int index) updateSteps,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
+  }) {
+    return cityIndexUpdated(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? addJobLoading,
+    TResult? Function()? addJobSuccess,
+    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? categoryAndCityLoading,
+    TResult? Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)?
+        categoryAndCitySuccess,
+    TResult? Function(String error)? categoryAndCityFailure,
+    TResult? Function(int index)? updateSteps,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
+  }) {
+    return cityIndexUpdated?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? addJobLoading,
+    TResult Function()? addJobSuccess,
+    TResult Function(String error)? addJobFailure,
+    TResult Function()? categoryAndCityLoading,
+    TResult Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)?
+        categoryAndCitySuccess,
+    TResult Function(String error)? categoryAndCityFailure,
+    TResult Function(int index)? updateSteps,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
+    required TResult orElse(),
+  }) {
+    if (cityIndexUpdated != null) {
+      return cityIndexUpdated(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(CategoryAndCityLoading<T> value)
+        categoryAndCityLoading,
+    required TResult Function(CategoryAndCitySuccess<T> value)
+        categoryAndCitySuccess,
+    required TResult Function(CategoryAndCityFailure<T> value)
+        categoryAndCityFailure,
+    required TResult Function(UpdateSteps<T> value) updateSteps,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
+  }) {
+    return cityIndexUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
+    TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
+    TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
+    TResult? Function(UpdateSteps<T> value)? updateSteps,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
+  }) {
+    return cityIndexUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
+    TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
+    TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
+    TResult Function(UpdateSteps<T> value)? updateSteps,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
+    required TResult orElse(),
+  }) {
+    if (cityIndexUpdated != null) {
+      return cityIndexUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CityIndexUpdated<T> implements AddJobState<T> {
+  const factory CityIndexUpdated({required final int index}) =
+      _$CityIndexUpdatedImpl<T>;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$CityIndexUpdatedImplCopyWith<T, _$CityIndexUpdatedImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$StepUpdatedImplCopyWith<T, $Res> {
+  factory _$$StepUpdatedImplCopyWith(_$StepUpdatedImpl<T> value,
+          $Res Function(_$StepUpdatedImpl<T>) then) =
+      __$$StepUpdatedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$StepUpdatedImplCopyWithImpl<T, $Res>
+    extends _$AddJobStateCopyWithImpl<T, $Res, _$StepUpdatedImpl<T>>
+    implements _$$StepUpdatedImplCopyWith<T, $Res> {
+  __$$StepUpdatedImplCopyWithImpl(
+      _$StepUpdatedImpl<T> _value, $Res Function(_$StepUpdatedImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$StepUpdatedImpl<T>(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$StepUpdatedImpl<T> implements StepUpdated<T> {
+  const _$StepUpdatedImpl({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'AddJobState<$T>.stepUpdated(index: $index)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StepUpdatedImpl<T> &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StepUpdatedImplCopyWith<T, _$StepUpdatedImpl<T>> get copyWith =>
+      __$$StepUpdatedImplCopyWithImpl<T, _$StepUpdatedImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() addJobLoading,
+    required TResult Function() addJobSuccess,
+    required TResult Function(String error) addJobFailure,
+    required TResult Function() categoryAndCityLoading,
+    required TResult Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)
+        categoryAndCitySuccess,
+    required TResult Function(String error) categoryAndCityFailure,
+    required TResult Function(int index) updateSteps,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
+  }) {
+    return stepUpdated(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? addJobLoading,
+    TResult? Function()? addJobSuccess,
+    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? categoryAndCityLoading,
+    TResult? Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)?
+        categoryAndCitySuccess,
+    TResult? Function(String error)? categoryAndCityFailure,
+    TResult? Function(int index)? updateSteps,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
+  }) {
+    return stepUpdated?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? addJobLoading,
+    TResult Function()? addJobSuccess,
+    TResult Function(String error)? addJobFailure,
+    TResult Function()? categoryAndCityLoading,
+    TResult Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)?
+        categoryAndCitySuccess,
+    TResult Function(String error)? categoryAndCityFailure,
+    TResult Function(int index)? updateSteps,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
+    required TResult orElse(),
+  }) {
+    if (stepUpdated != null) {
+      return stepUpdated(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(CategoryAndCityLoading<T> value)
+        categoryAndCityLoading,
+    required TResult Function(CategoryAndCitySuccess<T> value)
+        categoryAndCitySuccess,
+    required TResult Function(CategoryAndCityFailure<T> value)
+        categoryAndCityFailure,
+    required TResult Function(UpdateSteps<T> value) updateSteps,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
+  }) {
+    return stepUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
+    TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
+    TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
+    TResult? Function(UpdateSteps<T> value)? updateSteps,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
+  }) {
+    return stepUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
+    TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
+    TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
+    TResult Function(UpdateSteps<T> value)? updateSteps,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
+    required TResult orElse(),
+  }) {
+    if (stepUpdated != null) {
+      return stepUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class StepUpdated<T> implements AddJobState<T> {
+  const factory StepUpdated({required final int index}) = _$StepUpdatedImpl<T>;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$StepUpdatedImplCopyWith<T, _$StepUpdatedImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
