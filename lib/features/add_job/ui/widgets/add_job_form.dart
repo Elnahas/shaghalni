@@ -42,12 +42,8 @@ class _AddJobFormState extends State<AddJobForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               verticalSpace(20),
-              Text(
-                "Title of the job",
-                style: AppTextStyles.font18BoldBlack,
-              ),
-              verticalSpace(10),
               AppTextFormField(
+                labelText: "Title of the job",
                 hintText: "Title of the job",
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -57,12 +53,8 @@ class _AddJobFormState extends State<AddJobForm> {
                 controller: _cubit.jobTitleController,
               ),
               verticalSpace(20),
-              Text(
-                "Description of the job",
-                style: AppTextStyles.font18BoldBlack,
-              ),
-              verticalSpace(10),
               AppTextFormField(
+                labelText: "Description of the job",
                   hintText: "Description of the job",
                   maxLines: 6,
                   validator: (value) {
@@ -72,12 +64,8 @@ class _AddJobFormState extends State<AddJobForm> {
                   },
                   controller: _cubit.jobDescriptionController),
               verticalSpace(20),
-              Text(
-                "Salary",
-                style: AppTextStyles.font18BoldBlack,
-              ),
-              verticalSpace(10),
               AppTextFormField(
+                  labelText: "Salary",
                   hintText: "Salary",
                   keyboardType: TextInputType.number,
                   validator: (value) {
@@ -88,7 +76,6 @@ class _AddJobFormState extends State<AddJobForm> {
                     }
                   },
                   controller: _cubit.jobSalaryController),
-              verticalSpace(20),
               CheckboxListTile(
                 value: _cubit.isHideSalary,
                 onChanged: (value) {
