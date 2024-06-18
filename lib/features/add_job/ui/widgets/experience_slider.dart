@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/core/widgets/app_label_text.dart';
+
+import '../../logic/cubit/add_job_cubit.dart';
 class ExperienceSlider extends StatefulWidget {
   @override
   _ExperienceSliderState createState() => _ExperienceSliderState();
@@ -29,6 +32,8 @@ class _ExperienceSliderState extends State<ExperienceSlider> {
           onChanged: (RangeValues values) {
             setState(() {
               _startValue = values.start;
+              context.read<AddJobCubit>().minExperience = values.start.toInt();
+              context.read<AddJobCubit>().maxExperience = values.end.toInt();
               _endValue = values.end;
             });
           },

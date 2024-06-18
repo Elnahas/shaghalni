@@ -4,6 +4,7 @@ import 'package:uuid/uuid.dart';
 
 import '../../../../core/data/enum/job_status.dart';
 import '../../../../core/data/models/job_model.dart';
+import '../../../../core/helpers/constants.dart';
 import '../../../../core/widgets/app_text_button.dart';
 import '../../logic/cubit/add_job_cubit.dart';
 import '../../logic/cubit/add_job_state.dart';
@@ -41,7 +42,17 @@ class ButtonAddJobBlocBuilder extends StatelessWidget {
       var uuid = const Uuid();
       String customId = uuid.v4();
 
+      var posted_by = PostedBy(
+          phoneNumber: userModel!.phoneNumber,
+          userId: userModel!.uid,
+          userName: userModel!.fullName);
+
       final job = JobModel(
+          postedBy: posted_by,
+          experienceRange: ExperienceRange(
+              minExperience: _cubit.minExperience,
+              maxExperience: _cubit.maxExperience),
+          gender: _cubit.selectedGender!,
           id: customId,
           title: _cubit.jobTitleController.text,
           description: _cubit.jobDescriptionController.text,

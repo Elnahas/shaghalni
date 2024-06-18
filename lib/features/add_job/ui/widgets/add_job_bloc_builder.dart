@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_cubit.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_state.dart';
 import 'package:shaghalni/features/add_job/ui/widgets/add_job_bloc_listener.dart';
@@ -87,7 +88,17 @@ class _AddJobBlocBuilderState extends State<AddJobBlocBuilder> {
       var uuid = const Uuid();
       String customId = uuid.v4();
 
+      var posted_by = PostedBy(
+          phoneNumber: userModel!.phoneNumber,
+          userId: userModel!.uid,
+          userName: userModel!.fullName);
+
       final job = JobModel(
+          postedBy: posted_by,
+          experienceRange: ExperienceRange(
+              maxExperience: _cubit.maxExperience,
+              minExperience: _cubit.minExperience),
+          gender: _cubit.selectedGender!,
           id: customId,
           title: _cubit.jobTitleController.text,
           description: _cubit.jobDescriptionController.text,
