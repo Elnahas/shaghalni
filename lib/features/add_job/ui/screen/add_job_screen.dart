@@ -37,8 +37,8 @@ class _AddJobScreenState extends State<AddJobScreen> {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvoked: (didPop) {
-        if (didPop) {
+      onPopInvokedWithResult: (didPop, result) {
+                if (didPop) {
           Navigator.pop(context);
         } else {
           onWillPop(context, 'Are you sure you want to exit?');

@@ -8,6 +8,7 @@ import 'package:shaghalni/core/repositories/category_repository.dart';
 import 'package:shaghalni/core/repositories/user_repository.dart';
 import 'package:shaghalni/core/repositories/job_repository.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_state.dart';
+import '../../../../core/data/enum/gender.dart';
 import '../../../../core/data/models/job_model.dart';
 import '../../../../core/repositories/city_repository.dart';
 import '../../../../core/widgets/select_list_widget.dart';
@@ -43,6 +44,7 @@ class AddJobCubit extends Cubit<AddJobState> {
   TextEditingController jobDescriptionController = TextEditingController();
   TextEditingController jobSalaryController = TextEditingController();
   bool isHideSalary = false;
+  Gender? selectedGender;
   //
   PageController pageController = PageController();
 

@@ -1,5 +1,7 @@
 import 'package:shaghalni/core/data/models/user_model.dart';
 
+import '../data/enum/gender.dart';
+
 UserModel? userModel;
 bool isLoggedInUser = false;
 bool isSeenOnboarding = false;
@@ -18,3 +20,16 @@ class FirestoreCollections {
   static const String cities = 'cities';
   static const String jobs = 'jobs';
 }
+
+  String getGenderLabel(Gender gender) {
+    switch (gender) {
+      case Gender.male:
+        return 'Male';
+      case Gender.female:
+        return 'Female';
+      case Gender.both:
+        return 'Both';
+      default:
+        return '';
+    }
+  }
