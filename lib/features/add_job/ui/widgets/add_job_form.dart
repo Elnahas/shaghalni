@@ -102,10 +102,6 @@ class _AddJobFormState extends State<AddJobForm> {
                 ),
               ),
               verticalSpace(30),
-              Text(
-                "By clicking on the Publish Ad button, you agree to the terms of use and that all data is real and the Shaghalni application has no connection to it.",
-                style: AppTextStyles.font14BoldBlack,
-              )
             ],
           ),
         ),
