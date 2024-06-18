@@ -50,6 +50,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Shaghalni`
+  String get appName {
+    return Intl.message(
+      'Shaghalni',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Next`
   String get next {
     return Intl.message(
@@ -85,6 +95,26 @@ class S {
     return Intl.message(
       'You can change the language at any time',
       name: 'You_can_change_the_language_at_any_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `phoneNumber`
+  String get phoneNumber {
+    return Intl.message(
+      'phoneNumber',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select gender`
+  String get pleaseSelectGender {
+    return Intl.message(
+      'Please select gender',
+      name: 'pleaseSelectGender',
       desc: '',
       args: [],
     );

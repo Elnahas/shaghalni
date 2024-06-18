@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 
+import '../../../../core/data/enum/gender.dart';
 import '../../../../core/theming/app_text_styles.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
+import '../../../../core/widgets/app_drop_down.dart';
 import '../../logic/cubit/add_job_cubit.dart';
 import 'experience_slider.dart';
 
@@ -55,7 +58,7 @@ class _AddJobFormState extends State<AddJobForm> {
               ),
               verticalSpace(20),
               AppTextFormField(
-                labelText: "Description of the job",
+                  labelText: "Description of the job",
                   hintText: "Description of the job",
                   maxLines: 6,
                   validator: (value) {
@@ -78,6 +81,7 @@ class _AddJobFormState extends State<AddJobForm> {
                   },
                   controller: _cubit.jobSalaryController),
               CheckboxListTile(
+                contentPadding: EdgeInsets.all(0),
                 value: _cubit.isHideSalary,
                 onChanged: (value) {
                   setState(() {
@@ -85,13 +89,28 @@ class _AddJobFormState extends State<AddJobForm> {
                   });
                 },
                 title: Text(
-                  "Hide the salary from the job advertisement",
+                  "Hide the salary",
                   style: AppTextStyles.font14BlackW300,
                 ),
               ),
               verticalSpace(20),
-              
               ExperienceSlider(),
+              verticalSpace(20),
+              AppDropdown<Gender>(
+                selectedValue: _cubit.selectedGender,
+                labelText: 'Select type',
+                items: Gender.values,
+                getLabel: (Gender gender) {
+                  return getGenderLabel(gender);
+                },
+                onChanged: (Gender? newValue) {
+                  setState(() {
+                    _cubit.selectedGender = newValue!;
+                  });
+                },
+              ),
+
+              verticalSpace(40),
             ],
           ),
         ),

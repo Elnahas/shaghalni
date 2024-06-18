@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:uuid/uuid.dart';
-
+import 'package:shaghalni/core/functions/show_snack_bar.dart';
 import '../../../../core/data/enum/job_status.dart';
 import '../../../../core/data/models/job_model.dart';
+import '../../../../core/helpers/constants.dart';
 import '../../../../core/widgets/app_text_button.dart';
 import '../../logic/cubit/add_job_cubit.dart';
 import '../../logic/cubit/add_job_state.dart';
@@ -38,11 +38,25 @@ class ButtonAddJobBlocBuilder extends StatelessWidget {
   void validateAddJob(BuildContext context) {
     var _cubit = context.read<AddJobCubit>();
     if (_cubit.formKey.currentState!.validate()) {
-      var uuid = const Uuid();
-      String customId = uuid.v4();
+
+      if(_cubit.selectedGender == null){
+
+        showSnackBar(context, "Please Select Gender");
+        
+        return;
+      }
+
+      var posted_by = PostedBy(
+          phoneNumber: userModel!.phoneNumber,
+          userId: userModel!.uid,
+          userName: userModel!.fullName);
 
       final job = JobModel(
-          id: customId,
+          postedBy: posted_by,
+          experienceRange: ExperienceRange(
+              minExperience: _cubit.minExperience,
+              maxExperience: _cubit.maxExperience),
+          gender: _cubit.selectedGender!,
           title: _cubit.jobTitleController.text,
           description: _cubit.jobDescriptionController.text,
           city: _cubit.city,
@@ -53,6 +67,8 @@ class ButtonAddJobBlocBuilder extends StatelessWidget {
           createdAt: DateTime.now(),
           updatedAt: DateTime.now(),
           views: 0);
+
+
       _cubit.addJob(job);
     }
   }

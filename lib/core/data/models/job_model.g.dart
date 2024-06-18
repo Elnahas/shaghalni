@@ -7,7 +7,6 @@ part of 'job_model.dart';
 // **************************************************************************
 
 JobModel _$JobModelFromJson(Map<String, dynamic> json) => JobModel(
-      id: json['id'] as String,
       title: json['title'] as String,
       description: json['description'] as String,
       city: JobModel._cityModelFromJson(json['city']),
@@ -15,14 +14,16 @@ JobModel _$JobModelFromJson(Map<String, dynamic> json) => JobModel(
       salary: (json['salary'] as num).toDouble(),
       isHideSalary: json['is_hide_salary'] as bool,
       status: JobModel._statusFromJson(json['status'] as String),
+      gender: JobModel._genderFromJson(json['gender'] as String),
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),
       views: (json['views'] as num).toInt(),
       postedBy: JobModel._postedByFromJson(json['posted_by']),
+      experienceRange:
+          JobModel._experienceRangeFromJson(json['experience_range']),
     );
 
 Map<String, dynamic> _$JobModelToJson(JobModel instance) => <String, dynamic>{
-      'id': instance.id,
       'title': instance.title,
       'description': instance.description,
       'city': JobModel._cityModelToJson(instance.city),
@@ -30,10 +31,13 @@ Map<String, dynamic> _$JobModelToJson(JobModel instance) => <String, dynamic>{
       'salary': instance.salary,
       'is_hide_salary': instance.isHideSalary,
       'status': JobModel._statusToJson(instance.status),
+      'gender': JobModel._genderToJson(instance.gender),
       'created_at': instance.createdAt.toIso8601String(),
       'updated_at': instance.updatedAt.toIso8601String(),
       'views': instance.views,
       'posted_by': JobModel._postedByToJson(instance.postedBy),
+      'experience_range':
+          JobModel._experienceRangeToJson(instance.experienceRange),
     };
 
 PostedBy _$PostedByFromJson(Map<String, dynamic> json) => PostedBy(
@@ -46,4 +50,16 @@ Map<String, dynamic> _$PostedByToJson(PostedBy instance) => <String, dynamic>{
       'uid': instance.userId,
       'user_name': instance.userName,
       'phone_number': instance.phoneNumber,
+    };
+
+ExperienceRange _$ExperienceRangeFromJson(Map<String, dynamic> json) =>
+    ExperienceRange(
+      minExperience: (json['min_experience'] as num).toInt(),
+      maxExperience: (json['max_experience'] as num).toInt(),
+    );
+
+Map<String, dynamic> _$ExperienceRangeToJson(ExperienceRange instance) =>
+    <String, dynamic>{
+      'min_experience': instance.minExperience,
+      'max_experience': instance.maxExperience,
     };

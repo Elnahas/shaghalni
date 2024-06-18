@@ -25,8 +25,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "You_can_change_the_language_at_any_time":
             MessageLookupByLibrary.simpleMessage(
                 "You can change the language at any time"),
+        "appName": MessageLookupByLibrary.simpleMessage("Shaghalni"),
         "continue_": MessageLookupByLibrary.simpleMessage("Continue"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("phoneNumber"),
+        "pleaseSelectGender":
+            MessageLookupByLibrary.simpleMessage("Please select gender"),
         "select_language":
             MessageLookupByLibrary.simpleMessage("Select Language")
       };

@@ -9,8 +9,7 @@ class JobRepository {
     try {
       await firestore
           .collection(FirestoreCollections.jobs)
-          .doc(job.id)
-          .set(job.toJson());
+          .add(job.toJson());
     } catch (e) {
       rethrow;
     }

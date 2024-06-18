@@ -3,11 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shaghalni/core/data/models/category_model.dart';
 import 'package:shaghalni/core/data/models/city_model.dart';
-import 'package:shaghalni/core/data/models/user_model.dart';
 import 'package:shaghalni/core/repositories/category_repository.dart';
-import 'package:shaghalni/core/repositories/user_repository.dart';
 import 'package:shaghalni/core/repositories/job_repository.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_state.dart';
+import '../../../../core/data/enum/gender.dart';
 import '../../../../core/data/models/job_model.dart';
 import '../../../../core/repositories/city_repository.dart';
 import '../../../../core/widgets/select_list_widget.dart';
@@ -18,7 +17,6 @@ class AddJobCubit extends Cubit<AddJobState> {
   final CategoryRepository _categoryRepository;
   final CityRepository _cityRepository;
   final JobRepository _addJobRepository;
-  final UserRepository _userRepository;
 
   // Lists
   List<CategoryModel> _categoryList = [];
@@ -43,6 +41,9 @@ class AddJobCubit extends Cubit<AddJobState> {
   TextEditingController jobDescriptionController = TextEditingController();
   TextEditingController jobSalaryController = TextEditingController();
   bool isHideSalary = false;
+  Gender? selectedGender;
+  int minExperience = 0;
+  int maxExperience = 0;
   //
   PageController pageController = PageController();
 
@@ -66,21 +67,15 @@ class AddJobCubit extends Cubit<AddJobState> {
       ];
 
   AddJobCubit(this._categoryRepository, this._cityRepository,
-      this._addJobRepository, this._userRepository)
+      this._addJobRepository)
       : super(const AddJobState.initial());
 
   // add Job
   void addJob(JobModel job) async {
     try {
       if (formKey.currentState!.validate()) {
+
         emit(const AddJobState.addJobLoading());
-
-        UserModel? user = await _userRepository.getUserFromPreferences();
-
-        job.postedBy = PostedBy(
-            phoneNumber: user.phoneNumber,
-            userId: user.uid,
-            userName: user.fullName);
 
         await _addJobRepository.addJob(job);
 
@@ -109,12 +104,11 @@ class AddJobCubit extends Cubit<AddJobState> {
   void nextStep() {
     if (_categoryList.isNotEmpty && _cityList.isNotEmpty) {
       if (currentStep == 1 && selectedCategoryIndex == -1) {
-        print("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
-           emit(AddJobState.initial());
+        emit(AddJobState.initial());
         emit(const AddJobState.categoryAndCityFailure(
             error: "Please select Category"));
       } else if (currentStep == 2 && selectedCityIndex == -1) {
-           emit(AddJobState.initial());
+        emit(AddJobState.initial());
         emit(const AddJobState.categoryAndCityFailure(
             error: "Please select City"));
       } else {
@@ -131,9 +125,9 @@ class AddJobCubit extends Cubit<AddJobState> {
   void previousStep() {
     if (currentStep > 1) {
       currentStep--;
-        pageController.previousPage(
-            duration: const Duration(milliseconds: 500),
-            curve: Curves.fastOutSlowIn);
+      pageController.previousPage(
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.fastOutSlowIn);
       emit(AddJobState.updateSteps(index: currentStep));
     }
   }
