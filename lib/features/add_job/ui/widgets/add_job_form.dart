@@ -6,6 +6,7 @@ import 'package:shaghalni/core/helpers/spacing.dart';
 import '../../../../core/theming/app_text_styles.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../logic/cubit/add_job_cubit.dart';
+import 'experience_slider.dart';
 
 class AddJobForm extends StatefulWidget {
   const AddJobForm({super.key});
@@ -42,12 +43,8 @@ class _AddJobFormState extends State<AddJobForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               verticalSpace(20),
-              Text(
-                "Title of the job",
-                style: AppTextStyles.font18BoldBlack,
-              ),
-              verticalSpace(10),
               AppTextFormField(
+                labelText: "Title of the job",
                 hintText: "Title of the job",
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -57,12 +54,8 @@ class _AddJobFormState extends State<AddJobForm> {
                 controller: _cubit.jobTitleController,
               ),
               verticalSpace(20),
-              Text(
-                "Description of the job",
-                style: AppTextStyles.font18BoldBlack,
-              ),
-              verticalSpace(10),
               AppTextFormField(
+                labelText: "Description of the job",
                   hintText: "Description of the job",
                   maxLines: 6,
                   validator: (value) {
@@ -72,12 +65,8 @@ class _AddJobFormState extends State<AddJobForm> {
                   },
                   controller: _cubit.jobDescriptionController),
               verticalSpace(20),
-              Text(
-                "Salary",
-                style: AppTextStyles.font18BoldBlack,
-              ),
-              verticalSpace(10),
               AppTextFormField(
+                  labelText: "Salary",
                   hintText: "Salary",
                   keyboardType: TextInputType.number,
                   validator: (value) {
@@ -88,7 +77,6 @@ class _AddJobFormState extends State<AddJobForm> {
                     }
                   },
                   controller: _cubit.jobSalaryController),
-              verticalSpace(20),
               CheckboxListTile(
                 value: _cubit.isHideSalary,
                 onChanged: (value) {
@@ -101,11 +89,9 @@ class _AddJobFormState extends State<AddJobForm> {
                   style: AppTextStyles.font14BlackW300,
                 ),
               ),
-              verticalSpace(30),
-              Text(
-                "By clicking on the Publish Ad button, you agree to the terms of use and that all data is real and the Shaghalni application has no connection to it.",
-                style: AppTextStyles.font14BoldBlack,
-              )
+              verticalSpace(20),
+              
+              ExperienceSlider(),
             ],
           ),
         ),

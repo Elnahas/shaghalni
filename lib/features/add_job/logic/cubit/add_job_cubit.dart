@@ -23,6 +23,9 @@ class AddJobCubit extends Cubit<AddJobState> {
   // Lists
   List<CategoryModel> _categoryList = [];
   List<CityModel> _cityList = [];
+  // getList
+  List<CategoryModel> get getCategoryList => _categoryList;
+  List<CityModel> get getCityList => _cityList;
 
   //city and category
   CategoryModel get category => _categoryList[selectedCategoryIndex];
@@ -106,13 +109,19 @@ class AddJobCubit extends Cubit<AddJobState> {
   void nextStep() {
     if (_categoryList.isNotEmpty && _cityList.isNotEmpty) {
       if (currentStep == 1 && selectedCategoryIndex == -1) {
+        print("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
+           emit(AddJobState.initial());
         emit(const AddJobState.categoryAndCityFailure(
             error: "Please select Category"));
       } else if (currentStep == 2 && selectedCityIndex == -1) {
+           emit(AddJobState.initial());
         emit(const AddJobState.categoryAndCityFailure(
             error: "Please select City"));
       } else {
         currentStep++;
+        pageController.nextPage(
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.fastOutSlowIn);
         emit(AddJobState.updateSteps(index: currentStep));
       }
     }
@@ -122,6 +131,9 @@ class AddJobCubit extends Cubit<AddJobState> {
   void previousStep() {
     if (currentStep > 1) {
       currentStep--;
+        pageController.previousPage(
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.fastOutSlowIn);
       emit(AddJobState.updateSteps(index: currentStep));
     }
   }
@@ -143,8 +155,8 @@ class AddJobCubit extends Cubit<AddJobState> {
     return steps[currentStep - 1];
   }
 
-  void updateCurrentStep(int step) {
-    currentStep = step;
+  void updateCurrentStep() {
+    //currentStep = step;
     emit(StepUpdated(index: currentStep));
   }
 }

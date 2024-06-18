@@ -19,7 +19,7 @@ class AddJobAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       title: Text(
         'Job Vacancy Announcement',
-        style: AppTextStyles.font18BoldBlack,
+        style: AppTextStyles.font14DarkBlueMedium,
       ),
       leading: IconButton(
         onPressed: () {
