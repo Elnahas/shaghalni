@@ -6,6 +6,7 @@ import 'package:shaghalni/core/helpers/spacing.dart';
 import '../../../../core/theming/app_text_styles.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../logic/cubit/add_job_cubit.dart';
+import 'experience_slider.dart';
 
 class AddJobForm extends StatefulWidget {
   const AddJobForm({super.key});
@@ -88,7 +89,9 @@ class _AddJobFormState extends State<AddJobForm> {
                   style: AppTextStyles.font14BlackW300,
                 ),
               ),
-              verticalSpace(30),
+              verticalSpace(20),
+              
+              ExperienceSlider(),
             ],
           ),
         ),

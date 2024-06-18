@@ -8,7 +8,6 @@ import 'package:shaghalni/core/routing/routes.dart';
  return AwesomeDialog(
             context: context,
             dialogType: DialogType.info,
-            animType: AnimType.rightSlide,
             title: 'Confirm Exit',
             desc: 'Are you sure you want to leave this page without publishing the ad?',
             btnCancelOnPress: () {},
