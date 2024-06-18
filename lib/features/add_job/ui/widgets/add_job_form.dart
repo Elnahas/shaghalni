@@ -81,6 +81,7 @@ class _AddJobFormState extends State<AddJobForm> {
                   },
                   controller: _cubit.jobSalaryController),
               CheckboxListTile(
+                contentPadding: EdgeInsets.all(0),
                 value: _cubit.isHideSalary,
                 onChanged: (value) {
                   setState(() {
@@ -88,7 +89,7 @@ class _AddJobFormState extends State<AddJobForm> {
                   });
                 },
                 title: Text(
-                  "Hide the salary from the job advertisement",
+                  "Hide the salary",
                   style: AppTextStyles.font14BlackW300,
                 ),
               ),

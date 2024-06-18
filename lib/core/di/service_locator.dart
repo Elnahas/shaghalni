@@ -6,13 +6,12 @@ import 'package:shaghalni/features/add_job/logic/cubit/add_job_cubit.dart';
 import 'package:shaghalni/features/auth/login/logic/cubit/login_cubit.dart';
 import 'package:shaghalni/features/auth/otp/logic/cubit/otp_cubit.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
-
 import '../../features/language/logic/language_cubit.dart';
 import '../repositories/auth_repository.dart';
 import '../repositories/city_repository.dart';
 
 final getIt = GetIt.instance;
-void setupServiceLocator() {
+void setupServiceLocator( ) {
   getIt.registerSingleton<AuthRepository>(AuthRepository());
   getIt.registerSingleton<CategoryRepository>(CategoryRepository());
   getIt.registerSingleton<CityRepository>(CityRepository());
@@ -28,8 +27,8 @@ void setupServiceLocator() {
   getIt.registerFactory<AddJobCubit>(() => AddJobCubit(
       getIt<CategoryRepository>(),
       getIt<CityRepository>(),
-      getIt<JobRepository>(),
-      getIt<UserRepository>()));
+      getIt<JobRepository>()));
 
   getIt.registerSingleton<LanguageCubit>(LanguageCubit());
+
 }

@@ -8,7 +8,6 @@ part 'job_model.g.dart';
 
 @JsonSerializable()
 class JobModel {
-  final String id;
   final String title;
   final String description;
   @JsonKey(fromJson: _cityModelFromJson, toJson: _cityModelToJson)
@@ -40,7 +39,7 @@ class JobModel {
       _$JobModelFromJson(json);
 
   JobModel(
-      {required this.id,
+      {
       required this.title,
       required this.description,
       required this.city,
