@@ -9,6 +9,7 @@ import 'package:shaghalni/features/auth/otp/logic/cubit/otp_cubit.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:shaghalni/features/auth/signup/ui/widgets/signup_screen.dart';
 import 'package:shaghalni/features/home/ui/screens/home_nav_bar_widget.dart';
+import 'package:shaghalni/features/job_details/ui/screens/job_details_screen.dart';
 import 'package:shaghalni/features/language/ui/screen/language_screen.dart';
 import 'package:shaghalni/features/on_boarding/logic/cubit/page_cubit.dart';
 import 'package:shaghalni/features/on_boarding/ui/screen/on_boarding_screen.dart';
@@ -17,7 +18,7 @@ import '../../features/auth/otp/ui/widgets/otp_screen.dart';
 import '../../features/auth/welcome/ui/widgets/welcome_screen.dart';
 
 class Routing {
-  Route onGenerateRoute(RouteSettings settings) {
+  Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.welcomeScreen:
         return MaterialPageRoute(builder: (context) => const WelcomeScreen());
@@ -50,6 +51,10 @@ class Routing {
       case Routes.language:
         return MaterialPageRoute(builder: (context) => const LanguageScreen());
 
+      case Routes.jobDetails:
+        return MaterialPageRoute(
+            builder: (context) => const JobDetailsScreen());
+
       case Routes.onboarding:
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
@@ -60,12 +65,13 @@ class Routing {
       case Routes.addJob:
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
-                  create: (context) => getIt<AddJobCubit>()..getCategoryAndCity(),
+                  create: (context) =>
+                      getIt<AddJobCubit>()..getCategoryAndCity(),
                   child: const AddJobScreen(),
                 ));
 
       default:
-        return MaterialPageRoute(builder: (context) => const NoRouteScreen());
+        return null;
     }
   }
 }
