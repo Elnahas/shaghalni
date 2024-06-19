@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shaghalni/core/data/enum/job_type.dart';
 import 'package:shaghalni/core/data/models/category_model.dart';
 import 'package:shaghalni/core/data/models/city_model.dart';
 import 'package:shaghalni/core/repositories/category_repository.dart';
@@ -42,6 +43,7 @@ class AddJobCubit extends Cubit<AddJobState> {
   TextEditingController jobSalaryController = TextEditingController();
   bool isHideSalary = false;
   Gender? selectedGender;
+  JobType? selectedJobType;
   int minExperience = 0;
   int maxExperience = 0;
   //

@@ -1,3 +1,4 @@
+import 'package:shaghalni/core/data/enum/job_type.dart';
 import 'package:shaghalni/core/data/models/user_model.dart';
 
 import '../data/enum/gender.dart';
@@ -29,6 +30,25 @@ class FirestoreCollections {
         return 'Female';
       case Gender.both:
         return 'Both';
+      default:
+        return '';
+    }
+  }
+
+  String getJobTypeLabel(JobType jobType) {
+    switch (jobType) {
+      case JobType.fullTime:
+        return 'Full - Time';
+      case JobType.partTime:
+        return 'Part - Time';
+      case JobType.internship:
+        return 'Internship';
+      case JobType.contract:
+        return 'Contract';
+      case JobType.temporary:
+        return 'Temporary';
+      case JobType.volunteer:
+        return 'Volunteer';
       default:
         return '';
     }
