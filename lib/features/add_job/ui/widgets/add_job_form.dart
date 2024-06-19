@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/core/data/enum/job_type.dart';
 import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 
@@ -94,6 +95,20 @@ class _AddJobFormState extends State<AddJobForm> {
                 ),
               ),
               verticalSpace(20),
+              AppDropdown<JobType>(
+                selectedValue: _cubit.selectedJobType,
+                labelText: 'Job type',
+                items: JobType.values,
+                getLabel: (JobType jobType) {
+                  return getJobTypeLabel(jobType);
+                },
+                onChanged: (JobType? newValue) {
+                  setState(() {
+                    _cubit.selectedJobType = newValue!;
+                  });
+                },
+              ),
+              verticalSpace(20),
               ExperienceSlider(),
               verticalSpace(20),
               AppDropdown<Gender>(
@@ -109,7 +124,6 @@ class _AddJobFormState extends State<AddJobForm> {
                   });
                 },
               ),
-
               verticalSpace(40),
             ],
           ),

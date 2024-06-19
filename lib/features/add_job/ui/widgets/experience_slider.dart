@@ -6,6 +6,7 @@ import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/core/widgets/app_label_text.dart';
 
 import '../../logic/cubit/add_job_cubit.dart';
+
 class ExperienceSlider extends StatefulWidget {
   @override
   _ExperienceSliderState createState() => _ExperienceSliderState();
@@ -44,11 +45,11 @@ class _ExperienceSliderState extends State<ExperienceSlider> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: List.generate(
               9, // Number of labels (0 to 10)
-              (index) => Text('$index' , style: AppTextStyles.font12BlackRegular),
+              (index) =>
+                  Text('$index', style: AppTextStyles.font12BlackRegular),
             ),
           ),
-        ),
-        verticalSpace(20),
+        )
       ],
     );
   }

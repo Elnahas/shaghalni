@@ -9,18 +9,20 @@ part of 'job_model.dart';
 JobModel _$JobModelFromJson(Map<String, dynamic> json) => JobModel(
       title: json['title'] as String,
       description: json['description'] as String,
-      city: JobModel._cityModelFromJson(json['city']),
-      category: JobModel._categoryModelFromJson(json['category']),
+      city: CityModel.fromJson(json['city'] as Map<String, dynamic>),
+      category:
+          CategoryModel.fromJson(json['category'] as Map<String, dynamic>),
       salary: (json['salary'] as num).toDouble(),
       isHideSalary: json['is_hide_salary'] as bool,
-      status: JobModel._statusFromJson(json['status'] as String),
-      gender: JobModel._genderFromJson(json['gender'] as String),
+      status: JobStatusExtension.fromString(json['status'] as String),
+      gender: GenderExtension.fromString(json['gender'] as String),
+      jobType: JobTypeExtension.fromString(json['job_type'] as String),
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),
       views: (json['views'] as num).toInt(),
-      postedBy: JobModel._postedByFromJson(json['posted_by']),
-      experienceRange:
-          JobModel._experienceRangeFromJson(json['experience_range']),
+      postedBy: PostedBy.fromJson(json['posted_by'] as Map<String, dynamic>),
+      experienceRange: ExperienceRange.fromJson(
+          json['experience_range'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$JobModelToJson(JobModel instance) => <String, dynamic>{
@@ -32,6 +34,7 @@ Map<String, dynamic> _$JobModelToJson(JobModel instance) => <String, dynamic>{
       'is_hide_salary': instance.isHideSalary,
       'status': JobModel._statusToJson(instance.status),
       'gender': JobModel._genderToJson(instance.gender),
+      'job_type': JobModel._jobTypeToJson(instance.jobType),
       'created_at': instance.createdAt.toIso8601String(),
       'updated_at': instance.updatedAt.toIso8601String(),
       'views': instance.views,
@@ -41,9 +44,9 @@ Map<String, dynamic> _$JobModelToJson(JobModel instance) => <String, dynamic>{
     };
 
 PostedBy _$PostedByFromJson(Map<String, dynamic> json) => PostedBy(
-      phoneNumber: json['phone_number'] as String,
       userId: json['uid'] as String,
       userName: json['user_name'] as String,
+      phoneNumber: json['phone_number'] as String,
     );
 
 Map<String, dynamic> _$PostedByToJson(PostedBy instance) => <String, dynamic>{

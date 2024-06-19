@@ -46,12 +46,20 @@ class ButtonAddJobBlocBuilder extends StatelessWidget {
         return;
       }
 
+            if(_cubit.selectedJobType == null){
+
+        showSnackBar(context, "Please Select Job Type");
+        
+        return;
+      }
+
       var posted_by = PostedBy(
           phoneNumber: userModel!.phoneNumber,
           userId: userModel!.uid,
           userName: userModel!.fullName);
 
       final job = JobModel(
+        jobType: _cubit.selectedJobType!,
           postedBy: posted_by,
           experienceRange: ExperienceRange(
               minExperience: _cubit.minExperience,

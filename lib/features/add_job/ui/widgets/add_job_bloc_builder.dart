@@ -8,6 +8,7 @@ import 'package:shaghalni/features/add_job/ui/widgets/step_indicator_widgets.dar
 
 import '../../../../core/data/enum/job_status.dart';
 import '../../../../core/data/models/job_model.dart';
+import '../../../../core/functions/show_snack_bar.dart';
 import '../../../../core/widgets/app_text_button.dart';
 import '../../../../core/widgets/shimmer_list_widget.dart';
 
@@ -89,8 +90,24 @@ class _AddJobBlocBuilderState extends State<AddJobBlocBuilder> {
           phoneNumber: userModel!.phoneNumber,
           userId: userModel!.uid,
           userName: userModel!.fullName);
+      if(_cubit.selectedGender == null){
+
+        showSnackBar(context, "Please Select Gender");
+        
+        return;
+      }
+
+            if(_cubit.selectedJobType == null){
+
+        showSnackBar(context, "Please Select Job Type");
+        
+        return;
+      }
+
+
 
       final job = JobModel(
+        jobType: _cubit.selectedJobType!,
           postedBy: posted_by,
           experienceRange: ExperienceRange(
               maxExperience: _cubit.maxExperience,
