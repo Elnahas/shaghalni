@@ -23,12 +23,10 @@ class IconAndTextWidget extends StatelessWidget {
         color: AppColors.primaryColor,
       ),
       horizontalSpace(5),
-      Expanded(
-        child: Text(
-          overflow: TextOverflow.ellipsis,
-          text,
-          style: AppTextStyles.font12LightGrayRegular,
-        ),
+      Text(
+        overflow: TextOverflow.ellipsis,
+        text,
+        style: AppTextStyles.font12LightGrayRegular,
       )
     ]);
   }

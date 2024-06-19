@@ -27,6 +27,13 @@ abstract class AppTextStyles {
     fontFamily: "Poppins",
   );
 
+    static TextStyle font10LightGrayRegular = TextStyle(
+    fontSize: 10.sp,
+    fontWeight: FontWeight.normal,
+    color: AppColors.lightGrey,
+    fontFamily: "Poppins",
+  );
+
   static TextStyle font12BlueRegular = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeight.normal,

@@ -1,0 +1,57 @@
+
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/theming/app_colors.dart';
+import '../../../../../core/theming/app_text_styles.dart';
+import '../../../../../core/widgets/app_text_button.dart';
+import '../../../../home/ui/widgets/job_section/icon_and_text_widget.dart';
+
+class ApplySection extends StatelessWidget {
+  const ApplySection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Views Job",
+                style: AppTextStyles.font14BlackW300,
+              ),
+              verticalSpace(5),
+              IconAndTextWidget(text: "1.468", icon: Icons.remove_red_eye),
+            ],
+          ),
+          AppTextButton(
+            buttonWidth: 150.w,
+            buttonText: "Apply",
+            onPressed: () {},
+          ),
+        ],
+      ),
+    );
+  }
+}
