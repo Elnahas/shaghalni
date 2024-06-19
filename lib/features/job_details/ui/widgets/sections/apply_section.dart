@@ -6,7 +6,7 @@ import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_colors.dart';
 import '../../../../../core/theming/app_text_styles.dart';
 import '../../../../../core/widgets/app_text_button.dart';
-import '../../../../home/ui/widgets/job_section/icon_and_text_widget.dart';
+import '../../../../../core/widgets/app_text_and_icon.dart';
 
 class ApplySection extends StatelessWidget {
   const ApplySection({super.key});
@@ -42,7 +42,7 @@ class ApplySection extends StatelessWidget {
                 style: AppTextStyles.font14BlackW300,
               ),
               verticalSpace(5),
-              IconAndTextWidget(text: "1.468", icon: Icons.remove_red_eye),
+              AppTextAndIcon(text: "1.468", icon: Icons.remove_red_eye),
             ],
           ),
           AppTextButton(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
-import 'package:shaghalni/features/home/ui/widgets/job_section/icon_and_text_widget.dart';
+import 'package:shaghalni/core/widgets/app_text_and_icon.dart';
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_text_styles.dart';
 
@@ -20,22 +20,22 @@ class JobItemsDetailsWidget extends StatelessWidget {
           style: AppTextStyles.font14BoldBlack,
         ),
         verticalSpace(10),
-         IconAndTextWidget(
+         AppTextAndIcon(
           text: jobModel.postedBy?.userName ?? "",
           icon: Icons.person,
         ),
         verticalSpace(10),
-         IconAndTextWidget(
+         AppTextAndIcon(
           text: jobModel.category.name,
           icon: Icons.business,
         ),
         verticalSpace(10),
-         IconAndTextWidget(
+         AppTextAndIcon(
           text: jobModel.city.name,
           icon: Icons.location_on,
         ),
         verticalSpace(10),
-         IconAndTextWidget(
+         AppTextAndIcon(
           text: "${jobModel.salary} EGP",
           icon: Icons.money_outlined,
         ),

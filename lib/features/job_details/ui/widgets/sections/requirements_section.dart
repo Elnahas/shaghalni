@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_text_styles.dart';
-import '../../../../home/ui/widgets/job_section/icon_and_text_widget.dart';
+import '../../../../../core/widgets/app_text_and_icon.dart';
 
 class RequirementsSection extends StatelessWidget {
   const RequirementsSection({
@@ -22,10 +22,10 @@ class RequirementsSection extends StatelessWidget {
             style: AppTextStyles.font14BoldBlue,
           ),
           verticalSpace(20),
-          IconAndTextWidget(
+          AppTextAndIcon(
               text: "2-5 years of experience", icon: Icons.business_sharp),
           verticalSpace(10),
-          IconAndTextWidget(
+          AppTextAndIcon(
               text: "Position open to males only", icon: Icons.person),
         ],
       ),
