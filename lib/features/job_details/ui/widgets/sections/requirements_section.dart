@@ -23,15 +23,17 @@ class RequirementsSection extends StatelessWidget {
           ),
           verticalSpace(20),
           AppTextAndIcon(
-              text: "2-5 years of experience", icon: Icons.business_sharp),
+            text: "2-5 years of experience",
+            icon: Icons.business_sharp,
+            colorText: Colors.black,
+          ),
           verticalSpace(10),
           AppTextAndIcon(
-              text: "Position open to males only", icon: Icons.person),
+              text: "Position open to males only",
+              icon: Icons.person,
+              colorText: Colors.black),
         ],
       ),
     );
   }
 }
-
-
-
