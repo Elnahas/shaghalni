@@ -7,11 +7,13 @@ import '../theming/app_text_styles.dart';
 class AppTextAndIcon extends StatelessWidget {
   final String text;
   final IconData icon;
+  final Color? colorIcon;
+  final Color? colorText;
 
   const AppTextAndIcon({
     super.key,
     required this.text,
-    required this.icon,
+    required this.icon, this.colorIcon, this.colorText,
   });
 
   @override
@@ -20,13 +22,13 @@ class AppTextAndIcon extends StatelessWidget {
       Icon(
         icon,
         size: 20,
-        color: AppColors.primaryColor,
+        color: colorIcon ?? AppColors.primaryColor,
       ),
       horizontalSpace(5),
       Text(
         overflow: TextOverflow.ellipsis,
         text,
-        style: AppTextStyles.font12LightGrayRegular,
+        style: AppTextStyles.font12LightGrayRegular.copyWith(color: colorText ),
       )
     ]);
   }
