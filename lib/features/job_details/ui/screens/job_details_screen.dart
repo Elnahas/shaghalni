@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
@@ -30,11 +31,11 @@ class JobDetailsScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.bookmark_outline),
+            icon: const FaIcon(FontAwesomeIcons.bookmark),
           ),
-                    IconButton(
+          IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.share),
+            icon: const FaIcon(FontAwesomeIcons.shareNodes),
           )
         ],
       ),
@@ -108,4 +109,3 @@ class JobDetailsScreen extends StatelessWidget {
     return ShimmerList();
   }
 }
-
