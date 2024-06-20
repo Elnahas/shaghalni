@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
+import 'package:shaghalni/features/job_details/logic/job_details_cubit.dart';
+import 'package:shaghalni/features/job_details/logic/job_details_state.dart';
 import '../widgets/sections/apply_section.dart';
 import '../widgets/sections/job_details_section.dart';
 import '../widgets/sections/job_header_section.dart';
@@ -27,20 +30,24 @@ class JobDetailsScreen extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(
                   bottom: 80), // Padding to avoid overlap with the button
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  JobHeaderSection(),
-                  verticalSpace(30),
-                  RequirementsSection(),
-                  verticalSpace(30),
-                  JobDetailsSection(),
-                  verticalSpace(30),
-                ],
+
+              child: BlocBuilder<JobDetailsCubit,JobDetailsState>(
+                builder: (context, state) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      JobHeaderSection(),
+                      verticalSpace(30),
+                      RequirementsSection(),
+                      verticalSpace(30),
+                      JobDetailsSection(),
+                      verticalSpace(30),
+                    ],
+                  );
+                },
               ),
             ),
           ),
-          
           Positioned(
             bottom: 0,
             left: 0,
