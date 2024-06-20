@@ -6,6 +6,8 @@ import '../../../../../core/theming/app_colors.dart';
 import '../../../../../core/theming/app_text_styles.dart';
 import '../../../../../core/widgets/app_text_button.dart';
 import '../../../../../core/widgets/app_text_and_icon.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 
 class ApplySection extends StatelessWidget {
@@ -51,10 +53,52 @@ class ApplySection extends StatelessWidget {
           AppTextButton(
             buttonWidth: 150.w,
             buttonText: "Apply",
-            onPressed: () {},
+            onPressed: () {
+              _showBottomSheet(context);
+            },
           ),
         ],
       ),
+    );
+  }
+
+  Future<void> _makePhoneCall(String phoneNumber) async {
+    final Uri phoneUri = Uri(scheme: 'tel', path: phoneNumber);
+    if (await canLaunchUrl(phoneUri)) {
+      await launchUrl(phoneUri);
+    } else {
+      throw 'Could not launch $phoneUri';
+    }
+  }
+
+  Future<void> _openWhatsApp(String phoneNumber) async {
+    final Uri whatsappUri = Uri.parse('whatsapp://send?phone=$phoneNumber');
+    if (await canLaunchUrl(whatsappUri)) {
+      await launchUrl(whatsappUri);
+    } else {
+      _makePhoneCall(phoneNumber);
+    }
+  }
+
+    void _showBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Wrap(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text('Call Now'),
+              onTap: () => _makePhoneCall(phoneNumber),
+            ),
+            ListTile(
+              leading: Icon(Icons.message),
+              title: Text('WhatsApp'),
+              onTap: () => _openWhatsApp(phoneNumber),
+            ),
+          ],
+        );
+      },
     );
   }
 
