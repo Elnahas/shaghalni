@@ -80,7 +80,7 @@ Widget setupSuccess(JobModel job) {
       verticalSpace(30),
       RequirementsSection(experienceRange: job.experienceRange! , gender: job.gender),
       verticalSpace(30),
-      JobDetailsSection(),
+      JobDetailsSection(jobDescription: job.description),
       verticalSpace(30),
     ],
   );
