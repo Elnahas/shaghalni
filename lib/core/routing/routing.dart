@@ -71,7 +71,7 @@ class Routing {
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
                   create: (context) => JobDetailsCubit(getIt())
-                    ..getJobDetails(settings.arguments as String ?? "88o3HuDJaixnRXU1rVwR"),
+                    ..getJobDetails("88o3HuDJaixnRXU1rVwR"),
                   child: const JobDetailsScreen(),
                 ));
 

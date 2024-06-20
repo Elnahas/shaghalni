@@ -2,6 +2,7 @@ import 'package:shaghalni/core/data/enum/job_type.dart';
 import 'package:shaghalni/core/data/models/user_model.dart';
 
 import '../data/enum/gender.dart';
+import '../data/models/job_model.dart';
 
 UserModel? userModel;
 bool isLoggedInUser = false;
@@ -53,3 +54,12 @@ class FirestoreCollections {
         return '';
     }
   }
+
+
+  String getExperienceLabel(ExperienceRange experienceRange) {
+  if (experienceRange.minExperience == experienceRange.maxExperience) {
+    return "${experienceRange.minExperience} Year";
+  } else {
+    return "${experienceRange.minExperience} - ${experienceRange.maxExperience} Years";
+  }
+}

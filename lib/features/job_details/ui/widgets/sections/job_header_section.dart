@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/core/data/enum/job_type.dart';
+import 'package:shaghalni/core/data/models/job_model.dart';
+import 'package:shaghalni/core/helpers/constants.dart';
 
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_colors.dart';
@@ -8,8 +11,21 @@ import '../dividing_line.dart';
 import '../job_details.dart';
 
 class JobHeaderSection extends StatelessWidget {
+  final String titleJob;
+  final String postByName;
+  final String location;
+  final double salary;
+  final JobType jobType;
+  final ExperienceRange experienceRange;
+
   const JobHeaderSection({
     super.key,
+    required this.titleJob,
+    required this.postByName,
+    required this.location,
+    required this.salary,
+    required this.jobType,
+    required this.experienceRange,
   });
 
   @override
@@ -37,17 +53,17 @@ class JobHeaderSection extends StatelessWidget {
               ),
               verticalSpace(10),
               Text(
-                'Flutter Developer',
+                titleJob,
                 style: AppTextStyles.font18BoldWhite,
               ),
               verticalSpace(5),
               Text(
-                'Hazem Elnahas',
+                postByName,
                 style: TextStyle(fontSize: 14, color: Colors.grey),
               ),
               verticalSpace(5),
               Text(
-                'Egypt, Cairo',
+                location,
                 style: TextStyle(fontSize: 16, color: Colors.white),
               ),
             ],
@@ -81,17 +97,17 @@ class JobHeaderSection extends StatelessWidget {
                 children: [
                   JobDetails(
                     title: "Salary",
-                    value: "\$120",
+                    value: "${salary} EGP",
                   ),
                   DividingLine(),
                   JobDetails(
                     title: "Job Type",
-                    value: "Full Time",
+                    value: getJobTypeLabel(jobType),
                   ),
                   DividingLine(),
                   JobDetails(
                     title: "Experience",
-                    value: "1 Year",
+                    value: getExperienceLabel(experienceRange),
                   )
                 ],
               ),
@@ -100,3 +116,5 @@ class JobHeaderSection extends StatelessWidget {
     );
   }
 }
+
+

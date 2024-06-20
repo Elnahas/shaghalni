@@ -59,19 +59,24 @@ class JobDetailsScreen extends StatelessWidget {
       ),
     );
   }
-
-
 }
 
- Widget setupError(String error) {
-    return Text(error);
-  }
+Widget setupError(String error) {
+  return Text(error);
+}
 
 Widget setupSuccess(JobModel job) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      JobHeaderSection(),
+      JobHeaderSection(
+        titleJob: job.title,
+        postByName: job.postedBy!.userName,
+        salary: job.salary,
+        experienceRange: job.experienceRange!,
+        jobType: job.jobType,
+        location: job.city.name,
+      ),
       verticalSpace(30),
       RequirementsSection(),
       verticalSpace(30),
@@ -82,5 +87,5 @@ Widget setupSuccess(JobModel job) {
 }
 
 Widget setupLoading() {
-  return CircularProgressIndicator();
+  return Center(child: CircularProgressIndicator());
 }
