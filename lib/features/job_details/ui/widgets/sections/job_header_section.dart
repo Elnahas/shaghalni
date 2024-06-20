@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/data/enum/job_type.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
 import 'package:shaghalni/core/helpers/constants.dart';
+import 'package:shaghalni/core/widgets/app_clip_r_rect.dart';
 import 'package:shaghalni/core/widgets/app_text_and_icon.dart';
 
 import '../../../../../core/helpers/spacing.dart';
@@ -18,6 +19,7 @@ class JobHeaderSection extends StatelessWidget {
   final double salary;
   final JobType jobType;
   final ExperienceRange experienceRange;
+  final String imageUrl;
 
   const JobHeaderSection({
     super.key,
@@ -26,7 +28,7 @@ class JobHeaderSection extends StatelessWidget {
     required this.location,
     required this.salary,
     required this.jobType,
-    required this.experienceRange,
+    required this.experienceRange, required this.imageUrl,
   });
 
   @override
@@ -42,16 +44,17 @@ class JobHeaderSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              verticalSpace(30),
-              CircleAvatar(
-                radius: 30,
-                backgroundColor: Colors.purple,
-                child: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: 30,
-                ),
+              verticalSpace(15),
+
+              AppClipRRect(
+                height: 75,
+                width: 75,
+                imageUrl: imageUrl,
+                errorWidget: Image.asset("assets/icons/icon.png" ),
+              
+                
               ),
+
               verticalSpace(10),
               Text(
                 titleJob,

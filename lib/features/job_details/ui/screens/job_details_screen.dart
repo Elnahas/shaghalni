@@ -67,6 +67,7 @@ class JobDetailsScreen extends StatelessWidget {
                     experienceRange: job.experienceRange!,
                     jobType: job.jobType,
                     location: job.city.name,
+                    imageUrl: job.category.coverImageUrl,
                   ),
                   JobPostOnSection(
                     jobDate: job.createdAt,
