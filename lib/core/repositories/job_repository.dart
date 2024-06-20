@@ -19,8 +19,16 @@ class JobRepository {
           .collection(FirestoreCollections.jobs)
           // .where('status', isEqualTo: JobStatus.pending.name)
           .get();
-      List<JobModel> jobs =
-          snapshot.docs.map((e) => JobModel.fromJson(e.data())).toList();
+
+      // List<JobModel> jobs =
+      //     snapshot.docs.map((e) => JobModel.fromJson(e.data())).toList();
+
+      List<JobModel> jobs = snapshot.docs.map((doc) {
+        Json data = doc.data();
+        data['id'] = doc.id;
+        return JobModel.fromJson(data);
+      }).toList();
+
       return jobs;
     } catch (e) {
       rethrow;

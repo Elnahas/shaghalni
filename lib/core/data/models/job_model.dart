@@ -11,6 +11,8 @@ typedef Json = Map<String, dynamic>;
 
 @JsonSerializable()
 class JobModel {
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  final String? id;
   final String title;
   final String description;
   @JsonKey(fromJson: CityModel.fromJson, toJson: _cityModelToJson)
@@ -37,6 +39,7 @@ class JobModel {
   final ExperienceRange? experienceRange;
 
   const JobModel({
+    this.id,
     required this.title,
     required this.description,
     required this.city,
