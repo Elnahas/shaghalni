@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shaghalni/core/data/models/job_model.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
@@ -31,18 +32,18 @@ class JobDetailsScreen extends StatelessWidget {
               padding: EdgeInsets.only(
                   bottom: 80), // Padding to avoid overlap with the button
 
-              child: BlocBuilder<JobDetailsCubit,JobDetailsState>(
+              child: BlocBuilder<JobDetailsCubit, JobDetailsState>(
+                buildWhen: (previous, current) =>
+                    current is JobDetailsSuccess ||
+                    current is JobDetailsFailure,
                 builder: (context, state) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      JobHeaderSection(),
-                      verticalSpace(30),
-                      RequirementsSection(),
-                      verticalSpace(30),
-                      JobDetailsSection(),
-                      verticalSpace(30),
-                    ],
+                  return state.maybeWhen(
+                    jobDetailsLoading: () => setupLoading(),
+                    jobDetailsFailure: (error) => setupError(error),
+                    jobDetailsSuccess: (job) => setupSuccess(job),
+                    orElse: () => const SizedBox.shrink(
+                      child: Text("Error"),
+                    ),
                   );
                 },
               ),
@@ -58,4 +59,28 @@ class JobDetailsScreen extends StatelessWidget {
       ),
     );
   }
+
+
+}
+
+ Widget setupError(String error) {
+    return Text(error);
+  }
+
+Widget setupSuccess(JobModel job) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      JobHeaderSection(),
+      verticalSpace(30),
+      RequirementsSection(),
+      verticalSpace(30),
+      JobDetailsSection(),
+      verticalSpace(30),
+    ],
+  );
+}
+
+Widget setupLoading() {
+  return CircularProgressIndicator();
 }
