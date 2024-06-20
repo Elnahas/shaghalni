@@ -11,6 +11,7 @@ import '../widgets/sections/job_details_section.dart';
 import '../widgets/sections/job_header_section.dart';
 import '../widgets/sections/requirements_section.dart';
 
+
 class JobDetailsScreen extends StatelessWidget {
   const JobDetailsScreen({super.key});
 
@@ -25,13 +26,10 @@ class JobDetailsScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Stack(
+      body: Column(
         children: [
-          SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.only(
-                  bottom: 80), // Padding to avoid overlap with the button
-
+          Expanded(
+            child: SingleChildScrollView(
               child: BlocBuilder<JobDetailsCubit, JobDetailsState>(
                 buildWhen: (previous, current) =>
                     current is JobDetailsSuccess ||
@@ -40,7 +38,11 @@ class JobDetailsScreen extends StatelessWidget {
                   return state.maybeWhen(
                     jobDetailsLoading: () => setupLoading(),
                     jobDetailsFailure: (error) => setupError(error),
-                    jobDetailsSuccess: (job) => setupSuccess(job),
+                    jobDetailsSuccess: (job) => Padding(
+                      padding: EdgeInsets.only(
+                          bottom: 80), // Padding to avoid overlap with the button
+                      child: setupSuccess(job),
+                    ),
                     orElse: () => const SizedBox.shrink(
                       child: Text("Error"),
                     ),
@@ -49,10 +51,8 @@ class JobDetailsScreen extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
+          Align(
+            alignment: Alignment.bottomCenter,
             child: ApplySection(),
           ),
         ],
