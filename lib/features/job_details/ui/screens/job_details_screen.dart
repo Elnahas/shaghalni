@@ -88,6 +88,7 @@ class JobDetailsScreen extends StatelessWidget {
         ),
         ApplySection(
           viewsJob: job.views,
+          phoneNumber: job.postedBy!.phoneNumber,
         ),
       ],
     );

@@ -7,9 +7,12 @@ import '../../../../../core/theming/app_text_styles.dart';
 import '../../../../../core/widgets/app_text_button.dart';
 import '../../../../../core/widgets/app_text_and_icon.dart';
 
+
 class ApplySection extends StatelessWidget {
+
   final int viewsJob;
-  const ApplySection({super.key, required this.viewsJob});
+  final String phoneNumber;
+  const ApplySection({super.key, required this.viewsJob, required this.phoneNumber});
 
   @override
   Widget build(BuildContext context) {
@@ -54,4 +57,9 @@ class ApplySection extends StatelessWidget {
       ),
     );
   }
+
+
 }
+
+
+
