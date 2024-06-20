@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
@@ -27,6 +28,16 @@ class JobDetailsScreen extends StatelessWidget {
           style: AppTextStyles.font18WhiteMedium,
         ),
         centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const FaIcon(FontAwesomeIcons.bookmark),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const FaIcon(FontAwesomeIcons.shareNodes),
+          )
+        ],
       ),
       body: BlocBuilder<JobDetailsCubit, JobDetailsState>(
         buildWhen: (previous, current) =>
@@ -98,4 +109,3 @@ class JobDetailsScreen extends StatelessWidget {
     return ShimmerList();
   }
 }
-
