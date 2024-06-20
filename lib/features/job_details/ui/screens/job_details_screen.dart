@@ -11,7 +11,6 @@ import '../widgets/sections/job_details_section.dart';
 import '../widgets/sections/job_header_section.dart';
 import '../widgets/sections/requirements_section.dart';
 
-
 class JobDetailsScreen extends StatelessWidget {
   const JobDetailsScreen({super.key});
 
@@ -26,66 +25,66 @@ class JobDetailsScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: SingleChildScrollView(
-              child: BlocBuilder<JobDetailsCubit, JobDetailsState>(
-                buildWhen: (previous, current) =>
-                    current is JobDetailsSuccess ||
-                    current is JobDetailsFailure,
-                builder: (context, state) {
-                  return state.maybeWhen(
-                    jobDetailsLoading: () => setupLoading(),
-                    jobDetailsFailure: (error) => setupError(error),
-                    jobDetailsSuccess: (job) => Padding(
-                      padding: EdgeInsets.only(
-                          bottom: 80), // Padding to avoid overlap with the button
-                      child: setupSuccess(job),
-                    ),
-                    orElse: () => const SizedBox.shrink(
-                      child: Text("Error"),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: ApplySection(),
-          ),
-        ],
+      body: BlocBuilder<JobDetailsCubit, JobDetailsState>(
+        buildWhen: (previous, current) =>
+            current is JobDetailsSuccess || current is JobDetailsFailure,
+        builder: (context, state) {
+          return state.maybeWhen(
+            jobDetailsLoading: () => setupLoading(),
+            jobDetailsFailure: (error) => setupError(error),
+            jobDetailsSuccess: (job) => setupSuccess(job),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
       ),
     );
   }
-}
 
-Widget setupError(String error) {
-  return Text(error);
-}
-
-Widget setupSuccess(JobModel job) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      JobHeaderSection(
-        titleJob: job.title,
-        postByName: job.postedBy!.userName,
-        salary: job.salary,
-        experienceRange: job.experienceRange!,
-        jobType: job.jobType,
-        location: job.city.name,
+  Widget setupError(String error) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text(error, style: TextStyle(color: Colors.red)),
       ),
-      verticalSpace(30),
-      RequirementsSection(experienceRange: job.experienceRange! , gender: job.gender),
-      verticalSpace(30),
-      JobDetailsSection(jobDescription: job.description),
-      verticalSpace(30),
-    ],
-  );
-}
+    );
+  }
 
-Widget setupLoading() {
-  return Center(child: CircularProgressIndicator());
+  Widget setupSuccess(JobModel job) {
+    return Column(
+      children: [
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                JobHeaderSection(
+                  titleJob: job.title,
+                  postByName: job.postedBy!.userName,
+                  salary: job.salary,
+                  experienceRange: job.experienceRange!,
+                  jobType: job.jobType,
+                  location: job.city.name,
+                ),
+                verticalSpace(30),
+                RequirementsSection(
+                  experienceRange: job.experienceRange!,
+                  gender: job.gender,
+                ),
+                verticalSpace(30),
+                JobDetailsSection(jobDescription: job.description),
+                verticalSpace(30),
+              ],
+            ),
+          ),
+        ),
+        ApplySection(
+          viewsJob: job.views,
+        ),
+      ],
+    );
+  }
+
+  Widget setupLoading() {
+    return Center(child: CircularProgressIndicator());
+  }
 }
