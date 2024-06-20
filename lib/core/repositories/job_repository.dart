@@ -26,6 +26,7 @@ class JobRepository {
       List<JobModel> jobs = snapshot.docs.map((doc) {
         Json data = doc.data();
         data['id'] = doc.id;
+
         return JobModel.fromJson(data);
       }).toList();
 

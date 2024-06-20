@@ -19,10 +19,15 @@ class JobItemsGridViewWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(Routes.jobDetails, arguments: "jobModel!.id");
+
+        context.pushNamed(
+          Routes.jobDetails,
+          arguments: jobModel!.id,
+        );
+
+        //context.pushNamed(Routes.jobDetails, arguments: jobModel!.id);
       },
       child: Container(
-        
         decoration: BoxDecoration(
           border: Border.all(color: AppColors.lighterGrey),
           color: Colors.white,
@@ -43,7 +48,7 @@ class JobItemsGridViewWidget extends StatelessWidget {
             verticalSpace(10),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.w),
-              child:  JobItemsDetailsWidget(jobModel : jobModel!),
+              child: JobItemsDetailsWidget(jobModel: jobModel!),
             ),
           ],
         ),

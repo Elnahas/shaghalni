@@ -7,6 +7,7 @@ part of 'job_model.dart';
 // **************************************************************************
 
 JobModel _$JobModelFromJson(Map<String, dynamic> json) => JobModel(
+      id: json['id'] as String?,
       title: json['title'] as String,
       description: json['description'] as String,
       city: CityModel.fromJson(json['city'] as Map<String, dynamic>),
@@ -26,6 +27,7 @@ JobModel _$JobModelFromJson(Map<String, dynamic> json) => JobModel(
     );
 
 Map<String, dynamic> _$JobModelToJson(JobModel instance) => <String, dynamic>{
+      'id': instance.id,
       'title': instance.title,
       'description': instance.description,
       'city': JobModel._cityModelToJson(instance.city),

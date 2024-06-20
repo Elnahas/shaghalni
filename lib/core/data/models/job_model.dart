@@ -11,7 +11,6 @@ typedef Json = Map<String, dynamic>;
 
 @JsonSerializable()
 class JobModel {
-  @JsonKey(includeFromJson: false, includeToJson: false)
   final String? id;
   final String title;
   final String description;

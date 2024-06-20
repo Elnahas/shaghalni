@@ -69,12 +69,15 @@ class Routing {
 
       case Routes.jobDetails:
         return MaterialPageRoute(
-            builder: (context) => BlocProvider(
-                  create: (context) => JobDetailsCubit(getIt())
-                    ..getJobDetails("88o3HuDJaixnRXU1rVwR"),
-                  child: const JobDetailsScreen(),
-                ));
-
+          builder: (context) {
+            final String jobId = settings.arguments as String;
+            return BlocProvider(
+              create: (context) =>
+                  JobDetailsCubit(getIt())..getJobDetails(jobId),
+              child: const JobDetailsScreen(),
+            );
+          },
+        );
       default:
         return null;
     }
