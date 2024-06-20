@@ -27,6 +27,16 @@ class JobDetailsScreen extends StatelessWidget {
           style: AppTextStyles.font18WhiteMedium,
         ),
         centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.bookmark_outline),
+          ),
+                    IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.share),
+          )
+        ],
       ),
       body: BlocBuilder<JobDetailsCubit, JobDetailsState>(
         buildWhen: (previous, current) =>
