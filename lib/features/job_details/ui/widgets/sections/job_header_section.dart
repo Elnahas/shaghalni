@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/core/data/enum/job_type.dart';
+import 'package:shaghalni/core/data/models/job_model.dart';
+import 'package:shaghalni/core/helpers/constants.dart';
+import 'package:shaghalni/core/widgets/app_clip_r_rect.dart';
+import 'package:shaghalni/core/widgets/app_text_and_icon.dart';
 
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_colors.dart';
@@ -8,8 +13,22 @@ import '../dividing_line.dart';
 import '../job_details.dart';
 
 class JobHeaderSection extends StatelessWidget {
+  final String titleJob;
+  final String postByName;
+  final String location;
+  final double salary;
+  final JobType jobType;
+  final ExperienceRange experienceRange;
+  final String imageUrl;
+
   const JobHeaderSection({
     super.key,
+    required this.titleJob,
+    required this.postByName,
+    required this.location,
+    required this.salary,
+    required this.jobType,
+    required this.experienceRange, required this.imageUrl,
   });
 
   @override
@@ -25,31 +44,38 @@ class JobHeaderSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              verticalSpace(30),
-              CircleAvatar(
-                radius: 30,
-                backgroundColor: Colors.purple,
-                child: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: 30,
-                ),
+              verticalSpace(15),
+
+              AppClipRRect(
+                height: 75,
+                width: 75,
+                imageUrl: imageUrl,
+                errorWidget: Image.asset("assets/icons/icon.png" ),
+              
+                
               ),
+
               verticalSpace(10),
               Text(
-                'Flutter Developer',
-                style: AppTextStyles.font18BoldWhite,
+                titleJob,
+                style: AppTextStyles.font22BoldWhite,
               ),
               verticalSpace(5),
               Text(
-                'Hazem Elnahas',
-                style: TextStyle(fontSize: 14, color: Colors.grey),
+                postByName,
+                style: AppTextStyles.font14BoldRockBlue
               ),
-              verticalSpace(5),
-              Text(
-                'Egypt, Cairo',
-                style: TextStyle(fontSize: 16, color: Colors.white),
-              ),
+              verticalSpace(10),
+              Center(
+                  child: AppTextAndIcon(
+                text: location,
+                icon: Icons.location_on,
+                iconColor: Colors.white,
+                textColor: Colors.white,
+                fontSize: 15.sp,
+                mainAxisAlignment: MainAxisAlignment.center,
+
+              ))
             ],
           ),
         ),
@@ -81,17 +107,17 @@ class JobHeaderSection extends StatelessWidget {
                 children: [
                   JobDetails(
                     title: "Salary",
-                    value: "\$120",
+                    value: "${salary} EGP",
                   ),
                   DividingLine(),
                   JobDetails(
                     title: "Job Type",
-                    value: "Full Time",
+                    value: getJobTypeLabel(jobType),
                   ),
                   DividingLine(),
                   JobDetails(
                     title: "Experience",
-                    value: "1 Year",
+                    value: getExperienceLabel(experienceRange),
                   )
                 ],
               ),

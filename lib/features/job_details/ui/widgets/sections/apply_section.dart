@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,8 +7,12 @@ import '../../../../../core/theming/app_text_styles.dart';
 import '../../../../../core/widgets/app_text_button.dart';
 import '../../../../../core/widgets/app_text_and_icon.dart';
 
+
 class ApplySection extends StatelessWidget {
-  const ApplySection({super.key});
+
+  final int viewsJob;
+  final String phoneNumber;
+  const ApplySection({super.key, required this.viewsJob, required this.phoneNumber});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +45,7 @@ class ApplySection extends StatelessWidget {
                 style: AppTextStyles.font14BlackW300,
               ),
               verticalSpace(5),
-              AppTextAndIcon(text: "1.468", icon: Icons.remove_red_eye),
+              AppTextAndIcon(text: "${viewsJob}", icon: Icons.remove_red_eye),
             ],
           ),
           AppTextButton(
@@ -54,4 +57,9 @@ class ApplySection extends StatelessWidget {
       ),
     );
   }
+
+
 }
+
+
+

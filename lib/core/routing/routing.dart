@@ -9,6 +9,7 @@ import 'package:shaghalni/features/auth/otp/logic/cubit/otp_cubit.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:shaghalni/features/auth/signup/ui/widgets/signup_screen.dart';
 import 'package:shaghalni/features/home/ui/screens/home_nav_bar_widget.dart';
+import 'package:shaghalni/features/job_details/logic/job_details_cubit.dart';
 import 'package:shaghalni/features/job_details/ui/screens/job_details_screen.dart';
 import 'package:shaghalni/features/language/ui/screen/language_screen.dart';
 import 'package:shaghalni/features/on_boarding/logic/cubit/page_cubit.dart';
@@ -51,10 +52,6 @@ class Routing {
       case Routes.language:
         return MaterialPageRoute(builder: (context) => const LanguageScreen());
 
-      case Routes.jobDetails:
-        return MaterialPageRoute(
-            builder: (context) => const JobDetailsScreen());
-
       case Routes.onboarding:
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
@@ -70,6 +67,17 @@ class Routing {
                   child: const AddJobScreen(),
                 ));
 
+      case Routes.jobDetails:
+        return MaterialPageRoute(
+          builder: (context) {
+            final String jobId = settings.arguments as String;
+            return BlocProvider(
+              create: (context) =>
+                  JobDetailsCubit(getIt())..getJobDetails(jobId),
+              child: const JobDetailsScreen(),
+            );
+          },
+        );
       default:
         return null;
     }

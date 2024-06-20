@@ -41,8 +41,8 @@ class MyApp extends StatelessWidget {
               ),
               onGenerateRoute: routing.onGenerateRoute,
               // home: SignupScreen(),
-              // initialRoute: getInitialRoute(),
-              initialRoute: Routes.jobDetails,
+              initialRoute: getInitialRoute(),
+              // initialRoute: Routes.jobDetails,
             );
           },
         ),

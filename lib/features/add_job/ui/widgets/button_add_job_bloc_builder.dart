@@ -59,6 +59,7 @@ class ButtonAddJobBlocBuilder extends StatelessWidget {
           userName: userModel!.fullName);
 
       final job = JobModel(
+          
         jobType: _cubit.selectedJobType!,
           postedBy: posted_by,
           experienceRange: ExperienceRange(

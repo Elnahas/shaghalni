@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/core/data/enum/gender.dart';
+import 'package:shaghalni/core/data/models/job_model.dart';
+import 'package:shaghalni/core/helpers/constants.dart';
 
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_text_styles.dart';
 import '../../../../../core/widgets/app_text_and_icon.dart';
 
 class RequirementsSection extends StatelessWidget {
+  final ExperienceRange experienceRange;
+  final Gender gender;
+
   const RequirementsSection({
     super.key,
+    required this.experienceRange,
+    required this.gender,
   });
 
   @override
@@ -23,15 +31,16 @@ class RequirementsSection extends StatelessWidget {
           ),
           verticalSpace(20),
           AppTextAndIcon(
-            text: "2-5 years of experience",
-            icon: Icons.business_sharp,
-            colorText: Colors.black,
+            text: "${getExperienceLabel(experienceRange)} of experience",
+            icon: Icons.business_center_outlined,
+            textColor: Colors.black,
           ),
           verticalSpace(10),
           AppTextAndIcon(
-              text: "Position open to males only",
-              icon: Icons.person,
-              colorText: Colors.black),
+              text:
+                  "Position open to ${getGenderJobLabel(gender)} ${gender.name == Gender.both.name ? "" : "only"}",
+              icon: Icons.person_outline,
+              textColor: Colors.black),
         ],
       ),
     );

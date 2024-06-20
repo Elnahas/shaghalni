@@ -29,8 +29,8 @@ if (flutterVersionName == null) {
 android {
     namespace = "com.shaghalni"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion "25.1.8937393" //!! Fix Problem One or more plugins require a higher Android NDK version. this sohw after added lib awesome_dialog 3.2.1 in pubspec.yaml
-    // ndkVersion = flutter.ndkVersion
+    //ndkVersion "25.1.8937393" //!! Fix Problem One or more plugins require a higher Android NDK version. this sohw after added lib awesome_dialog 3.2.1 in pubspec.yaml
+    ndkVersion = flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

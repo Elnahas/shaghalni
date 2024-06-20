@@ -27,7 +27,7 @@ class JobDetails extends StatelessWidget {
           verticalSpace(5),
           Text(
             value,
-            style: AppTextStyles.font14BoldBlack,
+            style: AppTextStyles.font12BoldBlack,
           )
         ]);
   }

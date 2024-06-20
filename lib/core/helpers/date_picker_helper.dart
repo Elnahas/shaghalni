@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/core/helpers/date_helper.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
-import 'package:intl/intl.dart';
 
 class DatePickerHelper {
   DateTime? selectedDate;
@@ -30,7 +30,9 @@ class DatePickerHelper {
                 if (args.value is DateTime) {
                   selectedDate = args.value;
                   if (dateController != null) {
-                    dateController!.text = DateFormat('dd-MM-yyyy').format(selectedDate!);
+                    dateController!.text = DateHelper.formatCustomDate(
+                        selectedDate!,
+                        format: 'dd-MM-yyyy');
                   }
                   Navigator.of(context).pop(); // Close the dialog
                 }
@@ -46,7 +48,8 @@ class DatePickerHelper {
               monthViewSettings: DateRangePickerMonthViewSettings(
                 viewHeaderStyle: DateRangePickerViewHeaderStyle(
                   backgroundColor: Colors.blue[50],
-                  textStyle: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+                  textStyle: TextStyle(
+                      color: Colors.blue, fontWeight: FontWeight.bold),
                 ),
               ),
               selectionTextStyle: TextStyle(color: Colors.white),
