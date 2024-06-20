@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/data/enum/job_type.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
 import 'package:shaghalni/core/helpers/constants.dart';
+import 'package:shaghalni/core/widgets/app_text_and_icon.dart';
 
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_colors.dart';
@@ -54,18 +55,24 @@ class JobHeaderSection extends StatelessWidget {
               verticalSpace(10),
               Text(
                 titleJob,
-                style: AppTextStyles.font18BoldWhite,
+                style: AppTextStyles.font22BoldWhite,
               ),
               verticalSpace(5),
               Text(
                 postByName,
-                style: TextStyle(fontSize: 14, color: Colors.grey),
+                style: AppTextStyles.font14BoldRockBlue
               ),
-              verticalSpace(5),
-              Text(
-                location,
-                style: TextStyle(fontSize: 16, color: Colors.white),
-              ),
+              verticalSpace(10),
+              Center(
+                  child: AppTextAndIcon(
+                text: location,
+                icon: Icons.location_on,
+                iconColor: Colors.white,
+                textColor: Colors.white,
+                fontSize: 15.sp,
+                mainAxisAlignment: MainAxisAlignment.center,
+
+              ))
             ],
           ),
         ),
@@ -116,5 +123,3 @@ class JobHeaderSection extends StatelessWidget {
     );
   }
 }
-
-
