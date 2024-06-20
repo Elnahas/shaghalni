@@ -7,9 +7,7 @@ class JobRepository {
 
   Future<void> addJob(JobModel job) async {
     try {
-      await firestore
-          .collection(FirestoreCollections.jobs)
-          .add(job.toJson());
+      await firestore.collection(FirestoreCollections.jobs).add(job.toJson());
     } catch (e) {
       rethrow;
     }
@@ -21,10 +19,23 @@ class JobRepository {
           .collection(FirestoreCollections.jobs)
           // .where('status', isEqualTo: JobStatus.pending.name)
           .get();
-      List<JobModel> jobs = snapshot.docs
-          .map((e) => JobModel.fromJson(e.data()))
-          .toList();
+      List<JobModel> jobs =
+          snapshot.docs.map((e) => JobModel.fromJson(e.data())).toList();
       return jobs;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<JobModel?> getSingleJob(String id) async {
+    try {
+      DocumentSnapshot<Map<String, dynamic>> snapshot =
+          await firestore.collection(FirestoreCollections.jobs).doc(id).get();
+      if (snapshot.exists) {
+        return JobModel.fromJson(snapshot.data()!);
+      } else {
+        return null;
+      }
     } catch (e) {
       rethrow;
     }
