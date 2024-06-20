@@ -9,6 +9,7 @@ import 'package:shaghalni/features/job_details/logic/job_details_state.dart';
 import '../widgets/sections/apply_section.dart';
 import '../widgets/sections/job_details_section.dart';
 import '../widgets/sections/job_header_section.dart';
+import '../widgets/sections/job_post_on_section.dart';
 import '../widgets/sections/requirements_section.dart';
 
 class JobDetailsScreen extends StatelessWidget {
@@ -16,10 +17,10 @@ class JobDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.primaryColor,
+        foregroundColor: Colors.white,
         title: Text(
           "Job Details",
           style: AppTextStyles.font18WhiteMedium,
@@ -55,26 +56,32 @@ class JobDetailsScreen extends StatelessWidget {
       children: [
         Expanded(
           child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                JobHeaderSection(
-                  titleJob: job.title,
-                  postByName: job.postedBy!.userName,
-                  salary: job.salary,
-                  experienceRange: job.experienceRange!,
-                  jobType: job.jobType,
-                  location: job.city.name,
-                ),
-                verticalSpace(30),
-                RequirementsSection(
-                  experienceRange: job.experienceRange!,
-                  gender: job.gender,
-                ),
-                verticalSpace(30),
-                JobDetailsSection(jobDescription: job.description),
-                verticalSpace(30),
-              ],
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  JobHeaderSection(
+                    titleJob: job.title,
+                    postByName: job.postedBy!.userName,
+                    salary: job.salary,
+                    experienceRange: job.experienceRange!,
+                    jobType: job.jobType,
+                    location: job.city.name,
+                  ),
+                  verticalSpace(30),
+                  JobPostOnSection(
+                    jobDate: job.createdAt.toString(),
+                  ),
+                  verticalSpace(30),
+                  RequirementsSection(
+                    experienceRange: job.experienceRange!,
+                    gender: job.gender,
+                  ),
+                  verticalSpace(30),
+                  JobDetailsSection(jobDescription: job.description),
+                  verticalSpace(30),
+                ],
+              ),
             ),
           ),
         ),
@@ -89,3 +96,4 @@ class JobDetailsScreen extends StatelessWidget {
     return Center(child: CircularProgressIndicator());
   }
 }
+
