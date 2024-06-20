@@ -32,15 +32,14 @@ class RequirementsSection extends StatelessWidget {
           verticalSpace(20),
           AppTextAndIcon(
             text: "${getExperienceLabel(experienceRange)} of experience",
-            icon: Icons.business_sharp,
+            icon: Icons.business_center_outlined,
             textColor: Colors.black,
           ),
           verticalSpace(10),
           AppTextAndIcon(
-            
               text:
                   "Position open to ${getGenderJobLabel(gender)} ${gender.name == Gender.both.name ? "" : "only"}",
-              icon: Icons.person,
+              icon: Icons.person_outline,
               textColor: Colors.black),
         ],
       ),

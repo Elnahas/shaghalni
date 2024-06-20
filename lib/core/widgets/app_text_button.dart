@@ -58,7 +58,7 @@ class AppTextButton extends StatelessWidget {
           ? const BtnLoader()
           : Text(
               buttonText,
-              style: textStyle ?? AppTextStyles.font20SemiBoldWhite,
+              style: textStyle ?? AppTextStyles.font16SemiBoldWhite,
             ),
     );
   }
