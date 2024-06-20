@@ -78,7 +78,7 @@ Widget setupSuccess(JobModel job) {
         location: job.city.name,
       ),
       verticalSpace(30),
-      RequirementsSection(),
+      RequirementsSection(experienceRange: job.experienceRange! , gender: job.gender),
       verticalSpace(30),
       JobDetailsSection(),
       verticalSpace(30),

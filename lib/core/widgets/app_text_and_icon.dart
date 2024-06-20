@@ -26,6 +26,7 @@ class AppTextAndIcon extends StatelessWidget {
       ),
       horizontalSpace(5),
       Text(
+         softWrap: true,
         overflow: TextOverflow.ellipsis,
         text,
         style: AppTextStyles.font12LightGrayRegular.copyWith(color: colorText ),

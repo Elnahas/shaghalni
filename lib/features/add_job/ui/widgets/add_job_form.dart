@@ -116,7 +116,7 @@ class _AddJobFormState extends State<AddJobForm> {
                 labelText: 'Select type',
                 items: Gender.values,
                 getLabel: (Gender gender) {
-                  return getGenderLabel(gender);
+                  return getGenderJobLabel(gender);
                 },
                 onChanged: (Gender? newValue) {
                   setState(() {
