@@ -4,6 +4,7 @@ import 'package:shaghalni/core/data/models/job_model.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
+import 'package:shaghalni/core/widgets/shimmer_list_widget.dart';
 import 'package:shaghalni/features/job_details/logic/job_details_cubit.dart';
 import 'package:shaghalni/features/job_details/logic/job_details_state.dart';
 import '../widgets/sections/apply_section.dart';
@@ -93,7 +94,7 @@ class JobDetailsScreen extends StatelessWidget {
   }
 
   Widget setupLoading() {
-    return Center(child: CircularProgressIndicator());
+    return ShimmerList();
   }
 }
 
