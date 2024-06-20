@@ -68,9 +68,8 @@ class JobDetailsScreen extends StatelessWidget {
                     jobType: job.jobType,
                     location: job.city.name,
                   ),
-                  verticalSpace(30),
                   JobPostOnSection(
-                    jobDate: job.createdAt.toString(),
+                    jobDate: job.createdAt,
                   ),
                   verticalSpace(30),
                   RequirementsSection(

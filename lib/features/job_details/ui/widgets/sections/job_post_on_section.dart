@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/core/helpers/date_helper.dart';
 
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_text_styles.dart';
 import '../../../../../core/widgets/app_text_and_icon.dart';
 
 class JobPostOnSection extends StatelessWidget {
-  final String jobDate;
+  final DateTime jobDate;
   const JobPostOnSection({super.key, required this.jobDate});
 
   @override
@@ -14,12 +15,8 @@ class JobPostOnSection extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 30.w),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(
-          "Posed on",
-          style: AppTextStyles.font14BoldBlue,
-        ),
         verticalSpace(20),
-        AppTextAndIcon(text: jobDate, icon: Icons.calendar_month_outlined),
+        AppTextAndIcon(text: DateHelper.formatCustomDate(jobDate), icon: Icons.calendar_month_outlined),
       ]),
     );
   }
