@@ -11,8 +11,27 @@ import 'package:shaghalni/features/category/logic/category_state.dart';
 import '../widgets/category_grid_view_list.dart';
 import '../widgets/control_list_or_grid.dart';
 
-class CategoryScreen extends StatelessWidget {
+class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
+
+  @override
+  State<CategoryScreen> createState() => _CategoryScreenState();
+}
+
+class _CategoryScreenState extends State<CategoryScreen> {
+  late ValueNotifier<bool> isGridView;
+
+  @override
+  void initState() {
+    super.initState();
+    isGridView = ValueNotifier<bool>(true);
+  }
+
+  @override
+  void dispose() {
+    isGridView.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +59,7 @@ class CategoryScreen extends StatelessWidget {
                 return state.maybeWhen(
                   categoryLoading: () => setupLoading(),
                   categorySuccess: (categoryList) =>
-                      setupCategories(categoryList),
+                      setupCategories(categoryList, isGridView),
                   categoryFailure: (error) => setupError(error),
                   orElse: () => const SizedBox.shrink(),
                 );
@@ -56,17 +75,48 @@ class CategoryScreen extends StatelessWidget {
     return ShimmerList();
   }
 
-  Widget setupCategories(List<CategoryModel> categoryList) {
+  Widget setupCategories(
+      List<CategoryModel> categoryList, ValueNotifier<bool> isGridView) {
     return Column(
       children: [
-        ControlListOrGrid(),
+        ControlListOrGrid(
+          isGridView: isGridView,
+        ),
         verticalSpace(10),
-        CategoryGridViewList(categoryList : categoryList)
+        ValueListenableBuilder(
+            valueListenable: isGridView,
+            builder: (context, isGrid, child) {
+              return isGrid
+                  ? CategoryGridViewList(categoryList: categoryList)
+                  : CategoryListView(categoryList: categoryList);
+            })
       ],
     );
   }
-  
+
   Widget setupError(String error) {
     return Text(error);
+  }
+}
+
+class CategoryListView extends StatelessWidget {
+  final List<CategoryModel> categoryList;
+
+  const CategoryListView({required this.categoryList, Key? key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: categoryList.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(categoryList[index].name),
+          // Other properties for ListTile can be added here
+        );
+      },
+    );
   }
 }

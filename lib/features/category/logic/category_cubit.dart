@@ -7,6 +7,8 @@ class CategoryCubit extends Cubit<CategoryState> {
 
   final CategoryRepository _categoryRepository;
 
+  bool isGridView = true;
+
   CategoryCubit(this._categoryRepository) : super(CategoryState.initial());
 
 
