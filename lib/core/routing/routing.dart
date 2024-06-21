@@ -8,6 +8,8 @@ import 'package:shaghalni/features/auth/login/logic/cubit/login_cubit.dart';
 import 'package:shaghalni/features/auth/otp/logic/cubit/otp_cubit.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:shaghalni/features/auth/signup/ui/widgets/signup_screen.dart';
+import 'package:shaghalni/features/category/logic/category_cubit.dart';
+import 'package:shaghalni/features/category/ui/screens/CategoryScreen.dart';
 import 'package:shaghalni/features/home/ui/screens/home_nav_bar_widget.dart';
 import 'package:shaghalni/features/job_details/logic/job_details_cubit.dart';
 import 'package:shaghalni/features/job_details/ui/screens/job_details_screen.dart';
@@ -65,6 +67,13 @@ class Routing {
                   create: (context) =>
                       getIt<AddJobCubit>()..getCategoryAndCity(),
                   child: const AddJobScreen(),
+                ));
+
+      case Routes.category:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => getIt<CategoryCubit>()..getCategories(),
+                  child: const CategoryScreen(),
                 ));
 
       case Routes.jobDetails:
