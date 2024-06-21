@@ -9,6 +9,7 @@ import 'package:shaghalni/features/category/logic/category_cubit.dart';
 import 'package:shaghalni/features/category/logic/category_state.dart';
 
 import '../widgets/category_grid_view_list.dart';
+import '../widgets/category_list_view.dart';
 import '../widgets/control_list_or_grid.dart';
 
 class CategoryScreen extends StatefulWidget {
@@ -99,24 +100,4 @@ class _CategoryScreenState extends State<CategoryScreen> {
   }
 }
 
-class CategoryListView extends StatelessWidget {
-  final List<CategoryModel> categoryList;
 
-  const CategoryListView({required this.categoryList, Key? key})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      itemCount: categoryList.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(categoryList[index].name),
-          // Other properties for ListTile can be added here
-        );
-      },
-    );
-  }
-}

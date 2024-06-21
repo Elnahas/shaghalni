@@ -24,8 +24,10 @@ class CategoryGridViewList extends StatelessWidget {
         crossAxisSpacing: 16.w,
         mainAxisExtent: 120.h,
       ),
-      itemBuilder: (context, index) => CategoryItemsGridView(
-          name: categoryList[index].name, iconUrl: categoryList[index].iconUrl),
+      itemBuilder: (context, index) => InkWell(
+        child: CategoryItemsGridView(
+            name: categoryList[index].name, iconUrl: categoryList[index].iconUrl),
+      ),
     );
   }
 }
