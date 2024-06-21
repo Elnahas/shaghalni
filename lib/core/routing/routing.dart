@@ -13,6 +13,7 @@ import 'package:shaghalni/features/category/ui/screens/CategoryScreen.dart';
 import 'package:shaghalni/features/home/ui/screens/home_nav_bar_widget.dart';
 import 'package:shaghalni/features/job_details/logic/job_details_cubit.dart';
 import 'package:shaghalni/features/job_details/ui/screens/job_details_screen.dart';
+import 'package:shaghalni/features/jobs_list/ui/screens/jobs_list_screen.dart';
 import 'package:shaghalni/features/language/ui/screen/language_screen.dart';
 import 'package:shaghalni/features/on_boarding/logic/cubit/page_cubit.dart';
 import 'package:shaghalni/features/on_boarding/ui/screen/on_boarding_screen.dart';
@@ -68,6 +69,9 @@ class Routing {
                       getIt<AddJobCubit>()..getCategoryAndCity(),
                   child: const AddJobScreen(),
                 ));
+
+      case Routes.jobsList:
+        return MaterialPageRoute(builder: (context) => const JobsListScreen());
 
       case Routes.category:
         return MaterialPageRoute(
