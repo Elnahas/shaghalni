@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/widgets/app_text_form_field.dart';
 
 class JobsListScreen extends StatelessWidget {
@@ -22,7 +23,11 @@ class JobsListScreen extends StatelessWidget {
                 children: [
                   Container(
                       padding: EdgeInsets.symmetric(horizontal: 14.w),
-                      child: TopBarSearch())
+                      child: TopBarSearch()) , 
+
+                      verticalSpace(10) , 
+
+                    
                 ],
               ),
             ),

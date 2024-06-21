@@ -6,6 +6,7 @@ import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/core/widgets/custom_header_section.dart';
 import 'package:shaghalni/features/home/ui/widgets/category_items_widget.dart';
 import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/widgets/app_category_list_view_horizontal.dart';
 
 class CategoryListSection extends StatelessWidget {
   final List<CategoryModel> categoryList;
@@ -23,21 +24,11 @@ class CategoryListSection extends StatelessWidget {
           },
         ),
         verticalSpace(10),
-        SizedBox(
-          height: 50.h,
-          width: double.infinity,
-          child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => CategoryItemsWidget(
-              index: index,
-              categoryModel: categoryList[index],
-              length: categoryList.length,
-            ),
-            itemCount: categoryList.length,
-          ),
-        )
+
+        AppCategoryListViewHorizontal(categoryList: categoryList)
+
       ],
     );
   }
 }
+
