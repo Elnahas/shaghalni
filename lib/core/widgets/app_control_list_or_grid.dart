@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 
-class ControlListOrGrid extends StatelessWidget {
+class AppControlListOrGrid extends StatelessWidget {
   final ValueNotifier<bool> isGridView;
 
-  const ControlListOrGrid({
+  const AppControlListOrGrid({
     required this.isGridView,
     super.key,
   });

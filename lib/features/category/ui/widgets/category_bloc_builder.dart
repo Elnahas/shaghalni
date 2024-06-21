@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/features/category/ui/widgets/category_grid_view_list.dart';
 import 'package:shaghalni/features/category/ui/widgets/category_list_view.dart';
-import 'package:shaghalni/features/category/ui/widgets/control_list_or_grid.dart';
+import 'package:shaghalni/core/widgets/app_control_list_or_grid.dart';
 
 import '../../../../core/data/models/category_model.dart';
 import '../../../../core/helpers/spacing.dart';
@@ -42,7 +42,7 @@ class CategoryBlocBuilder extends StatelessWidget {
       List<CategoryModel> categoryList, ValueNotifier<bool> isGridView) {
     return Column(
       children: [
-        ControlListOrGrid(
+        AppControlListOrGrid(
           isGridView: isGridView,
         ),
         verticalSpace(10),

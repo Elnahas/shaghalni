@@ -35,12 +35,20 @@ class JobsListScreen extends StatelessWidget {
                         CategoryModel(id: "id", name: "medical", description: "description", iconUrl:"https://cdn.icon-icons.com/icons2/2122/PNG/512/doctor_medical_avatar_people_icon_131305.png", coverImageUrl:" coverImageUrl"),
                         CategoryModel(id: "id", name: "medical", description: "description", iconUrl:"https://cdn.icon-icons.com/icons2/2122/PNG/512/doctor_medical_avatar_people_icon_131305.png", coverImageUrl:" coverImageUrl"),
                         CategoryModel(id: "id", name: "medical", description: "description", iconUrl:"https://cdn.icon-icons.com/icons2/2122/PNG/512/doctor_medical_avatar_people_icon_131305.png", coverImageUrl:" coverImageUrl"),
-                      ])
-
+                      ]),
+                      verticalSpace(10) , 
                     
                 ],
               ),
             ),
+
+            Row(
+              children: [
+                
+              ],
+            ),
+
+
           ],
         ));
   }
