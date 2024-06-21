@@ -6,8 +6,10 @@ import '../../../../core/theming/app_text_styles.dart';
 import '../../../../core/widgets/app_clip_r_rect.dart';
 
 class CategoryItemsGridView extends StatelessWidget {
+  final String name ; 
+  final String iconUrl ;
   const CategoryItemsGridView({
-    super.key,
+    super.key, required this.name, required this.iconUrl,
   });
 
   @override
@@ -29,12 +31,12 @@ class CategoryItemsGridView extends StatelessWidget {
         children: [
         AppClipRRect(
             imageUrl:
-                "https://cdn.icon-icons.com/icons2/2122/PNG/512/doctor_medical_avatar_people_icon_131305.png",
-            height: 75,
-            width: 75),
+                iconUrl,
+            height: 60,
+            width: 60),
             verticalSpace(5),
         Text(
-          "Medical",
+          name,
           style: AppTextStyles.font12BlackRegular,
         )
       ]),
