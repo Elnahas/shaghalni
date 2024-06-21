@@ -110,12 +110,31 @@ abstract class AppTextStyles {
     fontFamily: "Poppins",
   );
 
-    static TextStyle font16SemiBoldWhite = TextStyle(
+  static TextStyle font16SemiBoldWhite = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.semiBold,
     color: Colors.white,
     fontFamily: "Poppins",
   );
+
+  static TextStyle font14BoldBlue = 
+
+  TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: AppColors.primaryColor,
+    fontFamily: "Poppins",
+  );
+
+    static TextStyle font12BoldBlue = 
+
+  TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: AppColors.primaryColor,
+    fontFamily: "Poppins",
+  );
+
 
   static TextStyle get font15DarkMedium => GoogleFonts.fredoka(
       color: AppColors.dark,
@@ -155,11 +174,6 @@ abstract class AppTextStyles {
 
   static TextStyle font24BoldBlack = GoogleFonts.poppins(
       fontSize: 24.sp, fontWeight: FontWeight.bold, color: Colors.black);
-
-  static TextStyle font14BoldBlue = GoogleFonts.poppins(
-      fontSize: 14.sp,
-      fontWeight: FontWeight.bold,
-      color: AppColors.primaryColor);
 
   static TextStyle get font15Dark60Regular => GoogleFonts.fredoka(
       color: AppColors.dark60,

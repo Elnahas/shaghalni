@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
 
 class CustomHeaderSection extends StatelessWidget {
-  const CustomHeaderSection({super.key, required this.text});
 
-  final String text;
+    final String text;
+  final Function()? onPressed;
+
+  const CustomHeaderSection({super.key, required this.text, this.onPressed});
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +20,7 @@ class CustomHeaderSection extends StatelessWidget {
         children: [
           Text(
             text,
-            style: AppTextStyles.font18BoldBlack,
+            style: AppTextStyles.font14BoldBlack,
           ),
           TextButton(
               style: ButtonStyle(
@@ -27,7 +31,7 @@ class CustomHeaderSection extends StatelessWidget {
               onPressed: () {},
               child: Text(
                 "View All > ",
-                style: AppTextStyles.font14BoldBlue,
+                style: AppTextStyles.font12BoldBlue,
               ))
         ],
       ),
