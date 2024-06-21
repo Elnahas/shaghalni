@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
+import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/features/home/ui/widgets/job_section/job_grid_view_list.dart';
 import '../../../../../core/data/models/job_model.dart';
 import '../../../../../core/helpers/spacing.dart';
@@ -13,8 +15,11 @@ class JobListSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const CustomHeaderSection(
+        CustomHeaderSection(
           text: "Recently added jobs",
+          onPressed: () {
+            context.pushNamed(Routes.jobsList);
+          },
         ),
         verticalSpace(10),
         Padding(
@@ -25,4 +30,3 @@ class JobListSection extends StatelessWidget {
     );
   }
 }
-
