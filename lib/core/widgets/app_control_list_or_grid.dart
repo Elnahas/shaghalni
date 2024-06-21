@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 
 class AppControlListOrGrid extends StatelessWidget {
-  final ValueNotifier<bool> isGridView;
+  final ValueNotifier<bool> isGridView ;
 
   const AppControlListOrGrid({
     required this.isGridView,
