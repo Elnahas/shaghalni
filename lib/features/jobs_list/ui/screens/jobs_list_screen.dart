@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shaghalni/core/data/models/category_model.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
+import 'package:shaghalni/core/widgets/app_category_list_view_horizontal.dart';
 import 'package:shaghalni/core/widgets/app_text_form_field.dart';
 
 class JobsListScreen extends StatelessWidget {
@@ -26,6 +28,14 @@ class JobsListScreen extends StatelessWidget {
                       child: TopBarSearch()) , 
 
                       verticalSpace(10) , 
+
+                      AppCategoryListViewHorizontal(categoryList: [
+                        CategoryModel(id: "id", name: "medical", description: "description", iconUrl:"https://cdn.icon-icons.com/icons2/2122/PNG/512/doctor_medical_avatar_people_icon_131305.png", coverImageUrl:" coverImageUrl"),
+                        CategoryModel(id: "id", name: "medical", description: "description", iconUrl:"https://cdn.icon-icons.com/icons2/2122/PNG/512/doctor_medical_avatar_people_icon_131305.png", coverImageUrl:" coverImageUrl"),
+                        CategoryModel(id: "id", name: "medical", description: "description", iconUrl:"https://cdn.icon-icons.com/icons2/2122/PNG/512/doctor_medical_avatar_people_icon_131305.png", coverImageUrl:" coverImageUrl"),
+                        CategoryModel(id: "id", name: "medical", description: "description", iconUrl:"https://cdn.icon-icons.com/icons2/2122/PNG/512/doctor_medical_avatar_people_icon_131305.png", coverImageUrl:" coverImageUrl"),
+                        CategoryModel(id: "id", name: "medical", description: "description", iconUrl:"https://cdn.icon-icons.com/icons2/2122/PNG/512/doctor_medical_avatar_people_icon_131305.png", coverImageUrl:" coverImageUrl"),
+                      ])
 
                     
                 ],
