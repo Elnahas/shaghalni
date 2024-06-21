@@ -28,7 +28,7 @@ class CustomHeaderSection extends StatelessWidget {
                 shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12))),
               ),
-              onPressed: () {},
+              onPressed: onPressed,
               child: Text(
                 "View All > ",
                 style: AppTextStyles.font12BoldBlue,
