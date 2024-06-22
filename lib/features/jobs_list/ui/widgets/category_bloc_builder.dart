@@ -5,29 +5,52 @@ import '../../../../core/data/models/category_model.dart';
 import '../../../../core/widgets/app_category_list_view_horizontal.dart';
 import '../../logic/jobs_list_state.dart';
 
-class CategoryBlocBuilder extends StatelessWidget {
+class CategoryBlocBuilder extends StatefulWidget {
   const CategoryBlocBuilder({super.key});
 
   @override
+  State<CategoryBlocBuilder> createState() => _CategoryBlocBuilderState();
+}
+
+class _CategoryBlocBuilderState extends State<CategoryBlocBuilder> {
+  @override
   Widget build(BuildContext context) {
-    return  BlocBuilder<JobsListCubit, JobsListState>(
-                    buildWhen: (previous, current) =>
-                        current is CategorySuccess ||
-                        current is CategoryFailure ||
-                        current is CategoryLoading,
-                    builder: (context, state) {
-                      return state.maybeMap(
-                        categorySuccess: (categoryList) =>
-                            setupSuccess(categoryList.categoryList),
-                        orElse: () => Container(),
-                      );
-                    },
-                  );
+    return BlocBuilder<JobsListCubit, JobsListState>(
+      buildWhen: (previous, current) =>
+          current is CategorySuccess ||
+          current is CategoryFailure ||
+          current is CategoryLoading,
+      builder: (context, state) {
+
+
+        return state.maybeMap(
+          categorySuccess: (categoryList) =>
+              setupSuccess(categoryList.categoryList, context),
+          orElse: () => Container(),
+        );
+
+
+      },
+    );
   }
 
+  Widget setupSuccess(List<CategoryModel> categoryList, BuildContext context) {
+    return AppCategoryListViewHorizontal(
+        categoryList: categoryList,
+        onTap: (index) {
+          if (context.read<JobsListCubit>().selectedCategoryIndex != index) {
+                context.read<JobsListCubit>().selectCategory(index);
+          context.read<JobsListCubit>().getJobsByCategory(categoryList[index].id);
 
-    Widget setupSuccess(List<CategoryModel> categoryList) {
-    return AppCategoryListViewHorizontal(categoryList: categoryList);
+          setState(() {
+            
+          });
+          }
+      
+          
+        },
+        selectedCategoryIndex:
+            context.read<JobsListCubit>().selectedCategoryIndex);
   }
 
   Widget setupError(String error) {

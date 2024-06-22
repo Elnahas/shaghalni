@@ -9,6 +9,7 @@ import '../../../core/data/models/job_model.dart';
 class JobsListCubit extends Cubit<JobsListState> {
   final JobRepository _jobRepository;
   final CategoryRepository _categoryRepository;
+  var selectedCategoryIndex = -1;
 
   JobsListCubit(this._jobRepository, this._categoryRepository)
       : super(JobsListState.initial());
@@ -35,5 +36,10 @@ class JobsListCubit extends Cubit<JobsListState> {
     } catch (e) {
       emit(JobsListState.jobsListFailure(e.toString()));
     }
+  }
+
+
+    void selectCategory(int index) {
+    selectedCategoryIndex = index;
   }
 }
