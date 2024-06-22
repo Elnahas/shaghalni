@@ -22,8 +22,7 @@ class CategoryItemsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.only(
-          start: 14, end: index == length - 1 ? 14 : 0),
+      padding: EdgeInsetsDirectional.only(start: index == 0 ? 14 : 24.w),
       child: Column(
         children: [
           Container(

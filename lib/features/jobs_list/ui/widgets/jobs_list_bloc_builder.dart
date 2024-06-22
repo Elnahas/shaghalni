@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/features/jobs_list/logic/jobs_list_cubit.dart';
+import 'package:shaghalni/features/jobs_list/ui/widgets/jobs_shimmer_loading.dart';
 
 import '../../../../core/data/models/job_model.dart';
 import '../../../home/ui/widgets/job_section/job_grid_view_list.dart';
@@ -38,6 +39,6 @@ class JobsListBlocBuilder extends StatelessWidget {
   }
 
   Widget setupLoading() {
-    return Center(child: CircularProgressIndicator());
+    return JobsShimmerLoading();
   }
 }

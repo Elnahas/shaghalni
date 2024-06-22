@@ -9,13 +9,13 @@ import '../../../core/data/models/job_model.dart';
 class JobsListCubit extends Cubit<JobsListState> {
   final JobRepository _jobRepository;
   final CategoryRepository _categoryRepository;
-  var selectedCategoryIndex = -1;
+  var selectedCategoryIndex = 0;
 
   JobsListCubit(this._jobRepository, this._categoryRepository)
       : super(JobsListState.initial());
 
   Future<void> getCategories() async {
-    emit(JobsListState.categoryLoading());
+    emit(JobsListState.jobsListLoading());
     try {
       List<CategoryModel> categories =
           await _categoryRepository.getCategories();
