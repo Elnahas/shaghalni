@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/features/category/ui/widgets/category_items_grid_view.dart';
 
 import '../../../../core/data/models/category_model.dart';
+import '../../../../core/routing/routes.dart';
 
 class CategoryGridViewList extends StatelessWidget {
   final List<CategoryModel> categoryList;
@@ -25,7 +27,12 @@ class CategoryGridViewList extends StatelessWidget {
         mainAxisExtent: 120.h,
       ),
       itemBuilder: (context, index) => CategoryItemsGridView(
-        category: categoryList[index]),
+        category: categoryList[index],
+        onTap: () => context.pushNamed(
+          Routes.jobsList,
+          arguments: index,
+        ),
+      ),
     );
   }
 }

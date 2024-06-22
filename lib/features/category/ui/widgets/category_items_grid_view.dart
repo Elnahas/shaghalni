@@ -8,8 +8,10 @@ import '../../../../core/widgets/app_clip_r_rect.dart';
 
 class CategoryItemsGridView extends StatelessWidget {
   final CategoryModel category;
+  final Function()? onTap;
 
-  const CategoryItemsGridView({super.key, required this.category});
+
+  const CategoryItemsGridView({super.key, required this.category, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class CategoryItemsGridView extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
-          onTap: () {},
+          onTap: onTap,
           borderRadius: BorderRadius.circular(12),
           child: Container(
             child: Column(
