@@ -19,6 +19,7 @@ class AppTextFormField extends StatelessWidget {
   final bool? isObscureText;
   final bool? readOnly;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final Color? backgroundColor;
   final TextEditingController? controller;
   final Function(String?) validator;
@@ -38,6 +39,7 @@ class AppTextFormField extends StatelessWidget {
       required this.hintText,
       this.isObscureText,
       this.suffixIcon,
+      this.prefixIcon,
       this.backgroundColor,
       this.controller,
       required this.validator,
@@ -100,6 +102,7 @@ class AppTextFormField extends StatelessWidget {
               hintStyle: hintStyle ?? AppTextStyles.font14LightGrayRegular,
               hintText: hintText,
               suffixIcon: suffixIcon,
+              prefixIcon: prefixIcon,
               filled: true,
               fillColor: backgroundColor ?? AppColors.moreLightGray),
           obscureText: isObscureText ?? false,
