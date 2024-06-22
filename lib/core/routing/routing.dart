@@ -71,12 +71,22 @@ class Routing {
                   child: const AddJobScreen(),
                 ));
 
+
       case Routes.jobsList:
         return MaterialPageRoute(
-            builder: (context) => BlocProvider(
-                  create: (context) =>   getIt<JobsListCubit>()..getCategories(),
+          builder: (context) {
+            int? index = null;
+            if (settings.arguments != null)
+             index = settings.arguments as int;
+
+            return BlocProvider(
+             create: (context) => getIt<JobsListCubit>()..getCategories(index),
                   child: const JobsListScreen(),
-                ));
+            );
+          },
+        );
+
+
 
       case Routes.category:
         return MaterialPageRoute(

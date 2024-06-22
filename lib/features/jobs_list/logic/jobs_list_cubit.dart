@@ -14,14 +14,16 @@ class JobsListCubit extends Cubit<JobsListState> {
   JobsListCubit(this._jobRepository, this._categoryRepository)
       : super(JobsListState.initial());
 
-  Future<void> getCategories() async {
+  Future<void> getCategories(int? categoryIndex) async {
     emit(JobsListState.jobsListLoading());
     try {
+      selectedCategoryIndex = categoryIndex ?? 0;
+
       List<CategoryModel> categories =
           await _categoryRepository.getCategories();
       emit(JobsListState.categorySuccess(categories));
       if (categories.isNotEmpty) {
-        getJobsByCategory(categories[0].id);
+        getJobsByCategory(categories[categoryIndex ?? 0].id);
       }
     } catch (e) {
       emit(JobsListState.categoryFailure(e.toString()));
@@ -38,8 +40,7 @@ class JobsListCubit extends Cubit<JobsListState> {
     }
   }
 
-
-    void selectCategory(int index) {
+  void selectCategory(int index) {
     selectedCategoryIndex = index;
   }
 }

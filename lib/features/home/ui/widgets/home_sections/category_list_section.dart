@@ -23,7 +23,12 @@ class CategoryListSection extends StatelessWidget {
         verticalSpace(10),
         AppCategoryListViewHorizontal(
           categoryList: categoryList,
-          onTap: (selectedIndex) {},
+          onTap: (selectedIndex) {
+             context.pushNamed(
+          Routes.jobsList,
+          arguments: selectedIndex,
+        );
+          },
           selectedCategoryIndex: -1,
         )
       ],

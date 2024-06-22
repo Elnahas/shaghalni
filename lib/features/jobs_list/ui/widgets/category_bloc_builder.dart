@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/features/jobs_list/logic/jobs_list_cubit.dart';
 import 'package:shaghalni/features/jobs_list/ui/widgets/category_shimmer_loading.dart';
-import 'package:shaghalni/features/jobs_list/ui/widgets/jobs_shimmer_loading.dart';
 import '../../../../core/data/models/category_model.dart';
 import '../../../../core/widgets/app_category_list_view_horizontal.dart';
 import '../../logic/jobs_list_state.dart';

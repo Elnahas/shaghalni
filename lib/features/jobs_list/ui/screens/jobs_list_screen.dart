@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
-import 'package:shaghalni/core/theming/app_text_styles.dart';
-import 'package:shaghalni/core/widgets/app_control_list_or_grid.dart';
 import 'package:shaghalni/features/jobs_list/ui/widgets/category_bloc_builder.dart';
 import '../widgets/jobs_list_bloc_builder.dart';
 import '../widgets/top_bar_search.dart';
@@ -27,25 +25,25 @@ class JobsListScreen extends StatelessWidget {
                   Container(
                       padding: EdgeInsets.symmetric(horizontal: 14.w),
                       child: TopBarSearch()),
-                  verticalSpace(10),
+                  verticalSpace(20),
                   CategoryBlocBuilder(),
                   verticalSpace(10),
                 ],
               ),
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 14.w),
-              child: Row(
-                children: [
-                  Text(
-                    "Results : 10",
-                    style: AppTextStyles.font12BlackRegular,
-                  ),
-                  Spacer(),
-                  AppControlListOrGrid(isGridView: ValueNotifier<bool>(true)),
-                ],
-              ),
-            ),
+            // Container(
+            //   padding: EdgeInsets.symmetric(horizontal: 14.w),
+            //   child: Row(
+            //     children: [
+            //       Text(
+            //         "Results : 10",
+            //         style: AppTextStyles.font12BlackRegular,
+            //       ),
+            //       Spacer(),
+            //       AppControlListOrGrid(isGridView: ValueNotifier<bool>(true)),
+            //     ],
+            //   ),
+            // ),
             verticalSpace(10),
             Expanded(
               child: SingleChildScrollView(
