@@ -7,9 +7,11 @@ import '../../../../core/widgets/app_clip_r_rect.dart';
 
 class CategoryItemsListView extends StatelessWidget {
   final CategoryModel category;
+  final Function()? onTap;
   const CategoryItemsListView({
     super.key,
     required this.category,
+    this.onTap,
   });
 
   @override
@@ -31,9 +33,7 @@ class CategoryItemsListView extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.r),
         child: InkWell(
-          onTap: () {
-            print('Tapped on ${category.name}');
-          },
+          onTap:  onTap,
           borderRadius: BorderRadius.circular(10.r),
           child: Container(
             padding: EdgeInsets.symmetric(vertical: 10.h),

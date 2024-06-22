@@ -17,16 +17,21 @@ class CategoryListSection extends StatelessWidget {
         CustomHeaderSection(
           text: "Categories",
           onPressed: () {
-            
             context.pushNamed(Routes.category);
           },
         ),
         verticalSpace(10),
-
-        AppCategoryListViewHorizontal(categoryList: categoryList)
-
+        AppCategoryListViewHorizontal(
+          categoryList: categoryList,
+          onTap: (selectedIndex) {
+             context.pushNamed(
+          Routes.jobsList,
+          arguments: selectedIndex,
+        );
+          },
+          selectedCategoryIndex: -1,
+        )
       ],
     );
   }
 }
-
