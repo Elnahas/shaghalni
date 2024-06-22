@@ -36,6 +36,29 @@ class JobRepository {
     }
   }
 
+    Future<List<JobModel>> getJobsByCategory(String categoryId) async {
+    try {
+      QuerySnapshot<Map<String, dynamic>> snapshot = await firestore
+          .collection(FirestoreCollections.jobs)
+          .where('category/id', isEqualTo: categoryId)
+          .get();
+
+      // List<JobModel> jobs =
+      //     snapshot.docs.map((e) => JobModel.fromJson(e.data())).toList();
+
+      List<JobModel> jobs = snapshot.docs.map((doc) {
+        Json data = doc.data();
+        data['id'] = doc.id;
+
+        return JobModel.fromJson(data);
+      }).toList();
+
+      return jobs;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   Future<JobModel?> getSingleJob(String id) async {
     try {
       DocumentSnapshot<Map<String, dynamic>> snapshot =

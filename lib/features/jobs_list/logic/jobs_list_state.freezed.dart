@@ -20,28 +20,33 @@ mixin _$JobsListState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() jobsListLoading,
-    required TResult Function(
-            List<CategoryModel> categoryList, List<JobModel> jobList)
-        jobsListSuccess,
-    required TResult Function() jobsListFailure,
+    required TResult Function() categoryLoading,
+    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<CategoryModel> categoryList) categorySuccess,
+    required TResult Function(String error) jobsListFailure,
+    required TResult Function(String error) categoryFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? jobsListLoading,
-    TResult? Function(List<CategoryModel> categoryList, List<JobModel> jobList)?
-        jobsListSuccess,
-    TResult? Function()? jobsListFailure,
+    TResult? Function()? categoryLoading,
+    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult? Function(String error)? jobsListFailure,
+    TResult? Function(String error)? categoryFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? jobsListLoading,
-    TResult Function(List<CategoryModel> categoryList, List<JobModel> jobList)?
-        jobsListSuccess,
-    TResult Function()? jobsListFailure,
+    TResult Function()? categoryLoading,
+    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult Function(String error)? jobsListFailure,
+    TResult Function(String error)? categoryFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,24 +54,33 @@ mixin _$JobsListState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(JobsListLoading value) jobsListLoading,
+    required TResult Function(CategoryLoading value) categoryLoading,
     required TResult Function(JobsListSuccess value) jobsListSuccess,
+    required TResult Function(CategorySuccess value) categorySuccess,
     required TResult Function(JobsListFailure value) jobsListFailure,
+    required TResult Function(CategoryFailure value) categoryFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(JobsListLoading value)? jobsListLoading,
+    TResult? Function(CategoryLoading value)? categoryLoading,
     TResult? Function(JobsListSuccess value)? jobsListSuccess,
+    TResult? Function(CategorySuccess value)? categorySuccess,
     TResult? Function(JobsListFailure value)? jobsListFailure,
+    TResult? Function(CategoryFailure value)? categoryFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(JobsListLoading value)? jobsListLoading,
+    TResult Function(CategoryLoading value)? categoryLoading,
     TResult Function(JobsListSuccess value)? jobsListSuccess,
+    TResult Function(CategorySuccess value)? categorySuccess,
     TResult Function(JobsListFailure value)? jobsListFailure,
+    TResult Function(CategoryFailure value)? categoryFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -130,10 +144,11 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() jobsListLoading,
-    required TResult Function(
-            List<CategoryModel> categoryList, List<JobModel> jobList)
-        jobsListSuccess,
-    required TResult Function() jobsListFailure,
+    required TResult Function() categoryLoading,
+    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<CategoryModel> categoryList) categorySuccess,
+    required TResult Function(String error) jobsListFailure,
+    required TResult Function(String error) categoryFailure,
   }) {
     return initial();
   }
@@ -143,9 +158,11 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? jobsListLoading,
-    TResult? Function(List<CategoryModel> categoryList, List<JobModel> jobList)?
-        jobsListSuccess,
-    TResult? Function()? jobsListFailure,
+    TResult? Function()? categoryLoading,
+    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult? Function(String error)? jobsListFailure,
+    TResult? Function(String error)? categoryFailure,
   }) {
     return initial?.call();
   }
@@ -155,9 +172,11 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? jobsListLoading,
-    TResult Function(List<CategoryModel> categoryList, List<JobModel> jobList)?
-        jobsListSuccess,
-    TResult Function()? jobsListFailure,
+    TResult Function()? categoryLoading,
+    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult Function(String error)? jobsListFailure,
+    TResult Function(String error)? categoryFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,8 +190,11 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(JobsListLoading value) jobsListLoading,
+    required TResult Function(CategoryLoading value) categoryLoading,
     required TResult Function(JobsListSuccess value) jobsListSuccess,
+    required TResult Function(CategorySuccess value) categorySuccess,
     required TResult Function(JobsListFailure value) jobsListFailure,
+    required TResult Function(CategoryFailure value) categoryFailure,
   }) {
     return initial(this);
   }
@@ -182,8 +204,11 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(JobsListLoading value)? jobsListLoading,
+    TResult? Function(CategoryLoading value)? categoryLoading,
     TResult? Function(JobsListSuccess value)? jobsListSuccess,
+    TResult? Function(CategorySuccess value)? categorySuccess,
     TResult? Function(JobsListFailure value)? jobsListFailure,
+    TResult? Function(CategoryFailure value)? categoryFailure,
   }) {
     return initial?.call(this);
   }
@@ -193,8 +218,11 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(JobsListLoading value)? jobsListLoading,
+    TResult Function(CategoryLoading value)? categoryLoading,
     TResult Function(JobsListSuccess value)? jobsListSuccess,
+    TResult Function(CategorySuccess value)? categorySuccess,
     TResult Function(JobsListFailure value)? jobsListFailure,
+    TResult Function(CategoryFailure value)? categoryFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -248,10 +276,11 @@ class _$JobsListLoadingImpl implements JobsListLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() jobsListLoading,
-    required TResult Function(
-            List<CategoryModel> categoryList, List<JobModel> jobList)
-        jobsListSuccess,
-    required TResult Function() jobsListFailure,
+    required TResult Function() categoryLoading,
+    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<CategoryModel> categoryList) categorySuccess,
+    required TResult Function(String error) jobsListFailure,
+    required TResult Function(String error) categoryFailure,
   }) {
     return jobsListLoading();
   }
@@ -261,9 +290,11 @@ class _$JobsListLoadingImpl implements JobsListLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? jobsListLoading,
-    TResult? Function(List<CategoryModel> categoryList, List<JobModel> jobList)?
-        jobsListSuccess,
-    TResult? Function()? jobsListFailure,
+    TResult? Function()? categoryLoading,
+    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult? Function(String error)? jobsListFailure,
+    TResult? Function(String error)? categoryFailure,
   }) {
     return jobsListLoading?.call();
   }
@@ -273,9 +304,11 @@ class _$JobsListLoadingImpl implements JobsListLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? jobsListLoading,
-    TResult Function(List<CategoryModel> categoryList, List<JobModel> jobList)?
-        jobsListSuccess,
-    TResult Function()? jobsListFailure,
+    TResult Function()? categoryLoading,
+    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult Function(String error)? jobsListFailure,
+    TResult Function(String error)? categoryFailure,
     required TResult orElse(),
   }) {
     if (jobsListLoading != null) {
@@ -289,8 +322,11 @@ class _$JobsListLoadingImpl implements JobsListLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(JobsListLoading value) jobsListLoading,
+    required TResult Function(CategoryLoading value) categoryLoading,
     required TResult Function(JobsListSuccess value) jobsListSuccess,
+    required TResult Function(CategorySuccess value) categorySuccess,
     required TResult Function(JobsListFailure value) jobsListFailure,
+    required TResult Function(CategoryFailure value) categoryFailure,
   }) {
     return jobsListLoading(this);
   }
@@ -300,8 +336,11 @@ class _$JobsListLoadingImpl implements JobsListLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(JobsListLoading value)? jobsListLoading,
+    TResult? Function(CategoryLoading value)? categoryLoading,
     TResult? Function(JobsListSuccess value)? jobsListSuccess,
+    TResult? Function(CategorySuccess value)? categorySuccess,
     TResult? Function(JobsListFailure value)? jobsListFailure,
+    TResult? Function(CategoryFailure value)? categoryFailure,
   }) {
     return jobsListLoading?.call(this);
   }
@@ -311,8 +350,11 @@ class _$JobsListLoadingImpl implements JobsListLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(JobsListLoading value)? jobsListLoading,
+    TResult Function(CategoryLoading value)? categoryLoading,
     TResult Function(JobsListSuccess value)? jobsListSuccess,
+    TResult Function(CategorySuccess value)? categorySuccess,
     TResult Function(JobsListFailure value)? jobsListFailure,
+    TResult Function(CategoryFailure value)? categoryFailure,
     required TResult orElse(),
   }) {
     if (jobsListLoading != null) {
@@ -327,12 +369,144 @@ abstract class JobsListLoading implements JobsListState {
 }
 
 /// @nodoc
+abstract class _$$CategoryLoadingImplCopyWith<$Res> {
+  factory _$$CategoryLoadingImplCopyWith(_$CategoryLoadingImpl value,
+          $Res Function(_$CategoryLoadingImpl) then) =
+      __$$CategoryLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CategoryLoadingImplCopyWithImpl<$Res>
+    extends _$JobsListStateCopyWithImpl<$Res, _$CategoryLoadingImpl>
+    implements _$$CategoryLoadingImplCopyWith<$Res> {
+  __$$CategoryLoadingImplCopyWithImpl(
+      _$CategoryLoadingImpl _value, $Res Function(_$CategoryLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CategoryLoadingImpl implements CategoryLoading {
+  const _$CategoryLoadingImpl();
+
+  @override
+  String toString() {
+    return 'JobsListState.categoryLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CategoryLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() jobsListLoading,
+    required TResult Function() categoryLoading,
+    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<CategoryModel> categoryList) categorySuccess,
+    required TResult Function(String error) jobsListFailure,
+    required TResult Function(String error) categoryFailure,
+  }) {
+    return categoryLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? jobsListLoading,
+    TResult? Function()? categoryLoading,
+    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult? Function(String error)? jobsListFailure,
+    TResult? Function(String error)? categoryFailure,
+  }) {
+    return categoryLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? jobsListLoading,
+    TResult Function()? categoryLoading,
+    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult Function(String error)? jobsListFailure,
+    TResult Function(String error)? categoryFailure,
+    required TResult orElse(),
+  }) {
+    if (categoryLoading != null) {
+      return categoryLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(JobsListLoading value) jobsListLoading,
+    required TResult Function(CategoryLoading value) categoryLoading,
+    required TResult Function(JobsListSuccess value) jobsListSuccess,
+    required TResult Function(CategorySuccess value) categorySuccess,
+    required TResult Function(JobsListFailure value) jobsListFailure,
+    required TResult Function(CategoryFailure value) categoryFailure,
+  }) {
+    return categoryLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(JobsListLoading value)? jobsListLoading,
+    TResult? Function(CategoryLoading value)? categoryLoading,
+    TResult? Function(JobsListSuccess value)? jobsListSuccess,
+    TResult? Function(CategorySuccess value)? categorySuccess,
+    TResult? Function(JobsListFailure value)? jobsListFailure,
+    TResult? Function(CategoryFailure value)? categoryFailure,
+  }) {
+    return categoryLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(JobsListLoading value)? jobsListLoading,
+    TResult Function(CategoryLoading value)? categoryLoading,
+    TResult Function(JobsListSuccess value)? jobsListSuccess,
+    TResult Function(CategorySuccess value)? categorySuccess,
+    TResult Function(JobsListFailure value)? jobsListFailure,
+    TResult Function(CategoryFailure value)? categoryFailure,
+    required TResult orElse(),
+  }) {
+    if (categoryLoading != null) {
+      return categoryLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CategoryLoading implements JobsListState {
+  const factory CategoryLoading() = _$CategoryLoadingImpl;
+}
+
+/// @nodoc
 abstract class _$$JobsListSuccessImplCopyWith<$Res> {
   factory _$$JobsListSuccessImplCopyWith(_$JobsListSuccessImpl value,
           $Res Function(_$JobsListSuccessImpl) then) =
       __$$JobsListSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<CategoryModel> categoryList, List<JobModel> jobList});
+  $Res call({List<JobModel> jobList});
 }
 
 /// @nodoc
@@ -346,14 +520,9 @@ class __$$JobsListSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categoryList = null,
     Object? jobList = null,
   }) {
     return _then(_$JobsListSuccessImpl(
-      null == categoryList
-          ? _value._categoryList
-          : categoryList // ignore: cast_nullable_to_non_nullable
-              as List<CategoryModel>,
       null == jobList
           ? _value._jobList
           : jobList // ignore: cast_nullable_to_non_nullable
@@ -365,18 +534,8 @@ class __$$JobsListSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$JobsListSuccessImpl implements JobsListSuccess {
-  const _$JobsListSuccessImpl(
-      final List<CategoryModel> categoryList, final List<JobModel> jobList)
-      : _categoryList = categoryList,
-        _jobList = jobList;
-
-  final List<CategoryModel> _categoryList;
-  @override
-  List<CategoryModel> get categoryList {
-    if (_categoryList is EqualUnmodifiableListView) return _categoryList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_categoryList);
-  }
+  const _$JobsListSuccessImpl(final List<JobModel> jobList)
+      : _jobList = jobList;
 
   final List<JobModel> _jobList;
   @override
@@ -388,7 +547,7 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
 
   @override
   String toString() {
-    return 'JobsListState.jobsListSuccess(categoryList: $categoryList, jobList: $jobList)';
+    return 'JobsListState.jobsListSuccess(jobList: $jobList)';
   }
 
   @override
@@ -396,16 +555,12 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$JobsListSuccessImpl &&
-            const DeepCollectionEquality()
-                .equals(other._categoryList, _categoryList) &&
             const DeepCollectionEquality().equals(other._jobList, _jobList));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_categoryList),
-      const DeepCollectionEquality().hash(_jobList));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_jobList));
 
   @JsonKey(ignore: true)
   @override
@@ -419,12 +574,13 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() jobsListLoading,
-    required TResult Function(
-            List<CategoryModel> categoryList, List<JobModel> jobList)
-        jobsListSuccess,
-    required TResult Function() jobsListFailure,
+    required TResult Function() categoryLoading,
+    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<CategoryModel> categoryList) categorySuccess,
+    required TResult Function(String error) jobsListFailure,
+    required TResult Function(String error) categoryFailure,
   }) {
-    return jobsListSuccess(categoryList, jobList);
+    return jobsListSuccess(jobList);
   }
 
   @override
@@ -432,11 +588,13 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? jobsListLoading,
-    TResult? Function(List<CategoryModel> categoryList, List<JobModel> jobList)?
-        jobsListSuccess,
-    TResult? Function()? jobsListFailure,
+    TResult? Function()? categoryLoading,
+    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult? Function(String error)? jobsListFailure,
+    TResult? Function(String error)? categoryFailure,
   }) {
-    return jobsListSuccess?.call(categoryList, jobList);
+    return jobsListSuccess?.call(jobList);
   }
 
   @override
@@ -444,13 +602,15 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? jobsListLoading,
-    TResult Function(List<CategoryModel> categoryList, List<JobModel> jobList)?
-        jobsListSuccess,
-    TResult Function()? jobsListFailure,
+    TResult Function()? categoryLoading,
+    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult Function(String error)? jobsListFailure,
+    TResult Function(String error)? categoryFailure,
     required TResult orElse(),
   }) {
     if (jobsListSuccess != null) {
-      return jobsListSuccess(categoryList, jobList);
+      return jobsListSuccess(jobList);
     }
     return orElse();
   }
@@ -460,8 +620,11 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(JobsListLoading value) jobsListLoading,
+    required TResult Function(CategoryLoading value) categoryLoading,
     required TResult Function(JobsListSuccess value) jobsListSuccess,
+    required TResult Function(CategorySuccess value) categorySuccess,
     required TResult Function(JobsListFailure value) jobsListFailure,
+    required TResult Function(CategoryFailure value) categoryFailure,
   }) {
     return jobsListSuccess(this);
   }
@@ -471,8 +634,11 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(JobsListLoading value)? jobsListLoading,
+    TResult? Function(CategoryLoading value)? categoryLoading,
     TResult? Function(JobsListSuccess value)? jobsListSuccess,
+    TResult? Function(CategorySuccess value)? categorySuccess,
     TResult? Function(JobsListFailure value)? jobsListFailure,
+    TResult? Function(CategoryFailure value)? categoryFailure,
   }) {
     return jobsListSuccess?.call(this);
   }
@@ -482,8 +648,11 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(JobsListLoading value)? jobsListLoading,
+    TResult Function(CategoryLoading value)? categoryLoading,
     TResult Function(JobsListSuccess value)? jobsListSuccess,
+    TResult Function(CategorySuccess value)? categorySuccess,
     TResult Function(JobsListFailure value)? jobsListFailure,
+    TResult Function(CategoryFailure value)? categoryFailure,
     required TResult orElse(),
   }) {
     if (jobsListSuccess != null) {
@@ -494,10 +663,9 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
 }
 
 abstract class JobsListSuccess implements JobsListState {
-  const factory JobsListSuccess(final List<CategoryModel> categoryList,
-      final List<JobModel> jobList) = _$JobsListSuccessImpl;
+  const factory JobsListSuccess(final List<JobModel> jobList) =
+      _$JobsListSuccessImpl;
 
-  List<CategoryModel> get categoryList;
   List<JobModel> get jobList;
   @JsonKey(ignore: true)
   _$$JobsListSuccessImplCopyWith<_$JobsListSuccessImpl> get copyWith =>
@@ -505,51 +673,87 @@ abstract class JobsListSuccess implements JobsListState {
 }
 
 /// @nodoc
-abstract class _$$JobsListFailureImplCopyWith<$Res> {
-  factory _$$JobsListFailureImplCopyWith(_$JobsListFailureImpl value,
-          $Res Function(_$JobsListFailureImpl) then) =
-      __$$JobsListFailureImplCopyWithImpl<$Res>;
+abstract class _$$CategorySuccessImplCopyWith<$Res> {
+  factory _$$CategorySuccessImplCopyWith(_$CategorySuccessImpl value,
+          $Res Function(_$CategorySuccessImpl) then) =
+      __$$CategorySuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<CategoryModel> categoryList});
 }
 
 /// @nodoc
-class __$$JobsListFailureImplCopyWithImpl<$Res>
-    extends _$JobsListStateCopyWithImpl<$Res, _$JobsListFailureImpl>
-    implements _$$JobsListFailureImplCopyWith<$Res> {
-  __$$JobsListFailureImplCopyWithImpl(
-      _$JobsListFailureImpl _value, $Res Function(_$JobsListFailureImpl) _then)
+class __$$CategorySuccessImplCopyWithImpl<$Res>
+    extends _$JobsListStateCopyWithImpl<$Res, _$CategorySuccessImpl>
+    implements _$$CategorySuccessImplCopyWith<$Res> {
+  __$$CategorySuccessImplCopyWithImpl(
+      _$CategorySuccessImpl _value, $Res Function(_$CategorySuccessImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? categoryList = null,
+  }) {
+    return _then(_$CategorySuccessImpl(
+      null == categoryList
+          ? _value._categoryList
+          : categoryList // ignore: cast_nullable_to_non_nullable
+              as List<CategoryModel>,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$JobsListFailureImpl implements JobsListFailure {
-  const _$JobsListFailureImpl();
+class _$CategorySuccessImpl implements CategorySuccess {
+  const _$CategorySuccessImpl(final List<CategoryModel> categoryList)
+      : _categoryList = categoryList;
+
+  final List<CategoryModel> _categoryList;
+  @override
+  List<CategoryModel> get categoryList {
+    if (_categoryList is EqualUnmodifiableListView) return _categoryList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categoryList);
+  }
 
   @override
   String toString() {
-    return 'JobsListState.jobsListFailure()';
+    return 'JobsListState.categorySuccess(categoryList: $categoryList)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$JobsListFailureImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$CategorySuccessImpl &&
+            const DeepCollectionEquality()
+                .equals(other._categoryList, _categoryList));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_categoryList));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CategorySuccessImplCopyWith<_$CategorySuccessImpl> get copyWith =>
+      __$$CategorySuccessImplCopyWithImpl<_$CategorySuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() jobsListLoading,
-    required TResult Function(
-            List<CategoryModel> categoryList, List<JobModel> jobList)
-        jobsListSuccess,
-    required TResult Function() jobsListFailure,
+    required TResult Function() categoryLoading,
+    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<CategoryModel> categoryList) categorySuccess,
+    required TResult Function(String error) jobsListFailure,
+    required TResult Function(String error) categoryFailure,
   }) {
-    return jobsListFailure();
+    return categorySuccess(categoryList);
   }
 
   @override
@@ -557,11 +761,13 @@ class _$JobsListFailureImpl implements JobsListFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? jobsListLoading,
-    TResult? Function(List<CategoryModel> categoryList, List<JobModel> jobList)?
-        jobsListSuccess,
-    TResult? Function()? jobsListFailure,
+    TResult? Function()? categoryLoading,
+    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult? Function(String error)? jobsListFailure,
+    TResult? Function(String error)? categoryFailure,
   }) {
-    return jobsListFailure?.call();
+    return categorySuccess?.call(categoryList);
   }
 
   @override
@@ -569,13 +775,15 @@ class _$JobsListFailureImpl implements JobsListFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? jobsListLoading,
-    TResult Function(List<CategoryModel> categoryList, List<JobModel> jobList)?
-        jobsListSuccess,
-    TResult Function()? jobsListFailure,
+    TResult Function()? categoryLoading,
+    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult Function(String error)? jobsListFailure,
+    TResult Function(String error)? categoryFailure,
     required TResult orElse(),
   }) {
-    if (jobsListFailure != null) {
-      return jobsListFailure();
+    if (categorySuccess != null) {
+      return categorySuccess(categoryList);
     }
     return orElse();
   }
@@ -585,8 +793,176 @@ class _$JobsListFailureImpl implements JobsListFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(JobsListLoading value) jobsListLoading,
+    required TResult Function(CategoryLoading value) categoryLoading,
     required TResult Function(JobsListSuccess value) jobsListSuccess,
+    required TResult Function(CategorySuccess value) categorySuccess,
     required TResult Function(JobsListFailure value) jobsListFailure,
+    required TResult Function(CategoryFailure value) categoryFailure,
+  }) {
+    return categorySuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(JobsListLoading value)? jobsListLoading,
+    TResult? Function(CategoryLoading value)? categoryLoading,
+    TResult? Function(JobsListSuccess value)? jobsListSuccess,
+    TResult? Function(CategorySuccess value)? categorySuccess,
+    TResult? Function(JobsListFailure value)? jobsListFailure,
+    TResult? Function(CategoryFailure value)? categoryFailure,
+  }) {
+    return categorySuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(JobsListLoading value)? jobsListLoading,
+    TResult Function(CategoryLoading value)? categoryLoading,
+    TResult Function(JobsListSuccess value)? jobsListSuccess,
+    TResult Function(CategorySuccess value)? categorySuccess,
+    TResult Function(JobsListFailure value)? jobsListFailure,
+    TResult Function(CategoryFailure value)? categoryFailure,
+    required TResult orElse(),
+  }) {
+    if (categorySuccess != null) {
+      return categorySuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CategorySuccess implements JobsListState {
+  const factory CategorySuccess(final List<CategoryModel> categoryList) =
+      _$CategorySuccessImpl;
+
+  List<CategoryModel> get categoryList;
+  @JsonKey(ignore: true)
+  _$$CategorySuccessImplCopyWith<_$CategorySuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$JobsListFailureImplCopyWith<$Res> {
+  factory _$$JobsListFailureImplCopyWith(_$JobsListFailureImpl value,
+          $Res Function(_$JobsListFailureImpl) then) =
+      __$$JobsListFailureImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$JobsListFailureImplCopyWithImpl<$Res>
+    extends _$JobsListStateCopyWithImpl<$Res, _$JobsListFailureImpl>
+    implements _$$JobsListFailureImplCopyWith<$Res> {
+  __$$JobsListFailureImplCopyWithImpl(
+      _$JobsListFailureImpl _value, $Res Function(_$JobsListFailureImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$JobsListFailureImpl(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$JobsListFailureImpl implements JobsListFailure {
+  const _$JobsListFailureImpl(this.error);
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'JobsListState.jobsListFailure(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$JobsListFailureImpl &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$JobsListFailureImplCopyWith<_$JobsListFailureImpl> get copyWith =>
+      __$$JobsListFailureImplCopyWithImpl<_$JobsListFailureImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() jobsListLoading,
+    required TResult Function() categoryLoading,
+    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<CategoryModel> categoryList) categorySuccess,
+    required TResult Function(String error) jobsListFailure,
+    required TResult Function(String error) categoryFailure,
+  }) {
+    return jobsListFailure(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? jobsListLoading,
+    TResult? Function()? categoryLoading,
+    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult? Function(String error)? jobsListFailure,
+    TResult? Function(String error)? categoryFailure,
+  }) {
+    return jobsListFailure?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? jobsListLoading,
+    TResult Function()? categoryLoading,
+    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult Function(String error)? jobsListFailure,
+    TResult Function(String error)? categoryFailure,
+    required TResult orElse(),
+  }) {
+    if (jobsListFailure != null) {
+      return jobsListFailure(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(JobsListLoading value) jobsListLoading,
+    required TResult Function(CategoryLoading value) categoryLoading,
+    required TResult Function(JobsListSuccess value) jobsListSuccess,
+    required TResult Function(CategorySuccess value) categorySuccess,
+    required TResult Function(JobsListFailure value) jobsListFailure,
+    required TResult Function(CategoryFailure value) categoryFailure,
   }) {
     return jobsListFailure(this);
   }
@@ -596,8 +972,11 @@ class _$JobsListFailureImpl implements JobsListFailure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(JobsListLoading value)? jobsListLoading,
+    TResult? Function(CategoryLoading value)? categoryLoading,
     TResult? Function(JobsListSuccess value)? jobsListSuccess,
+    TResult? Function(CategorySuccess value)? categorySuccess,
     TResult? Function(JobsListFailure value)? jobsListFailure,
+    TResult? Function(CategoryFailure value)? categoryFailure,
   }) {
     return jobsListFailure?.call(this);
   }
@@ -607,8 +986,11 @@ class _$JobsListFailureImpl implements JobsListFailure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(JobsListLoading value)? jobsListLoading,
+    TResult Function(CategoryLoading value)? categoryLoading,
     TResult Function(JobsListSuccess value)? jobsListSuccess,
+    TResult Function(CategorySuccess value)? categorySuccess,
     TResult Function(JobsListFailure value)? jobsListFailure,
+    TResult Function(CategoryFailure value)? categoryFailure,
     required TResult orElse(),
   }) {
     if (jobsListFailure != null) {
@@ -619,5 +1001,174 @@ class _$JobsListFailureImpl implements JobsListFailure {
 }
 
 abstract class JobsListFailure implements JobsListState {
-  const factory JobsListFailure() = _$JobsListFailureImpl;
+  const factory JobsListFailure(final String error) = _$JobsListFailureImpl;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$JobsListFailureImplCopyWith<_$JobsListFailureImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CategoryFailureImplCopyWith<$Res> {
+  factory _$$CategoryFailureImplCopyWith(_$CategoryFailureImpl value,
+          $Res Function(_$CategoryFailureImpl) then) =
+      __$$CategoryFailureImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$CategoryFailureImplCopyWithImpl<$Res>
+    extends _$JobsListStateCopyWithImpl<$Res, _$CategoryFailureImpl>
+    implements _$$CategoryFailureImplCopyWith<$Res> {
+  __$$CategoryFailureImplCopyWithImpl(
+      _$CategoryFailureImpl _value, $Res Function(_$CategoryFailureImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$CategoryFailureImpl(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CategoryFailureImpl implements CategoryFailure {
+  const _$CategoryFailureImpl(this.error);
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'JobsListState.categoryFailure(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CategoryFailureImpl &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CategoryFailureImplCopyWith<_$CategoryFailureImpl> get copyWith =>
+      __$$CategoryFailureImplCopyWithImpl<_$CategoryFailureImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() jobsListLoading,
+    required TResult Function() categoryLoading,
+    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<CategoryModel> categoryList) categorySuccess,
+    required TResult Function(String error) jobsListFailure,
+    required TResult Function(String error) categoryFailure,
+  }) {
+    return categoryFailure(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? jobsListLoading,
+    TResult? Function()? categoryLoading,
+    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult? Function(String error)? jobsListFailure,
+    TResult? Function(String error)? categoryFailure,
+  }) {
+    return categoryFailure?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? jobsListLoading,
+    TResult Function()? categoryLoading,
+    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult Function(String error)? jobsListFailure,
+    TResult Function(String error)? categoryFailure,
+    required TResult orElse(),
+  }) {
+    if (categoryFailure != null) {
+      return categoryFailure(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(JobsListLoading value) jobsListLoading,
+    required TResult Function(CategoryLoading value) categoryLoading,
+    required TResult Function(JobsListSuccess value) jobsListSuccess,
+    required TResult Function(CategorySuccess value) categorySuccess,
+    required TResult Function(JobsListFailure value) jobsListFailure,
+    required TResult Function(CategoryFailure value) categoryFailure,
+  }) {
+    return categoryFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(JobsListLoading value)? jobsListLoading,
+    TResult? Function(CategoryLoading value)? categoryLoading,
+    TResult? Function(JobsListSuccess value)? jobsListSuccess,
+    TResult? Function(CategorySuccess value)? categorySuccess,
+    TResult? Function(JobsListFailure value)? jobsListFailure,
+    TResult? Function(CategoryFailure value)? categoryFailure,
+  }) {
+    return categoryFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(JobsListLoading value)? jobsListLoading,
+    TResult Function(CategoryLoading value)? categoryLoading,
+    TResult Function(JobsListSuccess value)? jobsListSuccess,
+    TResult Function(CategorySuccess value)? categorySuccess,
+    TResult Function(JobsListFailure value)? jobsListFailure,
+    TResult Function(CategoryFailure value)? categoryFailure,
+    required TResult orElse(),
+  }) {
+    if (categoryFailure != null) {
+      return categoryFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CategoryFailure implements JobsListState {
+  const factory CategoryFailure(final String error) = _$CategoryFailureImpl;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$CategoryFailureImplCopyWith<_$CategoryFailureImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
