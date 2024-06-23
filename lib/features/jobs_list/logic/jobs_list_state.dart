@@ -6,16 +6,17 @@ part "jobs_list_state.freezed.dart";
 
 @freezed
 class JobsListState with _$JobsListState {
-
   const factory JobsListState.initial() = _Initial;
 
   const factory JobsListState.jobsListLoading() = JobsListLoading;
   const factory JobsListState.categoryLoading() = CategoryLoading;
 
-  const factory JobsListState.jobsListSuccess(List<JobModel> jobList) = JobsListSuccess;
-  const factory JobsListState.categorySuccess(List<CategoryModel> categoryList) = CategorySuccess;
+  const factory JobsListState.jobsListSuccess(List<JobModel> jobList) =
+      JobsListSuccess;
+  const factory JobsListState.categorySuccess(
+      List<CategoryModel> categoryList) = CategorySuccess;
 
   const factory JobsListState.jobsListFailure(String error) = JobsListFailure;
   const factory JobsListState.categoryFailure(String error) = CategoryFailure;
-
+  const factory JobsListState.noResultsFound() = NoResultsFound;
 }

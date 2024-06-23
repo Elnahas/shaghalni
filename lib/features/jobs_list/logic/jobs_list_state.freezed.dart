@@ -25,6 +25,7 @@ mixin _$JobsListState {
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
+    required TResult Function() noResultsFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +37,7 @@ mixin _$JobsListState {
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
+    TResult? Function()? noResultsFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +49,7 @@ mixin _$JobsListState {
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
+    TResult Function()? noResultsFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +62,7 @@ mixin _$JobsListState {
     required TResult Function(CategorySuccess value) categorySuccess,
     required TResult Function(JobsListFailure value) jobsListFailure,
     required TResult Function(CategoryFailure value) categoryFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +74,7 @@ mixin _$JobsListState {
     TResult? Function(CategorySuccess value)? categorySuccess,
     TResult? Function(JobsListFailure value)? jobsListFailure,
     TResult? Function(CategoryFailure value)? categoryFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +86,7 @@ mixin _$JobsListState {
     TResult Function(CategorySuccess value)? categorySuccess,
     TResult Function(JobsListFailure value)? jobsListFailure,
     TResult Function(CategoryFailure value)? categoryFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,6 +155,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
+    required TResult Function() noResultsFound,
   }) {
     return initial();
   }
@@ -163,6 +170,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
+    TResult? Function()? noResultsFound,
   }) {
     return initial?.call();
   }
@@ -177,6 +185,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
+    TResult Function()? noResultsFound,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -195,6 +204,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(CategorySuccess value) categorySuccess,
     required TResult Function(JobsListFailure value) jobsListFailure,
     required TResult Function(CategoryFailure value) categoryFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
   }) {
     return initial(this);
   }
@@ -209,6 +219,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(CategorySuccess value)? categorySuccess,
     TResult? Function(JobsListFailure value)? jobsListFailure,
     TResult? Function(CategoryFailure value)? categoryFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
   }) {
     return initial?.call(this);
   }
@@ -223,6 +234,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(CategorySuccess value)? categorySuccess,
     TResult Function(JobsListFailure value)? jobsListFailure,
     TResult Function(CategoryFailure value)? categoryFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -281,6 +293,7 @@ class _$JobsListLoadingImpl implements JobsListLoading {
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
+    required TResult Function() noResultsFound,
   }) {
     return jobsListLoading();
   }
@@ -295,6 +308,7 @@ class _$JobsListLoadingImpl implements JobsListLoading {
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
+    TResult? Function()? noResultsFound,
   }) {
     return jobsListLoading?.call();
   }
@@ -309,6 +323,7 @@ class _$JobsListLoadingImpl implements JobsListLoading {
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
+    TResult Function()? noResultsFound,
     required TResult orElse(),
   }) {
     if (jobsListLoading != null) {
@@ -327,6 +342,7 @@ class _$JobsListLoadingImpl implements JobsListLoading {
     required TResult Function(CategorySuccess value) categorySuccess,
     required TResult Function(JobsListFailure value) jobsListFailure,
     required TResult Function(CategoryFailure value) categoryFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
   }) {
     return jobsListLoading(this);
   }
@@ -341,6 +357,7 @@ class _$JobsListLoadingImpl implements JobsListLoading {
     TResult? Function(CategorySuccess value)? categorySuccess,
     TResult? Function(JobsListFailure value)? jobsListFailure,
     TResult? Function(CategoryFailure value)? categoryFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
   }) {
     return jobsListLoading?.call(this);
   }
@@ -355,6 +372,7 @@ class _$JobsListLoadingImpl implements JobsListLoading {
     TResult Function(CategorySuccess value)? categorySuccess,
     TResult Function(JobsListFailure value)? jobsListFailure,
     TResult Function(CategoryFailure value)? categoryFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
     required TResult orElse(),
   }) {
     if (jobsListLoading != null) {
@@ -413,6 +431,7 @@ class _$CategoryLoadingImpl implements CategoryLoading {
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
+    required TResult Function() noResultsFound,
   }) {
     return categoryLoading();
   }
@@ -427,6 +446,7 @@ class _$CategoryLoadingImpl implements CategoryLoading {
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
+    TResult? Function()? noResultsFound,
   }) {
     return categoryLoading?.call();
   }
@@ -441,6 +461,7 @@ class _$CategoryLoadingImpl implements CategoryLoading {
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
+    TResult Function()? noResultsFound,
     required TResult orElse(),
   }) {
     if (categoryLoading != null) {
@@ -459,6 +480,7 @@ class _$CategoryLoadingImpl implements CategoryLoading {
     required TResult Function(CategorySuccess value) categorySuccess,
     required TResult Function(JobsListFailure value) jobsListFailure,
     required TResult Function(CategoryFailure value) categoryFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
   }) {
     return categoryLoading(this);
   }
@@ -473,6 +495,7 @@ class _$CategoryLoadingImpl implements CategoryLoading {
     TResult? Function(CategorySuccess value)? categorySuccess,
     TResult? Function(JobsListFailure value)? jobsListFailure,
     TResult? Function(CategoryFailure value)? categoryFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
   }) {
     return categoryLoading?.call(this);
   }
@@ -487,6 +510,7 @@ class _$CategoryLoadingImpl implements CategoryLoading {
     TResult Function(CategorySuccess value)? categorySuccess,
     TResult Function(JobsListFailure value)? jobsListFailure,
     TResult Function(CategoryFailure value)? categoryFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
     required TResult orElse(),
   }) {
     if (categoryLoading != null) {
@@ -579,6 +603,7 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
+    required TResult Function() noResultsFound,
   }) {
     return jobsListSuccess(jobList);
   }
@@ -593,6 +618,7 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
+    TResult? Function()? noResultsFound,
   }) {
     return jobsListSuccess?.call(jobList);
   }
@@ -607,6 +633,7 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
+    TResult Function()? noResultsFound,
     required TResult orElse(),
   }) {
     if (jobsListSuccess != null) {
@@ -625,6 +652,7 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
     required TResult Function(CategorySuccess value) categorySuccess,
     required TResult Function(JobsListFailure value) jobsListFailure,
     required TResult Function(CategoryFailure value) categoryFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
   }) {
     return jobsListSuccess(this);
   }
@@ -639,6 +667,7 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
     TResult? Function(CategorySuccess value)? categorySuccess,
     TResult? Function(JobsListFailure value)? jobsListFailure,
     TResult? Function(CategoryFailure value)? categoryFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
   }) {
     return jobsListSuccess?.call(this);
   }
@@ -653,6 +682,7 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
     TResult Function(CategorySuccess value)? categorySuccess,
     TResult Function(JobsListFailure value)? jobsListFailure,
     TResult Function(CategoryFailure value)? categoryFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
     required TResult orElse(),
   }) {
     if (jobsListSuccess != null) {
@@ -752,6 +782,7 @@ class _$CategorySuccessImpl implements CategorySuccess {
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
+    required TResult Function() noResultsFound,
   }) {
     return categorySuccess(categoryList);
   }
@@ -766,6 +797,7 @@ class _$CategorySuccessImpl implements CategorySuccess {
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
+    TResult? Function()? noResultsFound,
   }) {
     return categorySuccess?.call(categoryList);
   }
@@ -780,6 +812,7 @@ class _$CategorySuccessImpl implements CategorySuccess {
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
+    TResult Function()? noResultsFound,
     required TResult orElse(),
   }) {
     if (categorySuccess != null) {
@@ -798,6 +831,7 @@ class _$CategorySuccessImpl implements CategorySuccess {
     required TResult Function(CategorySuccess value) categorySuccess,
     required TResult Function(JobsListFailure value) jobsListFailure,
     required TResult Function(CategoryFailure value) categoryFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
   }) {
     return categorySuccess(this);
   }
@@ -812,6 +846,7 @@ class _$CategorySuccessImpl implements CategorySuccess {
     TResult? Function(CategorySuccess value)? categorySuccess,
     TResult? Function(JobsListFailure value)? jobsListFailure,
     TResult? Function(CategoryFailure value)? categoryFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
   }) {
     return categorySuccess?.call(this);
   }
@@ -826,6 +861,7 @@ class _$CategorySuccessImpl implements CategorySuccess {
     TResult Function(CategorySuccess value)? categorySuccess,
     TResult Function(JobsListFailure value)? jobsListFailure,
     TResult Function(CategoryFailure value)? categoryFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
     required TResult orElse(),
   }) {
     if (categorySuccess != null) {
@@ -917,6 +953,7 @@ class _$JobsListFailureImpl implements JobsListFailure {
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
+    required TResult Function() noResultsFound,
   }) {
     return jobsListFailure(error);
   }
@@ -931,6 +968,7 @@ class _$JobsListFailureImpl implements JobsListFailure {
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
+    TResult? Function()? noResultsFound,
   }) {
     return jobsListFailure?.call(error);
   }
@@ -945,6 +983,7 @@ class _$JobsListFailureImpl implements JobsListFailure {
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
+    TResult Function()? noResultsFound,
     required TResult orElse(),
   }) {
     if (jobsListFailure != null) {
@@ -963,6 +1002,7 @@ class _$JobsListFailureImpl implements JobsListFailure {
     required TResult Function(CategorySuccess value) categorySuccess,
     required TResult Function(JobsListFailure value) jobsListFailure,
     required TResult Function(CategoryFailure value) categoryFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
   }) {
     return jobsListFailure(this);
   }
@@ -977,6 +1017,7 @@ class _$JobsListFailureImpl implements JobsListFailure {
     TResult? Function(CategorySuccess value)? categorySuccess,
     TResult? Function(JobsListFailure value)? jobsListFailure,
     TResult? Function(CategoryFailure value)? categoryFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
   }) {
     return jobsListFailure?.call(this);
   }
@@ -991,6 +1032,7 @@ class _$JobsListFailureImpl implements JobsListFailure {
     TResult Function(CategorySuccess value)? categorySuccess,
     TResult Function(JobsListFailure value)? jobsListFailure,
     TResult Function(CategoryFailure value)? categoryFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
     required TResult orElse(),
   }) {
     if (jobsListFailure != null) {
@@ -1081,6 +1123,7 @@ class _$CategoryFailureImpl implements CategoryFailure {
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
+    required TResult Function() noResultsFound,
   }) {
     return categoryFailure(error);
   }
@@ -1095,6 +1138,7 @@ class _$CategoryFailureImpl implements CategoryFailure {
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
+    TResult? Function()? noResultsFound,
   }) {
     return categoryFailure?.call(error);
   }
@@ -1109,6 +1153,7 @@ class _$CategoryFailureImpl implements CategoryFailure {
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
+    TResult Function()? noResultsFound,
     required TResult orElse(),
   }) {
     if (categoryFailure != null) {
@@ -1127,6 +1172,7 @@ class _$CategoryFailureImpl implements CategoryFailure {
     required TResult Function(CategorySuccess value) categorySuccess,
     required TResult Function(JobsListFailure value) jobsListFailure,
     required TResult Function(CategoryFailure value) categoryFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
   }) {
     return categoryFailure(this);
   }
@@ -1141,6 +1187,7 @@ class _$CategoryFailureImpl implements CategoryFailure {
     TResult? Function(CategorySuccess value)? categorySuccess,
     TResult? Function(JobsListFailure value)? jobsListFailure,
     TResult? Function(CategoryFailure value)? categoryFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
   }) {
     return categoryFailure?.call(this);
   }
@@ -1155,6 +1202,7 @@ class _$CategoryFailureImpl implements CategoryFailure {
     TResult Function(CategorySuccess value)? categorySuccess,
     TResult Function(JobsListFailure value)? jobsListFailure,
     TResult Function(CategoryFailure value)? categoryFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
     required TResult orElse(),
   }) {
     if (categoryFailure != null) {
@@ -1171,4 +1219,142 @@ abstract class CategoryFailure implements JobsListState {
   @JsonKey(ignore: true)
   _$$CategoryFailureImplCopyWith<_$CategoryFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NoResultsFoundImplCopyWith<$Res> {
+  factory _$$NoResultsFoundImplCopyWith(_$NoResultsFoundImpl value,
+          $Res Function(_$NoResultsFoundImpl) then) =
+      __$$NoResultsFoundImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NoResultsFoundImplCopyWithImpl<$Res>
+    extends _$JobsListStateCopyWithImpl<$Res, _$NoResultsFoundImpl>
+    implements _$$NoResultsFoundImplCopyWith<$Res> {
+  __$$NoResultsFoundImplCopyWithImpl(
+      _$NoResultsFoundImpl _value, $Res Function(_$NoResultsFoundImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NoResultsFoundImpl implements NoResultsFound {
+  const _$NoResultsFoundImpl();
+
+  @override
+  String toString() {
+    return 'JobsListState.noResultsFound()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NoResultsFoundImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() jobsListLoading,
+    required TResult Function() categoryLoading,
+    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<CategoryModel> categoryList) categorySuccess,
+    required TResult Function(String error) jobsListFailure,
+    required TResult Function(String error) categoryFailure,
+    required TResult Function() noResultsFound,
+  }) {
+    return noResultsFound();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? jobsListLoading,
+    TResult? Function()? categoryLoading,
+    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult? Function(String error)? jobsListFailure,
+    TResult? Function(String error)? categoryFailure,
+    TResult? Function()? noResultsFound,
+  }) {
+    return noResultsFound?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? jobsListLoading,
+    TResult Function()? categoryLoading,
+    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<CategoryModel> categoryList)? categorySuccess,
+    TResult Function(String error)? jobsListFailure,
+    TResult Function(String error)? categoryFailure,
+    TResult Function()? noResultsFound,
+    required TResult orElse(),
+  }) {
+    if (noResultsFound != null) {
+      return noResultsFound();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(JobsListLoading value) jobsListLoading,
+    required TResult Function(CategoryLoading value) categoryLoading,
+    required TResult Function(JobsListSuccess value) jobsListSuccess,
+    required TResult Function(CategorySuccess value) categorySuccess,
+    required TResult Function(JobsListFailure value) jobsListFailure,
+    required TResult Function(CategoryFailure value) categoryFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
+  }) {
+    return noResultsFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(JobsListLoading value)? jobsListLoading,
+    TResult? Function(CategoryLoading value)? categoryLoading,
+    TResult? Function(JobsListSuccess value)? jobsListSuccess,
+    TResult? Function(CategorySuccess value)? categorySuccess,
+    TResult? Function(JobsListFailure value)? jobsListFailure,
+    TResult? Function(CategoryFailure value)? categoryFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
+  }) {
+    return noResultsFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(JobsListLoading value)? jobsListLoading,
+    TResult Function(CategoryLoading value)? categoryLoading,
+    TResult Function(JobsListSuccess value)? jobsListSuccess,
+    TResult Function(CategorySuccess value)? categorySuccess,
+    TResult Function(JobsListFailure value)? jobsListFailure,
+    TResult Function(CategoryFailure value)? categoryFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
+    required TResult orElse(),
+  }) {
+    if (noResultsFound != null) {
+      return noResultsFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoResultsFound implements JobsListState {
+  const factory NoResultsFound() = _$NoResultsFoundImpl;
 }

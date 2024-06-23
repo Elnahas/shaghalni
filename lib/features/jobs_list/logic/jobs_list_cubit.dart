@@ -44,7 +44,12 @@ class JobsListCubit extends Cubit<JobsListState> {
     try {
       List<JobModel> jobs;
        jobs = await _jobRepository.getJobs(categoryId: categoryId , ascending: ascending , cityId: cityId , searchQuery: searchQuery);
-      emit(JobsListState.jobsListSuccess(jobs));
+       if (jobs.isEmpty) {
+        emit(JobsListState.noResultsFound());
+      }else{
+        emit(JobsListState.jobsListSuccess(jobs));
+      }
+      
     } catch (e) {
       emit(JobsListState.jobsListFailure(e.toString()));
     }

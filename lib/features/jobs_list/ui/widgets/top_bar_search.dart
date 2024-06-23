@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -21,9 +20,10 @@ class _TopBarSearchState extends State<TopBarSearch> {
   @override
   void initState() {
     _cubit = context.read<JobsListCubit>();
-    searchTextEditingController = _cubit.searchTextEditingController ;
+    searchTextEditingController = _cubit.searchTextEditingController;
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -34,10 +34,13 @@ class _TopBarSearchState extends State<TopBarSearch> {
             hintText: "Search by title job",
             validator: (value) {},
             prefixIcon: Icon(FontAwesomeIcons.magnifyingGlass),
-            suffixIcon: TextButton(child: Text("Search"), onPressed: () {
-              print("searchTextEditingController.text ${searchTextEditingController.text}");
-              context.read<JobsListCubit>().getJobsByCategory();
-            }),
+            suffixIcon: TextButton(
+                child: Text("Search"),
+                onPressed: () {
+                  context.read<JobsListCubit>().getJobsByCategory(
+                      categoryId: _cubit.selectedCategoryId,
+                      searchQuery: searchTextEditingController.text);
+                }),
           ),
         ),
         IconButton(onPressed: () {}, icon: Icon(FontAwesomeIcons.sort)),
