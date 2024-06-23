@@ -13,7 +13,7 @@ class HomeCubit extends Cubit<HomeState> {
   Future<void> getCategoriesAndJobs() async {
     try {
       emit(HomeState.categoriesAndJobsLoading());
-      var categoryList = await _categoryRepository.getCategories();
+      var categoryList = await _categoryRepository.getCategoriesWithAllJobs();
       var jobList = await _jobRepository.getJobs();
       emit(HomeState.categoriesAndJobsSuccess(categoryList, jobList));
     } catch (e) {

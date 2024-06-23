@@ -20,7 +20,7 @@ class JobsListCubit extends Cubit<JobsListState> {
       selectedCategoryIndex = categoryIndex ?? 0;
 
       List<CategoryModel> categories =
-          await _categoryRepository.getCategories();
+          await _categoryRepository.getCategoriesWithAllJobs();
       emit(JobsListState.categorySuccess(categories));
       if (categories.isNotEmpty) {
         getJobsByCategory(categories[categoryIndex ?? 0].id);
