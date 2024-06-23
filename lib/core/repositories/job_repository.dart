@@ -14,18 +14,44 @@ class JobRepository {
     }
   }
 
-  Future<List<JobModel>> getJobs() async {
+  Future<List<JobModel>> getJobs({
+    String? cityId,
+    String? searchQuery,
+    bool ascending = true,
+    String? categoryId,
+  }) async {
     try {
-      QuerySnapshot<Map<String, dynamic>> snapshot = await firestore
-          .collection(FirestoreCollections.jobs)
-          // .where('status', isEqualTo: JobStatus.pending.name)
-          .get();
+      Query query = firestore.collection(FirestoreCollections.jobs);
 
-      // List<JobModel> jobs =
-      //     snapshot.docs.map((e) => JobModel.fromJson(e.data())).toList();
+      // Filter by city if provided
+      if (cityId != null && cityId.isNotEmpty) {
+        query = query.where('city.id', isEqualTo: cityId);
+      }
 
+      // Filter by category if provided
+      if (categoryId != null && categoryId.isNotEmpty && categoryId != Constants.allJobs) {
+        query = query.where('category.id', isEqualTo: categoryId);
+      }
+
+      // Exclude jobs with state 'waiting'
+      query = query.where('status', isNotEqualTo: JobStatus.pending.name);
+
+      // Search by job title if provided
+      if (searchQuery != null && searchQuery.isNotEmpty) {
+        query = query
+            .where('title', isGreaterThanOrEqualTo: searchQuery)
+            .where('title', isLessThanOrEqualTo: searchQuery + '\uf8ff');
+      }
+
+      // Order by salary
+      //query = query.orderBy('salary', descending: !ascending);
+
+      // Fetch the data
+      QuerySnapshot<Object?> snapshot = await query.get();
+
+      // Process the data
       List<JobModel> jobs = snapshot.docs.map((doc) {
-        Json data = doc.data();
+        Json data = doc.data() as Map<String, dynamic>;
         data['id'] = doc.id;
 
         return JobModel.fromJson(data);

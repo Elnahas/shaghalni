@@ -22,11 +22,11 @@ class CategoryRepository {
   Future<List<CategoryModel>> getCategoriesWithAllJobs() async {
     var allJobModel = CategoryModel(
           coverImageUrl: "",
-          id: "All Jobs",
+          id: Constants.allJobs,
           name: "كل الوظائف",
           description: "",
           iconUrl:
-              "https://cdn-icons-png.freepik.com/512/9045/9045148.png");
+              Constants.imgUrlAllJobs);
     List<CategoryModel> categories = [
       allJobModel
     ];

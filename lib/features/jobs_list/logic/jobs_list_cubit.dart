@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:shaghalni/core/repositories/category_repository.dart';
 import 'package:shaghalni/core/repositories/job_repository.dart';
 import 'package:shaghalni/features/jobs_list/logic/jobs_list_state.dart';
@@ -7,9 +8,16 @@ import '../../../core/data/models/category_model.dart';
 import '../../../core/data/models/job_model.dart';
 
 class JobsListCubit extends Cubit<JobsListState> {
+
+  //repositories
   final JobRepository _jobRepository;
   final CategoryRepository _categoryRepository;
+
   var selectedCategoryIndex = 0;
+  String? selectedCategoryId ;
+
+  //search
+  final TextEditingController searchTextEditingController = TextEditingController();
 
   JobsListCubit(this._jobRepository, this._categoryRepository)
       : super(JobsListState.initial());
@@ -23,21 +31,19 @@ class JobsListCubit extends Cubit<JobsListState> {
           await _categoryRepository.getCategoriesWithAllJobs();
       emit(JobsListState.categorySuccess(categories));
       if (categories.isNotEmpty) {
-        getJobsByCategory(categories[categoryIndex ?? 0].id);
+        getJobsByCategory(categoryId: categories[categoryIndex ?? 0].id);
       }
     } catch (e) {
       emit(JobsListState.categoryFailure(e.toString()));
     }
   }
 
-  Future<void> getJobsByCategory(String categoryId) async {
+  Future<void> getJobsByCategory({String? categoryId  , bool ascending = true , String? cityId , String? searchQuery } ) async {
+    selectedCategoryId = categoryId;
     emit(JobsListState.jobsListLoading());
     try {
       List<JobModel> jobs;
-      if(categoryId == 'All Jobs')
-      jobs = await _jobRepository.getJobs();
-      else
-       jobs = await _jobRepository.getJobsByCategory(categoryId);
+       jobs = await _jobRepository.getJobs(categoryId: categoryId , ascending: ascending , cityId: cityId , searchQuery: searchQuery);
       emit(JobsListState.jobsListSuccess(jobs));
     } catch (e) {
       emit(JobsListState.jobsListFailure(e.toString()));
