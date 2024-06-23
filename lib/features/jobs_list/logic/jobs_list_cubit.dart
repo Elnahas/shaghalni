@@ -33,7 +33,11 @@ class JobsListCubit extends Cubit<JobsListState> {
   Future<void> getJobsByCategory(String categoryId) async {
     emit(JobsListState.jobsListLoading());
     try {
-      List<JobModel> jobs = await _jobRepository.getJobsByCategory(categoryId);
+      List<JobModel> jobs;
+      if(categoryId == 'All Jobs')
+      jobs = await _jobRepository.getJobs();
+      else
+       jobs = await _jobRepository.getJobsByCategory(categoryId);
       emit(JobsListState.jobsListSuccess(jobs));
     } catch (e) {
       emit(JobsListState.jobsListFailure(e.toString()));
