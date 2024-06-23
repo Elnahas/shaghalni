@@ -37,7 +37,7 @@ class _TopBarSearchState extends State<TopBarSearch> {
             suffixIcon: TextButton(
                 child: Text("Search"),
                 onPressed: () {
-                  context.read<JobsListCubit>().getJobsByCategory(
+                  context.read<JobsListCubit>().getJobs(
                       categoryId: _cubit.selectedCategoryId,
                       searchQuery: searchTextEditingController.text);
                 }),

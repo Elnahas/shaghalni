@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shaghalni/core/repositories/category_repository.dart';
 import 'package:shaghalni/core/repositories/job_repository.dart';
 import 'package:shaghalni/features/jobs_list/logic/jobs_list_state.dart';
-
 import '../../../core/data/models/category_model.dart';
 import '../../../core/data/models/job_model.dart';
 
@@ -31,19 +31,19 @@ class JobsListCubit extends Cubit<JobsListState> {
           await _categoryRepository.getCategoriesWithAllJobs();
       emit(JobsListState.categorySuccess(categories));
       if (categories.isNotEmpty) {
-        getJobsByCategory(categoryId: categories[categoryIndex ?? 0].id);
+        getJobs(categoryId: categories[categoryIndex ?? 0].id ,  );
       }
     } catch (e) {
       emit(JobsListState.categoryFailure(e.toString()));
     }
   }
 
-  Future<void> getJobsByCategory({String? categoryId  , bool ascending = true , String? cityId , String? searchQuery } ) async {
+  Future<void> getJobs({String? categoryId  , bool ascending = true , String? cityId , String? searchQuery , int limit = 30 } ) async {
     selectedCategoryId = categoryId;
     emit(JobsListState.jobsListLoading());
     try {
       List<JobModel> jobs;
-       jobs = await _jobRepository.getJobs(categoryId: categoryId , ascending: ascending , cityId: cityId , searchQuery: searchQuery);
+       jobs = await _jobRepository.getJobs(categoryId: categoryId , ascending: ascending , cityId: cityId , searchQuery: searchQuery , limit: limit);
        if (jobs.isEmpty) {
         emit(JobsListState.noResultsFound());
       }else{
