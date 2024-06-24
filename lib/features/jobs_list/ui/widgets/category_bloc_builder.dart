@@ -20,7 +20,7 @@ class _CategoryBlocBuilderState extends State<CategoryBlocBuilder> {
       buildWhen: (previous, current) =>
           current is CategorySuccess ||
           current is CategoryFailure ||
-          current is CategoryLoading ,
+          current is CategoryLoading,
       builder: (context, state) {
         return state.maybeMap(
           categorySuccess: (categoryList) =>
@@ -41,7 +41,7 @@ class _CategoryBlocBuilderState extends State<CategoryBlocBuilder> {
             context.read<JobsListCubit>().selectCategory(index);
             context
                 .read<JobsListCubit>()
-                .getJobsByCategory(categoryList[index].id);
+                .getJobs(categoryId: categoryList[index].id);
 
             setState(() {});
           }
@@ -56,9 +56,11 @@ class _CategoryBlocBuilderState extends State<CategoryBlocBuilder> {
 
   Widget setupLoading() {
     return SingleChildScrollView(
-      child: Column(children: [
-        CategoryShimmerLoading(),
-      ],),
+      child: Column(
+        children: [
+          CategoryShimmerLoading(),
+        ],
+      ),
     );
   }
 }

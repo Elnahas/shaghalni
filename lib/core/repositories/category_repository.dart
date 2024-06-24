@@ -17,4 +17,23 @@ class CategoryRepository {
       rethrow;
     }
   }
+
+  // Get all categories with "All Jobs"
+  Future<List<CategoryModel>> getCategoriesWithAllJobs() async {
+    var allJobModel = CategoryModel(
+          coverImageUrl: "",
+          id: Constants.allJobs,
+          name: "كل الوظائف",
+          description: "",
+          iconUrl:
+              Constants.imgUrlAllJobs);
+    List<CategoryModel> categories = [
+      allJobModel
+    ];
+    QuerySnapshot<Map<String, dynamic>> snapshot =
+        await _firestore.collection(FirestoreCollections.categories).get();
+    categories.addAll(
+        snapshot.docs.map((e) => CategoryModel.fromJson(e.data())).toList());
+    return categories;
+  }
 }

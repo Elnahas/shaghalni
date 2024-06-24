@@ -21,7 +21,7 @@ class AppCategoryListViewHorizontal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100.h,
+      height: 120.h,
       width: double.infinity,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),

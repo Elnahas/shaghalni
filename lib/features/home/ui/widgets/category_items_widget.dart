@@ -29,10 +29,19 @@ class CategoryItemsWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(
                   color: index == selectedIndex
-                      ? AppColors.darkBlue
+                      ? AppColors.primaryColor
                       : Colors.transparent,
                 ),
                 shape: BoxShape.circle,
+
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.primaryColor.withOpacity(0.1),
+                    spreadRadius: 1,
+                    blurRadius: 8,
+                    offset: const Offset(0, 4),
+                  ),
+                ]
               ),
               child: CircularImage(
                   backgroundColor: AppColors.lightBlue,
@@ -42,7 +51,7 @@ class CategoryItemsWidget extends StatelessWidget {
           Text(
             categoryModel.name,
             style: index == selectedIndex
-                ? AppTextStyles.font14DarkBlueBold
+                ? AppTextStyles.font14PrimaryColorBold
                 : AppTextStyles.font12DarkBlueRegular,
           ),
         ],

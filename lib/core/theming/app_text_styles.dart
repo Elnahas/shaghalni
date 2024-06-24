@@ -131,10 +131,10 @@ abstract class AppTextStyles {
     fontFamily: "Poppins",
   );
 
-  static TextStyle font14DarkBlueBold = TextStyle(
+  static TextStyle font14PrimaryColorBold = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.bold,
-    color: AppColors.darkBlue,
+    color: AppColors.primaryColor,
     fontFamily: "Poppins",
   );
   static TextStyle font12DarkBlueRegular = TextStyle(
