@@ -42,7 +42,7 @@ class _CategoryBlocBuilderState extends State<CategoryBlocBuilder> {
             context.read<JobsListCubit>().selectCategory(index);
             context
                 .read<JobsListCubit>()
-                .fetchJobs(categoryId: categoryList[index].id);
+                .getJobs(categoryId: categoryList[index].id);
 
             setState(() {});
           }

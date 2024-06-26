@@ -11,9 +11,14 @@ class JobGridViewList extends StatelessWidget {
   final ScrollPhysics? physics;
   final ScrollController? scrollController;
 
-
   const JobGridViewList(
-      {super.key, required this.jobList, this.isLoadingMore = false, this.isShrinkWrap = false, this.physics, this.scrollController,  this.hasMoreData = false});
+      {super.key,
+      required this.jobList,
+      this.isLoadingMore = false,
+      this.isShrinkWrap = false,
+      this.physics,
+      this.scrollController,
+      this.hasMoreData = false});
 
   @override
   Widget build(BuildContext context) {
@@ -22,45 +27,48 @@ class JobGridViewList extends StatelessWidget {
         // Determine the number of columns based on the width
         int crossAxisCount = constraints.maxWidth < 600 ? 2 : 3;
 
-        return GridView.builder(
-          controller: scrollController,
-          physics: physics ?? const BouncingScrollPhysics(),
+        return CustomScrollView(
+          physics: physics ?? BouncingScrollPhysics(),
           shrinkWrap: isShrinkWrap ?? false,
-          itemCount: jobList.length + 1,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: crossAxisCount,
-            mainAxisSpacing: 16.w,
-            crossAxisSpacing: 16.w,
-            mainAxisExtent: 345.h,
-          ),
-          itemBuilder: (context, index) {
-            if (index == jobList.length) {
-              if (isLoadingMore) {
-                return Container(
-                  key: ValueKey('Loader'),
-                  width: double.infinity,
-                  child: Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                );
-              }
-               else if (!hasMoreData) {
-                      return Container(
-                        padding: EdgeInsets.all(16),
-                        alignment: Alignment.center,
-                        child: Text('No more data'),
+          slivers: [
+            SliverGrid(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: crossAxisCount,
+                mainAxisSpacing: 16.0,
+                crossAxisSpacing: 16.0,
+                mainAxisExtent: 345.0,
+              ),
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  if (index == jobList.length) {
+                    if (isLoadingMore) {
+                      return Center(
+                        child: CircularProgressIndicator(),
                       );
+                    } else {
+                      return SizedBox.shrink();
                     }
-              
-               else {
-                return SizedBox.shrink();
-              }
-            }
-            return JobItemsGridViewWidget(
-              jobModel: jobList[index],
-              index: index,
-            );
-          },
+                  }
+                  return JobItemsGridViewWidget(
+                    jobModel: jobList[index],
+                    index: index,
+                  );
+                },
+                childCount: jobList.length,
+              ),
+            ),
+            if (isLoadingMore || !hasMoreData)
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Center(
+                    child: isLoadingMore
+                        ? CircularProgressIndicator()
+                        : SizedBox.shrink(), // No more data
+                  ),
+                ),
+              ),
+          ],
         );
       },
     );

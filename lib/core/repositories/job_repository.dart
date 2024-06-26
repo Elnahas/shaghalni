@@ -5,7 +5,7 @@ import 'package:shaghalni/core/helpers/constants.dart';
 
 class JobRepository {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
-  static const PAGE_SIZE = 5;
+  static const PAGE_SIZE = 4;
 
   Future<void> addJob(JobModel job) async {
     try {
@@ -34,7 +34,7 @@ class JobRepository {
       'lastDocument': querySnapshot.docs.isNotEmpty ? querySnapshot.docs.last : null,
     };
   }
-  Future<List<JobModel>> getJobs(
+  Future<List<JobModel>> getHomeJobs(
       {String? cityId,
       String? searchQuery,
       bool ascending = true,
