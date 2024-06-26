@@ -81,7 +81,7 @@ class JobsListCubit extends Cubit<JobsListState> {
     selectedCategoryId = categoryId;
     emit(JobsListState.jobsListLoading());
     try {
-      final result = await _jobRepository.fetchJobs();
+      final result = await _jobRepository.fetchJobs(categoryId: categoryId , ascending: ascending, cityId: cityId, searchQuery: searchQuery);
       final newJobs = result['data'] as List<JobModel>;
       _lastDocument = result['lastDocument'] as DocumentSnapshot?;
       if (newJobs.length < JobRepository.PAGE_SIZE) hasMoreData = false;
@@ -101,7 +101,7 @@ class JobsListCubit extends Cubit<JobsListState> {
     emit(JobsListSuccess((state as JobsListSuccess).jobList, true));
     try {
       final result =
-          await _jobRepository.fetchJobs(lastDocument: _lastDocument);
+          await _jobRepository.fetchJobs( categoryId: selectedCategoryId , searchQuery:searchTextEditingController.text  ,lastDocument: _lastDocument);
       final newJobs = result['data'] as List<JobModel>;
       _lastDocument = result['lastDocument'] as DocumentSnapshot?;
       if (newJobs.length < JobRepository.PAGE_SIZE) hasMoreData = false;
