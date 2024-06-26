@@ -12,30 +12,13 @@ import '../../../../core/data/models/job_model.dart';
 import '../../../home/ui/widgets/job_section/job_grid_view_list.dart';
 import '../../logic/jobs_list_state.dart';
 
-class JobsListBlocBuilder extends StatefulWidget {
+class JobsListBlocBuilder extends StatelessWidget {
+
+    final ScrollController scrollController;
+
   const JobsListBlocBuilder({
-    super.key,
+    super.key, required this.scrollController,
   });
-
-  @override
-  State<JobsListBlocBuilder> createState() => _JobsListBlocBuilderState();
-}
-
-class _JobsListBlocBuilderState extends State<JobsListBlocBuilder> {
-
-    late ScrollController _scrollController;
-
-  @override
-  void initState() {
-    super.initState();
-    _scrollController = ScrollController();
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +33,7 @@ class _JobsListBlocBuilderState extends State<JobsListBlocBuilder> {
       builder: (context, state) {
         return state.maybeMap(
           jobsListSuccess: (state) =>
-              setupSuccess(state.jobList, state.isLoadingMore , context , _scrollController),
+              setupSuccess(state.jobList, state.isLoadingMore , context , scrollController , context.read<JobsListCubit>().hasMoreData),
           jobsListFailure: (state) => setupError(state.error),
           jobsListLoading: (state) => setupLoading(),
           noResultsFound: (state) => setupNoResultsFound(),
@@ -60,14 +43,20 @@ class _JobsListBlocBuilderState extends State<JobsListBlocBuilder> {
     );
   }
 
-  Widget setupSuccess(List<JobModel> jobList, bool isLoadingMore , BuildContext context , ScrollController scrollController) {
+  Widget setupSuccess(List<JobModel> jobList, bool isLoadingMore , BuildContext context , ScrollController scrollController , bool hasMoreData) {
     return ScrollControllerListener(
       scrollController: scrollController,
-        child: JobGridViewList(
-          jobList: jobList,
-          isLoadingMore: isLoadingMore,
-          scrollController : scrollController
-
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          controller:  scrollController,
+          child: JobGridViewList(
+            jobList: jobList,
+            isLoadingMore: isLoadingMore,
+            hasMoreData: hasMoreData,
+            isShrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+          
+          ),
         ),
         onEndOfScroll: (){
              context.read<JobsListCubit>().fetchMoreJobs();

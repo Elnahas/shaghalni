@@ -51,7 +51,7 @@ class JobsListScreen extends StatelessWidget {
             Expanded(
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 14.w),
-                child: JobsListBlocBuilder(),
+                child: JobsListBlocBuilder(scrollController: ScrollController(), ),
               ),
             ),
           ],

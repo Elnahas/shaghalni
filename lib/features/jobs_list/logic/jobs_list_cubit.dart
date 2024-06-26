@@ -19,11 +19,7 @@ class JobsListCubit extends Cubit<JobsListState> {
   final TextEditingController searchTextEditingController =
       TextEditingController();
 
-  bool _allFetched = false;
-  bool _isLoading = false;
-  List<JobModel> _data = [];
-
-  bool noMoreData = false;
+  bool hasMoreData = true;
   DocumentSnapshot? _lastDocument;
 
   JobsListCubit(this._jobRepository, this._categoryRepository)
@@ -77,15 +73,18 @@ class JobsListCubit extends Cubit<JobsListState> {
       {String? categoryId,
       bool ascending = true,
       String? cityId,
-      String? searchQuery,
-      int limit = 30}) async {
+      String? searchQuery}) async {
+
+    restPagination();
+    
+
     selectedCategoryId = categoryId;
     emit(JobsListState.jobsListLoading());
     try {
       final result = await _jobRepository.fetchJobs();
       final newJobs = result['data'] as List<JobModel>;
       _lastDocument = result['lastDocument'] as DocumentSnapshot?;
-      noMoreData = newJobs.isEmpty;
+      if (newJobs.length < JobRepository.PAGE_SIZE) hasMoreData = false;
       if (newJobs.isEmpty) {
         emit(JobsListState.noResultsFound());
       } else {
@@ -97,17 +96,15 @@ class JobsListCubit extends Cubit<JobsListState> {
   }
 
   void fetchMoreJobs() async {
-    if (noMoreData ||
-        state is JobsListSuccess && (state as JobsListSuccess).isLoadingMore) {
-      return;
-    }
+    if (!hasMoreData || state is JobsListLoading) return;
+
     emit(JobsListSuccess((state as JobsListSuccess).jobList, true));
     try {
       final result =
           await _jobRepository.fetchJobs(lastDocument: _lastDocument);
       final newJobs = result['data'] as List<JobModel>;
       _lastDocument = result['lastDocument'] as DocumentSnapshot?;
-      noMoreData = newJobs.isEmpty;
+      if (newJobs.length < JobRepository.PAGE_SIZE) hasMoreData = false;
       emit(
           JobsListSuccess((state as JobsListSuccess).jobList + newJobs, false));
     } catch (e) {
@@ -117,5 +114,11 @@ class JobsListCubit extends Cubit<JobsListState> {
 
   void selectCategory(int index) {
     selectedCategoryIndex = index;
+  }
+
+  void restPagination() {
+    _lastDocument = null;
+    hasMoreData = true;
+
   }
 }

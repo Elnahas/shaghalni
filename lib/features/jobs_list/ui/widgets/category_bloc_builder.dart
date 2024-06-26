@@ -38,6 +38,7 @@ class _CategoryBlocBuilderState extends State<CategoryBlocBuilder> {
         categoryList: categoryList,
         onTap: (index) {
           if (context.read<JobsListCubit>().selectedCategoryIndex != index) {
+
             context.read<JobsListCubit>().selectCategory(index);
             context
                 .read<JobsListCubit>()

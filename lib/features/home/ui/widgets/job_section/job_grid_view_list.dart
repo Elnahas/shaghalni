@@ -6,13 +6,14 @@ import 'job_items_grid_view_widget.dart';
 class JobGridViewList extends StatelessWidget {
   final List<JobModel> jobList;
   final bool isLoadingMore;
+  final bool hasMoreData;
   final bool? isShrinkWrap;
   final ScrollPhysics? physics;
   final ScrollController? scrollController;
 
 
   const JobGridViewList(
-      {super.key, required this.jobList, this.isLoadingMore = false, this.isShrinkWrap = false, this.physics, this.scrollController});
+      {super.key, required this.jobList, this.isLoadingMore = false, this.isShrinkWrap = false, this.physics, this.scrollController,  this.hasMoreData = false});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,16 @@ class JobGridViewList extends StatelessWidget {
                     child: CircularProgressIndicator(),
                   ),
                 );
-              } else {
+              }
+               else if (!hasMoreData) {
+                      return Container(
+                        padding: EdgeInsets.all(16),
+                        alignment: Alignment.center,
+                        child: Text('No more data'),
+                      );
+                    }
+              
+               else {
                 return SizedBox.shrink();
               }
             }
