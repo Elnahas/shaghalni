@@ -11,7 +11,7 @@ class JobsListState with _$JobsListState {
   const factory JobsListState.jobsListLoading() = JobsListLoading;
   const factory JobsListState.categoryLoading() = CategoryLoading;
 
-  const factory JobsListState.jobsListSuccess(List<JobModel> jobList) =
+  const factory JobsListState.jobsListSuccess(List<JobModel> jobList , bool isLoadingMore ) =
       JobsListSuccess;
   const factory JobsListState.categorySuccess(
       List<CategoryModel> categoryList) = CategorySuccess;

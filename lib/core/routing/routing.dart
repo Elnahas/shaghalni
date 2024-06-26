@@ -80,7 +80,7 @@ class Routing {
              index = settings.arguments as int;
 
             return BlocProvider(
-             create: (context) => getIt<JobsListCubit>()..getCategories(index),
+             create: (context) => getIt<JobsListCubit>()..fetchJobs(),
                   child: const JobsListScreen(),
             );
           },

@@ -21,7 +21,8 @@ mixin _$JobsListState {
     required TResult Function() initial,
     required TResult Function() jobsListLoading,
     required TResult Function() categoryLoading,
-    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<JobModel> jobList, bool isLoadingMore)
+        jobsListSuccess,
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
@@ -33,7 +34,8 @@ mixin _$JobsListState {
     TResult? Function()? initial,
     TResult? Function()? jobsListLoading,
     TResult? Function()? categoryLoading,
-    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
@@ -45,7 +47,8 @@ mixin _$JobsListState {
     TResult Function()? initial,
     TResult Function()? jobsListLoading,
     TResult Function()? categoryLoading,
-    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
@@ -151,7 +154,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() jobsListLoading,
     required TResult Function() categoryLoading,
-    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<JobModel> jobList, bool isLoadingMore)
+        jobsListSuccess,
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
@@ -166,7 +170,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? jobsListLoading,
     TResult? Function()? categoryLoading,
-    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
@@ -181,7 +186,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? jobsListLoading,
     TResult Function()? categoryLoading,
-    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
@@ -289,7 +295,8 @@ class _$JobsListLoadingImpl implements JobsListLoading {
     required TResult Function() initial,
     required TResult Function() jobsListLoading,
     required TResult Function() categoryLoading,
-    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<JobModel> jobList, bool isLoadingMore)
+        jobsListSuccess,
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
@@ -304,7 +311,8 @@ class _$JobsListLoadingImpl implements JobsListLoading {
     TResult? Function()? initial,
     TResult? Function()? jobsListLoading,
     TResult? Function()? categoryLoading,
-    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
@@ -319,7 +327,8 @@ class _$JobsListLoadingImpl implements JobsListLoading {
     TResult Function()? initial,
     TResult Function()? jobsListLoading,
     TResult Function()? categoryLoading,
-    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
@@ -427,7 +436,8 @@ class _$CategoryLoadingImpl implements CategoryLoading {
     required TResult Function() initial,
     required TResult Function() jobsListLoading,
     required TResult Function() categoryLoading,
-    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<JobModel> jobList, bool isLoadingMore)
+        jobsListSuccess,
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
@@ -442,7 +452,8 @@ class _$CategoryLoadingImpl implements CategoryLoading {
     TResult? Function()? initial,
     TResult? Function()? jobsListLoading,
     TResult? Function()? categoryLoading,
-    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
@@ -457,7 +468,8 @@ class _$CategoryLoadingImpl implements CategoryLoading {
     TResult Function()? initial,
     TResult Function()? jobsListLoading,
     TResult Function()? categoryLoading,
-    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
@@ -530,7 +542,7 @@ abstract class _$$JobsListSuccessImplCopyWith<$Res> {
           $Res Function(_$JobsListSuccessImpl) then) =
       __$$JobsListSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<JobModel> jobList});
+  $Res call({List<JobModel> jobList, bool isLoadingMore});
 }
 
 /// @nodoc
@@ -545,12 +557,17 @@ class __$$JobsListSuccessImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? jobList = null,
+    Object? isLoadingMore = null,
   }) {
     return _then(_$JobsListSuccessImpl(
       null == jobList
           ? _value._jobList
           : jobList // ignore: cast_nullable_to_non_nullable
               as List<JobModel>,
+      null == isLoadingMore
+          ? _value.isLoadingMore
+          : isLoadingMore // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -558,7 +575,7 @@ class __$$JobsListSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$JobsListSuccessImpl implements JobsListSuccess {
-  const _$JobsListSuccessImpl(final List<JobModel> jobList)
+  const _$JobsListSuccessImpl(final List<JobModel> jobList, this.isLoadingMore)
       : _jobList = jobList;
 
   final List<JobModel> _jobList;
@@ -570,8 +587,11 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
   }
 
   @override
+  final bool isLoadingMore;
+
+  @override
   String toString() {
-    return 'JobsListState.jobsListSuccess(jobList: $jobList)';
+    return 'JobsListState.jobsListSuccess(jobList: $jobList, isLoadingMore: $isLoadingMore)';
   }
 
   @override
@@ -579,12 +599,14 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$JobsListSuccessImpl &&
-            const DeepCollectionEquality().equals(other._jobList, _jobList));
+            const DeepCollectionEquality().equals(other._jobList, _jobList) &&
+            (identical(other.isLoadingMore, isLoadingMore) ||
+                other.isLoadingMore == isLoadingMore));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_jobList));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_jobList), isLoadingMore);
 
   @JsonKey(ignore: true)
   @override
@@ -599,13 +621,14 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
     required TResult Function() initial,
     required TResult Function() jobsListLoading,
     required TResult Function() categoryLoading,
-    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<JobModel> jobList, bool isLoadingMore)
+        jobsListSuccess,
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
     required TResult Function() noResultsFound,
   }) {
-    return jobsListSuccess(jobList);
+    return jobsListSuccess(jobList, isLoadingMore);
   }
 
   @override
@@ -614,13 +637,14 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
     TResult? Function()? initial,
     TResult? Function()? jobsListLoading,
     TResult? Function()? categoryLoading,
-    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
     TResult? Function()? noResultsFound,
   }) {
-    return jobsListSuccess?.call(jobList);
+    return jobsListSuccess?.call(jobList, isLoadingMore);
   }
 
   @override
@@ -629,7 +653,8 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
     TResult Function()? initial,
     TResult Function()? jobsListLoading,
     TResult Function()? categoryLoading,
-    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
@@ -637,7 +662,7 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
     required TResult orElse(),
   }) {
     if (jobsListSuccess != null) {
-      return jobsListSuccess(jobList);
+      return jobsListSuccess(jobList, isLoadingMore);
     }
     return orElse();
   }
@@ -693,10 +718,12 @@ class _$JobsListSuccessImpl implements JobsListSuccess {
 }
 
 abstract class JobsListSuccess implements JobsListState {
-  const factory JobsListSuccess(final List<JobModel> jobList) =
+  const factory JobsListSuccess(
+          final List<JobModel> jobList, final bool isLoadingMore) =
       _$JobsListSuccessImpl;
 
   List<JobModel> get jobList;
+  bool get isLoadingMore;
   @JsonKey(ignore: true)
   _$$JobsListSuccessImplCopyWith<_$JobsListSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -778,7 +805,8 @@ class _$CategorySuccessImpl implements CategorySuccess {
     required TResult Function() initial,
     required TResult Function() jobsListLoading,
     required TResult Function() categoryLoading,
-    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<JobModel> jobList, bool isLoadingMore)
+        jobsListSuccess,
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
@@ -793,7 +821,8 @@ class _$CategorySuccessImpl implements CategorySuccess {
     TResult? Function()? initial,
     TResult? Function()? jobsListLoading,
     TResult? Function()? categoryLoading,
-    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
@@ -808,7 +837,8 @@ class _$CategorySuccessImpl implements CategorySuccess {
     TResult Function()? initial,
     TResult Function()? jobsListLoading,
     TResult Function()? categoryLoading,
-    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
@@ -949,7 +979,8 @@ class _$JobsListFailureImpl implements JobsListFailure {
     required TResult Function() initial,
     required TResult Function() jobsListLoading,
     required TResult Function() categoryLoading,
-    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<JobModel> jobList, bool isLoadingMore)
+        jobsListSuccess,
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
@@ -964,7 +995,8 @@ class _$JobsListFailureImpl implements JobsListFailure {
     TResult? Function()? initial,
     TResult? Function()? jobsListLoading,
     TResult? Function()? categoryLoading,
-    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
@@ -979,7 +1011,8 @@ class _$JobsListFailureImpl implements JobsListFailure {
     TResult Function()? initial,
     TResult Function()? jobsListLoading,
     TResult Function()? categoryLoading,
-    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
@@ -1119,7 +1152,8 @@ class _$CategoryFailureImpl implements CategoryFailure {
     required TResult Function() initial,
     required TResult Function() jobsListLoading,
     required TResult Function() categoryLoading,
-    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<JobModel> jobList, bool isLoadingMore)
+        jobsListSuccess,
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
@@ -1134,7 +1168,8 @@ class _$CategoryFailureImpl implements CategoryFailure {
     TResult? Function()? initial,
     TResult? Function()? jobsListLoading,
     TResult? Function()? categoryLoading,
-    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
@@ -1149,7 +1184,8 @@ class _$CategoryFailureImpl implements CategoryFailure {
     TResult Function()? initial,
     TResult Function()? jobsListLoading,
     TResult Function()? categoryLoading,
-    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,
@@ -1262,7 +1298,8 @@ class _$NoResultsFoundImpl implements NoResultsFound {
     required TResult Function() initial,
     required TResult Function() jobsListLoading,
     required TResult Function() categoryLoading,
-    required TResult Function(List<JobModel> jobList) jobsListSuccess,
+    required TResult Function(List<JobModel> jobList, bool isLoadingMore)
+        jobsListSuccess,
     required TResult Function(List<CategoryModel> categoryList) categorySuccess,
     required TResult Function(String error) jobsListFailure,
     required TResult Function(String error) categoryFailure,
@@ -1277,7 +1314,8 @@ class _$NoResultsFoundImpl implements NoResultsFound {
     TResult? Function()? initial,
     TResult? Function()? jobsListLoading,
     TResult? Function()? categoryLoading,
-    TResult? Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult? Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult? Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult? Function(String error)? jobsListFailure,
     TResult? Function(String error)? categoryFailure,
@@ -1292,7 +1330,8 @@ class _$NoResultsFoundImpl implements NoResultsFound {
     TResult Function()? initial,
     TResult Function()? jobsListLoading,
     TResult Function()? categoryLoading,
-    TResult Function(List<JobModel> jobList)? jobsListSuccess,
+    TResult Function(List<JobModel> jobList, bool isLoadingMore)?
+        jobsListSuccess,
     TResult Function(List<CategoryModel> categoryList)? categorySuccess,
     TResult Function(String error)? jobsListFailure,
     TResult Function(String error)? categoryFailure,

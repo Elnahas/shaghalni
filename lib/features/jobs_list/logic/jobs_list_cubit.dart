@@ -19,8 +19,50 @@ class JobsListCubit extends Cubit<JobsListState> {
   //search
   final TextEditingController searchTextEditingController = TextEditingController();
 
+    bool _allFetched = false;
+  bool _isLoading = false;
+  List<JobModel> _data = [];
+
+    bool noMoreData = false;
+  DocumentSnapshot? _lastDocument;
+
   JobsListCubit(this._jobRepository, this._categoryRepository)
       : super(JobsListState.initial());
+
+
+
+ void fetchJobs() async {
+    emit(JobsListLoading());
+    try {
+      final result = await _jobRepository.fetchJobs();
+      final newJobs = result['data'] as List<JobModel>;
+      _lastDocument = result['lastDocument'] as DocumentSnapshot?;
+        noMoreData = newJobs.isEmpty;
+      emit(JobsListSuccess( newJobs  , false));
+    } catch (e) {
+      emit(JobsListFailure( e.toString()));
+    }
+  }
+
+  void fetchMoreJobs() async {
+    if (noMoreData || state is JobsListSuccess && (state as JobsListSuccess).isLoadingMore) {
+      return ;
+    }
+      emit(JobsListSuccess( (state as JobsListSuccess).jobList,  true));
+      try {
+        final result = await _jobRepository.fetchJobs(lastDocument: _lastDocument);
+        final newJobs = result['data'] as List<JobModel>;
+        _lastDocument = result['lastDocument'] as DocumentSnapshot?;
+           noMoreData = newJobs.isEmpty;
+        emit(JobsListSuccess(
+           (state as JobsListSuccess).jobList + newJobs, false
+        ));
+      } catch (e) {
+        emit(JobsListFailure( e.toString()));
+      }
+  }
+
+
 
   Future<void> getCategories(int? categoryIndex) async {
     emit(JobsListState.jobsListLoading());
@@ -47,7 +89,7 @@ class JobsListCubit extends Cubit<JobsListState> {
        if (jobs.isEmpty) {
         emit(JobsListState.noResultsFound());
       }else{
-        emit(JobsListState.jobsListSuccess(jobs));
+        emit(JobsListState.jobsListSuccess(jobs , false));
       }
       
     } catch (e) {
