@@ -20,14 +20,12 @@ class _ScrollControllerListenerState extends State<ScrollControllerListener> {
   @override
   void initState() {
     super.initState();
-    print("initStateinitStateinitStateinitStateinitStateinitState");
     widget.scrollController.addListener(_onScroll);
   }
 
   @override
   void dispose() {
     widget.scrollController.removeListener(_onScroll);
-    print("disposedisposedisposedisposedisposedispose");
     super.dispose();
   }
 

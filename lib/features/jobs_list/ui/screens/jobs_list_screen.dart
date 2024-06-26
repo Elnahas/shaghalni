@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
-import 'package:shaghalni/features/jobs_list/logic/jobs_list_cubit.dart';
-import 'package:shaghalni/features/jobs_list/logic/jobs_list_state.dart';
 import 'package:shaghalni/features/jobs_list/ui/widgets/category_bloc_builder.dart';
 import '../widgets/jobs_list_bloc_builder.dart';
 import '../widgets/top_bar_search.dart';
