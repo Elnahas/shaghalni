@@ -46,12 +46,9 @@ class JobsListScreen extends StatelessWidget {
             // ),
             verticalSpace(10),
             Expanded(
-              child: SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 14.w),
-                  child: JobsListBlocBuilder(),
-                ),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 14.w),
+                child: JobsListBlocBuilder(scrollController: ScrollController(), ),
               ),
             ),
           ],

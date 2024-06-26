@@ -5,6 +5,7 @@ import 'package:shaghalni/core/helpers/constants.dart';
 
 class JobRepository {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  static const PAGE_SIZE = 5;
 
   Future<void> addJob(JobModel job) async {
     try {
@@ -14,6 +15,25 @@ class JobRepository {
     }
   }
 
+
+   Future<Map<String, dynamic>> fetchJobs({DocumentSnapshot? lastDocument}) async {
+    Query query = firestore.collection(FirestoreCollections.jobs).orderBy('title');
+    if (lastDocument != null) {
+      query = query.startAfterDocument(lastDocument).limit(PAGE_SIZE);
+    } else {
+      query = query.limit(PAGE_SIZE);
+    }
+
+    final querySnapshot = await query.get();
+    final List<JobModel> jobs = querySnapshot.docs
+        .map((e) => JobModel.fromJson(e.data() as Map<String, dynamic>))
+        .toList();
+
+    return {
+      'data': jobs,
+      'lastDocument': querySnapshot.docs.isNotEmpty ? querySnapshot.docs.last : null,
+    };
+  }
   Future<List<JobModel>> getJobs(
       {String? cityId,
       String? searchQuery,
@@ -51,7 +71,7 @@ class JobRepository {
     }
   }
 
-   DocumentSnapshot? getLastDocument(QuerySnapshot<Object?> snapshot) {
+  DocumentSnapshot? getLastDocument(QuerySnapshot<Object?> snapshot) {
     if (snapshot.docs.isNotEmpty) {
       return snapshot.docs.last;
     }

@@ -24,7 +24,7 @@ class JobListSection extends StatelessWidget {
         verticalSpace(10),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 14.w),
-          child: JobGridViewList(jobList: jobList),
+          child: JobGridViewList(jobList: jobList , physics: NeverScrollableScrollPhysics() , isShrinkWrap:  true),
         ),
       ],
     );
