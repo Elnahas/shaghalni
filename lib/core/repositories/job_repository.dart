@@ -5,7 +5,7 @@ import 'package:shaghalni/core/helpers/constants.dart';
 
 class JobRepository {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
-  static const PAGE_SIZE = 5;
+  static const PAGE_SIZE = 4;
 
   Future<void> addJob(JobModel job) async {
     try {
@@ -15,9 +15,24 @@ class JobRepository {
     }
   }
 
+  Future<Map<String, dynamic>> fetchJobs(
+      {String? cityId,
+      String? searchQuery,
+      bool ascending = true,
+      String? categoryId,
+      DocumentSnapshot? lastDocument}) async {
+    Query query = firestore.collection(FirestoreCollections.jobs);
 
-   Future<Map<String, dynamic>> fetchJobs({DocumentSnapshot? lastDocument}) async {
-    Query query = firestore.collection(FirestoreCollections.jobs).orderBy('title');
+    // Apply ordering and pagination
+
+    // Apply filters
+    query = _applyFilters(query, cityId, searchQuery, categoryId);
+
+    // Exclude jobs with state 'pending'
+    query = query.where('status', isNotEqualTo: JobStatus.pending.name);
+    query = query.orderBy('status', descending: !ascending);
+    query = query.orderBy('title', descending: !ascending);
+
     if (lastDocument != null) {
       query = query.startAfterDocument(lastDocument).limit(PAGE_SIZE);
     } else {
@@ -25,16 +40,21 @@ class JobRepository {
     }
 
     final querySnapshot = await query.get();
-    final List<JobModel> jobs = querySnapshot.docs
-        .map((e) => JobModel.fromJson(e.data() as Map<String, dynamic>))
-        .toList();
+      List<JobModel> jobs = querySnapshot.docs.map((doc) {
+        Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+        data['id'] = doc.id;
+
+        return JobModel.fromJson(data);
+      }).toList();
 
     return {
       'data': jobs,
-      'lastDocument': querySnapshot.docs.isNotEmpty ? querySnapshot.docs.last : null,
+      'lastDocument':
+          querySnapshot.docs.isNotEmpty ? querySnapshot.docs.last : null,
     };
   }
-  Future<List<JobModel>> getJobs(
+
+  Future<List<JobModel>> getHomeJobs(
       {String? cityId,
       String? searchQuery,
       bool ascending = true,

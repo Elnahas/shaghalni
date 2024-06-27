@@ -17,6 +17,8 @@ class ScrollControllerListener extends StatefulWidget {
 }
 
 class _ScrollControllerListenerState extends State<ScrollControllerListener> {
+
+
   @override
   void initState() {
     super.initState();
@@ -35,6 +37,7 @@ class _ScrollControllerListenerState extends State<ScrollControllerListener> {
         widget.onEndOfScroll();
       }
     }
+
   }
 
   @override

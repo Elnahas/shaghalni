@@ -34,7 +34,7 @@ class JobsListCubit extends Cubit<JobsListState> {
           await _categoryRepository.getCategoriesWithAllJobs();
       emit(JobsListState.categorySuccess(categories));
       if (categories.isNotEmpty) {
-        fetchJobs(
+        getJobs(
           categoryId: categories[categoryIndex ?? 0].id,
         );
       }
@@ -43,33 +43,33 @@ class JobsListCubit extends Cubit<JobsListState> {
     }
   }
 
-  Future<void> getJobs(
-      {String? categoryId,
-      bool ascending = true,
-      String? cityId,
-      String? searchQuery,
-      int limit = 30}) async {
-    selectedCategoryId = categoryId;
-    emit(JobsListState.jobsListLoading());
-    try {
-      List<JobModel> jobs;
-      jobs = await _jobRepository.getJobs(
-          categoryId: categoryId,
-          ascending: ascending,
-          cityId: cityId,
-          searchQuery: searchQuery,
-          limit: limit);
-      if (jobs.isEmpty) {
-        emit(JobsListState.noResultsFound());
-      } else {
-        emit(JobsListState.jobsListSuccess(jobs, false));
-      }
-    } catch (e) {
-      emit(JobsListState.jobsListFailure(e.toString()));
-    }
-  }
+  // Future<void> getJobs(
+  //     {String? categoryId,
+  //     bool ascending = true,
+  //     String? cityId,
+  //     String? searchQuery,
+  //     int limit = 30}) async {
+  //   selectedCategoryId = categoryId;
+  //   emit(JobsListState.jobsListLoading());
+  //   try {
+  //     List<JobModel> jobs;
+  //     jobs = await _jobRepository.getHomeJobs(
+  //         categoryId: categoryId,
+  //         ascending: ascending,
+  //         cityId: cityId,
+  //         searchQuery: searchQuery,
+  //         limit: limit);
+  //     if (jobs.isEmpty) {
+  //       emit(JobsListState.noResultsFound());
+  //     } else {
+  //       emit(JobsListState.jobsListSuccess(jobs, false));
+  //     }
+  //   } catch (e) {
+  //     emit(JobsListState.jobsListFailure(e.toString()));
+  //   }
+  // }
 
-  void fetchJobs(
+  void getJobs(
       {String? categoryId,
       bool ascending = true,
       String? cityId,
@@ -81,7 +81,7 @@ class JobsListCubit extends Cubit<JobsListState> {
     selectedCategoryId = categoryId;
     emit(JobsListState.jobsListLoading());
     try {
-      final result = await _jobRepository.fetchJobs();
+      final result = await _jobRepository.fetchJobs(categoryId: categoryId , ascending: ascending, cityId: cityId, searchQuery: searchQuery);
       final newJobs = result['data'] as List<JobModel>;
       _lastDocument = result['lastDocument'] as DocumentSnapshot?;
       if (newJobs.length < JobRepository.PAGE_SIZE) hasMoreData = false;
@@ -101,7 +101,7 @@ class JobsListCubit extends Cubit<JobsListState> {
     emit(JobsListSuccess((state as JobsListSuccess).jobList, true));
     try {
       final result =
-          await _jobRepository.fetchJobs(lastDocument: _lastDocument);
+          await _jobRepository.fetchJobs( categoryId: selectedCategoryId , searchQuery:searchTextEditingController.text  ,lastDocument: _lastDocument);
       final newJobs = result['data'] as List<JobModel>;
       _lastDocument = result['lastDocument'] as DocumentSnapshot?;
       if (newJobs.length < JobRepository.PAGE_SIZE) hasMoreData = false;
