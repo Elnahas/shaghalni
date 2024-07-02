@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import '../../../../core/helpers/json_helpers.dart';
 
-part '../blog_model.g.dart';
+part 'blog_model.g.dart';
 
 @JsonSerializable()
 class BlogModel {
