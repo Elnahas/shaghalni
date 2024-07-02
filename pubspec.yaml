@@ -78,6 +78,7 @@ dependencies:
   # awesome_dialog: ^3.2.1
   url_launcher: ^6.3.0
   font_awesome_flutter: ^10.7.0
+  timeago: ^3.6.1
   
 
 dev_dependencies:

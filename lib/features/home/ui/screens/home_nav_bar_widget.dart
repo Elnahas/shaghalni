@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/di/service_locator.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/routing/routes.dart';
+import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
+import 'package:shaghalni/features/blog/logic/cubit/blog_cubit.dart';
 import 'package:shaghalni/features/home/logic/home_cubit.dart';
 import 'package:shaghalni/features/home/ui/screens/home_screen.dart';
+
+import '../../../blog/ui/screens/blog_screen.dart';
 
 class HomeNavBarWidget extends StatefulWidget {
   const HomeNavBarWidget({super.key});
@@ -19,12 +24,14 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
   int currentIndex = 0;
   List<Widget> screens = [
     BlocProvider(
-      create: (context) => HomeCubit(getIt(), getIt())
-        ..getCategoriesAndJobs(),
+      create: (context) => HomeCubit(getIt(), getIt())..getCategoriesAndJobs(),
       child: HomeScreen(),
     ),
     Container(),
-    Container(),
+    BlocProvider(
+      create: (context) => BlogCubit(getIt())..getBlogs(),
+      child: BlogScreen(),
+    ),
     Container(),
   ];
 
@@ -40,7 +47,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
         onPressed: () {
           context.pushNamed(Routes.addJob);
         },
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColors.primaryColor,
         child: const Icon(
           Icons.add,
           color: Colors.white,
@@ -52,63 +59,54 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
         color: Colors.white,
         shape: const CircularNotchedRectangle(),
         notchMargin: 6,
-        height: 60.0,
+        height: 60,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            buildNavIcon(Icons.home, 0),
-            buildNavIcon(Icons.search, 1),
+          children: [
+            buildNavIcon("Home", FontAwesomeIcons.house, 0),
+            buildNavIcon("Request", FontAwesomeIcons.businessTime, 1),
             horizontalSpace(40), // Space for FAB
-            buildNavIcon(Icons.notifications, 2),
-            buildNavIcon(Icons.settings, 3),
+            buildNavIcon("Blog", FontAwesomeIcons.newspaper, 2),
+            buildNavIcon("Profile", FontAwesomeIcons.userGear, 3),
           ],
         ),
       ),
     );
   }
 
-  Widget buildNavIcon(IconData icon, int index) {
-    return SizedBox(
-      width: 50,
-      height: 50,
-      child: IconButton(
-        iconSize: 30,
-        icon: Icon(
-          icon,
-          color: currentIndex == index ? Colors.blue : Colors.black,
-          size: 30,
-        ),
-        onPressed: () {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-      ),
-    );
-  }
-}
-
-class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeAppBar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return PreferredSize(
-      preferredSize: const Size.fromHeight(60),
-      child: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
-        title: Text(
-          "شغلنى",
-          style: AppTextStyles.font24BoldBlack,
+  Widget buildNavIcon(String title, IconData icon, int index) {
+    return Expanded(
+      child: Material(
+        color: Colors.transparent,
+        child: Center(
+          child: InkWell(
+            onTap: () {
+              setState(() {
+                currentIndex = index;
+              });
+            },
+            child: Column(
+              children: [
+                Icon(
+                  icon,
+                  color: currentIndex == index
+                      ? AppColors.primaryColor
+                      : AppColors.darkBlue,
+                  size: 17,
+                ),
+                Expanded(
+                    child: Text(
+                  title,
+                  style: AppTextStyles.font12DarkBlueRegular.copyWith(
+                      color: currentIndex == index
+                          ? AppColors.primaryColor
+                          : AppColors.darkBlue),
+                )),
+              ],
+            ),
+          ),
         ),
       ),
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(60);
 }
