@@ -87,7 +87,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
                   icon,
                   color: currentIndex == index
                       ? AppColors.primaryColor
-                      : AppColors.deepGrey,
+                      : AppColors.darkBlue,
                   size: 17,
                 ),
                 Expanded(
@@ -96,7 +96,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
                   style: AppTextStyles.font12DarkBlueRegular.copyWith(
                       color: currentIndex == index
                           ? AppColors.primaryColor
-                          : AppColors.deepGrey),
+                          : AppColors.darkBlue),
                 )),
               ],
             ),
