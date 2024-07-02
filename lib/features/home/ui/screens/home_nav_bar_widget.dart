@@ -76,9 +76,6 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
         color: Colors.transparent,
         child: Center(
           child: InkWell(
-            focusColor: Colors.transparent,
-            hoverColor: Colors.transparent,
-            highlightColor: Colors.transparent,
             onTap: () {
               setState(() {
                 currentIndex = index;
