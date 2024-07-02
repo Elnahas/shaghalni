@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:shaghalni/core/helpers/date_helper.dart';
 import '../../../../core/helpers/constants.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
@@ -15,6 +15,9 @@ class BlogItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime postDate = DateTime.now().subtract(Duration(hours: 999999));
+    ;
+
     return Container(
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -37,8 +40,7 @@ class BlogItemWidget extends StatelessWidget {
             height: 150,
             width: 150,
             borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12),
-                bottomLeft: Radius.circular(12)),
+                topLeft: Radius.circular(12), bottomLeft: Radius.circular(12)),
           ),
           horizontalSpace(10),
           Expanded(
@@ -55,12 +57,16 @@ class BlogItemWidget extends StatelessWidget {
                 verticalSpace(10),
                 Text(
                   'Description of the blog here and so on and so   so  so  so  so on and so on',
-                                                  maxLines: 3,
+                  maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: AppTextStyles.font14BlackW300,
                 ),
                 verticalSpace(10),
-                AppTextAndIcon(text: "date", icon: FontAwesomeIcons.calendar , iconColor: Colors.grey,)
+                AppTextAndIcon(
+                  text: DateHelper.formatTimeAgo(postDate ,locale:  "ar"),
+                  icon: FontAwesomeIcons.calendar,
+                  iconColor: Colors.grey,
+                )
               ],
             ),
           ),
@@ -69,4 +75,6 @@ class BlogItemWidget extends StatelessWidget {
       ),
     );
   }
+
+
 }
