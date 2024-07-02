@@ -7,6 +7,7 @@ import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
+import 'package:shaghalni/features/blog/logic/cubit/blog_cubit.dart';
 import 'package:shaghalni/features/home/logic/home_cubit.dart';
 import 'package:shaghalni/features/home/ui/screens/home_screen.dart';
 
@@ -27,7 +28,10 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
       child: HomeScreen(),
     ),
     Container(),
-    BlogScreen(),
+    BlocProvider(
+      create: (context) => BlogCubit(getIt())..getBlogs(),
+      child: BlogScreen(),
+    ),
     Container(),
   ];
 
@@ -59,11 +63,11 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            buildNavIcon("Home",FontAwesomeIcons.house, 0),
-            buildNavIcon("Request",FontAwesomeIcons.businessTime, 1),
+            buildNavIcon("Home", FontAwesomeIcons.house, 0),
+            buildNavIcon("Request", FontAwesomeIcons.businessTime, 1),
             horizontalSpace(40), // Space for FAB
-            buildNavIcon("Blog",FontAwesomeIcons.newspaper, 2),
-            buildNavIcon("Profile",FontAwesomeIcons.userGear, 3),
+            buildNavIcon("Blog", FontAwesomeIcons.newspaper, 2),
+            buildNavIcon("Profile", FontAwesomeIcons.userGear, 3),
           ],
         ),
       ),
