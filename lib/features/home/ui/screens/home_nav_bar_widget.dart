@@ -5,6 +5,7 @@ import 'package:shaghalni/core/di/service_locator.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/routing/routes.dart';
+import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/features/home/logic/home_cubit.dart';
 import 'package:shaghalni/features/home/ui/screens/home_screen.dart';
 
@@ -77,8 +78,8 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
         iconSize: 30,
         icon: Icon(
           icon,
-          color: currentIndex == index ? Colors.blue : Colors.black,
-          size: 25,
+          color: currentIndex == index ? AppColors.primaryColor : AppColors.darkBlue,
+          size: 22,
         ),
         onPressed: () {
           setState(() {
