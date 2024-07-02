@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/di/service_locator.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
@@ -55,11 +56,11 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            buildNavIcon(Icons.home, 0),
-            buildNavIcon(Icons.search, 1),
+            buildNavIcon(FontAwesomeIcons.house, 0),
+            buildNavIcon(FontAwesomeIcons.businessTime, 1),
             horizontalSpace(40), // Space for FAB
-            buildNavIcon(Icons.notifications, 2),
-            buildNavIcon(Icons.settings, 3),
+            buildNavIcon(FontAwesomeIcons.newspaper, 2),
+            buildNavIcon(FontAwesomeIcons.userGear, 3),
           ],
         ),
       ),
@@ -75,7 +76,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
         icon: Icon(
           icon,
           color: currentIndex == index ? Colors.blue : Colors.black,
-          size: 30,
+          size: 25,
         ),
         onPressed: () {
           setState(() {
