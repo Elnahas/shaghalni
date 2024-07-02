@@ -4,7 +4,6 @@ import 'package:shaghalni/core/di/service_locator.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/routing/routes.dart';
-import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/features/home/logic/home_cubit.dart';
 import 'package:shaghalni/features/home/ui/screens/home_screen.dart';
 
@@ -86,29 +85,4 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
       ),
     );
   }
-}
-
-class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeAppBar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return PreferredSize(
-      preferredSize: const Size.fromHeight(60),
-      child: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
-        title: Text(
-          "شغلنى",
-          style: AppTextStyles.font24BoldBlack,
-        ),
-      ),
-    );
-  }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(60);
 }
