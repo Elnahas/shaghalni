@@ -22,9 +22,7 @@ class BlogModel {
     required this.createdAt,
   });
 
-  // Factory method to create an instance from a JSON map
   factory BlogModel.fromJson(Map<String, dynamic> json) => _$BlogModelFromJson(json);
 
-  // Method to convert an instance to a JSON map
   Map<String, dynamic> toJson() => _$BlogModelToJson(this);
 }

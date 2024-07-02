@@ -9,11 +9,17 @@ class BlogCubit extends Cubit<BlogState> {
 
   Future<void> getBlogs() async {
     emit(BlogState.blogLoading());
+    
     try {
+      //await _blogsRepository.addSampleBlogs();
       final blogs = await _blogsRepository.getBlogs();
       emit(BlogState.blogSuccess(blogs));
     } catch (e) {
       emit(BlogState.blogFailure(e.toString()));
     }
   }
+
+
+
+  
 }

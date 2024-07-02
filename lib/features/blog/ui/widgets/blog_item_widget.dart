@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/helpers/date_helper.dart';
-import '../../../../core/helpers/constants.dart';
+import 'package:shaghalni/features/blog/data/model/blog_model.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/app_text_styles.dart';
@@ -9,17 +9,16 @@ import '../../../../core/widgets/app_image_clip_r_rect.dart';
 import '../../../../core/widgets/app_text_and_icon.dart';
 
 class BlogItemWidget extends StatelessWidget {
+  final BlogModel blogModel ;
   const BlogItemWidget({
-    super.key,
+    super.key, required this.blogModel,
   });
 
   @override
   Widget build(BuildContext context) {
-    DateTime postDate = DateTime.now().subtract(Duration(hours: 999999));
-    ;
 
     return Container(
-      margin: const EdgeInsets.all(10),
+      margin: EdgeInsets.only(top: 20 , left: 20 , right: 20),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(
@@ -36,7 +35,7 @@ class BlogItemWidget extends StatelessWidget {
       child: Row(
         children: [
           AppImageClipRRect(
-            imageUrl: Constants.imgUrlTest,
+            imageUrl: blogModel.imageUrl,
             height: 150,
             width: 150,
             borderRadius: BorderRadius.only(
@@ -49,21 +48,21 @@ class BlogItemWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Title of the blog here and so on and so on and so on',
+                  blogModel.title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: AppTextStyles.font14BoldBlack,
                 ),
                 verticalSpace(10),
                 Text(
-                  'Description of the blog here and so on and so   so  so  so  so on and so on',
+                  blogModel.details,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: AppTextStyles.font14BlackW300,
+                  style: AppTextStyles.font12BlackRegular,
                 ),
                 verticalSpace(10),
                 AppTextAndIcon(
-                  text: DateHelper.formatTimeAgo(postDate ,locale:  "ar"),
+                  text: DateHelper.formatTimeAgo(blogModel.createdAt.toDate() ,locale:  "ar"),
                   icon: FontAwesomeIcons.calendar,
                   iconColor: Colors.grey,
                 )

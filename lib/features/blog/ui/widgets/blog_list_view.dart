@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:shaghalni/features/blog/ui/widgets/blog_item_widget.dart';
 
+import '../../data/model/blog_model.dart';
+
 class BlogListView extends StatelessWidget {
+  final List<BlogModel> blogList;
   const BlogListView({
-    super.key,
+    super.key, required this.blogList,
   });
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: 10,
+        itemCount: blogList.length,
         shrinkWrap: true,
         itemBuilder: (context, index) {
-          return BlogItemWidget();
+          return BlogItemWidget(blogModel : blogList[index]);
         });
   }
 }
