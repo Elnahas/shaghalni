@@ -3,19 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
-class AppClipRRect extends StatelessWidget {
+class AppImageClipRRect extends StatelessWidget {
   final String imageUrl;
   final double radius;
   final double height;
   final double width;
   final Widget errorWidget;
+      
+  final BorderRadius? borderRadius;
 
-  AppClipRRect({
+  AppImageClipRRect({
     required this.imageUrl,
     this.radius = 12,
     this.errorWidget = const Icon(Icons.error),
     required this.height,
-    required this.width,
+    required this.width, this.borderRadius,
   });
 
   @override
@@ -23,7 +25,8 @@ class AppClipRRect extends StatelessWidget {
     return ClipRRect(
       
       
-      borderRadius: BorderRadius.circular(radius.r),
+      borderRadius: borderRadius ?? BorderRadius.circular(radius.r),
+
       child: CachedNetworkImage(
         imageUrl: imageUrl,
         fit: BoxFit.cover,

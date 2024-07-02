@@ -4,7 +4,7 @@ import 'package:shaghalni/core/data/models/category_model.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/app_text_styles.dart';
-import '../../../../core/widgets/app_clip_r_rect.dart';
+import '../../../../core/widgets/app_image_clip_r_rect.dart';
 
 class CategoryItemsGridView extends StatelessWidget {
   final CategoryModel category;
@@ -38,7 +38,7 @@ class CategoryItemsGridView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AppClipRRect(
+                AppImageClipRRect(
                   imageUrl: category.iconUrl,
                   height: 60,
                   width: 60,

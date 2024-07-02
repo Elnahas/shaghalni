@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/data/models/category_model.dart';
 import '../../../../core/theming/app_colors.dart';
-import '../../../../core/widgets/app_clip_r_rect.dart';
+import '../../../../core/widgets/app_image_clip_r_rect.dart';
 
 class CategoryItemsListView extends StatelessWidget {
   final CategoryModel category;
@@ -38,7 +38,7 @@ class CategoryItemsListView extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.symmetric(vertical: 10.h),
             child: ListTile(
-              leading: AppClipRRect(
+              leading: AppImageClipRRect(
                 imageUrl: category.iconUrl,
                 height: 50,
                 width: 50,

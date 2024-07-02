@@ -24,6 +24,7 @@ class FirestoreCollections {
 }
 class Constants {
   static const String allJobs = 'All Jobs';
+  static const String imgUrlTest = 'https://cloudworkers.company/themes/cloudworkers/assets/img/blog/blog-work-from-home.jpg';
   static const String imgUrlAllJobs = 'https://cdn-icons-png.flaticon.com/256/11656/11656146.png'; // https://cdn-icons-png.freepik.com/512/9045/9045148.png
 }
 

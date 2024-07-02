@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/data/enum/job_type.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
 import 'package:shaghalni/core/helpers/constants.dart';
-import 'package:shaghalni/core/widgets/app_clip_r_rect.dart';
+import 'package:shaghalni/core/widgets/app_image_clip_r_rect.dart';
 import 'package:shaghalni/core/widgets/app_text_and_icon.dart';
 
 import '../../../../../core/helpers/spacing.dart';
@@ -46,7 +46,7 @@ class JobHeaderSection extends StatelessWidget {
             children: [
               verticalSpace(15),
 
-              AppClipRRect(
+              AppImageClipRRect(
                 height: 75,
                 width: 75,
                 imageUrl: imageUrl,
