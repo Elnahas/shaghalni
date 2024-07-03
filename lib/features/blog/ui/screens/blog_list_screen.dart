@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
-import 'package:shaghalni/features/blog/data/model/blog_model.dart';
+import 'package:shaghalni/core/data/models/blog_model.dart';
 import 'package:shaghalni/features/blog/logic/blog_list/blog_list_cubit.dart';
 import 'package:shaghalni/features/blog/logic/blog_list/blog_list_state.dart';
 import 'package:shaghalni/features/jobs_list/ui/widgets/jobs_shimmer_loading.dart';

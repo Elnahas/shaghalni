@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/helpers/date_helper.dart';
-import 'package:shaghalni/features/blog/data/model/blog_model.dart';
+import 'package:shaghalni/core/data/models/blog_model.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/app_text_styles.dart';

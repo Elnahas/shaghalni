@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:shaghalni/features/blog/data/repo/blog_repository.dart';
+import 'package:shaghalni/core/repositories/blog_repository.dart';
 import 'package:shaghalni/features/blog/logic/blog_list/blog_list_state.dart';
 
 
