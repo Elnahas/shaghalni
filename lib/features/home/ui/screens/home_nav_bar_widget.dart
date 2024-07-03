@@ -12,6 +12,7 @@ import 'package:shaghalni/features/home/logic/home_cubit.dart';
 import 'package:shaghalni/features/home/ui/screens/home_screen.dart';
 
 import '../../../blog/ui/screens/blog_list_screen.dart';
+import '../../../job_requests/ui/screens/job_requests_screen.dart';
 
 class HomeNavBarWidget extends StatefulWidget {
   const HomeNavBarWidget({super.key});
@@ -27,7 +28,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
       create: (context) => HomeCubit(getIt(), getIt())..getCategoriesAndJobs(),
       child: HomeScreen(),
     ),
-    Container(),
+    JobRequestsScreen(),
     BlocProvider(
       create: (context) => BlogListCubit(getIt())..getBlogs(),
       child: BlogListScreen(),
