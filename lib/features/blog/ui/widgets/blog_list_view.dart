@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shaghalni/features/blog/ui/widgets/blog_item_widget.dart';
 
-import '../../data/model/blog_model.dart';
+import '../../../../core/data/models/blog_model.dart';
 
 class BlogListView extends StatelessWidget {
   final List<BlogModel> blogList;

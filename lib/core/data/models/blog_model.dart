@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../../core/helpers/json_helpers.dart';
+import '../../helpers/json_helpers.dart';
 
 part 'blog_model.g.dart';
 
