@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/features/blog/data/model/blog_model.dart';
-import 'package:shaghalni/features/blog/logic/cubit/blog_cubit.dart';
-import 'package:shaghalni/features/blog/logic/cubit/blog_state.dart';
+import 'package:shaghalni/features/blog/logic/blog_list/blog_list_cubit.dart';
+import 'package:shaghalni/features/blog/logic/blog_list/blog_list_state.dart';
 import 'package:shaghalni/features/jobs_list/ui/widgets/jobs_shimmer_loading.dart';
 import '../widgets/blog_list_view.dart';
 
-class BlogScreen extends StatelessWidget {
-  const BlogScreen({super.key});
+class BlogListScreen extends StatelessWidget {
+  const BlogListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +26,16 @@ class BlogScreen extends StatelessWidget {
       body: Container(
         child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
-            child: BlocBuilder<BlogCubit, BlogState>(
+            child: BlocBuilder<BlogListCubit, BlogListState>(
               buildWhen: (previous, current) =>
-                  current is BlogSuccess ||
-                  current is BlogFailure ||
-                  current is BlogLoading,
+                  current is BlogListSuccess ||
+                  current is BlogListFailure ||
+                  current is BlogListLoading,
               builder: (context, state) {
                 return state.maybeWhen(
-                  blogLoading: () => setupLoading(),
-                  blogSuccess: (blogList) => setupSuccess(blogList),
-                  blogFailure: (error) => setupError(error),
+                  blogListLoading: () => setupLoading(),
+                  blogListSuccess: (blogList) => setupSuccess(blogList),
+                  blogListFailure: (error) => setupError(error),
                   orElse: () => SizedBox.shrink(),
                 );
               },
