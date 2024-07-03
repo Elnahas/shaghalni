@@ -11,5 +11,6 @@ class Routes {
   static const String language = '/language';
   static const String category = '/category';
   static const String jobsList = '/jobs-list';
+  static const String blogDetails = '/blog-details';
 
 }

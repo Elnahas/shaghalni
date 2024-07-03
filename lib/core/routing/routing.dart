@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shaghalni/core/data/models/blog_model.dart';
 import 'package:shaghalni/core/di/service_locator.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_cubit.dart';
@@ -21,6 +22,7 @@ import 'package:shaghalni/features/on_boarding/ui/screen/on_boarding_screen.dart
 import '../../features/auth/login/ui/widgets/login_screen.dart';
 import '../../features/auth/otp/ui/widgets/otp_screen.dart';
 import '../../features/auth/welcome/ui/widgets/welcome_screen.dart';
+import '../../features/blog_details/ui/screens/blog_details_screen.dart';
 
 class Routing {
   Route? onGenerateRoute(RouteSettings settings) {
@@ -53,6 +55,14 @@ class Routing {
         return MaterialPageRoute(
             builder: (context) => const HomeNavBarWidget());
 
+      case Routes.blogDetails:
+        final blogModel = settings.arguments as BlogModel?;
+
+        return MaterialPageRoute(
+            builder: (context) => BlogDetailsScreen(
+                  blogModel: blogModel,
+                ));
+
       case Routes.language:
         return MaterialPageRoute(builder: (context) => const LanguageScreen());
 
@@ -71,22 +81,18 @@ class Routing {
                   child: const AddJobScreen(),
                 ));
 
-
       case Routes.jobsList:
         return MaterialPageRoute(
           builder: (context) {
             int? index = null;
-            if (settings.arguments != null)
-             index = settings.arguments as int;
+            if (settings.arguments != null) index = settings.arguments as int;
 
             return BlocProvider(
-             create: (context) => getIt<JobsListCubit>()..getCategories(index),
-                  child: const JobsListScreen(),
+              create: (context) => getIt<JobsListCubit>()..getCategories(index),
+              child: const JobsListScreen(),
             );
           },
         );
-
-
 
       case Routes.category:
         return MaterialPageRoute(
