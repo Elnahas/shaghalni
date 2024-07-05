@@ -1,5 +1,8 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/core/helpers/constants.dart';
+import 'package:shaghalni/features/job_requests/logic/cubit/job_requests_cubit.dart';
 import '../../../../core/data/enum/job_status.dart';
 import 'job_status_item.dart';
 
@@ -27,6 +30,8 @@ class _JobStatusListViewState extends State<JobStatusListView> {
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: GestureDetector(
                 onTap: () {
+                  var status = index == 0 ? Constants.viewAll : JobStatus.values[index].name;
+                  context.read<JobRequestsCubit>().getJobRequests(userModel!.uid , status: status);
                   selectedStateJobIndex = index;
                   setState(() {});
                 },

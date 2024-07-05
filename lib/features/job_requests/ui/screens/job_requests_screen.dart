@@ -27,26 +27,23 @@ class JobRequestsScreen extends StatelessWidget {
           verticalSpace(10),
           BlocBuilder<JobRequestsCubit, JobRequestsState>(
             builder: (context, state) {
-
-             return state.maybeWhen(
+              return state.maybeWhen(
                 jobRequestsLoading: () => setupLoading(),
                 jobRequestsFailure: (error) => setupError(error),
                 jobRequestsSuccess: (jobRequests) => setupSuccess(jobRequests),
                 orElse: () => Container(),
               );
-
-              
             },
           )
         ],
       ),
     );
   }
-  
+
   Widget setupLoading() {
     return const Center(child: CircularProgressIndicator());
   }
-  
+
   Widget setupError(String error) {
     return Center(
       child: Padding(
@@ -58,5 +55,5 @@ class JobRequestsScreen extends StatelessWidget {
 }
 
 Widget setupSuccess(List<JobModel> jobRequests) {
-    return JobRequestsListView(jobsList:jobRequests);
+  return JobRequestsListView(jobsList: jobRequests);
 }

@@ -40,12 +40,12 @@ class JobRepository {
     }
 
     final querySnapshot = await query.get();
-      List<JobModel> jobs = querySnapshot.docs.map((doc) {
-        Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-        data['id'] = doc.id;
+    List<JobModel> jobs = querySnapshot.docs.map((doc) {
+      Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+      data['id'] = doc.id;
 
-        return JobModel.fromJson(data);
-      }).toList();
+      return JobModel.fromJson(data);
+    }).toList();
 
     return {
       'data': jobs,
@@ -120,7 +120,7 @@ class JobRepository {
 
     if (categoryId != null &&
         categoryId.isNotEmpty &&
-        categoryId != Constants.allJobs) {
+        categoryId != Constants.viewAll) {
       query = query.where('category.id', isEqualTo: categoryId);
     }
 
@@ -133,11 +133,13 @@ class JobRepository {
     return query;
   }
 
-
-    Future<List<JobModel>> getJobRequests(
-      String? userId,) async {
+  Future<List<JobModel>> getJobRequests(String? userId, String? status) async {
     try {
       Query query = firestore.collection(FirestoreCollections.jobs);
+
+      if (status != null && status != Constants.viewAll) {
+        query = query.where('status', isEqualTo: status);
+      }
 
       // Fetch the data
       QuerySnapshot<Object?> snapshot = await query.get();
@@ -155,6 +157,3 @@ class JobRepository {
     }
   }
 }
-
-
-

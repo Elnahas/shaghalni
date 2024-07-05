@@ -10,10 +10,10 @@ class JobRequestsCubit extends Cubit<JobRequestsState> {
   JobRequestsCubit(this._jobRepository) : super(JobRequestsState.initial());
 
 
-  Future<void> getJobRequests(String uId) async {
+  Future<void> getJobRequests(String uId , {String? status}) async {
     emit(JobRequestsState.jobRequestsLoading());
     try {
-    var jobRequests = await _jobRepository.getJobRequests(uId);
+    var jobRequests = await _jobRepository.getJobRequests(uId , status);
       emit(JobRequestsState.jobRequestsSuccess(jobRequests));
     }
 

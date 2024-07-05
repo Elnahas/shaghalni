@@ -31,7 +31,8 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
       child: HomeScreen(),
     ),
     BlocProvider(
-      create: (context) => JobRequestsCubit(getIt())..getJobRequests(userModel!.uid),
+      create: (context) => JobRequestsCubit(getIt())
+        ..getJobRequests(userModel!.uid, status: Constants.viewAll),
       child: JobRequestsScreen(),
     ),
     BlocProvider(
