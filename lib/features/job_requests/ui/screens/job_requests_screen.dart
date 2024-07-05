@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shaghalni/core/helpers/spacing.dart';
 import '../../../../core/theming/app_text_styles.dart';
 import '../widgets/job_requests_list_view.dart';
 import '../widgets/job_status_list_view.dart';
@@ -20,6 +21,8 @@ class JobRequestsScreen extends StatelessWidget {
         children: [
 
           JobStatusListView(),
+
+          verticalSpace(10),
           
           JobRequestsListView()
         ],
