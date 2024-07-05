@@ -1,8 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/data/enum/job_status.dart';
-import '../screens/job_status_item.dart';
+import 'job_status_item.dart';
 
 class JobStatusListView extends StatefulWidget {
   const JobStatusListView({super.key});
