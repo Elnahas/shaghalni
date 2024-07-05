@@ -11,6 +11,7 @@ import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/app_text_styles.dart';
 import '../../../../core/widgets/app_image_clip_r_rect.dart';
 import '../../../../core/widgets/app_text_and_icon.dart';
+import '../widgets/job_status_list_view.dart';
 
 class JobRequestsScreen extends StatelessWidget {
   const JobRequestsScreen({super.key});
@@ -27,7 +28,9 @@ class JobRequestsScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          JobStateListView(),
+
+          JobStatusListView(),
+          
           Expanded(
             child: ListView.builder(
               itemBuilder: (context, index) => Container(
@@ -115,64 +118,6 @@ class JobRequestsScreen extends StatelessWidget {
   }
 }
 
-class JobStateListView extends StatefulWidget {
-  const JobStateListView({super.key});
 
-  @override
-  State<JobStateListView> createState() => _JobStateListViewState();
-}
 
-class _JobStateListViewState extends State<JobStateListView> {
-  int selectedStateJobIndex = 0;
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.symmetric(horizontal: 10),
-        height: 55.h,
-        width: double.infinity,
-        child: ListView.builder(
-          physics: const BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: GestureDetector(
-                onTap: () {
-                  selectedStateJobIndex = index;
-                  setState(() {});
-                },
-                child: Container(
-                    margin: EdgeInsets.symmetric(
-                      vertical: 10.h,
-                    ),
-                    width: 80.w,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: selectedStateJobIndex == index
-                          ? AppColors.primaryColor
-                          : AppColors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: AppColors.primaryColor.withOpacity(0.2),
-                          spreadRadius: 1,
-                          blurRadius: 8,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
-                    ),
-                    child: Center(
-                        child: Text(
-                      JobStatus.values[index].name,
-                      style: AppTextStyles.font12BlackRegular.copyWith(
-                          color: selectedStateJobIndex == index
-                              ? AppColors.white
-                              : AppColors.black),
-                    ))),
-              ),
-            );
-          },
-          itemCount: JobStatus.values.length,
-        ));
-  }
-}
