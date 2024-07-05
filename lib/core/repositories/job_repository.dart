@@ -132,4 +132,29 @@ class JobRepository {
 
     return query;
   }
+
+
+    Future<List<JobModel>> getJobsRequest(
+      String? userId,) async {
+    try {
+      Query query = firestore.collection(FirestoreCollections.jobs);
+
+      // Fetch the data
+      QuerySnapshot<Object?> snapshot = await query.get();
+
+      // Process the data
+      List<JobModel> jobs = snapshot.docs.map((doc) {
+        Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+        data['id'] = doc.id;
+        return JobModel.fromJson(data);
+      }).toList();
+
+      return jobs;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
+
+
+
