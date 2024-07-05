@@ -22,9 +22,6 @@ class BlogItemWidget extends StatelessWidget {
     return InkWell(
       onTap: () {
         context.pushNamed(Routes.blogDetails, arguments: blogModel);
-
-        print('Navigating to BlogDetailsScreen with arguments: $blogModel');
-
       },
       child: Container(
         margin: EdgeInsets.only(top: 20, left: 20, right: 20),
@@ -46,7 +43,7 @@ class BlogItemWidget extends StatelessWidget {
             AppImageClipRRect(
               imageUrl: blogModel.imageUrl,
               height: 150,
-              width: 150,
+              width: 130,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(12),
                   bottomLeft: Radius.circular(12)),
