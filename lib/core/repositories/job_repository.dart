@@ -134,7 +134,7 @@ class JobRepository {
   }
 
 
-    Future<List<JobModel>> getJobsRequest(
+    Future<List<JobModel>> getJobRequests(
       String? userId,) async {
     try {
       Query query = firestore.collection(FirestoreCollections.jobs);
