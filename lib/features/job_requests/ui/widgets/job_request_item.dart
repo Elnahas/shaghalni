@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../../core/helpers/constants.dart';
+import 'package:shaghalni/core/data/models/job_model.dart';
 import '../../../../core/helpers/date_helper.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
@@ -9,8 +9,10 @@ import '../../../../core/theming/app_text_styles.dart';
 import '../../../../core/widgets/app_image_clip_r_rect.dart';
 
 class JobRequestItem extends StatelessWidget {
+  final JobModel jobModel;
   const JobRequestItem({
     super.key,
+    required this.jobModel,
   });
 
   @override
@@ -63,7 +65,7 @@ class JobRequestItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppImageClipRRect(
-                imageUrl: Constants.imgUrlTest,
+                imageUrl: jobModel.category.coverImageUrl,
                 height: 100,
                 width: 100,
                 borderRadius: BorderRadius.only(
@@ -82,7 +84,7 @@ class JobRequestItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Title",
+                            jobModel.title,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: AppTextStyles.font14BoldBlack,
@@ -94,23 +96,25 @@ class JobRequestItem extends StatelessWidget {
                         ],
                       ),
                       Container(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 5),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                         decoration: BoxDecoration(
-
-                          color: AppColors.primaryColor
-                              .withOpacity(0.1),
+                          color: AppColors.primaryColor.withOpacity(0.1),
                           borderRadius: BorderRadius.all(
                             Radius.circular(12),
                           ),
                         ),
-                        child: Text("OPEN" , style: AppTextStyles.font12BoldBlue, ),
+                        child: Text(
+                          jobModel.status.name,
+                          style: AppTextStyles.font12BoldBlue,
+                        ),
                       ),
                       Align(
                         alignment: Alignment.centerRight,
                         child: Text(
-                          DateHelper.formatCustomDate(DateTime.now(),
-                              ),
+                          DateHelper.formatCustomDate(
+                            jobModel.createdAt,
+                          ),
                           style: AppTextStyles.font10LightGrayRegular,
                         ),
                       ),
