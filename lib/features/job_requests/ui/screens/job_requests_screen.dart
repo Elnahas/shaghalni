@@ -6,6 +6,7 @@ import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/widgets/app_empty_state.dart';
 import 'package:shaghalni/features/job_requests/logic/cubit/job_requests_cubit.dart';
 import 'package:shaghalni/features/job_requests/logic/cubit/job_requests_state.dart';
+import 'package:shaghalni/features/jobs_list/ui/widgets/jobs_shimmer_loading.dart';
 import '../../../../core/theming/app_text_styles.dart';
 import '../widgets/job_requests_list_view.dart';
 import '../widgets/job_status_list_view.dart';
@@ -44,7 +45,10 @@ class JobRequestsScreen extends StatelessWidget {
   }
 
   Widget setupLoading() {
-    return const Center(child: CircularProgressIndicator());
+    return Expanded(child: Padding(
+      padding: const EdgeInsets.all(14),
+      child: JobsShimmerLoading(),
+    )) ;
   }
 
   Widget setupError(String error) {
