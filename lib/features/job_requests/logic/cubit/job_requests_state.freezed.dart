@@ -22,6 +22,7 @@ mixin _$JobRequestsState {
     required TResult Function() jobRequestsLoading,
     required TResult Function(List<JobModel> jobsList) jobRequestsSuccess,
     required TResult Function(String error) jobRequestsFailure,
+    required TResult Function() noResultsFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$JobRequestsState {
     TResult? Function()? jobRequestsLoading,
     TResult? Function(List<JobModel> jobsList)? jobRequestsSuccess,
     TResult? Function(String error)? jobRequestsFailure,
+    TResult? Function()? noResultsFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$JobRequestsState {
     TResult Function()? jobRequestsLoading,
     TResult Function(List<JobModel> jobsList)? jobRequestsSuccess,
     TResult Function(String error)? jobRequestsFailure,
+    TResult Function()? noResultsFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$JobRequestsState {
     required TResult Function(JobRequestsLoading value) jobRequestsLoading,
     required TResult Function(JobRequestsSuccess value) jobRequestsSuccess,
     required TResult Function(JobRequestsFailure value) jobRequestsFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$JobRequestsState {
     TResult? Function(JobRequestsLoading value)? jobRequestsLoading,
     TResult? Function(JobRequestsSuccess value)? jobRequestsSuccess,
     TResult? Function(JobRequestsFailure value)? jobRequestsFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$JobRequestsState {
     TResult Function(JobRequestsLoading value)? jobRequestsLoading,
     TResult Function(JobRequestsSuccess value)? jobRequestsSuccess,
     TResult Function(JobRequestsFailure value)? jobRequestsFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() jobRequestsLoading,
     required TResult Function(List<JobModel> jobsList) jobRequestsSuccess,
     required TResult Function(String error) jobRequestsFailure,
+    required TResult Function() noResultsFound,
   }) {
     return initial();
   }
@@ -139,6 +146,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? jobRequestsLoading,
     TResult? Function(List<JobModel> jobsList)? jobRequestsSuccess,
     TResult? Function(String error)? jobRequestsFailure,
+    TResult? Function()? noResultsFound,
   }) {
     return initial?.call();
   }
@@ -150,6 +158,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? jobRequestsLoading,
     TResult Function(List<JobModel> jobsList)? jobRequestsSuccess,
     TResult Function(String error)? jobRequestsFailure,
+    TResult Function()? noResultsFound,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -165,6 +174,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(JobRequestsLoading value) jobRequestsLoading,
     required TResult Function(JobRequestsSuccess value) jobRequestsSuccess,
     required TResult Function(JobRequestsFailure value) jobRequestsFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
   }) {
     return initial(this);
   }
@@ -176,6 +186,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(JobRequestsLoading value)? jobRequestsLoading,
     TResult? Function(JobRequestsSuccess value)? jobRequestsSuccess,
     TResult? Function(JobRequestsFailure value)? jobRequestsFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
   }) {
     return initial?.call(this);
   }
@@ -187,6 +198,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(JobRequestsLoading value)? jobRequestsLoading,
     TResult Function(JobRequestsSuccess value)? jobRequestsSuccess,
     TResult Function(JobRequestsFailure value)? jobRequestsFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -242,6 +254,7 @@ class _$JobRequestsLoadingImpl implements JobRequestsLoading {
     required TResult Function() jobRequestsLoading,
     required TResult Function(List<JobModel> jobsList) jobRequestsSuccess,
     required TResult Function(String error) jobRequestsFailure,
+    required TResult Function() noResultsFound,
   }) {
     return jobRequestsLoading();
   }
@@ -253,6 +266,7 @@ class _$JobRequestsLoadingImpl implements JobRequestsLoading {
     TResult? Function()? jobRequestsLoading,
     TResult? Function(List<JobModel> jobsList)? jobRequestsSuccess,
     TResult? Function(String error)? jobRequestsFailure,
+    TResult? Function()? noResultsFound,
   }) {
     return jobRequestsLoading?.call();
   }
@@ -264,6 +278,7 @@ class _$JobRequestsLoadingImpl implements JobRequestsLoading {
     TResult Function()? jobRequestsLoading,
     TResult Function(List<JobModel> jobsList)? jobRequestsSuccess,
     TResult Function(String error)? jobRequestsFailure,
+    TResult Function()? noResultsFound,
     required TResult orElse(),
   }) {
     if (jobRequestsLoading != null) {
@@ -279,6 +294,7 @@ class _$JobRequestsLoadingImpl implements JobRequestsLoading {
     required TResult Function(JobRequestsLoading value) jobRequestsLoading,
     required TResult Function(JobRequestsSuccess value) jobRequestsSuccess,
     required TResult Function(JobRequestsFailure value) jobRequestsFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
   }) {
     return jobRequestsLoading(this);
   }
@@ -290,6 +306,7 @@ class _$JobRequestsLoadingImpl implements JobRequestsLoading {
     TResult? Function(JobRequestsLoading value)? jobRequestsLoading,
     TResult? Function(JobRequestsSuccess value)? jobRequestsSuccess,
     TResult? Function(JobRequestsFailure value)? jobRequestsFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
   }) {
     return jobRequestsLoading?.call(this);
   }
@@ -301,6 +318,7 @@ class _$JobRequestsLoadingImpl implements JobRequestsLoading {
     TResult Function(JobRequestsLoading value)? jobRequestsLoading,
     TResult Function(JobRequestsSuccess value)? jobRequestsSuccess,
     TResult Function(JobRequestsFailure value)? jobRequestsFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
     required TResult orElse(),
   }) {
     if (jobRequestsLoading != null) {
@@ -390,6 +408,7 @@ class _$JobRequestsSuccessImpl implements JobRequestsSuccess {
     required TResult Function() jobRequestsLoading,
     required TResult Function(List<JobModel> jobsList) jobRequestsSuccess,
     required TResult Function(String error) jobRequestsFailure,
+    required TResult Function() noResultsFound,
   }) {
     return jobRequestsSuccess(jobsList);
   }
@@ -401,6 +420,7 @@ class _$JobRequestsSuccessImpl implements JobRequestsSuccess {
     TResult? Function()? jobRequestsLoading,
     TResult? Function(List<JobModel> jobsList)? jobRequestsSuccess,
     TResult? Function(String error)? jobRequestsFailure,
+    TResult? Function()? noResultsFound,
   }) {
     return jobRequestsSuccess?.call(jobsList);
   }
@@ -412,6 +432,7 @@ class _$JobRequestsSuccessImpl implements JobRequestsSuccess {
     TResult Function()? jobRequestsLoading,
     TResult Function(List<JobModel> jobsList)? jobRequestsSuccess,
     TResult Function(String error)? jobRequestsFailure,
+    TResult Function()? noResultsFound,
     required TResult orElse(),
   }) {
     if (jobRequestsSuccess != null) {
@@ -427,6 +448,7 @@ class _$JobRequestsSuccessImpl implements JobRequestsSuccess {
     required TResult Function(JobRequestsLoading value) jobRequestsLoading,
     required TResult Function(JobRequestsSuccess value) jobRequestsSuccess,
     required TResult Function(JobRequestsFailure value) jobRequestsFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
   }) {
     return jobRequestsSuccess(this);
   }
@@ -438,6 +460,7 @@ class _$JobRequestsSuccessImpl implements JobRequestsSuccess {
     TResult? Function(JobRequestsLoading value)? jobRequestsLoading,
     TResult? Function(JobRequestsSuccess value)? jobRequestsSuccess,
     TResult? Function(JobRequestsFailure value)? jobRequestsFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
   }) {
     return jobRequestsSuccess?.call(this);
   }
@@ -449,6 +472,7 @@ class _$JobRequestsSuccessImpl implements JobRequestsSuccess {
     TResult Function(JobRequestsLoading value)? jobRequestsLoading,
     TResult Function(JobRequestsSuccess value)? jobRequestsSuccess,
     TResult Function(JobRequestsFailure value)? jobRequestsFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
     required TResult orElse(),
   }) {
     if (jobRequestsSuccess != null) {
@@ -537,6 +561,7 @@ class _$JobRequestsFailureImpl implements JobRequestsFailure {
     required TResult Function() jobRequestsLoading,
     required TResult Function(List<JobModel> jobsList) jobRequestsSuccess,
     required TResult Function(String error) jobRequestsFailure,
+    required TResult Function() noResultsFound,
   }) {
     return jobRequestsFailure(error);
   }
@@ -548,6 +573,7 @@ class _$JobRequestsFailureImpl implements JobRequestsFailure {
     TResult? Function()? jobRequestsLoading,
     TResult? Function(List<JobModel> jobsList)? jobRequestsSuccess,
     TResult? Function(String error)? jobRequestsFailure,
+    TResult? Function()? noResultsFound,
   }) {
     return jobRequestsFailure?.call(error);
   }
@@ -559,6 +585,7 @@ class _$JobRequestsFailureImpl implements JobRequestsFailure {
     TResult Function()? jobRequestsLoading,
     TResult Function(List<JobModel> jobsList)? jobRequestsSuccess,
     TResult Function(String error)? jobRequestsFailure,
+    TResult Function()? noResultsFound,
     required TResult orElse(),
   }) {
     if (jobRequestsFailure != null) {
@@ -574,6 +601,7 @@ class _$JobRequestsFailureImpl implements JobRequestsFailure {
     required TResult Function(JobRequestsLoading value) jobRequestsLoading,
     required TResult Function(JobRequestsSuccess value) jobRequestsSuccess,
     required TResult Function(JobRequestsFailure value) jobRequestsFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
   }) {
     return jobRequestsFailure(this);
   }
@@ -585,6 +613,7 @@ class _$JobRequestsFailureImpl implements JobRequestsFailure {
     TResult? Function(JobRequestsLoading value)? jobRequestsLoading,
     TResult? Function(JobRequestsSuccess value)? jobRequestsSuccess,
     TResult? Function(JobRequestsFailure value)? jobRequestsFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
   }) {
     return jobRequestsFailure?.call(this);
   }
@@ -596,6 +625,7 @@ class _$JobRequestsFailureImpl implements JobRequestsFailure {
     TResult Function(JobRequestsLoading value)? jobRequestsLoading,
     TResult Function(JobRequestsSuccess value)? jobRequestsSuccess,
     TResult Function(JobRequestsFailure value)? jobRequestsFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
     required TResult orElse(),
   }) {
     if (jobRequestsFailure != null) {
@@ -613,4 +643,124 @@ abstract class JobRequestsFailure implements JobRequestsState {
   @JsonKey(ignore: true)
   _$$JobRequestsFailureImplCopyWith<_$JobRequestsFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NoResultsFoundImplCopyWith<$Res> {
+  factory _$$NoResultsFoundImplCopyWith(_$NoResultsFoundImpl value,
+          $Res Function(_$NoResultsFoundImpl) then) =
+      __$$NoResultsFoundImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NoResultsFoundImplCopyWithImpl<$Res>
+    extends _$JobRequestsStateCopyWithImpl<$Res, _$NoResultsFoundImpl>
+    implements _$$NoResultsFoundImplCopyWith<$Res> {
+  __$$NoResultsFoundImplCopyWithImpl(
+      _$NoResultsFoundImpl _value, $Res Function(_$NoResultsFoundImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NoResultsFoundImpl implements NoResultsFound {
+  const _$NoResultsFoundImpl();
+
+  @override
+  String toString() {
+    return 'JobRequestsState.noResultsFound()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NoResultsFoundImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() jobRequestsLoading,
+    required TResult Function(List<JobModel> jobsList) jobRequestsSuccess,
+    required TResult Function(String error) jobRequestsFailure,
+    required TResult Function() noResultsFound,
+  }) {
+    return noResultsFound();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? jobRequestsLoading,
+    TResult? Function(List<JobModel> jobsList)? jobRequestsSuccess,
+    TResult? Function(String error)? jobRequestsFailure,
+    TResult? Function()? noResultsFound,
+  }) {
+    return noResultsFound?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? jobRequestsLoading,
+    TResult Function(List<JobModel> jobsList)? jobRequestsSuccess,
+    TResult Function(String error)? jobRequestsFailure,
+    TResult Function()? noResultsFound,
+    required TResult orElse(),
+  }) {
+    if (noResultsFound != null) {
+      return noResultsFound();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(JobRequestsLoading value) jobRequestsLoading,
+    required TResult Function(JobRequestsSuccess value) jobRequestsSuccess,
+    required TResult Function(JobRequestsFailure value) jobRequestsFailure,
+    required TResult Function(NoResultsFound value) noResultsFound,
+  }) {
+    return noResultsFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(JobRequestsLoading value)? jobRequestsLoading,
+    TResult? Function(JobRequestsSuccess value)? jobRequestsSuccess,
+    TResult? Function(JobRequestsFailure value)? jobRequestsFailure,
+    TResult? Function(NoResultsFound value)? noResultsFound,
+  }) {
+    return noResultsFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(JobRequestsLoading value)? jobRequestsLoading,
+    TResult Function(JobRequestsSuccess value)? jobRequestsSuccess,
+    TResult Function(JobRequestsFailure value)? jobRequestsFailure,
+    TResult Function(NoResultsFound value)? noResultsFound,
+    required TResult orElse(),
+  }) {
+    if (noResultsFound != null) {
+      return noResultsFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoResultsFound implements JobRequestsState {
+  const factory NoResultsFound() = _$NoResultsFoundImpl;
 }

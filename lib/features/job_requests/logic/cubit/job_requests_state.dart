@@ -12,5 +12,6 @@ class JobRequestsState with _$JobRequestsState {
   const factory JobRequestsState.jobRequestsLoading() = JobRequestsLoading;
   const factory JobRequestsState.jobRequestsSuccess(List<JobModel> jobsList) = JobRequestsSuccess;
   const factory JobRequestsState.jobRequestsFailure(String error) = JobRequestsFailure;
+  const factory JobRequestsState.noResultsFound() = NoResultsFound;
 
 }

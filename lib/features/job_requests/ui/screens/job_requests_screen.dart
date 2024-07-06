@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
+import 'package:shaghalni/core/helpers/app_assets.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
+import 'package:shaghalni/core/widgets/app_empty_state.dart';
 import 'package:shaghalni/features/job_requests/logic/cubit/job_requests_cubit.dart';
 import 'package:shaghalni/features/job_requests/logic/cubit/job_requests_state.dart';
 import '../../../../core/theming/app_text_styles.dart';
@@ -29,6 +31,7 @@ class JobRequestsScreen extends StatelessWidget {
             builder: (context, state) {
               return state.maybeWhen(
                 jobRequestsLoading: () => setupLoading(),
+                noResultsFound: () => setupNoResultsFound(),
                 jobRequestsFailure: (error) => setupError(error),
                 jobRequestsSuccess: (jobRequests) => setupSuccess(jobRequests),
                 orElse: () => Container(),
@@ -52,6 +55,14 @@ class JobRequestsScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget setupNoResultsFound() {
+  return Expanded(
+      child: AppEmptyState(
+          title: "No Job Requests",
+          subtitle: "You haven't submitted any job requests yet",
+          svgAssetPath: AppAssets.noDataFound));
 }
 
 Widget setupSuccess(List<JobModel> jobRequests) {
