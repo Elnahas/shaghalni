@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shaghalni/core/helpers/spacing.dart';
-import 'package:shaghalni/core/theming/app_text_styles.dart';
+import 'package:shaghalni/core/helpers/app_assets.dart';
+import 'package:shaghalni/core/widgets/app_empty_state.dart';
 import 'package:shaghalni/features/jobs_list/logic/jobs_list_cubit.dart';
 import 'package:shaghalni/features/jobs_list/ui/widgets/jobs_shimmer_loading.dart';
 import 'package:shaghalni/features/jobs_list/ui/widgets/scroll_controller_listener.dart';
@@ -12,17 +11,15 @@ import '../../../home/ui/widgets/job_section/job_grid_view_list.dart';
 import '../../logic/jobs_list_state.dart';
 
 class JobsListBlocBuilder extends StatelessWidget {
-
-    final ScrollController scrollController;
+  final ScrollController scrollController;
 
   const JobsListBlocBuilder({
-    super.key, required this.scrollController,
+    super.key,
+    required this.scrollController,
   });
 
   @override
   Widget build(BuildContext context) {
-
-
     return BlocBuilder<JobsListCubit, JobsListState>(
       buildWhen: (previous, current) =>
           current is JobsListLoading ||
@@ -31,8 +28,12 @@ class JobsListBlocBuilder extends StatelessWidget {
           current is JobsListFailure,
       builder: (context, state) {
         return state.maybeMap(
-          jobsListSuccess: (state) =>
-              setupSuccess(state.jobList, state.isLoadingMore , context , scrollController , context.read<JobsListCubit>().hasMoreData),
+          jobsListSuccess: (state) => setupSuccess(
+              state.jobList,
+              state.isLoadingMore,
+              context,
+              scrollController,
+              context.read<JobsListCubit>().hasMoreData),
           jobsListFailure: (state) => setupError(state.error),
           jobsListLoading: (state) => setupLoading(),
           noResultsFound: (state) => setupNoResultsFound(),
@@ -42,23 +43,27 @@ class JobsListBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget setupSuccess(List<JobModel> jobList, bool isLoadingMore , BuildContext context , ScrollController scrollController , bool hasMoreData) {
+  Widget setupSuccess(
+      List<JobModel> jobList,
+      bool isLoadingMore,
+      BuildContext context,
+      ScrollController scrollController,
+      bool hasMoreData) {
     return ScrollControllerListener(
-      scrollController: scrollController,
+        scrollController: scrollController,
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
-          controller:  scrollController,
+          controller: scrollController,
           child: JobGridViewList(
             jobList: jobList,
             isLoadingMore: isLoadingMore,
             hasMoreData: hasMoreData,
             isShrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
-          
           ),
         ),
-        onEndOfScroll: (){
-             context.read<JobsListCubit>().fetchMoreJobs();
+        onEndOfScroll: () {
+          context.read<JobsListCubit>().fetchMoreJobs();
         });
   }
 
@@ -72,22 +77,10 @@ class JobsListBlocBuilder extends StatelessWidget {
 
   Widget setupNoResultsFound() {
     return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SvgPicture.asset("assets/svgs/no_results_found.svg"),
-          Text(
-            "No results found",
-            style: AppTextStyles.font14BoldRockBlue,
-          ),
-          verticalSpace(10),
-          Text(
-            "Try using different search terms",
-            style: AppTextStyles.font12DarkBlueRegular,
-          ),
-        ],
-      ),
+      child: AppEmptyState(
+          subtitle: "Try using different search terms",
+          title: "No results found",
+          svgAssetPath: AppAssets.noResultsFoundSearch),
     );
   }
 }
