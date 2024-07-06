@@ -9,6 +9,7 @@ import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:shaghalni/core/repositories/blog_repository.dart';
 import 'package:shaghalni/features/blog/logic/blog_list/blog_list_cubit.dart';
 import 'package:shaghalni/features/category/logic/category_cubit.dart';
+import 'package:shaghalni/features/job_requests/logic/cubit/job_requests_cubit.dart';
 import 'package:shaghalni/features/jobs_list/logic/jobs_list_cubit.dart';
 import '../../features/job_details/logic/job_details_cubit.dart';
 import '../../features/language/logic/language_cubit.dart';
@@ -47,4 +48,5 @@ void setupServiceLocator() {
       () => JobsListCubit(getIt<JobRepository>(), getIt<CategoryRepository>()));
 
   getIt.registerFactory<BlogListCubit>(() => BlogListCubit(getIt<BlogsRepository>()));
+  getIt.registerFactory<JobRequestsCubit>(() => JobRequestsCubit(getIt<JobRepository>()));
 }

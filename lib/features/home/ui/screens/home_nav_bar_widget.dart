@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/di/service_locator.dart';
+import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/routing/routes.dart';
@@ -10,8 +11,10 @@ import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/features/blog/logic/blog_list/blog_list_cubit.dart';
 import 'package:shaghalni/features/home/logic/home_cubit.dart';
 import 'package:shaghalni/features/home/ui/screens/home_screen.dart';
+import 'package:shaghalni/features/job_requests/logic/cubit/job_requests_cubit.dart';
 
 import '../../../blog/ui/screens/blog_list_screen.dart';
+import '../../../job_requests/ui/screens/job_requests_screen.dart';
 
 class HomeNavBarWidget extends StatefulWidget {
   const HomeNavBarWidget({super.key});
@@ -27,7 +30,11 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
       create: (context) => HomeCubit(getIt(), getIt())..getCategoriesAndJobs(),
       child: HomeScreen(),
     ),
-    Container(),
+    BlocProvider(
+      create: (context) => JobRequestsCubit(getIt())
+        ..getJobRequests(userModel!.uid, status: Constants.viewAll),
+      child: JobRequestsScreen(),
+    ),
     BlocProvider(
       create: (context) => BlogListCubit(getIt())..getBlogs(),
       child: BlogListScreen(),

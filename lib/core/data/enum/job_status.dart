@@ -1,7 +1,9 @@
 enum JobStatus {
+  all,
   open,
   closed,
   pending,
+  reject,
 }
 
 extension JobStatusExtension on JobStatus {

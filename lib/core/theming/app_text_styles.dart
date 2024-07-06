@@ -96,6 +96,13 @@ abstract class AppTextStyles {
     fontFamily: "Poppins",
   );
 
+    static TextStyle font14BoldWhite = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: Colors.white,
+    fontFamily: "Poppins",
+  );
+
   static TextStyle font22BoldWhite = TextStyle(
     fontSize: 22.sp,
     fontWeight: FontWeightHelper.bold,
