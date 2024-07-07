@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shaghalni/core/data/models/job_model.dart';
-import 'package:shaghalni/core/helpers/app_assets.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
-import 'package:shaghalni/core/widgets/app_empty_state.dart';
-import 'package:shaghalni/features/job_requests/logic/cubit/job_requests_cubit.dart';
-import 'package:shaghalni/features/job_requests/logic/cubit/job_requests_state.dart';
-import 'package:shaghalni/features/jobs_list/ui/widgets/jobs_shimmer_loading.dart';
 import '../../../../core/theming/app_text_styles.dart';
-import '../widgets/job_requests_list_view.dart';
 import '../widgets/job_status_list_view.dart';
 
 class JobRequestsScreen extends StatelessWidget {
@@ -28,47 +20,10 @@ class JobRequestsScreen extends StatelessWidget {
         children: [
           JobStatusListView(),
           verticalSpace(10),
-          BlocBuilder<JobRequestsCubit, JobRequestsState>(
-            builder: (context, state) {
-              return state.maybeWhen(
-                jobRequestsLoading: () => setupLoading(),
-                noResultsFound: () => setupNoResultsFound(),
-                jobRequestsFailure: (error) => setupError(error),
-                jobRequestsSuccess: (jobRequests) => setupSuccess(jobRequests),
-                orElse: () => Container(),
-              );
-            },
-          )
+
         ],
       ),
     );
   }
 
-  Widget setupLoading() {
-    return Expanded(child: Padding(
-      padding: const EdgeInsets.all(14),
-      child: JobsShimmerLoading(),
-    )) ;
-  }
-
-  Widget setupError(String error) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Text(error, style: TextStyle(color: Colors.red)),
-      ),
-    );
-  }
-}
-
-Widget setupNoResultsFound() {
-  return Expanded(
-      child: AppEmptyState(
-          title: "No Job Requests",
-          subtitle: "You haven't submitted any job requests yet",
-          svgAssetPath: AppAssets.noDataFound));
-}
-
-Widget setupSuccess(List<JobModel> jobRequests) {
-  return JobRequestsListView(jobsList: jobRequests);
 }
