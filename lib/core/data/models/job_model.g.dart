@@ -20,7 +20,7 @@ JobModel _$JobModelFromJson(Map<String, dynamic> json) => JobModel(
       jobType: JobTypeExtension.fromString(json['job_type'] as String),
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),
-      views: (json['views'] as num).toInt(),
+      views: (json['views'] as num?)?.toInt() ?? 0,
       postedBy: PostedBy.fromJson(json['posted_by'] as Map<String, dynamic>),
       experienceRange: ExperienceRange.fromJson(
           json['experience_range'] as Map<String, dynamic>),

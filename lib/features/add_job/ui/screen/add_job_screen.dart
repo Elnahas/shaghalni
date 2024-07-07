@@ -5,12 +5,14 @@ import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/features/add_job/logic/cubit/add_job_cubit.dart';
 import 'package:shaghalni/features/add_job/ui/widgets/page_view_bloc_consumer.dart';
+import '../../../../core/data/models/job_model.dart';
 import '../widgets/add_job_app_bar.dart';
 import '../widgets/button_add_job_bloc_builder.dart';
 import '../widgets/my_page_indicator.dart';
 
 class AddJobScreen extends StatefulWidget {
-  const AddJobScreen({super.key});
+  final JobModel? jobModel;
+  const AddJobScreen({super.key, this.jobModel});
 
   @override
   State<AddJobScreen> createState() => _AddJobScreenState();

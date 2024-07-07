@@ -25,7 +25,7 @@ class _AddJobBlocBuilderState extends State<AddJobBlocBuilder> {
   @override
   void initState() {
     _cubit = context.read<AddJobCubit>();
-    _cubit.getCategoryAndCity();
+    _cubit.getCategoryAndCity(null);
     super.initState();
   }
 

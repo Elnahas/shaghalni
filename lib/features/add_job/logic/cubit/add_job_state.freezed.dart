@@ -21,6 +21,7 @@ mixin _$AddJobState<T> {
     required TResult Function() initial,
     required TResult Function() addJobLoading,
     required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
     required TResult Function(String error) addJobFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
@@ -38,6 +39,7 @@ mixin _$AddJobState<T> {
     TResult? Function()? initial,
     TResult? Function()? addJobLoading,
     TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
     TResult? Function(String error)? addJobFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
@@ -55,6 +57,7 @@ mixin _$AddJobState<T> {
     TResult Function()? initial,
     TResult Function()? addJobLoading,
     TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
     TResult Function(String error)? addJobFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
@@ -73,6 +76,7 @@ mixin _$AddJobState<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(AddJobLoading<T> value) addJobLoading,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
     required TResult Function(AddJobFailure<T> value) addJobFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
@@ -92,6 +96,7 @@ mixin _$AddJobState<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(AddJobLoading<T> value)? addJobLoading,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult? Function(AddJobFailure<T> value)? addJobFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -107,6 +112,7 @@ mixin _$AddJobState<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(AddJobLoading<T> value)? addJobLoading,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult Function(AddJobFailure<T> value)? addJobFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -179,6 +185,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() initial,
     required TResult Function() addJobLoading,
     required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
     required TResult Function(String error) addJobFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
@@ -199,6 +206,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? initial,
     TResult? Function()? addJobLoading,
     TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
     TResult? Function(String error)? addJobFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
@@ -219,6 +227,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? initial,
     TResult Function()? addJobLoading,
     TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
     TResult Function(String error)? addJobFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
@@ -243,6 +252,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(AddJobLoading<T> value) addJobLoading,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
     required TResult Function(AddJobFailure<T> value) addJobFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
@@ -265,6 +275,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(AddJobLoading<T> value)? addJobLoading,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult? Function(AddJobFailure<T> value)? addJobFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -283,6 +294,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(AddJobLoading<T> value)? addJobLoading,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult Function(AddJobFailure<T> value)? addJobFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -345,6 +357,7 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     required TResult Function() initial,
     required TResult Function() addJobLoading,
     required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
     required TResult Function(String error) addJobFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
@@ -365,6 +378,7 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     TResult? Function()? initial,
     TResult? Function()? addJobLoading,
     TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
     TResult? Function(String error)? addJobFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
@@ -385,6 +399,7 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     TResult Function()? initial,
     TResult Function()? addJobLoading,
     TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
     TResult Function(String error)? addJobFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
@@ -409,6 +424,7 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(AddJobLoading<T> value) addJobLoading,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
     required TResult Function(AddJobFailure<T> value) addJobFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
@@ -431,6 +447,7 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(AddJobLoading<T> value)? addJobLoading,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult? Function(AddJobFailure<T> value)? addJobFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -449,6 +466,7 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(AddJobLoading<T> value)? addJobLoading,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult Function(AddJobFailure<T> value)? addJobFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -511,6 +529,7 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
     required TResult Function() initial,
     required TResult Function() addJobLoading,
     required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
     required TResult Function(String error) addJobFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
@@ -531,6 +550,7 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
     TResult? Function()? initial,
     TResult? Function()? addJobLoading,
     TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
     TResult? Function(String error)? addJobFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
@@ -551,6 +571,7 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
     TResult Function()? initial,
     TResult Function()? addJobLoading,
     TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
     TResult Function(String error)? addJobFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
@@ -575,6 +596,7 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(AddJobLoading<T> value) addJobLoading,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
     required TResult Function(AddJobFailure<T> value) addJobFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
@@ -597,6 +619,7 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(AddJobLoading<T> value)? addJobLoading,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult? Function(AddJobFailure<T> value)? addJobFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -615,6 +638,7 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(AddJobLoading<T> value)? addJobLoading,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult Function(AddJobFailure<T> value)? addJobFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -634,6 +658,179 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
 
 abstract class AddJobSuccess<T> implements AddJobState<T> {
   const factory AddJobSuccess() = _$AddJobSuccessImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$UpdateJobSuccessImplCopyWith<T, $Res> {
+  factory _$$UpdateJobSuccessImplCopyWith(_$UpdateJobSuccessImpl<T> value,
+          $Res Function(_$UpdateJobSuccessImpl<T>) then) =
+      __$$UpdateJobSuccessImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$UpdateJobSuccessImplCopyWithImpl<T, $Res>
+    extends _$AddJobStateCopyWithImpl<T, $Res, _$UpdateJobSuccessImpl<T>>
+    implements _$$UpdateJobSuccessImplCopyWith<T, $Res> {
+  __$$UpdateJobSuccessImplCopyWithImpl(_$UpdateJobSuccessImpl<T> _value,
+      $Res Function(_$UpdateJobSuccessImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdateJobSuccessImpl<T> implements UpdateJobSuccess<T> {
+  const _$UpdateJobSuccessImpl();
+
+  @override
+  String toString() {
+    return 'AddJobState<$T>.updateJobSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateJobSuccessImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() addJobLoading,
+    required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) addJobFailure,
+    required TResult Function() categoryAndCityLoading,
+    required TResult Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)
+        categoryAndCitySuccess,
+    required TResult Function(String error) categoryAndCityFailure,
+    required TResult Function(int index) updateSteps,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
+  }) {
+    return updateJobSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? addJobLoading,
+    TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? categoryAndCityLoading,
+    TResult? Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)?
+        categoryAndCitySuccess,
+    TResult? Function(String error)? categoryAndCityFailure,
+    TResult? Function(int index)? updateSteps,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
+  }) {
+    return updateJobSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? addJobLoading,
+    TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? addJobFailure,
+    TResult Function()? categoryAndCityLoading,
+    TResult Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)?
+        categoryAndCitySuccess,
+    TResult Function(String error)? categoryAndCityFailure,
+    TResult Function(int index)? updateSteps,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
+    required TResult orElse(),
+  }) {
+    if (updateJobSuccess != null) {
+      return updateJobSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(CategoryAndCityLoading<T> value)
+        categoryAndCityLoading,
+    required TResult Function(CategoryAndCitySuccess<T> value)
+        categoryAndCitySuccess,
+    required TResult Function(CategoryAndCityFailure<T> value)
+        categoryAndCityFailure,
+    required TResult Function(UpdateSteps<T> value) updateSteps,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
+  }) {
+    return updateJobSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
+    TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
+    TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
+    TResult? Function(UpdateSteps<T> value)? updateSteps,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
+  }) {
+    return updateJobSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
+    TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
+    TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
+    TResult Function(UpdateSteps<T> value)? updateSteps,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
+    required TResult orElse(),
+  }) {
+    if (updateJobSuccess != null) {
+      return updateJobSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateJobSuccess<T> implements AddJobState<T> {
+  const factory UpdateJobSuccess() = _$UpdateJobSuccessImpl<T>;
 }
 
 /// @nodoc
@@ -704,6 +901,7 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     required TResult Function() initial,
     required TResult Function() addJobLoading,
     required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
     required TResult Function(String error) addJobFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
@@ -724,6 +922,7 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     TResult? Function()? initial,
     TResult? Function()? addJobLoading,
     TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
     TResult? Function(String error)? addJobFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
@@ -744,6 +943,7 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     TResult Function()? initial,
     TResult Function()? addJobLoading,
     TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
     TResult Function(String error)? addJobFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
@@ -768,6 +968,7 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(AddJobLoading<T> value) addJobLoading,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
     required TResult Function(AddJobFailure<T> value) addJobFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
@@ -790,6 +991,7 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(AddJobLoading<T> value)? addJobLoading,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult? Function(AddJobFailure<T> value)? addJobFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -808,6 +1010,7 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(AddJobLoading<T> value)? addJobLoading,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult Function(AddJobFailure<T> value)? addJobFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -879,6 +1082,7 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
     required TResult Function() initial,
     required TResult Function() addJobLoading,
     required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
     required TResult Function(String error) addJobFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
@@ -899,6 +1103,7 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
     TResult? Function()? initial,
     TResult? Function()? addJobLoading,
     TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
     TResult? Function(String error)? addJobFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
@@ -919,6 +1124,7 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
     TResult Function()? initial,
     TResult Function()? addJobLoading,
     TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
     TResult Function(String error)? addJobFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
@@ -943,6 +1149,7 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(AddJobLoading<T> value) addJobLoading,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
     required TResult Function(AddJobFailure<T> value) addJobFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
@@ -965,6 +1172,7 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(AddJobLoading<T> value)? addJobLoading,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult? Function(AddJobFailure<T> value)? addJobFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -983,6 +1191,7 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(AddJobLoading<T> value)? addJobLoading,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult Function(AddJobFailure<T> value)? addJobFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -1100,6 +1309,7 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
     required TResult Function() initial,
     required TResult Function() addJobLoading,
     required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
     required TResult Function(String error) addJobFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
@@ -1120,6 +1330,7 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
     TResult? Function()? initial,
     TResult? Function()? addJobLoading,
     TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
     TResult? Function(String error)? addJobFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
@@ -1140,6 +1351,7 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
     TResult Function()? initial,
     TResult Function()? addJobLoading,
     TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
     TResult Function(String error)? addJobFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
@@ -1164,6 +1376,7 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(AddJobLoading<T> value) addJobLoading,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
     required TResult Function(AddJobFailure<T> value) addJobFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
@@ -1186,6 +1399,7 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(AddJobLoading<T> value)? addJobLoading,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult? Function(AddJobFailure<T> value)? addJobFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -1204,6 +1418,7 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(AddJobLoading<T> value)? addJobLoading,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult Function(AddJobFailure<T> value)? addJobFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -1302,6 +1517,7 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
     required TResult Function() initial,
     required TResult Function() addJobLoading,
     required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
     required TResult Function(String error) addJobFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
@@ -1322,6 +1538,7 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
     TResult? Function()? initial,
     TResult? Function()? addJobLoading,
     TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
     TResult? Function(String error)? addJobFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
@@ -1342,6 +1559,7 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
     TResult Function()? initial,
     TResult Function()? addJobLoading,
     TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
     TResult Function(String error)? addJobFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
@@ -1366,6 +1584,7 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(AddJobLoading<T> value) addJobLoading,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
     required TResult Function(AddJobFailure<T> value) addJobFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
@@ -1388,6 +1607,7 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(AddJobLoading<T> value)? addJobLoading,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult? Function(AddJobFailure<T> value)? addJobFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -1406,6 +1626,7 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(AddJobLoading<T> value)? addJobLoading,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult Function(AddJobFailure<T> value)? addJobFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -1501,6 +1722,7 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
     required TResult Function() initial,
     required TResult Function() addJobLoading,
     required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
     required TResult Function(String error) addJobFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
@@ -1521,6 +1743,7 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
     TResult? Function()? initial,
     TResult? Function()? addJobLoading,
     TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
     TResult? Function(String error)? addJobFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
@@ -1541,6 +1764,7 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
     TResult Function()? initial,
     TResult Function()? addJobLoading,
     TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
     TResult Function(String error)? addJobFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
@@ -1565,6 +1789,7 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(AddJobLoading<T> value) addJobLoading,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
     required TResult Function(AddJobFailure<T> value) addJobFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
@@ -1587,6 +1812,7 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(AddJobLoading<T> value)? addJobLoading,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult? Function(AddJobFailure<T> value)? addJobFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -1605,6 +1831,7 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(AddJobLoading<T> value)? addJobLoading,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult Function(AddJobFailure<T> value)? addJobFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -1700,6 +1927,7 @@ class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
     required TResult Function() initial,
     required TResult Function() addJobLoading,
     required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
     required TResult Function(String error) addJobFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
@@ -1720,6 +1948,7 @@ class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
     TResult? Function()? initial,
     TResult? Function()? addJobLoading,
     TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
     TResult? Function(String error)? addJobFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
@@ -1740,6 +1969,7 @@ class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
     TResult Function()? initial,
     TResult Function()? addJobLoading,
     TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
     TResult Function(String error)? addJobFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
@@ -1764,6 +1994,7 @@ class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(AddJobLoading<T> value) addJobLoading,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
     required TResult Function(AddJobFailure<T> value) addJobFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
@@ -1786,6 +2017,7 @@ class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(AddJobLoading<T> value)? addJobLoading,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult? Function(AddJobFailure<T> value)? addJobFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -1804,6 +2036,7 @@ class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(AddJobLoading<T> value)? addJobLoading,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult Function(AddJobFailure<T> value)? addJobFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -1899,6 +2132,7 @@ class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
     required TResult Function() initial,
     required TResult Function() addJobLoading,
     required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
     required TResult Function(String error) addJobFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
@@ -1919,6 +2153,7 @@ class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
     TResult? Function()? initial,
     TResult? Function()? addJobLoading,
     TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
     TResult? Function(String error)? addJobFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
@@ -1939,6 +2174,7 @@ class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
     TResult Function()? initial,
     TResult Function()? addJobLoading,
     TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
     TResult Function(String error)? addJobFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
@@ -1963,6 +2199,7 @@ class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(AddJobLoading<T> value) addJobLoading,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
     required TResult Function(AddJobFailure<T> value) addJobFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
@@ -1985,6 +2222,7 @@ class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(AddJobLoading<T> value)? addJobLoading,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult? Function(AddJobFailure<T> value)? addJobFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -2003,6 +2241,7 @@ class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(AddJobLoading<T> value)? addJobLoading,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult Function(AddJobFailure<T> value)? addJobFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -2098,6 +2337,7 @@ class _$StepUpdatedImpl<T> implements StepUpdated<T> {
     required TResult Function() initial,
     required TResult Function() addJobLoading,
     required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
     required TResult Function(String error) addJobFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
@@ -2118,6 +2358,7 @@ class _$StepUpdatedImpl<T> implements StepUpdated<T> {
     TResult? Function()? initial,
     TResult? Function()? addJobLoading,
     TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
     TResult? Function(String error)? addJobFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
@@ -2138,6 +2379,7 @@ class _$StepUpdatedImpl<T> implements StepUpdated<T> {
     TResult Function()? initial,
     TResult Function()? addJobLoading,
     TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
     TResult Function(String error)? addJobFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
@@ -2162,6 +2404,7 @@ class _$StepUpdatedImpl<T> implements StepUpdated<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(AddJobLoading<T> value) addJobLoading,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
     required TResult Function(AddJobFailure<T> value) addJobFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
@@ -2184,6 +2427,7 @@ class _$StepUpdatedImpl<T> implements StepUpdated<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(AddJobLoading<T> value)? addJobLoading,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult? Function(AddJobFailure<T> value)? addJobFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
@@ -2202,6 +2446,7 @@ class _$StepUpdatedImpl<T> implements StepUpdated<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(AddJobLoading<T> value)? addJobLoading,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
     TResult Function(AddJobFailure<T> value)? addJobFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,

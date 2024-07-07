@@ -59,7 +59,6 @@ class ButtonAddJobBlocBuilder extends StatelessWidget {
           userName: userModel!.fullName);
 
       final job = JobModel(
-          
         jobType: _cubit.selectedJobType!,
           postedBy: posted_by,
           experienceRange: ExperienceRange(
@@ -72,13 +71,14 @@ class ButtonAddJobBlocBuilder extends StatelessWidget {
           category: _cubit.category,
           salary: double.tryParse(_cubit.jobSalaryController.text) ?? 0.0,
           isHideSalary: _cubit.isHideSalary,
-          status: JobStatus.pending,
-          createdAt: DateTime.now(),
+          status:  _cubit.isEditing ? _cubit.currentJob!.status : JobStatus.pending,
+          createdAt:  _cubit.isEditing ? _cubit.currentJob!.createdAt : DateTime.now(),
           updatedAt: DateTime.now(),
-          views: 0);
+          views: _cubit.isEditing ?  _cubit.currentJob!.views : 0
+          );
 
 
-      _cubit.addJob(job);
+      _cubit.saveJob(isEditing: _cubit.isEditing , jobModel: job);
     }
   }
 }

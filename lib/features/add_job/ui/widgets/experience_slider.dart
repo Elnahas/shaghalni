@@ -13,8 +13,14 @@ class ExperienceSlider extends StatefulWidget {
 }
 
 class _ExperienceSliderState extends State<ExperienceSlider> {
-  double _startValue = 0;
-  double _endValue = 1;
+
+  late AddJobCubit _cubit;
+
+  @override
+  void initState() {
+    _cubit =  context.read<AddJobCubit>();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +32,14 @@ class _ExperienceSliderState extends State<ExperienceSlider> {
         RangeSlider(
           activeColor: AppColors.primaryColor,
           inactiveColor: AppColors.primaryColor.withOpacity(0.5),
-          values: RangeValues(_startValue, _endValue),
+          values: RangeValues(_cubit.minExperience.toDouble(), _cubit.maxExperience.toDouble()),
           min: 0,
           max: 8,
           divisions: 8,
           onChanged: (RangeValues values) {
             setState(() {
-              _startValue = values.start;
-              context.read<AddJobCubit>().minExperience = values.start.toInt();
-              context.read<AddJobCubit>().maxExperience = values.end.toInt();
-              _endValue = values.end;
+              _cubit.minExperience = values.start.toInt();
+              _cubit.maxExperience = values.end.toInt();
             });
           },
         ),
