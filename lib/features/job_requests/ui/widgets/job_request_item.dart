@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
+import 'package:shaghalni/core/routing/routes.dart';
 import '../../../../core/helpers/date_helper.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
@@ -91,7 +93,9 @@ class JobRequestItem extends StatelessWidget {
                           ),
                           IconButton(
                             icon: Icon(Icons.edit),
-                            onPressed: () {},
+                            onPressed: () {
+                              context.pushNamed(Routes.addJob, arguments: jobModel);
+                            },
                           ),
                         ],
                       ),

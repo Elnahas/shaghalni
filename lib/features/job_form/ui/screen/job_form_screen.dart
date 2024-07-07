@@ -3,26 +3,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/functions/show_modal_bottom_sheet.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
-import 'package:shaghalni/features/add_job/logic/cubit/add_job_cubit.dart';
-import 'package:shaghalni/features/add_job/ui/widgets/page_view_bloc_consumer.dart';
-import '../widgets/add_job_app_bar.dart';
-import '../widgets/button_add_job_bloc_builder.dart';
+import 'package:shaghalni/features/job_form/logic/cubit/job_form_cubit.dart';
+import 'package:shaghalni/features/job_form/ui/widgets/page_view_bloc_consumer.dart';
+import '../../../../core/data/models/job_model.dart';
+import '../widgets/job_form_app_bar.dart';
+import '../widgets/job_form_button_bloc_builder.dart';
 import '../widgets/my_page_indicator.dart';
 
-class AddJobScreen extends StatefulWidget {
-  const AddJobScreen({super.key});
+class JobFormScreen extends StatefulWidget {
+  final JobModel? jobModel;
+  const JobFormScreen({super.key, this.jobModel});
 
   @override
-  State<AddJobScreen> createState() => _AddJobScreenState();
+  State<JobFormScreen> createState() => _JobFormScreenState();
 }
 
-class _AddJobScreenState extends State<AddJobScreen> {
+class _JobFormScreenState extends State<JobFormScreen> {
   late PageController pageController;
-  late final AddJobCubit _cubit;
+  late final JobFormCubit _cubit;
 
   @override
   void initState() {
-    _cubit = context.read<AddJobCubit>();
+    _cubit = context.read<JobFormCubit>();
     pageController = _cubit.pageController;
     super.initState();
   }
@@ -45,7 +47,7 @@ class _AddJobScreenState extends State<AddJobScreen> {
         }
       },
       child: Scaffold(
-        appBar: AddJobAppBar(),
+        appBar: JobFormAppBar(),
         backgroundColor: AppColors.lighterGray,
         body: Padding(
           padding: const EdgeInsets.all(14.0),
@@ -58,7 +60,7 @@ class _AddJobScreenState extends State<AddJobScreen> {
                   pageController: pageController,
                 ),
               ),
-              ButtonAddJobBlocBuilder()
+              JobFormButtonBlocBuilder()
             ],
           ),
         ),

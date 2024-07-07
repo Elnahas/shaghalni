@@ -9,26 +9,26 @@ import '../../../../core/data/enum/gender.dart';
 import '../../../../core/theming/app_text_styles.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../../core/widgets/app_drop_down.dart';
-import '../../logic/cubit/add_job_cubit.dart';
+import '../../logic/cubit/job_form_cubit.dart';
 import 'experience_slider.dart';
 
-class AddJobForm extends StatefulWidget {
-  const AddJobForm({super.key});
+class JobForm extends StatefulWidget {
+  const JobForm({super.key});
 
   @override
-  State<AddJobForm> createState() => _AddJobFormState();
+  State<JobForm> createState() => _JobFormState();
 }
 
-class _AddJobFormState extends State<AddJobForm> {
+class _JobFormState extends State<JobForm> {
   late TextEditingController jobTitleController;
   late TextEditingController jobDescriptionController;
   late TextEditingController jobSalaryController;
 
-  late final AddJobCubit _cubit;
+  late final JobFormCubit _cubit;
 
   @override
   void initState() {
-    _cubit = context.read<AddJobCubit>();
+    _cubit = context.read<JobFormCubit>();
 
     jobTitleController = _cubit.jobTitleController;
     jobDescriptionController = _cubit.jobDescriptionController;

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'add_job_state.dart';
+part of 'job_form_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,13 +15,15 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$AddJobState<T> {
+mixin _$JobFormState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() addJobLoading,
+    required TResult Function() formLoading,
+    required TResult Function() formSuccess,
     required TResult Function() addJobSuccess,
-    required TResult Function(String error) addJobFailure,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) formFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)
@@ -36,9 +38,11 @@ mixin _$AddJobState<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? addJobLoading,
+    TResult? Function()? formLoading,
+    TResult? Function()? formSuccess,
     TResult? Function()? addJobSuccess,
-    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? formFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -53,9 +57,11 @@ mixin _$AddJobState<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? addJobLoading,
+    TResult Function()? formLoading,
+    TResult Function()? formSuccess,
     TResult Function()? addJobSuccess,
-    TResult Function(String error)? addJobFailure,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? formFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -71,9 +77,11 @@ mixin _$AddJobState<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(FormLoading<T> value) formLoading,
+    required TResult Function(FormSuccess<T> value) formSuccess,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
-    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(FormFailure<T> value) formFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
     required TResult Function(CategoryAndCitySuccess<T> value)
@@ -90,9 +98,11 @@ mixin _$AddJobState<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(FormLoading<T> value)? formLoading,
+    TResult? Function(FormSuccess<T> value)? formSuccess,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(FormFailure<T> value)? formFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -105,9 +115,11 @@ mixin _$AddJobState<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(FormLoading<T> value)? formLoading,
+    TResult Function(FormSuccess<T> value)? formSuccess,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(FormFailure<T> value)? formFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -121,16 +133,16 @@ mixin _$AddJobState<T> {
 }
 
 /// @nodoc
-abstract class $AddJobStateCopyWith<T, $Res> {
-  factory $AddJobStateCopyWith(
-          AddJobState<T> value, $Res Function(AddJobState<T>) then) =
-      _$AddJobStateCopyWithImpl<T, $Res, AddJobState<T>>;
+abstract class $JobFormStateCopyWith<T, $Res> {
+  factory $JobFormStateCopyWith(
+          JobFormState<T> value, $Res Function(JobFormState<T>) then) =
+      _$JobFormStateCopyWithImpl<T, $Res, JobFormState<T>>;
 }
 
 /// @nodoc
-class _$AddJobStateCopyWithImpl<T, $Res, $Val extends AddJobState<T>>
-    implements $AddJobStateCopyWith<T, $Res> {
-  _$AddJobStateCopyWithImpl(this._value, this._then);
+class _$JobFormStateCopyWithImpl<T, $Res, $Val extends JobFormState<T>>
+    implements $JobFormStateCopyWith<T, $Res> {
+  _$JobFormStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -147,7 +159,7 @@ abstract class _$$InitialImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$AddJobStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    extends _$JobFormStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
     implements _$$InitialImplCopyWith<T, $Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
@@ -161,7 +173,7 @@ class _$InitialImpl<T> implements _Initial<T> {
 
   @override
   String toString() {
-    return 'AddJobState<$T>.initial()';
+    return 'JobFormState<$T>.initial()';
   }
 
   @override
@@ -177,9 +189,11 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() addJobLoading,
+    required TResult Function() formLoading,
+    required TResult Function() formSuccess,
     required TResult Function() addJobSuccess,
-    required TResult Function(String error) addJobFailure,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) formFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)
@@ -197,9 +211,11 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? addJobLoading,
+    TResult? Function()? formLoading,
+    TResult? Function()? formSuccess,
     TResult? Function()? addJobSuccess,
-    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? formFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -217,9 +233,11 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? addJobLoading,
+    TResult Function()? formLoading,
+    TResult Function()? formSuccess,
     TResult Function()? addJobSuccess,
-    TResult Function(String error)? addJobFailure,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? formFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -241,9 +259,11 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(FormLoading<T> value) formLoading,
+    required TResult Function(FormSuccess<T> value) formSuccess,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
-    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(FormFailure<T> value) formFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
     required TResult Function(CategoryAndCitySuccess<T> value)
@@ -263,9 +283,11 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(FormLoading<T> value)? formLoading,
+    TResult? Function(FormSuccess<T> value)? formSuccess,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(FormFailure<T> value)? formFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -281,9 +303,11 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(FormLoading<T> value)? formLoading,
+    TResult Function(FormSuccess<T> value)? formSuccess,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(FormFailure<T> value)? formFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -300,40 +324,40 @@ class _$InitialImpl<T> implements _Initial<T> {
   }
 }
 
-abstract class _Initial<T> implements AddJobState<T> {
+abstract class _Initial<T> implements JobFormState<T> {
   const factory _Initial() = _$InitialImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$AddJobLoadingImplCopyWith<T, $Res> {
-  factory _$$AddJobLoadingImplCopyWith(_$AddJobLoadingImpl<T> value,
-          $Res Function(_$AddJobLoadingImpl<T>) then) =
-      __$$AddJobLoadingImplCopyWithImpl<T, $Res>;
+abstract class _$$FormLoadingImplCopyWith<T, $Res> {
+  factory _$$FormLoadingImplCopyWith(_$FormLoadingImpl<T> value,
+          $Res Function(_$FormLoadingImpl<T>) then) =
+      __$$FormLoadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$AddJobLoadingImplCopyWithImpl<T, $Res>
-    extends _$AddJobStateCopyWithImpl<T, $Res, _$AddJobLoadingImpl<T>>
-    implements _$$AddJobLoadingImplCopyWith<T, $Res> {
-  __$$AddJobLoadingImplCopyWithImpl(_$AddJobLoadingImpl<T> _value,
-      $Res Function(_$AddJobLoadingImpl<T>) _then)
+class __$$FormLoadingImplCopyWithImpl<T, $Res>
+    extends _$JobFormStateCopyWithImpl<T, $Res, _$FormLoadingImpl<T>>
+    implements _$$FormLoadingImplCopyWith<T, $Res> {
+  __$$FormLoadingImplCopyWithImpl(
+      _$FormLoadingImpl<T> _value, $Res Function(_$FormLoadingImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
-  const _$AddJobLoadingImpl();
+class _$FormLoadingImpl<T> implements FormLoading<T> {
+  const _$FormLoadingImpl();
 
   @override
   String toString() {
-    return 'AddJobState<$T>.addJobLoading()';
+    return 'JobFormState<$T>.formLoading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AddJobLoadingImpl<T>);
+        (other.runtimeType == runtimeType && other is _$FormLoadingImpl<T>);
   }
 
   @override
@@ -343,9 +367,11 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() addJobLoading,
+    required TResult Function() formLoading,
+    required TResult Function() formSuccess,
     required TResult Function() addJobSuccess,
-    required TResult Function(String error) addJobFailure,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) formFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)
@@ -356,16 +382,18 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     required TResult Function(int index) cityIndexUpdated,
     required TResult Function(int index) stepUpdated,
   }) {
-    return addJobLoading();
+    return formLoading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? addJobLoading,
+    TResult? Function()? formLoading,
+    TResult? Function()? formSuccess,
     TResult? Function()? addJobSuccess,
-    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? formFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -376,16 +404,18 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     TResult? Function(int index)? cityIndexUpdated,
     TResult? Function(int index)? stepUpdated,
   }) {
-    return addJobLoading?.call();
+    return formLoading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? addJobLoading,
+    TResult Function()? formLoading,
+    TResult Function()? formSuccess,
     TResult Function()? addJobSuccess,
-    TResult Function(String error)? addJobFailure,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? formFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -397,8 +427,8 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     TResult Function(int index)? stepUpdated,
     required TResult orElse(),
   }) {
-    if (addJobLoading != null) {
-      return addJobLoading();
+    if (formLoading != null) {
+      return formLoading();
     }
     return orElse();
   }
@@ -407,9 +437,11 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(FormLoading<T> value) formLoading,
+    required TResult Function(FormSuccess<T> value) formSuccess,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
-    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(FormFailure<T> value) formFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
     required TResult Function(CategoryAndCitySuccess<T> value)
@@ -422,16 +454,18 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
     required TResult Function(StepUpdated<T> value) stepUpdated,
   }) {
-    return addJobLoading(this);
+    return formLoading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(FormLoading<T> value)? formLoading,
+    TResult? Function(FormSuccess<T> value)? formSuccess,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(FormFailure<T> value)? formFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -440,16 +474,18 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
     TResult? Function(StepUpdated<T> value)? stepUpdated,
   }) {
-    return addJobLoading?.call(this);
+    return formLoading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(FormLoading<T> value)? formLoading,
+    TResult Function(FormSuccess<T> value)? formSuccess,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(FormFailure<T> value)? formFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -459,15 +495,193 @@ class _$AddJobLoadingImpl<T> implements AddJobLoading<T> {
     TResult Function(StepUpdated<T> value)? stepUpdated,
     required TResult orElse(),
   }) {
-    if (addJobLoading != null) {
-      return addJobLoading(this);
+    if (formLoading != null) {
+      return formLoading(this);
     }
     return orElse();
   }
 }
 
-abstract class AddJobLoading<T> implements AddJobState<T> {
-  const factory AddJobLoading() = _$AddJobLoadingImpl<T>;
+abstract class FormLoading<T> implements JobFormState<T> {
+  const factory FormLoading() = _$FormLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$FormSuccessImplCopyWith<T, $Res> {
+  factory _$$FormSuccessImplCopyWith(_$FormSuccessImpl<T> value,
+          $Res Function(_$FormSuccessImpl<T>) then) =
+      __$$FormSuccessImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$FormSuccessImplCopyWithImpl<T, $Res>
+    extends _$JobFormStateCopyWithImpl<T, $Res, _$FormSuccessImpl<T>>
+    implements _$$FormSuccessImplCopyWith<T, $Res> {
+  __$$FormSuccessImplCopyWithImpl(
+      _$FormSuccessImpl<T> _value, $Res Function(_$FormSuccessImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FormSuccessImpl<T> implements FormSuccess<T> {
+  const _$FormSuccessImpl();
+
+  @override
+  String toString() {
+    return 'JobFormState<$T>.formSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FormSuccessImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() formLoading,
+    required TResult Function() formSuccess,
+    required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) formFailure,
+    required TResult Function() categoryAndCityLoading,
+    required TResult Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)
+        categoryAndCitySuccess,
+    required TResult Function(String error) categoryAndCityFailure,
+    required TResult Function(int index) updateSteps,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
+  }) {
+    return formSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? formLoading,
+    TResult? Function()? formSuccess,
+    TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? formFailure,
+    TResult? Function()? categoryAndCityLoading,
+    TResult? Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)?
+        categoryAndCitySuccess,
+    TResult? Function(String error)? categoryAndCityFailure,
+    TResult? Function(int index)? updateSteps,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
+  }) {
+    return formSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? formLoading,
+    TResult Function()? formSuccess,
+    TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? formFailure,
+    TResult Function()? categoryAndCityLoading,
+    TResult Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)?
+        categoryAndCitySuccess,
+    TResult Function(String error)? categoryAndCityFailure,
+    TResult Function(int index)? updateSteps,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
+    required TResult orElse(),
+  }) {
+    if (formSuccess != null) {
+      return formSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(FormLoading<T> value) formLoading,
+    required TResult Function(FormSuccess<T> value) formSuccess,
+    required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(FormFailure<T> value) formFailure,
+    required TResult Function(CategoryAndCityLoading<T> value)
+        categoryAndCityLoading,
+    required TResult Function(CategoryAndCitySuccess<T> value)
+        categoryAndCitySuccess,
+    required TResult Function(CategoryAndCityFailure<T> value)
+        categoryAndCityFailure,
+    required TResult Function(UpdateSteps<T> value) updateSteps,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
+  }) {
+    return formSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(FormLoading<T> value)? formLoading,
+    TResult? Function(FormSuccess<T> value)? formSuccess,
+    TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(FormFailure<T> value)? formFailure,
+    TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
+    TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
+    TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
+    TResult? Function(UpdateSteps<T> value)? updateSteps,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
+  }) {
+    return formSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(FormLoading<T> value)? formLoading,
+    TResult Function(FormSuccess<T> value)? formSuccess,
+    TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(FormFailure<T> value)? formFailure,
+    TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
+    TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
+    TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
+    TResult Function(UpdateSteps<T> value)? updateSteps,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
+    required TResult orElse(),
+  }) {
+    if (formSuccess != null) {
+      return formSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FormSuccess<T> implements JobFormState<T> {
+  const factory FormSuccess() = _$FormSuccessImpl<T>;
 }
 
 /// @nodoc
@@ -479,7 +693,7 @@ abstract class _$$AddJobSuccessImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$AddJobSuccessImplCopyWithImpl<T, $Res>
-    extends _$AddJobStateCopyWithImpl<T, $Res, _$AddJobSuccessImpl<T>>
+    extends _$JobFormStateCopyWithImpl<T, $Res, _$AddJobSuccessImpl<T>>
     implements _$$AddJobSuccessImplCopyWith<T, $Res> {
   __$$AddJobSuccessImplCopyWithImpl(_$AddJobSuccessImpl<T> _value,
       $Res Function(_$AddJobSuccessImpl<T>) _then)
@@ -493,7 +707,7 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
 
   @override
   String toString() {
-    return 'AddJobState<$T>.addJobSuccess()';
+    return 'JobFormState<$T>.addJobSuccess()';
   }
 
   @override
@@ -509,9 +723,11 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() addJobLoading,
+    required TResult Function() formLoading,
+    required TResult Function() formSuccess,
     required TResult Function() addJobSuccess,
-    required TResult Function(String error) addJobFailure,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) formFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)
@@ -529,9 +745,11 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? addJobLoading,
+    TResult? Function()? formLoading,
+    TResult? Function()? formSuccess,
     TResult? Function()? addJobSuccess,
-    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? formFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -549,9 +767,11 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? addJobLoading,
+    TResult Function()? formLoading,
+    TResult Function()? formSuccess,
     TResult Function()? addJobSuccess,
-    TResult Function(String error)? addJobFailure,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? formFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -573,9 +793,11 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(FormLoading<T> value) formLoading,
+    required TResult Function(FormSuccess<T> value) formSuccess,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
-    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(FormFailure<T> value) formFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
     required TResult Function(CategoryAndCitySuccess<T> value)
@@ -595,9 +817,11 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(FormLoading<T> value)? formLoading,
+    TResult? Function(FormSuccess<T> value)? formSuccess,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(FormFailure<T> value)? formFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -613,9 +837,11 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(FormLoading<T> value)? formLoading,
+    TResult Function(FormSuccess<T> value)? formSuccess,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(FormFailure<T> value)? formFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -632,79 +858,55 @@ class _$AddJobSuccessImpl<T> implements AddJobSuccess<T> {
   }
 }
 
-abstract class AddJobSuccess<T> implements AddJobState<T> {
+abstract class AddJobSuccess<T> implements JobFormState<T> {
   const factory AddJobSuccess() = _$AddJobSuccessImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$AddJobFailureImplCopyWith<T, $Res> {
-  factory _$$AddJobFailureImplCopyWith(_$AddJobFailureImpl<T> value,
-          $Res Function(_$AddJobFailureImpl<T>) then) =
-      __$$AddJobFailureImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({String error});
+abstract class _$$UpdateJobSuccessImplCopyWith<T, $Res> {
+  factory _$$UpdateJobSuccessImplCopyWith(_$UpdateJobSuccessImpl<T> value,
+          $Res Function(_$UpdateJobSuccessImpl<T>) then) =
+      __$$UpdateJobSuccessImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$AddJobFailureImplCopyWithImpl<T, $Res>
-    extends _$AddJobStateCopyWithImpl<T, $Res, _$AddJobFailureImpl<T>>
-    implements _$$AddJobFailureImplCopyWith<T, $Res> {
-  __$$AddJobFailureImplCopyWithImpl(_$AddJobFailureImpl<T> _value,
-      $Res Function(_$AddJobFailureImpl<T>) _then)
+class __$$UpdateJobSuccessImplCopyWithImpl<T, $Res>
+    extends _$JobFormStateCopyWithImpl<T, $Res, _$UpdateJobSuccessImpl<T>>
+    implements _$$UpdateJobSuccessImplCopyWith<T, $Res> {
+  __$$UpdateJobSuccessImplCopyWithImpl(_$UpdateJobSuccessImpl<T> _value,
+      $Res Function(_$UpdateJobSuccessImpl<T>) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$AddJobFailureImpl<T>(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
-  const _$AddJobFailureImpl({required this.error});
-
-  @override
-  final String error;
+class _$UpdateJobSuccessImpl<T> implements UpdateJobSuccess<T> {
+  const _$UpdateJobSuccessImpl();
 
   @override
   String toString() {
-    return 'AddJobState<$T>.addJobFailure(error: $error)';
+    return 'JobFormState<$T>.updateJobSuccess()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddJobFailureImpl<T> &&
-            (identical(other.error, error) || other.error == error));
+            other is _$UpdateJobSuccessImpl<T>);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AddJobFailureImplCopyWith<T, _$AddJobFailureImpl<T>> get copyWith =>
-      __$$AddJobFailureImplCopyWithImpl<T, _$AddJobFailureImpl<T>>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() addJobLoading,
+    required TResult Function() formLoading,
+    required TResult Function() formSuccess,
     required TResult Function() addJobSuccess,
-    required TResult Function(String error) addJobFailure,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) formFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)
@@ -715,16 +917,18 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     required TResult Function(int index) cityIndexUpdated,
     required TResult Function(int index) stepUpdated,
   }) {
-    return addJobFailure(error);
+    return updateJobSuccess();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? addJobLoading,
+    TResult? Function()? formLoading,
+    TResult? Function()? formSuccess,
     TResult? Function()? addJobSuccess,
-    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? formFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -735,16 +939,18 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     TResult? Function(int index)? cityIndexUpdated,
     TResult? Function(int index)? stepUpdated,
   }) {
-    return addJobFailure?.call(error);
+    return updateJobSuccess?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? addJobLoading,
+    TResult Function()? formLoading,
+    TResult Function()? formSuccess,
     TResult Function()? addJobSuccess,
-    TResult Function(String error)? addJobFailure,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? formFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -756,8 +962,8 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     TResult Function(int index)? stepUpdated,
     required TResult orElse(),
   }) {
-    if (addJobFailure != null) {
-      return addJobFailure(error);
+    if (updateJobSuccess != null) {
+      return updateJobSuccess();
     }
     return orElse();
   }
@@ -766,9 +972,11 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(FormLoading<T> value) formLoading,
+    required TResult Function(FormSuccess<T> value) formSuccess,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
-    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(FormFailure<T> value) formFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
     required TResult Function(CategoryAndCitySuccess<T> value)
@@ -781,16 +989,18 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
     required TResult Function(StepUpdated<T> value) stepUpdated,
   }) {
-    return addJobFailure(this);
+    return updateJobSuccess(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(FormLoading<T> value)? formLoading,
+    TResult? Function(FormSuccess<T> value)? formSuccess,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(FormFailure<T> value)? formFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -799,16 +1009,18 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
     TResult? Function(StepUpdated<T> value)? stepUpdated,
   }) {
-    return addJobFailure?.call(this);
+    return updateJobSuccess?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(FormLoading<T> value)? formLoading,
+    TResult Function(FormSuccess<T> value)? formSuccess,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(FormFailure<T> value)? formFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -818,20 +1030,225 @@ class _$AddJobFailureImpl<T> implements AddJobFailure<T> {
     TResult Function(StepUpdated<T> value)? stepUpdated,
     required TResult orElse(),
   }) {
-    if (addJobFailure != null) {
-      return addJobFailure(this);
+    if (updateJobSuccess != null) {
+      return updateJobSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class AddJobFailure<T> implements AddJobState<T> {
-  const factory AddJobFailure({required final String error}) =
-      _$AddJobFailureImpl<T>;
+abstract class UpdateJobSuccess<T> implements JobFormState<T> {
+  const factory UpdateJobSuccess() = _$UpdateJobSuccessImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$FormFailureImplCopyWith<T, $Res> {
+  factory _$$FormFailureImplCopyWith(_$FormFailureImpl<T> value,
+          $Res Function(_$FormFailureImpl<T>) then) =
+      __$$FormFailureImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$FormFailureImplCopyWithImpl<T, $Res>
+    extends _$JobFormStateCopyWithImpl<T, $Res, _$FormFailureImpl<T>>
+    implements _$$FormFailureImplCopyWith<T, $Res> {
+  __$$FormFailureImplCopyWithImpl(
+      _$FormFailureImpl<T> _value, $Res Function(_$FormFailureImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$FormFailureImpl<T>(
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FormFailureImpl<T> implements FormFailure<T> {
+  const _$FormFailureImpl({required this.error});
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'JobFormState<$T>.formFailure(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FormFailureImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FormFailureImplCopyWith<T, _$FormFailureImpl<T>> get copyWith =>
+      __$$FormFailureImplCopyWithImpl<T, _$FormFailureImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() formLoading,
+    required TResult Function() formSuccess,
+    required TResult Function() addJobSuccess,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) formFailure,
+    required TResult Function() categoryAndCityLoading,
+    required TResult Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)
+        categoryAndCitySuccess,
+    required TResult Function(String error) categoryAndCityFailure,
+    required TResult Function(int index) updateSteps,
+    required TResult Function(int index) categoryIndexUpdated,
+    required TResult Function(int index) cityIndexUpdated,
+    required TResult Function(int index) stepUpdated,
+  }) {
+    return formFailure(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? formLoading,
+    TResult? Function()? formSuccess,
+    TResult? Function()? addJobSuccess,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? formFailure,
+    TResult? Function()? categoryAndCityLoading,
+    TResult? Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)?
+        categoryAndCitySuccess,
+    TResult? Function(String error)? categoryAndCityFailure,
+    TResult? Function(int index)? updateSteps,
+    TResult? Function(int index)? categoryIndexUpdated,
+    TResult? Function(int index)? cityIndexUpdated,
+    TResult? Function(int index)? stepUpdated,
+  }) {
+    return formFailure?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? formLoading,
+    TResult Function()? formSuccess,
+    TResult Function()? addJobSuccess,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? formFailure,
+    TResult Function()? categoryAndCityLoading,
+    TResult Function(
+            List<CategoryModel> categoryList, List<CityModel> cityList)?
+        categoryAndCitySuccess,
+    TResult Function(String error)? categoryAndCityFailure,
+    TResult Function(int index)? updateSteps,
+    TResult Function(int index)? categoryIndexUpdated,
+    TResult Function(int index)? cityIndexUpdated,
+    TResult Function(int index)? stepUpdated,
+    required TResult orElse(),
+  }) {
+    if (formFailure != null) {
+      return formFailure(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(FormLoading<T> value) formLoading,
+    required TResult Function(FormSuccess<T> value) formSuccess,
+    required TResult Function(AddJobSuccess<T> value) addJobSuccess,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(FormFailure<T> value) formFailure,
+    required TResult Function(CategoryAndCityLoading<T> value)
+        categoryAndCityLoading,
+    required TResult Function(CategoryAndCitySuccess<T> value)
+        categoryAndCitySuccess,
+    required TResult Function(CategoryAndCityFailure<T> value)
+        categoryAndCityFailure,
+    required TResult Function(UpdateSteps<T> value) updateSteps,
+    required TResult Function(CategoryIndexUpdated<T> value)
+        categoryIndexUpdated,
+    required TResult Function(CityIndexUpdated<T> value) cityIndexUpdated,
+    required TResult Function(StepUpdated<T> value) stepUpdated,
+  }) {
+    return formFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(FormLoading<T> value)? formLoading,
+    TResult? Function(FormSuccess<T> value)? formSuccess,
+    TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(FormFailure<T> value)? formFailure,
+    TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
+    TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
+    TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
+    TResult? Function(UpdateSteps<T> value)? updateSteps,
+    TResult? Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult? Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult? Function(StepUpdated<T> value)? stepUpdated,
+  }) {
+    return formFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(FormLoading<T> value)? formLoading,
+    TResult Function(FormSuccess<T> value)? formSuccess,
+    TResult Function(AddJobSuccess<T> value)? addJobSuccess,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(FormFailure<T> value)? formFailure,
+    TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
+    TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
+    TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
+    TResult Function(UpdateSteps<T> value)? updateSteps,
+    TResult Function(CategoryIndexUpdated<T> value)? categoryIndexUpdated,
+    TResult Function(CityIndexUpdated<T> value)? cityIndexUpdated,
+    TResult Function(StepUpdated<T> value)? stepUpdated,
+    required TResult orElse(),
+  }) {
+    if (formFailure != null) {
+      return formFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FormFailure<T> implements JobFormState<T> {
+  const factory FormFailure({required final String error}) =
+      _$FormFailureImpl<T>;
 
   String get error;
   @JsonKey(ignore: true)
-  _$$AddJobFailureImplCopyWith<T, _$AddJobFailureImpl<T>> get copyWith =>
+  _$$FormFailureImplCopyWith<T, _$FormFailureImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -845,7 +1262,7 @@ abstract class _$$CategoryAndCityLoadingImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$CategoryAndCityLoadingImplCopyWithImpl<T, $Res>
-    extends _$AddJobStateCopyWithImpl<T, $Res, _$CategoryAndCityLoadingImpl<T>>
+    extends _$JobFormStateCopyWithImpl<T, $Res, _$CategoryAndCityLoadingImpl<T>>
     implements _$$CategoryAndCityLoadingImplCopyWith<T, $Res> {
   __$$CategoryAndCityLoadingImplCopyWithImpl(
       _$CategoryAndCityLoadingImpl<T> _value,
@@ -860,7 +1277,7 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
 
   @override
   String toString() {
-    return 'AddJobState<$T>.categoryAndCityLoading()';
+    return 'JobFormState<$T>.categoryAndCityLoading()';
   }
 
   @override
@@ -877,9 +1294,11 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() addJobLoading,
+    required TResult Function() formLoading,
+    required TResult Function() formSuccess,
     required TResult Function() addJobSuccess,
-    required TResult Function(String error) addJobFailure,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) formFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)
@@ -897,9 +1316,11 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? addJobLoading,
+    TResult? Function()? formLoading,
+    TResult? Function()? formSuccess,
     TResult? Function()? addJobSuccess,
-    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? formFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -917,9 +1338,11 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? addJobLoading,
+    TResult Function()? formLoading,
+    TResult Function()? formSuccess,
     TResult Function()? addJobSuccess,
-    TResult Function(String error)? addJobFailure,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? formFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -941,9 +1364,11 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(FormLoading<T> value) formLoading,
+    required TResult Function(FormSuccess<T> value) formSuccess,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
-    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(FormFailure<T> value) formFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
     required TResult Function(CategoryAndCitySuccess<T> value)
@@ -963,9 +1388,11 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(FormLoading<T> value)? formLoading,
+    TResult? Function(FormSuccess<T> value)? formSuccess,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(FormFailure<T> value)? formFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -981,9 +1408,11 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(FormLoading<T> value)? formLoading,
+    TResult Function(FormSuccess<T> value)? formSuccess,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(FormFailure<T> value)? formFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -1000,7 +1429,7 @@ class _$CategoryAndCityLoadingImpl<T> implements CategoryAndCityLoading<T> {
   }
 }
 
-abstract class CategoryAndCityLoading<T> implements AddJobState<T> {
+abstract class CategoryAndCityLoading<T> implements JobFormState<T> {
   const factory CategoryAndCityLoading() = _$CategoryAndCityLoadingImpl<T>;
 }
 
@@ -1016,7 +1445,7 @@ abstract class _$$CategoryAndCitySuccessImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$CategoryAndCitySuccessImplCopyWithImpl<T, $Res>
-    extends _$AddJobStateCopyWithImpl<T, $Res, _$CategoryAndCitySuccessImpl<T>>
+    extends _$JobFormStateCopyWithImpl<T, $Res, _$CategoryAndCitySuccessImpl<T>>
     implements _$$CategoryAndCitySuccessImplCopyWith<T, $Res> {
   __$$CategoryAndCitySuccessImplCopyWithImpl(
       _$CategoryAndCitySuccessImpl<T> _value,
@@ -1068,7 +1497,7 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
 
   @override
   String toString() {
-    return 'AddJobState<$T>.categoryAndCitySuccess(categoryList: $categoryList, cityList: $cityList)';
+    return 'JobFormState<$T>.categoryAndCitySuccess(categoryList: $categoryList, cityList: $cityList)';
   }
 
   @override
@@ -1098,9 +1527,11 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() addJobLoading,
+    required TResult Function() formLoading,
+    required TResult Function() formSuccess,
     required TResult Function() addJobSuccess,
-    required TResult Function(String error) addJobFailure,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) formFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)
@@ -1118,9 +1549,11 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? addJobLoading,
+    TResult? Function()? formLoading,
+    TResult? Function()? formSuccess,
     TResult? Function()? addJobSuccess,
-    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? formFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -1138,9 +1571,11 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? addJobLoading,
+    TResult Function()? formLoading,
+    TResult Function()? formSuccess,
     TResult Function()? addJobSuccess,
-    TResult Function(String error)? addJobFailure,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? formFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -1162,9 +1597,11 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(FormLoading<T> value) formLoading,
+    required TResult Function(FormSuccess<T> value) formSuccess,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
-    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(FormFailure<T> value) formFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
     required TResult Function(CategoryAndCitySuccess<T> value)
@@ -1184,9 +1621,11 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(FormLoading<T> value)? formLoading,
+    TResult? Function(FormSuccess<T> value)? formSuccess,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(FormFailure<T> value)? formFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -1202,9 +1641,11 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(FormLoading<T> value)? formLoading,
+    TResult Function(FormSuccess<T> value)? formSuccess,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(FormFailure<T> value)? formFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -1221,7 +1662,7 @@ class _$CategoryAndCitySuccessImpl<T> implements CategoryAndCitySuccess<T> {
   }
 }
 
-abstract class CategoryAndCitySuccess<T> implements AddJobState<T> {
+abstract class CategoryAndCitySuccess<T> implements JobFormState<T> {
   const factory CategoryAndCitySuccess(final List<CategoryModel> categoryList,
       final List<CityModel> cityList) = _$CategoryAndCitySuccessImpl<T>;
 
@@ -1244,7 +1685,7 @@ abstract class _$$CategoryAndCityFailureImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$CategoryAndCityFailureImplCopyWithImpl<T, $Res>
-    extends _$AddJobStateCopyWithImpl<T, $Res, _$CategoryAndCityFailureImpl<T>>
+    extends _$JobFormStateCopyWithImpl<T, $Res, _$CategoryAndCityFailureImpl<T>>
     implements _$$CategoryAndCityFailureImplCopyWith<T, $Res> {
   __$$CategoryAndCityFailureImplCopyWithImpl(
       _$CategoryAndCityFailureImpl<T> _value,
@@ -1275,7 +1716,7 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
 
   @override
   String toString() {
-    return 'AddJobState<$T>.categoryAndCityFailure(error: $error)';
+    return 'JobFormState<$T>.categoryAndCityFailure(error: $error)';
   }
 
   @override
@@ -1300,9 +1741,11 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() addJobLoading,
+    required TResult Function() formLoading,
+    required TResult Function() formSuccess,
     required TResult Function() addJobSuccess,
-    required TResult Function(String error) addJobFailure,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) formFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)
@@ -1320,9 +1763,11 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? addJobLoading,
+    TResult? Function()? formLoading,
+    TResult? Function()? formSuccess,
     TResult? Function()? addJobSuccess,
-    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? formFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -1340,9 +1785,11 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? addJobLoading,
+    TResult Function()? formLoading,
+    TResult Function()? formSuccess,
     TResult Function()? addJobSuccess,
-    TResult Function(String error)? addJobFailure,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? formFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -1364,9 +1811,11 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(FormLoading<T> value) formLoading,
+    required TResult Function(FormSuccess<T> value) formSuccess,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
-    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(FormFailure<T> value) formFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
     required TResult Function(CategoryAndCitySuccess<T> value)
@@ -1386,9 +1835,11 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(FormLoading<T> value)? formLoading,
+    TResult? Function(FormSuccess<T> value)? formSuccess,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(FormFailure<T> value)? formFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -1404,9 +1855,11 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(FormLoading<T> value)? formLoading,
+    TResult Function(FormSuccess<T> value)? formSuccess,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(FormFailure<T> value)? formFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -1423,7 +1876,7 @@ class _$CategoryAndCityFailureImpl<T> implements CategoryAndCityFailure<T> {
   }
 }
 
-abstract class CategoryAndCityFailure<T> implements AddJobState<T> {
+abstract class CategoryAndCityFailure<T> implements JobFormState<T> {
   const factory CategoryAndCityFailure({required final String error}) =
       _$CategoryAndCityFailureImpl<T>;
 
@@ -1444,7 +1897,7 @@ abstract class _$$UpdateStepsImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$UpdateStepsImplCopyWithImpl<T, $Res>
-    extends _$AddJobStateCopyWithImpl<T, $Res, _$UpdateStepsImpl<T>>
+    extends _$JobFormStateCopyWithImpl<T, $Res, _$UpdateStepsImpl<T>>
     implements _$$UpdateStepsImplCopyWith<T, $Res> {
   __$$UpdateStepsImplCopyWithImpl(
       _$UpdateStepsImpl<T> _value, $Res Function(_$UpdateStepsImpl<T>) _then)
@@ -1474,7 +1927,7 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
 
   @override
   String toString() {
-    return 'AddJobState<$T>.updateSteps(index: $index)';
+    return 'JobFormState<$T>.updateSteps(index: $index)';
   }
 
   @override
@@ -1499,9 +1952,11 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() addJobLoading,
+    required TResult Function() formLoading,
+    required TResult Function() formSuccess,
     required TResult Function() addJobSuccess,
-    required TResult Function(String error) addJobFailure,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) formFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)
@@ -1519,9 +1974,11 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? addJobLoading,
+    TResult? Function()? formLoading,
+    TResult? Function()? formSuccess,
     TResult? Function()? addJobSuccess,
-    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? formFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -1539,9 +1996,11 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? addJobLoading,
+    TResult Function()? formLoading,
+    TResult Function()? formSuccess,
     TResult Function()? addJobSuccess,
-    TResult Function(String error)? addJobFailure,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? formFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -1563,9 +2022,11 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(FormLoading<T> value) formLoading,
+    required TResult Function(FormSuccess<T> value) formSuccess,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
-    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(FormFailure<T> value) formFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
     required TResult Function(CategoryAndCitySuccess<T> value)
@@ -1585,9 +2046,11 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(FormLoading<T> value)? formLoading,
+    TResult? Function(FormSuccess<T> value)? formSuccess,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(FormFailure<T> value)? formFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -1603,9 +2066,11 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(FormLoading<T> value)? formLoading,
+    TResult Function(FormSuccess<T> value)? formSuccess,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(FormFailure<T> value)? formFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -1622,7 +2087,7 @@ class _$UpdateStepsImpl<T> implements UpdateSteps<T> {
   }
 }
 
-abstract class UpdateSteps<T> implements AddJobState<T> {
+abstract class UpdateSteps<T> implements JobFormState<T> {
   const factory UpdateSteps({required final int index}) = _$UpdateStepsImpl<T>;
 
   int get index;
@@ -1643,7 +2108,7 @@ abstract class _$$CategoryIndexUpdatedImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$CategoryIndexUpdatedImplCopyWithImpl<T, $Res>
-    extends _$AddJobStateCopyWithImpl<T, $Res, _$CategoryIndexUpdatedImpl<T>>
+    extends _$JobFormStateCopyWithImpl<T, $Res, _$CategoryIndexUpdatedImpl<T>>
     implements _$$CategoryIndexUpdatedImplCopyWith<T, $Res> {
   __$$CategoryIndexUpdatedImplCopyWithImpl(_$CategoryIndexUpdatedImpl<T> _value,
       $Res Function(_$CategoryIndexUpdatedImpl<T>) _then)
@@ -1673,7 +2138,7 @@ class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
 
   @override
   String toString() {
-    return 'AddJobState<$T>.categoryIndexUpdated(index: $index)';
+    return 'JobFormState<$T>.categoryIndexUpdated(index: $index)';
   }
 
   @override
@@ -1698,9 +2163,11 @@ class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() addJobLoading,
+    required TResult Function() formLoading,
+    required TResult Function() formSuccess,
     required TResult Function() addJobSuccess,
-    required TResult Function(String error) addJobFailure,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) formFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)
@@ -1718,9 +2185,11 @@ class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? addJobLoading,
+    TResult? Function()? formLoading,
+    TResult? Function()? formSuccess,
     TResult? Function()? addJobSuccess,
-    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? formFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -1738,9 +2207,11 @@ class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? addJobLoading,
+    TResult Function()? formLoading,
+    TResult Function()? formSuccess,
     TResult Function()? addJobSuccess,
-    TResult Function(String error)? addJobFailure,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? formFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -1762,9 +2233,11 @@ class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(FormLoading<T> value) formLoading,
+    required TResult Function(FormSuccess<T> value) formSuccess,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
-    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(FormFailure<T> value) formFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
     required TResult Function(CategoryAndCitySuccess<T> value)
@@ -1784,9 +2257,11 @@ class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(FormLoading<T> value)? formLoading,
+    TResult? Function(FormSuccess<T> value)? formSuccess,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(FormFailure<T> value)? formFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -1802,9 +2277,11 @@ class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(FormLoading<T> value)? formLoading,
+    TResult Function(FormSuccess<T> value)? formSuccess,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(FormFailure<T> value)? formFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -1821,7 +2298,7 @@ class _$CategoryIndexUpdatedImpl<T> implements CategoryIndexUpdated<T> {
   }
 }
 
-abstract class CategoryIndexUpdated<T> implements AddJobState<T> {
+abstract class CategoryIndexUpdated<T> implements JobFormState<T> {
   const factory CategoryIndexUpdated({required final int index}) =
       _$CategoryIndexUpdatedImpl<T>;
 
@@ -1842,7 +2319,7 @@ abstract class _$$CityIndexUpdatedImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$CityIndexUpdatedImplCopyWithImpl<T, $Res>
-    extends _$AddJobStateCopyWithImpl<T, $Res, _$CityIndexUpdatedImpl<T>>
+    extends _$JobFormStateCopyWithImpl<T, $Res, _$CityIndexUpdatedImpl<T>>
     implements _$$CityIndexUpdatedImplCopyWith<T, $Res> {
   __$$CityIndexUpdatedImplCopyWithImpl(_$CityIndexUpdatedImpl<T> _value,
       $Res Function(_$CityIndexUpdatedImpl<T>) _then)
@@ -1872,7 +2349,7 @@ class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
 
   @override
   String toString() {
-    return 'AddJobState<$T>.cityIndexUpdated(index: $index)';
+    return 'JobFormState<$T>.cityIndexUpdated(index: $index)';
   }
 
   @override
@@ -1897,9 +2374,11 @@ class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() addJobLoading,
+    required TResult Function() formLoading,
+    required TResult Function() formSuccess,
     required TResult Function() addJobSuccess,
-    required TResult Function(String error) addJobFailure,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) formFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)
@@ -1917,9 +2396,11 @@ class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? addJobLoading,
+    TResult? Function()? formLoading,
+    TResult? Function()? formSuccess,
     TResult? Function()? addJobSuccess,
-    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? formFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -1937,9 +2418,11 @@ class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? addJobLoading,
+    TResult Function()? formLoading,
+    TResult Function()? formSuccess,
     TResult Function()? addJobSuccess,
-    TResult Function(String error)? addJobFailure,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? formFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -1961,9 +2444,11 @@ class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(FormLoading<T> value) formLoading,
+    required TResult Function(FormSuccess<T> value) formSuccess,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
-    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(FormFailure<T> value) formFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
     required TResult Function(CategoryAndCitySuccess<T> value)
@@ -1983,9 +2468,11 @@ class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(FormLoading<T> value)? formLoading,
+    TResult? Function(FormSuccess<T> value)? formSuccess,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(FormFailure<T> value)? formFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -2001,9 +2488,11 @@ class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(FormLoading<T> value)? formLoading,
+    TResult Function(FormSuccess<T> value)? formSuccess,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(FormFailure<T> value)? formFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -2020,7 +2509,7 @@ class _$CityIndexUpdatedImpl<T> implements CityIndexUpdated<T> {
   }
 }
 
-abstract class CityIndexUpdated<T> implements AddJobState<T> {
+abstract class CityIndexUpdated<T> implements JobFormState<T> {
   const factory CityIndexUpdated({required final int index}) =
       _$CityIndexUpdatedImpl<T>;
 
@@ -2041,7 +2530,7 @@ abstract class _$$StepUpdatedImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$StepUpdatedImplCopyWithImpl<T, $Res>
-    extends _$AddJobStateCopyWithImpl<T, $Res, _$StepUpdatedImpl<T>>
+    extends _$JobFormStateCopyWithImpl<T, $Res, _$StepUpdatedImpl<T>>
     implements _$$StepUpdatedImplCopyWith<T, $Res> {
   __$$StepUpdatedImplCopyWithImpl(
       _$StepUpdatedImpl<T> _value, $Res Function(_$StepUpdatedImpl<T>) _then)
@@ -2071,7 +2560,7 @@ class _$StepUpdatedImpl<T> implements StepUpdated<T> {
 
   @override
   String toString() {
-    return 'AddJobState<$T>.stepUpdated(index: $index)';
+    return 'JobFormState<$T>.stepUpdated(index: $index)';
   }
 
   @override
@@ -2096,9 +2585,11 @@ class _$StepUpdatedImpl<T> implements StepUpdated<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() addJobLoading,
+    required TResult Function() formLoading,
+    required TResult Function() formSuccess,
     required TResult Function() addJobSuccess,
-    required TResult Function(String error) addJobFailure,
+    required TResult Function() updateJobSuccess,
+    required TResult Function(String error) formFailure,
     required TResult Function() categoryAndCityLoading,
     required TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)
@@ -2116,9 +2607,11 @@ class _$StepUpdatedImpl<T> implements StepUpdated<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? addJobLoading,
+    TResult? Function()? formLoading,
+    TResult? Function()? formSuccess,
     TResult? Function()? addJobSuccess,
-    TResult? Function(String error)? addJobFailure,
+    TResult? Function()? updateJobSuccess,
+    TResult? Function(String error)? formFailure,
     TResult? Function()? categoryAndCityLoading,
     TResult? Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -2136,9 +2629,11 @@ class _$StepUpdatedImpl<T> implements StepUpdated<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? addJobLoading,
+    TResult Function()? formLoading,
+    TResult Function()? formSuccess,
     TResult Function()? addJobSuccess,
-    TResult Function(String error)? addJobFailure,
+    TResult Function()? updateJobSuccess,
+    TResult Function(String error)? formFailure,
     TResult Function()? categoryAndCityLoading,
     TResult Function(
             List<CategoryModel> categoryList, List<CityModel> cityList)?
@@ -2160,9 +2655,11 @@ class _$StepUpdatedImpl<T> implements StepUpdated<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(AddJobLoading<T> value) addJobLoading,
+    required TResult Function(FormLoading<T> value) formLoading,
+    required TResult Function(FormSuccess<T> value) formSuccess,
     required TResult Function(AddJobSuccess<T> value) addJobSuccess,
-    required TResult Function(AddJobFailure<T> value) addJobFailure,
+    required TResult Function(UpdateJobSuccess<T> value) updateJobSuccess,
+    required TResult Function(FormFailure<T> value) formFailure,
     required TResult Function(CategoryAndCityLoading<T> value)
         categoryAndCityLoading,
     required TResult Function(CategoryAndCitySuccess<T> value)
@@ -2182,9 +2679,11 @@ class _$StepUpdatedImpl<T> implements StepUpdated<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(AddJobLoading<T> value)? addJobLoading,
+    TResult? Function(FormLoading<T> value)? formLoading,
+    TResult? Function(FormSuccess<T> value)? formSuccess,
     TResult? Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult? Function(AddJobFailure<T> value)? addJobFailure,
+    TResult? Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult? Function(FormFailure<T> value)? formFailure,
     TResult? Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult? Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult? Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -2200,9 +2699,11 @@ class _$StepUpdatedImpl<T> implements StepUpdated<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(AddJobLoading<T> value)? addJobLoading,
+    TResult Function(FormLoading<T> value)? formLoading,
+    TResult Function(FormSuccess<T> value)? formSuccess,
     TResult Function(AddJobSuccess<T> value)? addJobSuccess,
-    TResult Function(AddJobFailure<T> value)? addJobFailure,
+    TResult Function(UpdateJobSuccess<T> value)? updateJobSuccess,
+    TResult Function(FormFailure<T> value)? formFailure,
     TResult Function(CategoryAndCityLoading<T> value)? categoryAndCityLoading,
     TResult Function(CategoryAndCitySuccess<T> value)? categoryAndCitySuccess,
     TResult Function(CategoryAndCityFailure<T> value)? categoryAndCityFailure,
@@ -2219,7 +2720,7 @@ class _$StepUpdatedImpl<T> implements StepUpdated<T> {
   }
 }
 
-abstract class StepUpdated<T> implements AddJobState<T> {
+abstract class StepUpdated<T> implements JobFormState<T> {
   const factory StepUpdated({required final int index}) = _$StepUpdatedImpl<T>;
 
   int get index;

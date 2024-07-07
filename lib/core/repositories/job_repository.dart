@@ -15,6 +15,14 @@ class JobRepository {
     }
   }
 
+    Future<void> updateJob(JobModel job , String jobId) async {
+    try {
+      await firestore.collection(FirestoreCollections.jobs).doc(jobId).update(job.toJson());
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   Future<Map<String, dynamic>> fetchJobs(
       {String? cityId,
       String? searchQuery,

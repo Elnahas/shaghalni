@@ -31,7 +31,7 @@ class JobModel {
   final DateTime createdAt;
   @JsonKey(name: 'updated_at')
   final DateTime updatedAt;
-  final int views;
+  final int? views;
   @JsonKey(name: 'posted_by', fromJson: PostedBy.fromJson, toJson: _postedByToJson)
   final PostedBy? postedBy;
   @JsonKey(name: 'experience_range', fromJson: ExperienceRange.fromJson, toJson: _experienceRangeToJson)
@@ -50,7 +50,7 @@ class JobModel {
     required this.jobType,
     required this.createdAt,
     required this.updatedAt,
-    required this.views,
+     this.views = 0,
     this.postedBy,
     required this.experienceRange,
   });

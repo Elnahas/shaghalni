@@ -2,7 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:shaghalni/core/repositories/category_repository.dart';
 import 'package:shaghalni/core/repositories/user_repository.dart';
 import 'package:shaghalni/core/repositories/job_repository.dart';
-import 'package:shaghalni/features/add_job/logic/cubit/add_job_cubit.dart';
+import 'package:shaghalni/features/job_form/logic/cubit/job_form_cubit.dart';
 import 'package:shaghalni/features/auth/login/logic/cubit/login_cubit.dart';
 import 'package:shaghalni/features/auth/otp/logic/cubit/otp_cubit.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
@@ -31,7 +31,7 @@ void setupServiceLocator() {
   getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt<AuthRepository>(),
       getIt<UserRepository>(), getIt<CityRepository>()));
 
-  getIt.registerFactory<AddJobCubit>(() => AddJobCubit(
+  getIt.registerFactory<JobFormCubit>(() => JobFormCubit(
       getIt<CategoryRepository>(),
       getIt<CityRepository>(),
       getIt<JobRepository>()));
