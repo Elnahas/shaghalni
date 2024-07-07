@@ -5,21 +5,21 @@ import '../../../../core/data/enum/job_status.dart';
 import '../../../../core/data/models/job_model.dart';
 import '../../../../core/helpers/constants.dart';
 import '../../../../core/widgets/app_text_button.dart';
-import '../../logic/cubit/add_job_cubit.dart';
-import '../../logic/cubit/add_job_state.dart';
+import '../../logic/cubit/job_form_cubit.dart';
+import '../../logic/cubit/job_form_state.dart';
 
-class ButtonAddJobBlocBuilder extends StatelessWidget {
-  const ButtonAddJobBlocBuilder({super.key});
+class JobFormButtonBlocBuilder extends StatelessWidget {
+  const JobFormButtonBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AddJobCubit, AddJobState>(
+    return BlocBuilder<JobFormCubit, JobFormState>(
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 14),
-          child: context.read<AddJobCubit>().currentStep == 3
+          child: context.read<JobFormCubit>().currentStep == 3
               ? AppTextButton(
-                  isLoading: state is AddJobLoading,
+                  isLoading: state is FormLoading,
                   buttonText: 'Submit',
                   onPressed: () {
                     validateAddJob(context);
@@ -27,7 +27,7 @@ class ButtonAddJobBlocBuilder extends StatelessWidget {
               : AppTextButton(
                   buttonText: 'Next',
                   onPressed: () {
-                    context.read<AddJobCubit>().nextStep();
+                    context.read<JobFormCubit>().nextStep();
                   },
                 ),
         );
@@ -36,7 +36,7 @@ class ButtonAddJobBlocBuilder extends StatelessWidget {
   }
 
   void validateAddJob(BuildContext context) {
-    var _cubit = context.read<AddJobCubit>();
+    var _cubit = context.read<JobFormCubit>();
     if (_cubit.formKey.currentState!.validate()) {
 
       if(_cubit.selectedGender == null){

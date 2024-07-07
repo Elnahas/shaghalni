@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/helpers/constants.dart';
-import 'package:shaghalni/features/add_job/logic/cubit/add_job_cubit.dart';
-import 'package:shaghalni/features/add_job/logic/cubit/add_job_state.dart';
-import 'package:shaghalni/features/add_job/ui/widgets/add_job_bloc_listener.dart';
-import 'package:shaghalni/features/add_job/ui/widgets/step_indicator_widgets.dart';
+import 'package:shaghalni/features/job_form/logic/cubit/job_form_cubit.dart';
+import 'package:shaghalni/features/job_form/logic/cubit/job_form_state.dart';
+import 'package:shaghalni/features/job_form/ui/widgets/job_form_bloc_listener.dart';
+import 'package:shaghalni/features/job_form/ui/widgets/step_indicator_widgets.dart';
 
 import '../../../../core/data/enum/job_status.dart';
 import '../../../../core/data/models/job_model.dart';
@@ -12,29 +12,29 @@ import '../../../../core/functions/show_snack_bar.dart';
 import '../../../../core/widgets/app_text_button.dart';
 import '../../../../core/widgets/shimmer_list_widget.dart';
 
-class AddJobBlocBuilder extends StatefulWidget {
-  const AddJobBlocBuilder({super.key});
+class JobFormBlocBuilder extends StatefulWidget {
+  const JobFormBlocBuilder({super.key});
 
   @override
-  State<AddJobBlocBuilder> createState() => _AddJobBlocBuilderState();
+  State<JobFormBlocBuilder> createState() => _JobFormBlocBuilderState();
 }
 
-class _AddJobBlocBuilderState extends State<AddJobBlocBuilder> {
-  late final AddJobCubit _cubit;
+class _JobFormBlocBuilderState extends State<JobFormBlocBuilder> {
+  late final JobFormCubit _cubit;
 
   @override
   void initState() {
-    _cubit = context.read<AddJobCubit>();
+    _cubit = context.read<JobFormCubit>();
     _cubit.getCategoryAndCity(null);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AddJobCubit, AddJobState>(
+    return BlocBuilder<JobFormCubit, JobFormState>(
       buildWhen: (previous, current) =>
           current is CategoryAndCityLoading ||
-          current is AddJobLoading ||
+          current is FormLoading ||
           current is CategoryAndCitySuccess ||
           current is UpdateSteps,
       builder: (context, state) {
@@ -51,7 +51,7 @@ class _AddJobBlocBuilderState extends State<AddJobBlocBuilder> {
               padding: const EdgeInsets.symmetric(vertical: 14),
               child: _cubit.currentStep == _cubit.totalSteps
                   ? AppTextButton(
-                      isLoading: state is AddJobLoading,
+                      isLoading: state is FormLoading,
                       buttonText: 'Submit',
                       onPressed: () {
                         validateAddJob();
@@ -63,19 +63,19 @@ class _AddJobBlocBuilderState extends State<AddJobBlocBuilder> {
                       },
                     ),
             ),
-            const AddJobBlocListener(),
+            const JobFormBlocListener(),
           ],
         );
       },
     );
   }
 
-  Widget _buildContent(AddJobState state) {
+  Widget _buildContent(JobFormState state) {
     switch (state) {
       case CategoryAndCityLoading _:
         return const ShimmerList();
       case CategoryAndCitySuccess _:
-      case AddJobLoading _:
+      case FormLoading _:
       case UpdateSteps _:
         return _cubit.getCurrentWidget();
       default:

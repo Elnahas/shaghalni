@@ -6,14 +6,14 @@ import 'package:shaghalni/core/data/models/category_model.dart';
 import 'package:shaghalni/core/data/models/city_model.dart';
 import 'package:shaghalni/core/repositories/category_repository.dart';
 import 'package:shaghalni/core/repositories/job_repository.dart';
-import 'package:shaghalni/features/add_job/logic/cubit/add_job_state.dart';
+import 'package:shaghalni/features/job_form/logic/cubit/job_form_state.dart';
 import '../../../../core/data/enum/gender.dart';
 import '../../../../core/data/models/job_model.dart';
 import '../../../../core/repositories/city_repository.dart';
 import '../../../../core/widgets/select_list_widget.dart';
-import '../../ui/widgets/add_job_form.dart';
+import '../../ui/widgets/job_form.dart';
 
-class AddJobCubit extends Cubit<AddJobState> {
+class JobFormCubit extends Cubit<JobFormState> {
   JobModel? currentJob;
   bool isEditing = false;
   String jobId = "";
@@ -68,25 +68,25 @@ class AddJobCubit extends Cubit<AddJobState> {
           onItemSelected: updateSelectedCityIndex,
           itemBuilder: (city) => city.name,
         ),
-        const AddJobForm(),
+        const JobForm(),
       ];
 
-  AddJobCubit(
+  JobFormCubit(
       this._categoryRepository, this._cityRepository, this._addJobRepository)
-      : super(const AddJobState.initial());
+      : super(const JobFormState.initial());
 
   // add Job
   void addJob(JobModel job) async {
     try {
       if (formKey.currentState!.validate()) {
-        emit(const AddJobState.addJobLoading());
+        emit(const JobFormState.formLoading());
 
         await _addJobRepository.addJob(job);
 
-        emit(const AddJobState.addJobSuccess());
+        emit(const JobFormState.addJobSuccess());
       }
     } catch (e) {
-      emit(AddJobState.addJobFailure(error: e.toString()));
+      emit(JobFormState.formFailure(error: e.toString()));
     }
   }
 
@@ -94,33 +94,33 @@ class AddJobCubit extends Cubit<AddJobState> {
     try {
       if (formKey.currentState!.validate()) {
 
-        emit(const AddJobState.addJobLoading());
+        emit(const JobFormState.formLoading());
 
         if (isEditing) {
           await _addJobRepository.updateJob(jobModel! , jobId);
-          emit(const AddJobState.addJobSuccess());
+          emit(const JobFormState.addJobSuccess());
         } else {
           await _addJobRepository.addJob(jobModel!);
-          emit(const AddJobState.addJobSuccess());
+          emit(const JobFormState.addJobSuccess());
         }
       }
     } catch (e) {
-      emit(AddJobState.addJobFailure(error: e.toString()));
+      emit(JobFormState.formFailure(error: e.toString()));
     }
   }
 
   // Get Category and City
   Future<void> getCategoryAndCity(JobModel? job) async {
     try {
-      emit(const AddJobState.categoryAndCityLoading());
+      emit(const JobFormState.categoryAndCityLoading());
       var categoryList = await _categoryRepository.getCategories();
       var cityList = await _cityRepository.getCities();
       _categoryList = categoryList;
       _cityList = cityList;
-      emit(AddJobState.categoryAndCitySuccess(categoryList, cityList));
+      emit(JobFormState.categoryAndCitySuccess(categoryList, cityList));
       initializeWithJob(job);
     } catch (e) {
-      emit(AddJobState.categoryAndCityFailure(error: e.toString()));
+      emit(JobFormState.categoryAndCityFailure(error: e.toString()));
     }
   }
 
@@ -128,19 +128,19 @@ class AddJobCubit extends Cubit<AddJobState> {
   void nextStep() {
     if (_categoryList.isNotEmpty && _cityList.isNotEmpty) {
       if (currentStep == 1 && selectedCategoryIndex == -1) {
-        emit(AddJobState.initial());
-        emit(const AddJobState.categoryAndCityFailure(
+        emit(JobFormState.initial());
+        emit(const JobFormState.categoryAndCityFailure(
             error: "Please select Category"));
       } else if (currentStep == 2 && selectedCityIndex == -1) {
-        emit(AddJobState.initial());
-        emit(const AddJobState.categoryAndCityFailure(
+        emit(JobFormState.initial());
+        emit(const JobFormState.categoryAndCityFailure(
             error: "Please select City"));
       } else {
         currentStep++;
         pageController.nextPage(
             duration: const Duration(milliseconds: 500),
             curve: Curves.fastOutSlowIn);
-        emit(AddJobState.updateSteps(index: currentStep));
+        emit(JobFormState.updateSteps(index: currentStep));
       }
     }
   }
@@ -152,7 +152,7 @@ class AddJobCubit extends Cubit<AddJobState> {
       pageController.previousPage(
           duration: const Duration(milliseconds: 500),
           curve: Curves.fastOutSlowIn);
-      emit(AddJobState.updateSteps(index: currentStep));
+      emit(JobFormState.updateSteps(index: currentStep));
     }
   }
 
@@ -185,13 +185,13 @@ class AddJobCubit extends Cubit<AddJobState> {
       currentJob = job;
       jobId = job.id!;
       jobTitleController.text = job.title;
-      jobDescriptionController.text = job.description ?? '';
-      jobSalaryController.text = job.salary?.toString() ?? '';
+      jobDescriptionController.text = job.description ;
+      jobSalaryController.text = job.salary.toString() ;
       isHideSalary = job.isHideSalary;
       selectedGender = job.gender;
       selectedJobType = job.jobType;
-      minExperience = job.experienceRange!.minExperience ?? 0;
-      maxExperience = job.experienceRange!.maxExperience ?? 0;
+      minExperience = job.experienceRange!.minExperience ;
+      maxExperience = job.experienceRange!.maxExperience ;
       selectedCategoryIndex = _categoryList
           .indexWhere((category) => category.id == job.category.id);
       selectedCityIndex =

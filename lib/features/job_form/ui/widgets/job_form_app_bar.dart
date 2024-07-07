@@ -6,10 +6,10 @@ import 'package:shaghalni/core/routing/routes.dart';
 
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/app_text_styles.dart';
-import '../../logic/cubit/add_job_cubit.dart';
+import '../../logic/cubit/job_form_cubit.dart';
 
-class AddJobAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const AddJobAppBar({super.key});
+class JobFormAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const JobFormAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +23,8 @@ class AddJobAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       leading: IconButton(
         onPressed: () {
-          if (context.read<AddJobCubit>().currentStep > 1) {
-            context.read<AddJobCubit>().previousStep();
+          if (context.read<JobFormCubit>().currentStep > 1) {
+            context.read<JobFormCubit>().previousStep();
           } else {
              context.pushNamedAndRemoveUntil(Routes.home, predicate: (Route<dynamic> route) => false);
           }

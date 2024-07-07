@@ -5,7 +5,7 @@ import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/core/widgets/app_label_text.dart';
 
-import '../../logic/cubit/add_job_cubit.dart';
+import '../../logic/cubit/job_form_cubit.dart';
 
 class ExperienceSlider extends StatefulWidget {
   @override
@@ -14,11 +14,11 @@ class ExperienceSlider extends StatefulWidget {
 
 class _ExperienceSliderState extends State<ExperienceSlider> {
 
-  late AddJobCubit _cubit;
+  late JobFormCubit _cubit;
 
   @override
   void initState() {
-    _cubit =  context.read<AddJobCubit>();
+    _cubit =  context.read<JobFormCubit>();
     super.initState();
   }
 

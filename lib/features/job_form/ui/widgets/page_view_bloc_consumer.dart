@@ -3,13 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/routing/routes.dart';
-import 'package:shaghalni/features/add_job/logic/cubit/add_job_cubit.dart';
-import 'package:shaghalni/features/add_job/ui/widgets/add_job_form.dart';
+import 'package:shaghalni/features/job_form/logic/cubit/job_form_cubit.dart';
+import 'package:shaghalni/features/job_form/ui/widgets/job_form.dart';
 
 import '../../../../core/functions/show_snack_bar.dart';
 import '../../../../core/widgets/select_list_widget.dart';
 import '../../../../core/widgets/shimmer_list_widget.dart';
-import '../../logic/cubit/add_job_state.dart';
+import '../../logic/cubit/job_form_state.dart';
 
 class PageViewBlocConsumer extends StatelessWidget {
   final PageController pageController;
@@ -17,10 +17,10 @@ class PageViewBlocConsumer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  BlocConsumer<AddJobCubit, AddJobState>(
+    return  BlocConsumer<JobFormCubit, JobFormState>(
                   listenWhen: (previous, current) =>
                       current is AddJobSuccess ||
-                      current is AddJobFailure ||
+                      current is FormFailure ||
                       current is CategoryAndCityFailure,
                   listener: (context, state) {
                     state.whenOrNull(
@@ -28,7 +28,7 @@ class PageViewBlocConsumer extends StatelessWidget {
                         context.pushNamedAndRemoveUntil(Routes.home,
                             predicate: (Route<dynamic> route) => false);
                       },
-                      addJobFailure: (error) {
+                      formFailure: (error) {
                         showSnackBar(context, error);
                       },
                       categoryAndCityFailure: (error) {
@@ -52,13 +52,13 @@ class PageViewBlocConsumer extends StatelessWidget {
                             children: [
                               SelectListWidget(
                                 title: "Select Category",
-                                items: state is CategoryAndCitySuccess ? state.categoryList : context.read<AddJobCubit>().getCategoryList,
+                                items: state is CategoryAndCitySuccess ? state.categoryList : context.read<JobFormCubit>().getCategoryList,
                                 initialSelectedIndex: context
-                                    .read<AddJobCubit>()
+                                    .read<JobFormCubit>()
                                     .selectedCategoryIndex,
                                 onItemSelected: (index) {
                                   context
-                                      .read<AddJobCubit>()
+                                      .read<JobFormCubit>()
                                       .updateSelectedCategoryIndex(index);
                                 },
                                 itemBuilder: (category) => category.name,
@@ -66,19 +66,19 @@ class PageViewBlocConsumer extends StatelessWidget {
                               ),
                               SelectListWidget(
                                 title: "Select City",
-                                items: state is CategoryAndCitySuccess ? state.cityList : context.read<AddJobCubit>().getCityList,
+                                items: state is CategoryAndCitySuccess ? state.cityList : context.read<JobFormCubit>().getCityList,
                                 initialSelectedIndex: context
-                                    .read<AddJobCubit>()
+                                    .read<JobFormCubit>()
                                     .selectedCityIndex,
                                 onItemSelected: (index) {
                                   context
-                                      .read<AddJobCubit>()
+                                      .read<JobFormCubit>()
                                       .updateSelectedCityIndex(index);
                                 },
                                 itemBuilder: (city) => city.name,
                                 paddingHorizontal: 14.w,
                               ),
-                              const AddJobForm(),
+                              const JobForm(),
                             ],
                             controller: pageController,
                           );
