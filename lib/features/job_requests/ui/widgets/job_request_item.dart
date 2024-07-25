@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/routing/routes.dart';
+import '../../../../core/data/enum/job_status.dart';
 import '../../../../core/helpers/date_helper.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
@@ -19,34 +19,15 @@ class JobRequestItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(left: 20, right: 20),
-      child: Dismissible(
-        key: Key("unique_key"),
-        direction: DismissDirection.endToStart,
-        onDismissed: (direction) {},
-        background: Container(
-          padding: EdgeInsets.only(right: 10),
-          alignment: Alignment.centerRight,
-          decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.all(
-              Radius.circular(12),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.primaryColor.withOpacity(0.3),
-                spreadRadius: 1,
-                blurRadius: 8,
-                offset: const Offset(0, 4),
-              ),
-            ],
-          ),
-          child: Icon(
-            FontAwesomeIcons.trash,
-            color: Colors.white,
-          ),
-        ),
+    return GestureDetector(
+      onTap: () {
+        context.pushNamed(
+          Routes.jobDetails,
+          arguments: jobModel.id,
+        );
+      },
+      child: Container(
+        margin: EdgeInsets.only(left: 20, right: 20),
         child: Container(
           margin: EdgeInsets.only(bottom: 10),
           decoration: BoxDecoration(
@@ -91,12 +72,15 @@ class JobRequestItem extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: AppTextStyles.font14BoldBlack,
                           ),
-                          IconButton(
-                            icon: Icon(Icons.edit),
-                            onPressed: () {
-                              context.pushNamed(Routes.addJob, arguments: jobModel);
-                            },
-                          ),
+                          jobModel.status == JobStatus.pending
+                              ? IconButton(
+                                  icon: Icon(Icons.edit),
+                                  onPressed: () {
+                                    context.pushNamed(Routes.addJob,
+                                        arguments: jobModel);
+                                  },
+                                )
+                              : Container(width: 50.w, height: 50.h),
                         ],
                       ),
                       Container(

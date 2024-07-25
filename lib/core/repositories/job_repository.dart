@@ -143,7 +143,7 @@ class JobRepository {
 
   Future<List<JobModel>> getJobRequests(String? userId, String? status) async {
     try {
-      Query query = firestore.collection(FirestoreCollections.jobs);
+      Query query = firestore.collection(FirestoreCollections.jobs).where('posted_by.uid', isEqualTo: userId);
 
       if (status != null && status != Constants.viewAll) {
         query = query.where('status', isEqualTo: status);
