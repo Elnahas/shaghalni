@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
-import 'package:shaghalni/core/widgets/app_circle_avatar.dart';
-
+import 'package:shaghalni/features/profile/data/setting_data.dart';
+import 'package:shaghalni/features/profile/ui/widgets/settings_list_view.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../widgets/user_profile_row.dart';
 
@@ -23,11 +22,16 @@ class ProfileScreen extends StatelessWidget {
             children: [
               const UserProfileRow(),
               verticalSpace(30),
-              Text(
-                "Settings",
-                style: AppTextStyles.font18BoldBlack,
+              SettingsListView(
+                title: "Setting",
+                items: settingsItems,
               ),
-              verticalSpace(10),
+              verticalSpace(20),
+              SettingsListView(
+                title: "Others",
+                items: otherItems,
+              ),
+              verticalSpace(30),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -41,21 +45,11 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: ListView.separated(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) => ListTile(
-                      trailing: Icon(Icons.chevron_right),
-                        leading: Icon(FontAwesomeIcons.user),
-                        title: Text("Profile")),
-                        
-                    separatorBuilder: (context, index) => Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Divider(
-                            color: Colors.grey[200],
-                          ),
-                        ),
-                    itemCount: 10),
+                child: ListTile(
+                    title: Text("Log Out" , style: AppTextStyles.font15NormalRed,),
+                    
+                    onTap: () {},
+                    leading: Icon(FontAwesomeIcons.arrowRightFromBracket , color: Colors.red,)),
               )
             ],
           ),

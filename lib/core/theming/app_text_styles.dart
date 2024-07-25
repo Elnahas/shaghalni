@@ -62,6 +62,14 @@ abstract class AppTextStyles {
     fontFamily: "Poppins",
   );
 
+    static TextStyle font15NormalRed = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: Colors.red,
+    fontFamily: "Poppins",
+  );
+
+
   static TextStyle font18BoldBlack = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.bold,
@@ -144,6 +152,7 @@ abstract class AppTextStyles {
     color: AppColors.primaryColor,
     fontFamily: "Poppins",
   );
+
   static TextStyle font12DarkBlueRegular = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.regular,
