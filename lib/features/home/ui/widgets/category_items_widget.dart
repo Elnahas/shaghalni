@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/data/models/category_model.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
-import 'package:shaghalni/core/widgets/circular_image.dart';
+import 'package:shaghalni/core/widgets/app_circle_avatar.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
 
@@ -43,7 +43,7 @@ class CategoryItemsWidget extends StatelessWidget {
                   ),
                 ]
               ),
-              child: CircularImage(
+              child: AppCircleAvatar(
                   backgroundColor: AppColors.lightBlue,
                   imageUrl: categoryModel.iconUrl,
                   radius: index == selectedIndex ? 32.h : 30.h)),
