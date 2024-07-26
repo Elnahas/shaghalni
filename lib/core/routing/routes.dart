@@ -14,5 +14,6 @@ class Routes {
   static const String blogDetails = '/blog-details';
 
   static const String terms = '/terms';
+  static const String notification = '/notification';
 
 }

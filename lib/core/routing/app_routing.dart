@@ -18,6 +18,7 @@ import 'package:shaghalni/features/job_details/ui/screens/job_details_screen.dar
 import 'package:shaghalni/features/jobs_list/logic/jobs_list_cubit.dart';
 import 'package:shaghalni/features/jobs_list/ui/screens/jobs_list_screen.dart';
 import 'package:shaghalni/features/language/ui/screen/language_screen.dart';
+import 'package:shaghalni/features/notification/ui/screen/notification_screen.dart';
 import 'package:shaghalni/features/on_boarding/logic/cubit/page_cubit.dart';
 import 'package:shaghalni/features/on_boarding/ui/screen/on_boarding_screen.dart';
 import 'package:shaghalni/features/setting/ui/screen/terms_and_conditions_screen.dart';
@@ -125,6 +126,9 @@ class AppRouting {
       case Routes.terms:
         return MaterialPageRoute(
             builder: (context) => TermsAndConditionsScreen());
+
+      case Routes.notification:
+        return MaterialPageRoute(builder: (context) => NotificationScreen());
 
       default:
         return null;
