@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shaghalni/core/data/models/user_model.dart';
 
 import '../helpers/constants.dart';
+import '../helpers/shared_pref_helper.dart';
 
 class AuthRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -84,7 +85,7 @@ class AuthRepository {
   }
 
   Future<void> signOut() async {
+    await SharedPrefHelper.clearAllData();
     await FirebaseAuth.instance.signOut();
   }
-
 }
