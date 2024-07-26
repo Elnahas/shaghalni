@@ -23,9 +23,20 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "You_can_change_the_language_at_any_time":
-            MessageLookupByLibrary.simpleMessage("يمكنك تغيير اللغة في اي وقت"),
+            MessageLookupByLibrary.simpleMessage("يمكنك تغيير اللغة في أي وقت"),
+        "appName": MessageLookupByLibrary.simpleMessage("شغلني"),
+        "change": MessageLookupByLibrary.simpleMessage("تغيير"),
         "continue_": MessageLookupByLibrary.simpleMessage("استمرار"),
+        "helpCenter": MessageLookupByLibrary.simpleMessage("مركز المساعدة"),
+        "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
-        "select_language": MessageLookupByLibrary.simpleMessage("اختر اللغة")
+        "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+        "pleaseSelectGender":
+            MessageLookupByLibrary.simpleMessage("يرجى اختيار الجنس"),
+        "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+        "select_language": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
+        "termsAndConditions":
+            MessageLookupByLibrary.simpleMessage("الشروط والأحكام")
       };
 }

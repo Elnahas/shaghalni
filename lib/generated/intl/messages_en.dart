@@ -26,12 +26,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "You can change the language at any time"),
         "appName": MessageLookupByLibrary.simpleMessage("Shaghalni"),
+        "change": MessageLookupByLibrary.simpleMessage("change"),
         "continue_": MessageLookupByLibrary.simpleMessage("Continue"),
+        "helpCenter": MessageLookupByLibrary.simpleMessage("Help Center"),
+        "language": MessageLookupByLibrary.simpleMessage("language"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("phoneNumber"),
         "pleaseSelectGender":
             MessageLookupByLibrary.simpleMessage("Please select gender"),
+        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "select_language":
-            MessageLookupByLibrary.simpleMessage("Select Language")
+            MessageLookupByLibrary.simpleMessage("Select Language"),
+        "termsAndConditions":
+            MessageLookupByLibrary.simpleMessage("Terms And Conditions")
       };
 }

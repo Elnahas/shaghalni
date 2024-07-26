@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -21,11 +20,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await getLanguage();
 
-  setupServiceLocator();
   await checkIfLoggedInUser();
   await checkIfSeenOnboarding();
-  await getLanguage();
+  setupServiceLocator();
 
   // Set up the global Bloc observer
   Bloc.observer = MyBlocObserver();

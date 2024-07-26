@@ -5,5 +5,11 @@
     "select_language": "Select Language",
     "You_can_change_the_language_at_any_time": "You can change the language at any time",
     "phoneNumber": "phoneNumber",
-    "pleaseSelectGender": "Please select gender"
+    "pleaseSelectGender": "Please select gender",
+    "profile": "Profile",
+    "notifications": "Notifications",
+    "language": "language",
+    "change": "change",
+    "helpCenter": "Help Center",
+    "termsAndConditions": "Terms And Conditions"
 }
