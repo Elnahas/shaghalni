@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../core/helpers/constants.dart';
+import '../../../../core/helpers/date_helper.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/app_text_styles.dart';
@@ -28,20 +29,21 @@ class UserProfileRow extends StatelessWidget {
       ),
       child: Row(
         children: [
-          AppCircleAvatar(imageUrl: Constants.imgUrlTest, radius: 50),
+          AppCircleAvatar(imageUrl: userModel!.imageUrl ?? "", radius: 35),
           horizontalSpace(10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Hazem Mohamed",
+                  userModel!.fullName,
                   style: AppTextStyles.font18BoldBlack,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  "join now",
+                  DateHelper.formatTimeAgo(
+                      userModel?.createdAt.toDate() ?? DateTime.now()),
                   style: AppTextStyles.font14LightGrayRegular,
                 ),
               ],
@@ -52,6 +54,7 @@ class UserProfileRow extends StatelessWidget {
               icon: Icon(
                 FontAwesomeIcons.pen,
                 color: AppColors.primaryColor,
+                size: 20,
               ))
         ],
       ),
