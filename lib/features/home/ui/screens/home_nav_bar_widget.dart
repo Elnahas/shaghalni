@@ -12,7 +12,7 @@ import 'package:shaghalni/features/blog/logic/blog_list/blog_list_cubit.dart';
 import 'package:shaghalni/features/home/logic/home_cubit.dart';
 import 'package:shaghalni/features/home/ui/screens/home_screen.dart';
 import 'package:shaghalni/features/job_requests/logic/cubit/job_requests_cubit.dart';
-import 'package:shaghalni/features/profile/ui/screen/profile_screen.dart';
+import 'package:shaghalni/features/setting/ui/screen/setting_screen.dart';
 
 import '../../../blog/ui/screens/blog_list_screen.dart';
 import '../../../job_requests/ui/screens/job_requests_screen.dart';
@@ -40,7 +40,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
       create: (context) => BlogListCubit(getIt())..getBlogs(),
       child: BlogListScreen(),
     ),
-    const ProfileScreen(),
+    const SettingScreen(),
   ];
 
   @override

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
-import 'package:shaghalni/features/profile/data/setting_data.dart';
-import 'package:shaghalni/features/profile/ui/widgets/settings_list_view.dart';
+import 'package:shaghalni/features/setting/data/setting_data.dart';
+import 'package:shaghalni/features/setting/ui/widgets/settings_list_view.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../widgets/user_profile_row.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class SettingScreen extends StatelessWidget {
+  const SettingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

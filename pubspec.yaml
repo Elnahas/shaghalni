@@ -79,6 +79,7 @@ dependencies:
   url_launcher: ^6.3.0
   font_awesome_flutter: ^10.7.0
   timeago: ^3.6.1
+  webview_flutter: ^4.8.0
   
 
 dev_dependencies:

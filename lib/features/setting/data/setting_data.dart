@@ -1,4 +1,6 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
+import 'package:shaghalni/core/routing/routes.dart';
 
 import 'setting_item_model.dart';
 
@@ -30,6 +32,8 @@ final otherItems = [
   SettingItem(
     title: "Terms and Conditions",
     leadingIcon: FontAwesomeIcons.fileContract,
-    onTap: (context) {},
+    onTap: (context) {
+      context.pushNamed(Routes.terms);
+    },
   ),
 ];

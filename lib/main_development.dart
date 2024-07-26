@@ -5,7 +5,7 @@ import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/helpers/my_bloc_observer.dart';
 import 'package:shaghalni/core/helpers/shared_pref_helper.dart';
-import 'package:shaghalni/core/routing/routing.dart';
+import 'package:shaghalni/core/routing/app_routing.dart';
 import 'package:shaghalni/firebase_options.dart';
 import 'package:shaghalni/app/my_app.dart';
 
@@ -21,7 +21,7 @@ void main() async {
   Bloc.observer = MyBlocObserver();
 
   runApp(MyApp(
-    routing: Routing(),
+    routing: AppRouting(),
   ));
 }
 
