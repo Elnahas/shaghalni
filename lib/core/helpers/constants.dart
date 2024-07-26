@@ -79,3 +79,14 @@ String getExperienceLabel(ExperienceRange experienceRange) {
     return "${experienceRange.minExperience} - ${experienceRange.maxExperience} Years";
   }
 }
+
+String getSelectedLanguageLabel() {
+  switch (selectedLanguage) {
+    case 'en':
+      return 'English';
+    case 'ar':
+      return 'العربية';
+    default:
+      return 'English';
+  }
+}

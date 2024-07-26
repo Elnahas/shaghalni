@@ -2,6 +2,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 
+import '../../../core/helpers/constants.dart';
 import 'setting_item_model.dart';
 
 abstract class SettingData {
@@ -19,9 +20,9 @@ abstract class SettingData {
       },
     ),
     SettingItem(
-      title: "Language",
+      title: "Language"+ " (${getSelectedLanguageLabel()})",
       leadingIcon: FontAwesomeIcons.globe,
-      trailingText: "change",
+      trailingText: "Change",
       onTap: (context) {},
     ),
   ];
