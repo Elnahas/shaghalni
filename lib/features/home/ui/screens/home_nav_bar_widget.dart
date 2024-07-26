@@ -8,10 +8,12 @@ import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
+import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:shaghalni/features/blog/logic/blog_list/blog_list_cubit.dart';
 import 'package:shaghalni/features/home/logic/home_cubit.dart';
 import 'package:shaghalni/features/home/ui/screens/home_screen.dart';
 import 'package:shaghalni/features/job_requests/logic/cubit/job_requests_cubit.dart';
+import 'package:shaghalni/features/setting/logic/setting_cubit.dart';
 import 'package:shaghalni/features/setting/ui/screen/setting_screen.dart';
 
 import '../../../blog/ui/screens/blog_list_screen.dart';
@@ -40,7 +42,10 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
       create: (context) => BlogListCubit(getIt())..getBlogs(),
       child: BlogListScreen(),
     ),
-    const SettingScreen(),
+    BlocProvider(
+      create: (context) => SettingCubit(getIt()),
+      child: const SettingScreen(),
+    ),
   ];
 
   @override

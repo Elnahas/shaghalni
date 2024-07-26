@@ -86,6 +86,7 @@ class AuthRepository {
 
   Future<void> signOut() async {
     await SharedPrefHelper.clearAllData();
+    await SharedPrefHelper.clearAllSecuredData();
     await FirebaseAuth.instance.signOut();
   }
 }
