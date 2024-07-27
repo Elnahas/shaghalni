@@ -57,7 +57,8 @@ class _LanguageSelectionSheetState extends State<LanguageSelectionSheet> {
               onPressed: () => Navigator.pop(context),
             ),
           ),
-          Text( S.of(context).select_language, style: AppTextStyles.font18BoldBlack),
+          Text(S.of(context).select_language,
+              style: AppTextStyles.font18BoldBlack),
           verticalSpace(5),
           Text(S.of(context).what_language_do_you_prefer,
               style: AppTextStyles.font16Regular),
@@ -93,12 +94,15 @@ class _LanguageSelectionSheetState extends State<LanguageSelectionSheet> {
           AppElevatedButton(
             buttonText: S.of(context).confirm,
             onPressed: () async {
-              selectedLanguage = currentSelectedLanguage;
-              await SharedPrefHelper.setData(
-                  SharedPrefKeys.selectedLanguage, currentSelectedLanguage);
-              context
-                  .read<LanguageCubit>()
-                  .changeLanguage(currentSelectedLanguage);
+              if (selectedLanguage != currentSelectedLanguage) {
+                selectedLanguage = currentSelectedLanguage;
+                await SharedPrefHelper.setData(
+                    SharedPrefKeys.selectedLanguage, currentSelectedLanguage);
+                context
+                    .read<LanguageCubit>()
+                    .changeLanguage(currentSelectedLanguage);
+              }
+
               Navigator.pop(context, currentSelectedLanguage);
             },
           ),

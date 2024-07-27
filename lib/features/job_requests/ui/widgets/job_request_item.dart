@@ -85,18 +85,20 @@ class JobRequestItem extends StatelessWidget {
                         ],
                       ),
                       Container(
+                        width: 80.w,
                         padding:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                         decoration: BoxDecoration(
-                          color: AppColors.primaryColor.withOpacity(0.1),
+                           color: getStatusColor(jobModel.status),
                           borderRadius: BorderRadius.all(
                             Radius.circular(12),
                           ),
                         ),
-                        child: Text(
-                          AppLabels.getStatusLabel(context, jobModel.status)
-                          ,
-                          style: AppTextStyles.font12BoldBlue,
+                        child: Center(
+                          child: Text(
+                            AppLabels.getStatusLabel(context, jobModel.status),
+                            style: AppTextStyles.font12BlueRegular,
+                          ),
                         ),
                       ),
                       Align(
@@ -118,5 +120,16 @@ class JobRequestItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+    static const Map<JobStatus, Color> _statusColors = {
+    JobStatus.open: Color(0xFFE0F7FA),    // Light Cyan
+    JobStatus.closed: Color(0xFFB0BEC5),  // Light Blue Grey
+    JobStatus.pending: Color(0xFFFFF9C4), // Light Yellow
+    JobStatus.reject: Color(0xFFFFCDD2),  // Light Red
+  };
+
+    Color getStatusColor(JobStatus status) {
+    return _statusColors[status]?.withOpacity(0.8) ?? Colors.transparent;
   }
 }
