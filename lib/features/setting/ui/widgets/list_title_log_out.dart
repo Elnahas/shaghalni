@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
+import 'package:shaghalni/generated/l10n.dart';
 
 import '../../../../core/theming/app_text_styles.dart';
 import '../../logic/setting_cubit.dart';
@@ -26,7 +27,7 @@ class ListTitleLogOut extends StatelessWidget {
       ),
       child: ListTile(
           title: Text(
-            "Log Out",
+            S.of(context).log_out,
             style: AppTextStyles.font15NormalRed,
           ),
           onTap: () {

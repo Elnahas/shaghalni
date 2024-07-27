@@ -5,6 +5,7 @@ import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 import 'package:shaghalni/features/job_form/logic/cubit/job_form_cubit.dart';
 import 'package:shaghalni/features/job_form/ui/widgets/page_view_bloc_consumer.dart';
+import 'package:shaghalni/generated/l10n.dart';
 import '../../../../core/data/models/job_model.dart';
 import '../widgets/job_form_app_bar.dart';
 import '../widgets/job_form_button_bloc_builder.dart';
@@ -43,7 +44,7 @@ class _JobFormScreenState extends State<JobFormScreen> {
                 if (didPop) {
           Navigator.pop(context);
         } else {
-          onWillPop(context, 'Are you sure you want to exit?');
+          onWillPop(context, S.of(context).exit_confirmation);
         }
       },
       child: Scaffold(

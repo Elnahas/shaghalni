@@ -5,6 +5,7 @@ import '../../../../core/data/enum/job_status.dart';
 import '../../../../core/data/models/job_model.dart';
 import '../../../../core/helpers/constants.dart';
 import '../../../../core/widgets/app_text_button.dart';
+import '../../../../generated/l10n.dart';
 import '../../logic/cubit/job_form_cubit.dart';
 import '../../logic/cubit/job_form_state.dart';
 
@@ -20,12 +21,12 @@ class JobFormButtonBlocBuilder extends StatelessWidget {
           child: context.read<JobFormCubit>().currentStep == 3
               ? AppTextButton(
                   isLoading: state is FormLoading,
-                  buttonText: 'Submit',
+                  buttonText: S.of(context).submit,
                   onPressed: () {
                     validateAddJob(context);
                   })
               : AppTextButton(
-                  buttonText: 'Next',
+                  buttonText: S.of(context).next,
                   onPressed: () {
                     context.read<JobFormCubit>().nextStep();
                   },
@@ -38,18 +39,15 @@ class JobFormButtonBlocBuilder extends StatelessWidget {
   void validateAddJob(BuildContext context) {
     var _cubit = context.read<JobFormCubit>();
     if (_cubit.formKey.currentState!.validate()) {
+      if (_cubit.selectedGender == null) {
+        showSnackBar(context, S.of(context).pleaseSelectGender);
 
-      if(_cubit.selectedGender == null){
-
-        showSnackBar(context, "Please Select Gender");
-        
         return;
       }
 
-            if(_cubit.selectedJobType == null){
+      if (_cubit.selectedJobType == null) {
+        showSnackBar(context, S.of(context).please_select_job_type);
 
-        showSnackBar(context, "Please Select Job Type");
-        
         return;
       }
 
@@ -59,7 +57,7 @@ class JobFormButtonBlocBuilder extends StatelessWidget {
           userName: userModel!.fullName);
 
       final job = JobModel(
-        jobType: _cubit.selectedJobType!,
+          jobType: _cubit.selectedJobType!,
           postedBy: posted_by,
           experienceRange: ExperienceRange(
               minExperience: _cubit.minExperience,
@@ -71,14 +69,14 @@ class JobFormButtonBlocBuilder extends StatelessWidget {
           category: _cubit.category,
           salary: double.tryParse(_cubit.jobSalaryController.text) ?? 0.0,
           isHideSalary: _cubit.isHideSalary,
-          status:  _cubit.isEditing ? _cubit.currentJob!.status : JobStatus.pending,
-          createdAt:  _cubit.isEditing ? _cubit.currentJob!.createdAt : DateTime.now(),
+          status:
+              _cubit.isEditing ? _cubit.currentJob!.status : JobStatus.pending,
+          createdAt:
+              _cubit.isEditing ? _cubit.currentJob!.createdAt : DateTime.now(),
           updatedAt: DateTime.now(),
-          views: _cubit.isEditing ?  _cubit.currentJob!.views : 0
-          );
+          views: _cubit.isEditing ? _cubit.currentJob!.views : 0);
 
-
-      _cubit.saveJob(isEditing: _cubit.isEditing , jobModel: job);
+      _cubit.saveJob(isEditing: _cubit.isEditing, jobModel: job);
     }
   }
 }

@@ -15,16 +15,20 @@ class OnBoardingPageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final onboardingList = OnBoardingModel.onBoardingList;
+
     return Expanded(
       child: PageView.builder(
         physics: const BouncingScrollPhysics(),
         itemCount: 4,
         itemBuilder: (context, index) {
+          final item = onboardingList[index];
           return OnBoardingItem(
-              controller: myController,
-              imagePath: OnBoardingModel.onBoardingList[index].imagePath,
-              title: OnBoardingModel.onBoardingList[index].title,
-              subTitle: OnBoardingModel.onBoardingList[index].subTitle);
+            controller: myController,
+            imagePath: item.imagePath,
+            title: item.getTitle(context),
+            subTitle: item.getSubTitle(context),
+          );
         },
         controller: myController,
         onPageChanged: (page) {

@@ -8,6 +8,7 @@ import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/core/widgets/app_circle_avatar.dart';
 
 import '../../../../core/routing/routes.dart';
+import '../../../../generated/l10n.dart';
 
 class HomeTopBar extends StatelessWidget {
   const HomeTopBar({super.key});
@@ -29,11 +30,11 @@ class HomeTopBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Hello, ${userModel!.firstName}",
+                "${S.of(context).hello}, ${userModel!.firstName}",
                 style: AppTextStyles.font15DarkMedium,
               ),
               Text(
-                "How Are you Today?",
+                S.of(context).how_are_you_today,
                 style: AppTextStyles.font13GreyW300,
               ),
             ],

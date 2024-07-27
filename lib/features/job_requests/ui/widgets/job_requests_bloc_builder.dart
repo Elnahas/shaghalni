@@ -6,6 +6,7 @@ import 'package:shaghalni/features/job_requests/ui/widgets/job_requests_list_vie
 import '../../../../core/data/models/job_model.dart';
 import '../../../../core/helpers/app_assets.dart';
 import '../../../../core/widgets/app_empty_state.dart';
+import '../../../../generated/l10n.dart';
 import '../../../jobs_list/ui/widgets/jobs_shimmer_loading.dart';
 import '../../logic/cubit/job_requests_state.dart';
 
@@ -18,7 +19,7 @@ class JobRequestsBlocBuilder extends StatelessWidget {
             builder: (context, state) {
               return state.maybeWhen(
                 jobRequestsLoading: () => setupLoading(),
-                noResultsFound: () => setupNoResultsFound(),
+                noResultsFound: () => setupNoResultsFound(context),
                 jobRequestsFailure: (error) => setupError(error),
                 jobRequestsSuccess: (jobRequests) => setupSuccess(jobRequests),
                 orElse: () => Container(),
@@ -44,11 +45,11 @@ class JobRequestsBlocBuilder extends StatelessWidget {
   }
 }
 
-Widget setupNoResultsFound() {
+Widget setupNoResultsFound(BuildContext context) {
   return Expanded(
       child: AppEmptyState(
-          title: "No Job Requests",
-          subtitle: "You haven't submitted any job requests yet",
+          title: S.of(context).no_job_requests,
+          subtitle: S.of(context).no_submitted_requests,
           svgAssetPath: AppAssets.noDataFound));
 }
 

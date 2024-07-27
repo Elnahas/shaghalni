@@ -9,6 +9,7 @@ import 'package:shaghalni/features/job_form/ui/widgets/job_form.dart';
 import '../../../../core/functions/show_snack_bar.dart';
 import '../../../../core/widgets/select_list_widget.dart';
 import '../../../../core/widgets/shimmer_list_widget.dart';
+import '../../../../generated/l10n.dart';
 import '../../logic/cubit/job_form_state.dart';
 
 class PageViewBlocConsumer extends StatelessWidget {
@@ -51,7 +52,7 @@ class PageViewBlocConsumer extends StatelessWidget {
                             physics: NeverScrollableScrollPhysics(),
                             children: [
                               SelectListWidget(
-                                title: "Select Category",
+                                title: S.of(context).select_category,
                                 items: state is CategoryAndCitySuccess ? state.categoryList : context.read<JobFormCubit>().getCategoryList,
                                 initialSelectedIndex: context
                                     .read<JobFormCubit>()
@@ -65,7 +66,7 @@ class PageViewBlocConsumer extends StatelessWidget {
                                 paddingHorizontal: 14.w,
                               ),
                               SelectListWidget(
-                                title: "Select City",
+                                title: S.of(context).select_city,
                                 items: state is CategoryAndCitySuccess ? state.cityList : context.read<JobFormCubit>().getCityList,
                                 initialSelectedIndex: context
                                     .read<JobFormCubit>()

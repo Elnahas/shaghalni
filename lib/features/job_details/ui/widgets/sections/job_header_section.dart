@@ -9,6 +9,7 @@ import 'package:shaghalni/core/widgets/app_text_and_icon.dart';
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_colors.dart';
 import '../../../../../core/theming/app_text_styles.dart';
+import '../../../../../generated/l10n.dart';
 import '../dividing_line.dart';
 import '../job_details.dart';
 
@@ -106,17 +107,17 @@ class JobHeaderSection extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   JobDetails(
-                    title: "Salary",
-                    value: "${salary} EGP",
+                    title: S.of(context).salary,
+                    value: "${salary} ${S.of(context).EGP}",
                   ),
                   DividingLine(),
                   JobDetails(
-                    title: "Job Type",
+                    title: S.of(context).job_type,
                     value: getJobTypeLabel(jobType),
                   ),
                   DividingLine(),
                   JobDetails(
-                    title: "Experience",
+                    title: S.of(context).experience,
                     value: getExperienceLabel(experienceRange),
                   )
                 ],

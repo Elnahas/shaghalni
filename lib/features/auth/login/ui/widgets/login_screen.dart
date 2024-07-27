@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/widgets/app_text_button.dart';
-import 'package:shaghalni/features/auth/login/logic/cubit/login_state.dart';
+import 'package:shaghalni/features/auth/login/logic/login_state.dart';
 import 'package:shaghalni/features/auth/login/ui/widgets/header_text_login_widgets.dart';
 import 'package:shaghalni/features/auth/login/ui/widgets/login_bloc_listener.dart';
 import 'package:shaghalni/features/auth/login/ui/widgets/login_form.dart';
 import '../../../../../generated/l10n.dart';
-import '../../logic/cubit/login_cubit.dart';
+import '../../logic/login_cubit.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

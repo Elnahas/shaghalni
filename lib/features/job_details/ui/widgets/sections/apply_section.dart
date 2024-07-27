@@ -8,6 +8,8 @@ import '../../../../../core/widgets/app_text_button.dart';
 import '../../../../../core/widgets/app_text_and_icon.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../../generated/l10n.dart';
+
 
 
 class ApplySection extends StatelessWidget {
@@ -43,7 +45,8 @@ class ApplySection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Views Job",
+                S.of(context).view_job
+                ,
                 style: AppTextStyles.font14BlackW300,
               ),
               verticalSpace(5),
@@ -52,7 +55,7 @@ class ApplySection extends StatelessWidget {
           ),
           AppTextButton(
             buttonWidth: 150.w,
-            buttonText: "Apply",
+            buttonText: S.of(context).apply,
             onPressed: () {
               _showBottomSheet(context);
             },
@@ -88,12 +91,12 @@ class ApplySection extends StatelessWidget {
           children: <Widget>[
             ListTile(
               leading: Icon(Icons.phone),
-              title: Text('Call Now'),
+              title: Text(S.of(context).call_now),
               onTap: () => _makePhoneCall(phoneNumber),
             ),
             ListTile(
               leading: Icon(Icons.message),
-              title: Text('WhatsApp'),
+              title: Text(S.of(context).whatsapp),
               onTap: () => _openWhatsApp(phoneNumber),
             ),
           ],

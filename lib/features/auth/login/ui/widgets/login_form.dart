@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/app_text_form_field.dart';
-import '../../logic/cubit/login_cubit.dart';
+import '../../../../../generated/l10n.dart';
+import '../../logic/login_cubit.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -32,7 +33,7 @@ class _LoginFormState extends State<LoginForm> {
       child: Column(
         children: [
           AppTextFormField(
-              hintText: "Phone Number",
+              hintText: S.of(context).phoneNumber,
               keyboardType: TextInputType.phone,
               suffixIcon: CountryCodePicker(
                 onChanged: (value) {
@@ -53,7 +54,7 @@ class _LoginFormState extends State<LoginForm> {
 
   String? _validatePhoneNumber(String? value) {
     if (value == null || value.isEmpty) {
-      return "Please enter your phone number";
+      return S.of(context).please_enter_your_phone_number;
     }
 
     // Check if the number starts with a zero and remove it
@@ -63,7 +64,7 @@ class _LoginFormState extends State<LoginForm> {
 
     // Check if the number is valid after removing the zero
     if (!value.startsWith("1") || value.length != 10 && value.length != 11) {
-      return "Please enter a valid phone number";
+      return S.of(context).please_enter_valid_phone_number;
     }
 
     // Save the processed value back to the controller

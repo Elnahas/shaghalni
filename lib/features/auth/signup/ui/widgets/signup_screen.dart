@@ -10,6 +10,7 @@ import 'package:shaghalni/features/auth/signup/ui/widgets/shimmer_signup_widget.
 import 'package:shaghalni/features/auth/signup/ui/widgets/signup_form.dart';
 import '../../../../../core/functions/show_snack_bar.dart';
 import '../../../../../core/routing/routes.dart';
+import '../../../../../generated/l10n.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -54,7 +55,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 children: [
                   verticalSpace(30),
                   Text(
-                    "Create Account",
+                    S.of(context).create_account,
                     style: AppTextStyles.font24BoldBlack,
                   ),
                   verticalSpace(30),
@@ -65,7 +66,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   verticalSpace(20),
                   AppTextButton(
                       isLoading: state is SignupLoading,
-                      buttonText: "Create an account",
+                      buttonText: S.of(context).create_an_account,
                       onPressed: () {
                         validateSignup(context);
                       })
@@ -81,10 +82,10 @@ class _SignupScreenState extends State<SignupScreen> {
   void validateSignup(BuildContext context) async {
     var cubit = context.read<SignupCubit>();
     if (cubit.signupFormKey.currentState!.validate()) {
-      if(cubit.isAgreed)
-      {await cubit.signUp();}
-      else{
-        showSnackBar(context, "Please accept the terms and conditions");
+      if (cubit.isAgreed) {
+        await cubit.signUp();
+      } else {
+        showSnackBar(context, S.of(context).accept_terms_conditions);
       }
     }
   }

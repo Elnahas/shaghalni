@@ -15,6 +15,7 @@ import 'package:shaghalni/features/job_requests/logic/cubit/job_requests_cubit.d
 import 'package:shaghalni/features/setting/logic/setting_cubit.dart';
 import 'package:shaghalni/features/setting/ui/screen/setting_screen.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../../blog/ui/screens/blog_list_screen.dart';
 import '../../../job_requests/ui/screens/job_requests_screen.dart';
 
@@ -75,11 +76,11 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            buildNavIcon("Home", FontAwesomeIcons.house, 0),
-            buildNavIcon("Request", FontAwesomeIcons.businessTime, 1),
+            buildNavIcon(S.of(context).home, FontAwesomeIcons.house, 0),
+            buildNavIcon(S.of(context).request, FontAwesomeIcons.businessTime, 1),
             horizontalSpace(40), // Space for FAB
-            buildNavIcon("Blog", FontAwesomeIcons.newspaper, 2),
-            buildNavIcon("Profile", FontAwesomeIcons.userGear, 3),
+            buildNavIcon(S.of(context).blog, FontAwesomeIcons.newspaper, 2),
+            buildNavIcon(S.of(context).profile, FontAwesomeIcons.userGear, 3),
           ],
         ),
       ),

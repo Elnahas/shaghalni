@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_text_styles.dart';
+import '../../../../../generated/l10n.dart';
 
 class JobDetailsSection extends StatelessWidget {
   final String jobDescription;
@@ -14,7 +15,7 @@ class JobDetailsSection extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: 30.w),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
-            "Job Details",
+            S.of(context).job_details,
             style: AppTextStyles.font14BoldBlue,
           ),
           verticalSpace(20),

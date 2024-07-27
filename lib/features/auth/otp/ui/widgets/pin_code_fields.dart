@@ -3,7 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 
-import '../../logic/cubit/otp_cubit.dart';
+import '../../logic/otp_cubit.dart';
 
 class PinCodeFields extends StatelessWidget {
   const PinCodeFields({super.key});

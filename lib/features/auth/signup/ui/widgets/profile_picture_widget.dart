@@ -6,6 +6,7 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../logic/cubit/signup_cubit.dart';
 
 // !! this class need to refactor to can be reusable
@@ -37,7 +38,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
         sourcePath: pickedFile.path,
         uiSettings: [
           AndroidUiSettings(
-              toolbarTitle: 'Cropper',
+              toolbarTitle: S.of(context).cropper,
               toolbarColor: AppColors.primaryColor,
               toolbarWidgetColor: Colors.white,
               initAspectRatio: CropAspectRatioPreset.original,
@@ -50,7 +51,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
                 CropAspectRatioPreset.ratio16x9
               ]),
           IOSUiSettings(
-            title: 'Cropper',
+            title: S.of(context).cropper,
           ),
           WebUiSettings(
             context: context,
@@ -107,7 +108,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
         children: [
           ListTile(
             leading: const Icon(Icons.camera),
-            title: const Text('Camera'),
+            title:  Text(S.of(context).camera),
             onTap: () {
               Navigator.of(context).pop();
               _pickAndCropImage(ImageSource.camera);
@@ -115,7 +116,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
           ),
           ListTile(
             leading: const Icon(Icons.photo_library),
-            title: const Text('Gallery'),
+            title:  Text(S.of(context).gallery),
             onTap: () {
               Navigator.of(context).pop();
               _pickAndCropImage(ImageSource.gallery);

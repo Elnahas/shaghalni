@@ -11,6 +11,7 @@ import '../../../../core/data/models/job_model.dart';
 import '../../../../core/functions/show_snack_bar.dart';
 import '../../../../core/widgets/app_text_button.dart';
 import '../../../../core/widgets/shimmer_list_widget.dart';
+import '../../../../generated/l10n.dart';
 
 class JobFormBlocBuilder extends StatefulWidget {
   const JobFormBlocBuilder({super.key});
@@ -52,12 +53,12 @@ class _JobFormBlocBuilderState extends State<JobFormBlocBuilder> {
               child: _cubit.currentStep == _cubit.totalSteps
                   ? AppTextButton(
                       isLoading: state is FormLoading,
-                      buttonText: 'Submit',
+                      buttonText: S.of(context).submit,
                       onPressed: () {
                         validateAddJob();
                       })
                   : AppTextButton(
-                      buttonText: 'Next',
+                      buttonText: S.of(context).next,
                       onPressed: () {
                         _cubit.nextStep();
                       },
@@ -92,14 +93,14 @@ class _JobFormBlocBuilderState extends State<JobFormBlocBuilder> {
           userName: userModel!.fullName);
       if(_cubit.selectedGender == null){
 
-        showSnackBar(context, "Please Select Gender");
+        showSnackBar(context, S.of(context).pleaseSelectGender);
         
         return;
       }
 
             if(_cubit.selectedJobType == null){
 
-        showSnackBar(context, "Please Select Job Type");
+        showSnackBar(context, S.of(context).please_select_job_type);
         
         return;
       }

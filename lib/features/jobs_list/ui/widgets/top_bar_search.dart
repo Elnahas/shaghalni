@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../core/widgets/app_text_form_field.dart';
+import '../../../../generated/l10n.dart';
 import '../../logic/jobs_list_cubit.dart';
 
 class TopBarSearch extends StatefulWidget {
@@ -31,11 +32,11 @@ class _TopBarSearchState extends State<TopBarSearch> {
         Expanded(
           child: AppTextFormField(
             controller: searchTextEditingController,
-            hintText: "Search by title job",
+            hintText: S.of(context).search_by_job_title,
             validator: (value) {},
             prefixIcon: Icon(FontAwesomeIcons.magnifyingGlass),
             suffixIcon: TextButton(
-                child: Text("Search"),
+                child: Text(S.of(context).search),
                 onPressed: () {
                   context.read<JobsListCubit>().getJobs(
                       categoryId: _cubit.selectedCategoryId,

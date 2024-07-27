@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/routing/routes.dart';
-import 'package:shaghalni/features/auth/otp/logic/cubit/otp_cubit.dart';
-import 'package:shaghalni/features/auth/otp/logic/cubit/otp_state.dart';
+import 'package:shaghalni/features/auth/otp/logic/otp_cubit.dart';
+import 'package:shaghalni/features/auth/otp/logic/otp_state.dart';
 
 class OtpBlocListener extends StatelessWidget {
   const OtpBlocListener({super.key});

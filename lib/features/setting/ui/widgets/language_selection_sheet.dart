@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shaghalni/generated/l10n.dart';
 
 import '../../../../core/helpers/constants.dart';
 import '../../../../core/helpers/shared_pref_helper.dart';
@@ -56,9 +57,9 @@ class _LanguageSelectionSheetState extends State<LanguageSelectionSheet> {
               onPressed: () => Navigator.pop(context),
             ),
           ),
-          Text('Select language', style: AppTextStyles.font18BoldBlack),
+          Text( S.of(context).select_language, style: AppTextStyles.font18BoldBlack),
           verticalSpace(5),
-          Text('What language do you prefer?',
+          Text(S.of(context).what_language_do_you_prefer,
               style: AppTextStyles.font16Regular),
           verticalSpace(20),
           _buildLanguageOption(
@@ -90,7 +91,7 @@ class _LanguageSelectionSheetState extends State<LanguageSelectionSheet> {
           ),
           verticalSpace(20),
           AppElevatedButton(
-            buttonText: "Confirm",
+            buttonText: S.of(context).confirm,
             onPressed: () async {
               selectedLanguage = currentSelectedLanguage;
               await SharedPrefHelper.setData(
