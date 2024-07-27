@@ -1,7 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-class DateHelper {
+abstract class DateHelper {
   static String formatCustomDate(DateTime dateTime, {String format = 'dd MMMM yyyy'}) {
     return DateFormat(format).format(dateTime);
   }

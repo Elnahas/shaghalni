@@ -5,6 +5,7 @@ import 'package:shaghalni/core/data/models/blog_model.dart';
 import 'package:shaghalni/features/blog/logic/blog_list/blog_list_cubit.dart';
 import 'package:shaghalni/features/blog/logic/blog_list/blog_list_state.dart';
 import 'package:shaghalni/features/jobs_list/ui/widgets/jobs_shimmer_loading.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/blog_list_view.dart';
 
 class BlogListScreen extends StatelessWidget {
@@ -18,7 +19,7 @@ class BlogListScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Text(
-          'Blog',
+          S.of(context).blog,
           style: AppTextStyles.font18BoldBlack,
         ),
         centerTitle: true,

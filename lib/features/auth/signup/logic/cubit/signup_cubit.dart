@@ -10,6 +10,7 @@ import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/core/repositories/city_repository.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_state.dart';
 
+import '../../../../../core/data/enum/gender.dart';
 import '../../../../../core/data/models/city_model.dart';
 import '../../../../../core/repositories/auth_repository.dart';
 import '../../../../../core/repositories/user_repository.dart';
@@ -33,8 +34,7 @@ class SignupCubit extends Cubit<SignupState> {
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
 
-  String? selectedGender = "male";
-  final List<String> genders = ["male", "female"];
+  Gender? selectedGender;
 
   File? imageFile;
   String _imageUrl = "";
@@ -64,7 +64,7 @@ class SignupCubit extends Cubit<SignupState> {
           lastName: lastNameController.text,
           phoneNumber: phoneNumber,
           birthDate: birthDateController.text,
-          gender: selectedGender!,
+          gender: selectedGender!.name,
           city: city,
           imageUrl: _imageUrl,
           createdAt: createdAt);

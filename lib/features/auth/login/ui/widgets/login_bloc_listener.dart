@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/routing/routes.dart';
-import 'package:shaghalni/features/auth/login/logic/cubit/login_cubit.dart';
-import 'package:shaghalni/features/auth/login/logic/cubit/login_state.dart';
+import 'package:shaghalni/features/auth/login/logic/login_cubit.dart';
+import 'package:shaghalni/features/auth/login/logic/login_state.dart';
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});
 

@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:shaghalni/core/helpers/constants.dart';
-import 'package:shaghalni/features/auth/otp/logic/cubit/otp_state.dart';
+import 'package:shaghalni/features/auth/otp/logic/otp_state.dart';
 
-import '../../../../../core/repositories/auth_repository.dart';
-import '../../../../../core/repositories/user_repository.dart';
+import '../../../../core/repositories/auth_repository.dart';
+import '../../../../core/repositories/user_repository.dart';
 
 class OtpCubit extends Cubit<OtpState> {
   final AuthRepository _authRepository;

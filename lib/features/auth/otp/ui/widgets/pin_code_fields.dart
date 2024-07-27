@@ -3,7 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
 
-import '../../logic/cubit/otp_cubit.dart';
+import '../../logic/otp_cubit.dart';
 
 class PinCodeFields extends StatelessWidget {
   const PinCodeFields({super.key});
@@ -14,6 +14,7 @@ class PinCodeFields extends StatelessWidget {
       final TextEditingController otpController = TextEditingController();
 
      return PinCodeTextField(
+      
       controller: otpController,
        appContext: context,
        autoFocus: true,
@@ -23,6 +24,7 @@ class PinCodeFields extends StatelessWidget {
        obscureText: false,
        animationType: AnimationType.scale,
        pinTheme: PinTheme(
+        
          shape: PinCodeFieldShape.box,
          borderRadius: BorderRadius.circular(5),
          fieldHeight: 50,

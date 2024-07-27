@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/data/enum/job_type.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
-import 'package:shaghalni/core/helpers/constants.dart';
+import 'package:shaghalni/core/helpers/app_labels.dart';
 import 'package:shaghalni/core/widgets/app_image_clip_r_rect.dart';
 import 'package:shaghalni/core/widgets/app_text_and_icon.dart';
-
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_colors.dart';
 import '../../../../../core/theming/app_text_styles.dart';
+import '../../../../../generated/l10n.dart';
 import '../dividing_line.dart';
 import '../job_details.dart';
 
@@ -106,18 +106,18 @@ class JobHeaderSection extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   JobDetails(
-                    title: "Salary",
-                    value: "${salary} EGP",
+                    title: S.of(context).salary,
+                    value: "${salary} ${S.of(context).EGP}",
                   ),
                   DividingLine(),
                   JobDetails(
-                    title: "Job Type",
-                    value: getJobTypeLabel(jobType),
+                    title: S.of(context).job_type,
+                    value: AppLabels.getJobTypeLabel(context,jobType),
                   ),
                   DividingLine(),
                   JobDetails(
-                    title: "Experience",
-                    value: getExperienceLabel(experienceRange),
+                    title: S.of(context).experience,
+                    value: AppLabels.getExperienceLabel(experienceRange , context),
                   )
                 ],
               ),

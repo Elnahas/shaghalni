@@ -8,6 +8,7 @@ import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/core/widgets/shimmer_list_widget.dart';
 import 'package:shaghalni/features/job_details/logic/job_details_cubit.dart';
 import 'package:shaghalni/features/job_details/logic/job_details_state.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/sections/apply_section.dart';
 import '../widgets/sections/job_details_section.dart';
 import '../widgets/sections/job_header_section.dart';
@@ -24,7 +25,7 @@ class JobDetailsScreen extends StatelessWidget {
         backgroundColor: AppColors.primaryColor,
         foregroundColor: Colors.white,
         title: Text(
-          "Job Details",
+          S.of(context).job_details,
           style: AppTextStyles.font18WhiteMedium,
         ),
         centerTitle: true,

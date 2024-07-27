@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:shaghalni/features/auth/login/logic/cubit/login_state.dart';
+import 'package:shaghalni/features/auth/login/logic/login_state.dart';
 
-import '../../../../../core/repositories/auth_repository.dart';
+import '../../../../core/repositories/auth_repository.dart';
 
 class LoginCubit extends Cubit<LoginState> {
 

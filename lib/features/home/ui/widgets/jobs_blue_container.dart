@@ -5,6 +5,7 @@ import 'package:shaghalni/core/theming/app_text_styles.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/routing/routes.dart';
+import '../../../../generated/l10n.dart';
 
 class JobsBlueContainer extends StatelessWidget {
   const JobsBlueContainer({super.key});
@@ -39,7 +40,7 @@ class JobsBlueContainer extends StatelessWidget {
                 Text(
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  'Explore nearby job\nvacancies\neffortlessly',
+                  S.of(context).explore_nearby_jobs,
                   style: AppTextStyles.font18WhiteMedium,
                   textAlign: TextAlign.start,
                 ),
@@ -56,7 +57,7 @@ class JobsBlueContainer extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'Find Nearby',
+                      S.of(context).find_nearby,
                       style: AppTextStyles.font12BlueRegular,
                     ),
                   ),
@@ -64,8 +65,9 @@ class JobsBlueContainer extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(
-            right: -20,
+          Positioned.directional(
+            textDirection: Directionality.of(context),
+            end: -20,
             top: 0,
             child: Image.asset(
               'assets/images/worker_home.png',

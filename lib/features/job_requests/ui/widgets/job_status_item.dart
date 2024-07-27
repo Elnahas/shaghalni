@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shaghalni/core/helpers/app_labels.dart';
 
 import '../../../../core/data/enum/job_status.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/app_text_styles.dart';
+
 class JobStatusItem extends StatelessWidget {
   const JobStatusItem({
     super.key,
-    required this.selectedStateJobIndex, required this.index,
+    required this.selectedStateJobIndex,
+    required this.index,
   });
 
   final int selectedStateJobIndex;
@@ -36,7 +39,7 @@ class JobStatusItem extends StatelessWidget {
         ),
         child: Center(
             child: Text(
-          JobStatus.values[index].name,
+          AppLabels.getStatusLabel(context, JobStatus.values[index]),
           style: AppTextStyles.font12BlackRegular.copyWith(
               color: selectedStateJobIndex == index
                   ? AppColors.white

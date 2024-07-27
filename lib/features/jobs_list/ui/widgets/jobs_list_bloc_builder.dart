@@ -7,6 +7,7 @@ import 'package:shaghalni/features/jobs_list/ui/widgets/jobs_shimmer_loading.dar
 import 'package:shaghalni/features/jobs_list/ui/widgets/scroll_controller_listener.dart';
 
 import '../../../../core/data/models/job_model.dart';
+import '../../../../generated/l10n.dart';
 import '../../../home/ui/widgets/job_section/job_grid_view_list.dart';
 import '../../logic/jobs_list_state.dart';
 
@@ -36,7 +37,7 @@ class JobsListBlocBuilder extends StatelessWidget {
               context.read<JobsListCubit>().hasMoreData),
           jobsListFailure: (state) => setupError(state.error),
           jobsListLoading: (state) => setupLoading(),
-          noResultsFound: (state) => setupNoResultsFound(),
+          noResultsFound: (state) => setupNoResultsFound(context),
           orElse: () => Container(),
         );
       },
@@ -75,11 +76,11 @@ class JobsListBlocBuilder extends StatelessWidget {
     return JobsShimmerLoading();
   }
 
-  Widget setupNoResultsFound() {
+  Widget setupNoResultsFound(BuildContext context) {
     return Expanded(
       child: AppEmptyState(
-          subtitle: "Try using different search terms",
-          title: "No results found",
+          subtitle: S.of(context).try_different_search_terms,
+          title: S.of(context).no_results_found,
           svgAssetPath: AppAssets.noResultsFoundSearch),
     );
   }

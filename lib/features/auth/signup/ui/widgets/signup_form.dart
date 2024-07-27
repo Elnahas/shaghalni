@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
-import 'package:shaghalni/core/widgets/app_drop_down_button.dart';
-import 'package:shaghalni/core/widgets/app_label_text.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_state.dart';
 import 'package:shaghalni/features/auth/signup/ui/widgets/profile_picture_widget.dart';
+import '../../../../../core/data/enum/gender.dart';
+import '../../../../../core/helpers/app_labels.dart';
 import '../../../../../core/helpers/date_picker_helper.dart';
 import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/widgets/app_drop_down.dart';
 import '../../../../../core/widgets/app_text_form_field.dart';
 import '../../../../../core/widgets/select_list_widget.dart';
+import '../../../../../generated/l10n.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
@@ -51,7 +53,7 @@ class _SignupFormState extends State<SignupForm> {
           const ProfilePicture(),
           verticalSpace(20),
           AppTextFormField(
-              labelText: "Phone Number",
+              labelText: S.of(context).phoneNumber,
               readOnly: true,
               hintText: context.read<SignupCubit>().phoneNumber,
               validator: (value) {}),
@@ -60,12 +62,12 @@ class _SignupFormState extends State<SignupForm> {
             children: [
               Expanded(
                 child: AppTextFormField(
-                    labelText: "First Name",
+                    labelText: S.of(context).firstName,
                     controller: firstNameController,
-                    hintText: "First Name",
+                    hintText: S.of(context).firstName,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "Please enter your first name";
+                        return S.of(context).please_enter_first_name;
                       }
                       return null;
                     }),
@@ -73,12 +75,12 @@ class _SignupFormState extends State<SignupForm> {
               horizontalSpace(10),
               Expanded(
                 child: AppTextFormField(
-                    labelText: "Last Name",
+                    labelText: S.of(context).lastName,
                     controller: lastNameController,
-                    hintText: "Last Name",
+                    hintText: S.of(context).lastName,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "Please enter your last name";
+                        return S.of(context).please_enter_last_name;
                       }
                       return null;
                     }),
@@ -87,18 +89,18 @@ class _SignupFormState extends State<SignupForm> {
           ),
           verticalSpace(20),
           AppTextFormField(
-              labelText: "City",
+              labelText: S.of(context).city,
               suffixIcon: const Icon(Icons.arrow_drop_down),
               readOnly: true,
               onTap: () async {
-              await  showModalBottomSheet(
+                await showModalBottomSheet(
                   context: context,
                   builder: (context) {
                     return Container(
                         padding: const EdgeInsets.all(14),
                         child: SelectListWidget(
                           items: _cubit.cityList,
-                          title: "Select City",
+                          title: S.of(context).select_city,
                           onItemSelected: (value) {
                             cityController.text = _cubit.cityList[value].name;
                             _cubit.selectedCityIndex = value;
@@ -113,21 +115,21 @@ class _SignupFormState extends State<SignupForm> {
                 );
               },
               controller: cityController,
-              hintText: "City",
+              hintText: S.of(context).city,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return "Please select your city";
+                  return S.of(context).please_select_city;
                 }
                 return null;
               }),
           verticalSpace(20),
           AppTextFormField(
-              labelText: "Birth Date",
+              labelText: S.of(context).birthDate,
               controller: birthDateController,
-              hintText: "Birth Date",
+              hintText: S.of(context).birthDate,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return "Please select your birth date";
+                  return S.of(context).please_select_birth_date;
                 }
                 return null;
               },
@@ -137,9 +139,20 @@ class _SignupFormState extends State<SignupForm> {
               readOnly: true,
               suffixIcon: const Icon(Icons.calendar_month)),
           verticalSpace(20),
-          AppLabelText(labelText: "Gender"),
-          verticalSpace(10),
-          const AppDropDownButton(),
+          AppDropdown<Gender>(
+            selectedValue: _cubit.selectedGender,
+            labelText: S.of(context).select_type,
+            items: Gender.values.where((gender) => gender != Gender.both).toList(),
+            getLabel: (Gender gender) {
+              return AppLabels.getGenderLabel(context, gender);
+            },
+            onChanged: (Gender? newValue) {
+              setState(() {
+                _cubit.selectedGender = newValue!;
+              });
+            },
+            hint: S.of(context).select_type,
+          ),
           verticalSpace(20),
           BlocBuilder<SignupCubit, SignupState>(
             buildWhen: (previous, current) => current is AgreementState,
@@ -150,7 +163,7 @@ class _SignupFormState extends State<SignupForm> {
                   print(value);
                   _cubit.setAgreement(value!);
                 },
-                title: Text("I agree with the Terms and Conditions",
+                title: Text(S.of(context).agree_terms_conditions,
                     style: AppTextStyles.font15Dark60Regular),
               );
             },

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
@@ -6,6 +5,7 @@ import 'package:shaghalni/core/routing/routes.dart';
 
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/app_text_styles.dart';
+import '../../../../generated/l10n.dart';
 import '../../logic/cubit/job_form_cubit.dart';
 
 class JobFormAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -18,7 +18,7 @@ class JobFormAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       centerTitle: true,
       title: Text(
-        'Job Vacancy Announcement',
+        S.of(context).job_vacancy_announcement,
         style: AppTextStyles.font14DarkBlueMedium,
       ),
       leading: IconButton(
@@ -26,7 +26,8 @@ class JobFormAppBar extends StatelessWidget implements PreferredSizeWidget {
           if (context.read<JobFormCubit>().currentStep > 1) {
             context.read<JobFormCubit>().previousStep();
           } else {
-             context.pushNamedAndRemoveUntil(Routes.home, predicate: (Route<dynamic> route) => false);
+            context.pushNamedAndRemoveUntil(Routes.home,
+                predicate: (Route<dynamic> route) => false);
           }
         },
         icon: const Icon(

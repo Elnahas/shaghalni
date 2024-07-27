@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
-class CircularImage extends StatelessWidget {
+class AppCircleAvatar extends StatelessWidget {
   final String imageUrl;
   final double radius;
   final Color backgroundColor;
   final Widget errorWidget;
 
 
-  CircularImage({
+  AppCircleAvatar({
     required this.imageUrl,
     this.radius = 20,
     this.errorWidget = const Icon(Icons.error),

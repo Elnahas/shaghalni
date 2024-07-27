@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
 
+import '../../generated/l10n.dart';
+
 class CustomHeaderSection extends StatelessWidget {
 
     final String text;
@@ -30,7 +32,7 @@ class CustomHeaderSection extends StatelessWidget {
               ),
               onPressed: onPressed,
               child: Text(
-                "View All > ",
+                S.of(context).view_all,
                 style: AppTextStyles.font12BoldBlue,
               ))
         ],

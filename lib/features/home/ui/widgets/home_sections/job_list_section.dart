@@ -6,6 +6,7 @@ import 'package:shaghalni/features/home/ui/widgets/job_section/job_grid_view_lis
 import '../../../../../core/data/models/job_model.dart';
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/widgets/custom_header_section.dart';
+import '../../../../../generated/l10n.dart';
 
 class JobListSection extends StatelessWidget {
   final List<JobModel> jobList;
@@ -16,7 +17,7 @@ class JobListSection extends StatelessWidget {
     return Column(
       children: [
         CustomHeaderSection(
-          text: "Recently added jobs",
+          text:S.of(context).recently_added_jobs,
           onPressed: () {
             context.pushNamed(Routes.jobsList);
           },

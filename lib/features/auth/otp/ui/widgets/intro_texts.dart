@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/app_text_styles.dart';
+import '../../../../../generated/l10n.dart';
 
 class IntroTexts extends StatelessWidget {
   final String phoneNumber ;
@@ -11,9 +12,9 @@ class IntroTexts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Verification your phone number",
+        Text(S.of(context).verify_phone_number,
           style: AppTextStyles.font24BoldBlack,
         ),
         verticalSpace(30),
@@ -21,7 +22,7 @@ class IntroTexts extends StatelessWidget {
             margin:const EdgeInsets.symmetric(horizontal: 2),
             child: RichText(
               text: TextSpan(
-                text: 'Enter your 6 digit code numbers sent to ',
+                text: S.of(context).enter_otp_code,
                 style:
                    const TextStyle(color: Colors.black, fontSize: 18, height: 1.4),
                 children: <TextSpan>[

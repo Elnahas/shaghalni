@@ -6,6 +6,7 @@ import 'package:shaghalni/core/widgets/app_label_text.dart';
 class AppDropdown<T> extends StatelessWidget {
   final T? selectedValue;
   final String? labelText;
+  final String hint;
   final List<T> items;
   final String Function(T)? getLabel;
   final void Function(T?)? onChanged;
@@ -16,7 +17,7 @@ class AppDropdown<T> extends StatelessWidget {
     this.labelText,
     required this.items,
     this.getLabel,
-    this.onChanged,
+    this.onChanged, required this.hint,
   }) : super(key: key);
 
   @override
@@ -42,7 +43,7 @@ class AppDropdown<T> extends StatelessWidget {
             underline: Container(),
             isExpanded: true,
             value: selectedValue,
-            hint: Text('Select Type'),
+            hint: Text(hint),
             onChanged: onChanged,
             items: items.map((T value) {
               return DropdownMenuItem<T>(

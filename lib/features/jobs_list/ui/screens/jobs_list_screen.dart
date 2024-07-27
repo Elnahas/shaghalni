@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/features/jobs_list/ui/widgets/category_bloc_builder.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/jobs_list_bloc_builder.dart';
 import '../widgets/top_bar_search.dart';
 
@@ -13,7 +14,7 @@ class JobsListScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: Text("Jobs"),
+          title: Text( S.of(context).jobs),
           centerTitle: true,
         ),
         body: Column(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
+import 'package:shaghalni/core/helpers/app_labels.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import '../../../../core/data/enum/job_status.dart';
@@ -49,17 +50,17 @@ class JobRequestItem extends StatelessWidget {
             children: [
               AppImageClipRRect(
                 imageUrl: jobModel.category.coverImageUrl,
-                height: 100,
+                height: 110,
                 width: 100,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(12),
-                  bottomLeft: Radius.circular(12),
-                ),
+                borderRadius: BorderRadiusDirectional.only(
+                  topStart: Radius.circular(12),
+                  bottomStart: Radius.circular(12),
+                ).resolve(Directionality.of(context)),
               ),
               horizontalSpace(10),
               Expanded(
                 child: Container(
-                  height: 100.h,
+                  height: 110.h,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -84,21 +85,24 @@ class JobRequestItem extends StatelessWidget {
                         ],
                       ),
                       Container(
+                        width: 80.w,
                         padding:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                         decoration: BoxDecoration(
-                          color: AppColors.primaryColor.withOpacity(0.1),
+                           color: getStatusColor(jobModel.status),
                           borderRadius: BorderRadius.all(
                             Radius.circular(12),
                           ),
                         ),
-                        child: Text(
-                          jobModel.status.name,
-                          style: AppTextStyles.font12BoldBlue,
+                        child: Center(
+                          child: Text(
+                            AppLabels.getStatusLabel(context, jobModel.status),
+                            style: AppTextStyles.font12BlueRegular,
+                          ),
                         ),
                       ),
                       Align(
-                        alignment: Alignment.centerRight,
+                        alignment: AlignmentDirectional.centerEnd,
                         child: Text(
                           DateHelper.formatCustomDate(
                             jobModel.createdAt,
@@ -116,5 +120,16 @@ class JobRequestItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+    static const Map<JobStatus, Color> _statusColors = {
+    JobStatus.open: Color(0xFFE0F7FA),    // Light Cyan
+    JobStatus.closed: Color(0xFFB0BEC5),  // Light Blue Grey
+    JobStatus.pending: Color(0xFFFFF9C4), // Light Yellow
+    JobStatus.reject: Color(0xFFFFCDD2),  // Light Red
+  };
+
+    Color getStatusColor(JobStatus status) {
+    return _statusColors[status]?.withOpacity(0.8) ?? Colors.transparent;
   }
 }

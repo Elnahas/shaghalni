@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/features/job_requests/ui/widgets/job_requests_bloc_builder.dart';
 import '../../../../core/theming/app_text_styles.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/job_status_list_view.dart';
 
 class JobRequestsScreen extends StatelessWidget {
@@ -12,7 +13,7 @@ class JobRequestsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Job Requests',
+          S.of(context).job_requests,
           style: AppTextStyles.font18BoldBlack,
         ),
         centerTitle: true,

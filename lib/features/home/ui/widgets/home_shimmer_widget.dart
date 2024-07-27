@@ -4,6 +4,7 @@ import 'package:shaghalni/features/jobs_list/ui/widgets/category_shimmer_loading
 import 'package:shaghalni/features/jobs_list/ui/widgets/jobs_shimmer_loading.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widgets/custom_header_section.dart';
+import '../../../../generated/l10n.dart';
 
 class HomeShimmerWidget extends StatelessWidget {
   @override
@@ -13,13 +14,13 @@ class HomeShimmerWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CustomHeaderSection(
-            text: "Categories",
+           CustomHeaderSection(
+            text: S.of(context).categories,
           ),
           verticalSpace(10),
           CategoryShimmerLoading(),
-          const CustomHeaderSection(
-            text: "Recently added jobs",
+           CustomHeaderSection(
+            text:S.of(context).recently_added_jobs,
           ),
           verticalSpace(10),
           Padding(

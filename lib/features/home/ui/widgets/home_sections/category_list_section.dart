@@ -5,6 +5,7 @@ import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/core/widgets/custom_header_section.dart';
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/widgets/app_category_list_view_horizontal.dart';
+import '../../../../../generated/l10n.dart';
 
 class CategoryListSection extends StatelessWidget {
   final List<CategoryModel> categoryList;
@@ -15,7 +16,7 @@ class CategoryListSection extends StatelessWidget {
     return Column(
       children: [
         CustomHeaderSection(
-          text: "Categories",
+          text: S.of(context).categories,
           onPressed: () {
             context.pushNamed(Routes.category);
           },

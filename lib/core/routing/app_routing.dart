@@ -6,8 +6,8 @@ import 'package:shaghalni/core/di/service_locator.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import 'package:shaghalni/features/job_form/logic/cubit/job_form_cubit.dart';
 import 'package:shaghalni/features/job_form/ui/screen/job_form_screen.dart';
-import 'package:shaghalni/features/auth/login/logic/cubit/login_cubit.dart';
-import 'package:shaghalni/features/auth/otp/logic/cubit/otp_cubit.dart';
+import 'package:shaghalni/features/auth/login/logic/login_cubit.dart';
+import 'package:shaghalni/features/auth/otp/logic/otp_cubit.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:shaghalni/features/auth/signup/ui/widgets/signup_screen.dart';
 import 'package:shaghalni/features/category/logic/category_cubit.dart';
@@ -18,14 +18,16 @@ import 'package:shaghalni/features/job_details/ui/screens/job_details_screen.dar
 import 'package:shaghalni/features/jobs_list/logic/jobs_list_cubit.dart';
 import 'package:shaghalni/features/jobs_list/ui/screens/jobs_list_screen.dart';
 import 'package:shaghalni/features/language/ui/screen/language_screen.dart';
+import 'package:shaghalni/features/notification/ui/screen/notification_screen.dart';
 import 'package:shaghalni/features/on_boarding/logic/cubit/page_cubit.dart';
 import 'package:shaghalni/features/on_boarding/ui/screen/on_boarding_screen.dart';
+import 'package:shaghalni/features/setting/ui/screen/terms_and_conditions_screen.dart';
 import '../../features/auth/login/ui/widgets/login_screen.dart';
 import '../../features/auth/otp/ui/widgets/otp_screen.dart';
 import '../../features/auth/welcome/ui/widgets/welcome_screen.dart';
 import '../../features/blog_details/ui/screens/blog_details_screen.dart';
 
-class Routing {
+class AppRouting {
   Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.welcomeScreen:
@@ -75,17 +77,15 @@ class Routing {
                 ));
 
       case Routes.addJob:
-         JobModel? jobModel = null;
-      if (settings.arguments != null) {
-       jobModel= settings.arguments as JobModel;
-
-
-      }
+        JobModel? jobModel = null;
+        if (settings.arguments != null) {
+          jobModel = settings.arguments as JobModel;
+        }
 
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
-                  create: (context) => getIt<JobFormCubit>()
-                    ..getCategoryAndCity(jobModel),
+                  create: (context) =>
+                      getIt<JobFormCubit>()..getCategoryAndCity(jobModel),
                   child: JobFormScreen(
                     jobModel: jobModel,
                   ),
@@ -122,6 +122,14 @@ class Routing {
             );
           },
         );
+
+      case Routes.terms:
+        return MaterialPageRoute(
+            builder: (context) => TermsAndConditionsScreen());
+
+      case Routes.notification:
+        return MaterialPageRoute(builder: (context) => NotificationScreen());
+
       default:
         return null;
     }

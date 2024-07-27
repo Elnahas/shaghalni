@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -9,7 +8,7 @@ import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/helpers/my_bloc_observer.dart';
 import 'package:shaghalni/core/helpers/shared_pref_helper.dart';
-import 'package:shaghalni/core/routing/routing.dart';
+import 'package:shaghalni/core/routing/app_routing.dart';
 import 'package:shaghalni/firebase_options.dart';
 import 'package:shaghalni/app/my_app.dart';
 
@@ -21,11 +20,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await getLanguage();
 
-  setupServiceLocator();
   await checkIfLoggedInUser();
   await checkIfSeenOnboarding();
-  await getLanguage();
+  setupServiceLocator();
 
   // Set up the global Bloc observer
   Bloc.observer = MyBlocObserver();
@@ -41,7 +40,7 @@ void main() async {
   // });
 
   runApp(MyApp(
-    routing: Routing(),
+    routing: AppRouting(),
   ));
 }
 

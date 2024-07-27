@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/category_bloc_builder.dart';
 
 class CategoryScreen extends StatefulWidget {
@@ -32,7 +33,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Text(
-          'Category',
+          S.of(context).category,
           style: AppTextStyles.font18BoldBlack,
         ),
         centerTitle: true,

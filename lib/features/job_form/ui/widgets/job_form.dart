@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/data/enum/job_type.dart';
-import 'package:shaghalni/core/helpers/constants.dart';
+import 'package:shaghalni/core/helpers/app_labels.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
-
 import '../../../../core/data/enum/gender.dart';
 import '../../../../core/theming/app_text_styles.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../../core/widgets/app_drop_down.dart';
+import '../../../../generated/l10n.dart';
 import '../../logic/cubit/job_form_cubit.dart';
 import 'experience_slider.dart';
 
@@ -48,35 +48,35 @@ class _JobFormState extends State<JobForm> {
             children: [
               verticalSpace(20),
               AppTextFormField(
-                labelText: "Title of the job",
-                hintText: "Title of the job",
+                labelText: S.of(context).job_title,
+                hintText:S.of(context).job_title,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return "Please enter the title of the job";
+                    return S.of(context).enter_job_title;
                   }
                 },
                 controller: _cubit.jobTitleController,
               ),
               verticalSpace(20),
               AppTextFormField(
-                  labelText: "Description of the job",
-                  hintText: "Description of the job",
+                  labelText: S.of(context).job_description,
+                  hintText:S.of(context).job_description,
                   maxLines: 6,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Please enter the description of the job";
+                      return S.of(context).enter_job_description;
                     }
                   },
                   controller: _cubit.jobDescriptionController),
               verticalSpace(20),
               AppTextFormField(
-                  labelText: "Salary",
-                  hintText: "Salary",
+                  labelText: S.of(context).salary,
+                  hintText: S.of(context).salary,
                   keyboardType: TextInputType.number,
                   validator: (value) {
                     if (!_cubit.isHideSalary) {
                       if (value == null || value.isEmpty) {
-                        return "Please enter the salary";
+                        return S.of(context).enter_salary;
                       }
                     }
                   },
@@ -89,40 +89,42 @@ class _JobFormState extends State<JobForm> {
                     _cubit.isHideSalary = value!;
                   });
                 },
-                title: Text(
-                  "Hide the salary",
+                title: Text( S.of(context).hide_salary
+                  ,
                   style: AppTextStyles.font14BlackW300,
                 ),
               ),
               verticalSpace(20),
               AppDropdown<JobType>(
                 selectedValue: _cubit.selectedJobType,
-                labelText: 'Job type',
+                labelText: S.of(context).job_type,
                 items: JobType.values,
                 getLabel: (JobType jobType) {
-                  return getJobTypeLabel(jobType);
+                  return AppLabels.getJobTypeLabel(context,jobType);
                 },
                 onChanged: (JobType? newValue) {
                   setState(() {
                     _cubit.selectedJobType = newValue!;
                   });
                 },
+                hint: S.of(context).select_type,
               ),
               verticalSpace(20),
               ExperienceSlider(),
               verticalSpace(20),
               AppDropdown<Gender>(
                 selectedValue: _cubit.selectedGender,
-                labelText: 'Select type',
+                labelText: S.of(context).select_type,
                 items: Gender.values,
                 getLabel: (Gender gender) {
-                  return getGenderJobLabel(gender);
+                  return  AppLabels.getGenderLabel(context, gender);
                 },
                 onChanged: (Gender? newValue) {
                   setState(() {
                     _cubit.selectedGender = newValue!;
                   });
                 },
+                hint: S.of(context).select_type,
               ),
               verticalSpace(40),
             ],
