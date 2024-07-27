@@ -3,6 +3,7 @@ import 'package:shaghalni/core/helpers/constants.dart';
 import 'package:shaghalni/generated/l10n.dart';
 
 import '../data/enum/gender.dart';
+import '../data/enum/job_status.dart';
 import '../data/enum/job_type.dart';
 import '../data/models/job_model.dart';
 
@@ -10,50 +11,47 @@ class AppLabels {
   AppLabels._();
   static String getGenderLabel(BuildContext context, Gender gender) {
     final localizations = S.of(context);
-    switch (gender) {
-      case Gender.male:
-        return localizations.male;
-      case Gender.female:
-        return localizations.female;
-      case Gender.both:
-        return localizations.both;
-      default:
-        return '';
-    }
+    final genderLabels = {
+      Gender.male: localizations.male,
+      Gender.female: localizations.female,
+      Gender.both: localizations.both,
+    };
+    return genderLabels[gender] ?? '';
   }
 
   static String getGenderJobLabel(BuildContext context, Gender gender) {
     final localizations = S.of(context);
-    switch (gender) {
-      case Gender.male:
-        return localizations.males;
-      case Gender.female:
-        return localizations.females;
-      case Gender.both:
-        return localizations.both;
-      default:
-        return '';
-    }
+    final genderJobLabels = {
+      Gender.male: localizations.males,
+      Gender.female: localizations.females,
+      Gender.both: localizations.both,
+    };
+    return genderJobLabels[gender] ?? '';
   }
 
   static String getJobTypeLabel(BuildContext context, JobType jobType) {
     final localizations = S.of(context);
-    switch (jobType) {
-      case JobType.fullTime:
-        return localizations.full_time;
-      case JobType.partTime:
-        return localizations.part_time;
-      case JobType.internship:
-        return localizations.internship;
-      case JobType.contract:
-        return localizations.contract;
-      case JobType.temporary:
-        return localizations.temporary;
-      case JobType.volunteer:
-        return localizations.volunteer;
-      default:
-        return '';
-    }
+    final jobTypeLabels = {
+      JobType.fullTime: localizations.full_time,
+      JobType.partTime: localizations.part_time,
+      JobType.internship: localizations.internship,
+      JobType.contract: localizations.contract,
+      JobType.temporary: localizations.temporary,
+      JobType.volunteer: localizations.volunteer,
+    };
+    return jobTypeLabels[jobType] ?? '';
+  }
+
+  static String getStatusLabel(BuildContext context, JobStatus status) {
+    final localizations = S.of(context);
+    final statusLabels = {
+      JobStatus.all: localizations.all,
+      JobStatus.open: localizations.open,
+      JobStatus.closed: localizations.closed,
+      JobStatus.pending: localizations.pending,
+      JobStatus.reject: localizations.reject,
+    };
+    return statusLabels[status] ?? '';
   }
 
   static String getExperienceLabel(

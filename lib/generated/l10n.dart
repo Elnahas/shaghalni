@@ -540,11 +540,11 @@ class S {
     );
   }
 
-  /// `Request`
-  String get request {
+  /// `Requests`
+  String get requests {
     return Intl.message(
-      'Request',
-      name: 'request',
+      'Requests',
+      name: 'requests',
       desc: '',
       args: [],
     );
@@ -1208,6 +1208,56 @@ class S {
       name: 'experience_min_max_years',
       desc: '',
       args: [experienceRange_minExperience, experienceRange_maxExperience],
+    );
+  }
+
+  /// `All`
+  String get all {
+    return Intl.message(
+      'All',
+      name: 'all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open`
+  String get open {
+    return Intl.message(
+      'Open',
+      name: 'open',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Closed`
+  String get closed {
+    return Intl.message(
+      'Closed',
+      name: 'closed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pending`
+  String get pending {
+    return Intl.message(
+      'Pending',
+      name: 'pending',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reject`
+  String get reject {
+    return Intl.message(
+      'Reject',
+      name: 'reject',
+      desc: '',
+      args: [],
     );
   }
 }

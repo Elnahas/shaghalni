@@ -48,7 +48,7 @@
     "onboarding_subtitle4": "Start now and get the best talents\n or secure your dream opportunity",
     "skip": "Skip",
     "home": "Home",
-    "request": "Request",
+    "requests": "Requests",
     "blog": "Blog",
     "categories": "Categories",
     "recently_added_jobs": "Recently added jobs",
@@ -114,5 +114,10 @@
     "others": "Others",
     "experience_min_year": "{experienceRange_minExperience} Year",
     "experience_min_years": "{experienceRange_minExperience} Years",
-    "experience_min_max_years": "{experienceRange_minExperience} - {experienceRange_maxExperience} Years"
+    "experience_min_max_years": "{experienceRange_minExperience} - {experienceRange_maxExperience} Years",
+    "all": "All",
+    "open": "Open",
+    "closed": "Closed",
+    "pending": "Pending",
+    "reject": "Reject"
 }

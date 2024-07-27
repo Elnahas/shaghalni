@@ -46,6 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please accept the terms and conditions"),
         "agree_terms_conditions": MessageLookupByLibrary.simpleMessage(
             "I agree with the Terms and Conditions"),
+        "all": MessageLookupByLibrary.simpleMessage("All"),
         "appName": MessageLookupByLibrary.simpleMessage("Shaghalni"),
         "apply": MessageLookupByLibrary.simpleMessage("Apply"),
         "birthDate": MessageLookupByLibrary.simpleMessage("Birth Date"),
@@ -57,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "category": MessageLookupByLibrary.simpleMessage("Category"),
         "change": MessageLookupByLibrary.simpleMessage("Change"),
         "city": MessageLookupByLibrary.simpleMessage("City"),
+        "closed": MessageLookupByLibrary.simpleMessage("Closed"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "continue_": MessageLookupByLibrary.simpleMessage("Continue"),
         "contract": MessageLookupByLibrary.simpleMessage("Contract"),
@@ -140,10 +142,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboarding_title4":
             MessageLookupByLibrary.simpleMessage("Register and start now"),
         "only": MessageLookupByLibrary.simpleMessage("Only"),
+        "open": MessageLookupByLibrary.simpleMessage("Open"),
         "others": MessageLookupByLibrary.simpleMessage("Others"),
         "otp_sent_successfully":
             MessageLookupByLibrary.simpleMessage("OTP sent successfully"),
         "part_time": MessageLookupByLibrary.simpleMessage("Part - Time"),
+        "pending": MessageLookupByLibrary.simpleMessage("Pending"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "pleaseSelectGender":
             MessageLookupByLibrary.simpleMessage("Please select gender"),
@@ -171,7 +175,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "recently_added_jobs":
             MessageLookupByLibrary.simpleMessage("Recently added jobs"),
-        "request": MessageLookupByLibrary.simpleMessage("Request"),
+        "reject": MessageLookupByLibrary.simpleMessage("Reject"),
+        "requests": MessageLookupByLibrary.simpleMessage("Requests"),
         "requirements": MessageLookupByLibrary.simpleMessage("Requirements"),
         "salary": MessageLookupByLibrary.simpleMessage("Salary"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),

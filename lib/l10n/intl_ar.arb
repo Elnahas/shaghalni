@@ -48,7 +48,7 @@
     "onboarding_subtitle4": "ابدأ الآن واحصل على أفضل المواهب\n أو أؤمن فرصتك الحلمية",
     "skip": "تخطي",
     "home": "الرئيسية",
-    "request": "طلب",
+    "requests": "الطلبات",
     "blog": "مدونة",
     "categories": "الفئات",
     "recently_added_jobs": "الوظائف المضافة حديثًا",
@@ -60,7 +60,7 @@
     "category": "الفئة",
     "view_all": "عرض الكل >",
     "job_details": "تفاصيل الوظيفة",
-    "view_job": "عرض الوظيفة",
+    "view_job": "عدد المشاهدات",
     "apply": "تقدم",
     "call_now": "اتصل الآن",
     "whatsapp": "واتساب",
@@ -114,5 +114,10 @@
     "others": "اخرى",
     "experience_min_year": "{experienceRange_minExperience} سنه",
     "experience_min_years": "{experienceRange_minExperience} سنين",
-    "experience_min_max_years": "{experienceRange_minExperience} - {experienceRange_maxExperience} سنين"
+    "experience_min_max_years": "{experienceRange_minExperience} - {experienceRange_maxExperience} سنين",
+    "all": "الكل",
+    "open": "مفتوح",
+    "closed": "مغلق",
+    "pending": "قيد الانتظار",
+    "reject": "مرفوض"
 }

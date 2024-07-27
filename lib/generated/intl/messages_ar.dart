@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("يرجى قبول الشروط والأحكام"),
         "agree_terms_conditions":
             MessageLookupByLibrary.simpleMessage("أوافق على الشروط والأحكام"),
+        "all": MessageLookupByLibrary.simpleMessage("الكل"),
         "appName": MessageLookupByLibrary.simpleMessage("شغلني"),
         "apply": MessageLookupByLibrary.simpleMessage("تقدم"),
         "birthDate": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
@@ -56,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "category": MessageLookupByLibrary.simpleMessage("الفئة"),
         "change": MessageLookupByLibrary.simpleMessage("تغيير"),
         "city": MessageLookupByLibrary.simpleMessage("المدينة"),
+        "closed": MessageLookupByLibrary.simpleMessage("مغلق"),
         "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "continue_": MessageLookupByLibrary.simpleMessage("استمر"),
         "contract": MessageLookupByLibrary.simpleMessage("عقد"),
@@ -136,10 +138,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboarding_title4":
             MessageLookupByLibrary.simpleMessage("سجل وابدأ الآن"),
         "only": MessageLookupByLibrary.simpleMessage("فقط"),
+        "open": MessageLookupByLibrary.simpleMessage("مفتوح"),
         "others": MessageLookupByLibrary.simpleMessage("اخرى"),
         "otp_sent_successfully":
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز التحقق بنجاح"),
         "part_time": MessageLookupByLibrary.simpleMessage("دوام جزئي"),
+        "pending": MessageLookupByLibrary.simpleMessage("قيد الانتظار"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "pleaseSelectGender":
             MessageLookupByLibrary.simpleMessage("يرجى تحديد النوع"),
@@ -167,7 +171,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "recently_added_jobs":
             MessageLookupByLibrary.simpleMessage("الوظائف المضافة حديثًا"),
-        "request": MessageLookupByLibrary.simpleMessage("طلب"),
+        "reject": MessageLookupByLibrary.simpleMessage("مرفوض"),
+        "requests": MessageLookupByLibrary.simpleMessage("الطلبات"),
         "requirements": MessageLookupByLibrary.simpleMessage("المتطلبات"),
         "salary": MessageLookupByLibrary.simpleMessage("الراتب"),
         "search": MessageLookupByLibrary.simpleMessage("بحث"),
@@ -189,7 +194,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "verify_phone_number":
             MessageLookupByLibrary.simpleMessage("تحقق من رقم هاتفك"),
         "view_all": MessageLookupByLibrary.simpleMessage("عرض الكل >"),
-        "view_job": MessageLookupByLibrary.simpleMessage("عرض الوظيفة"),
+        "view_job": MessageLookupByLibrary.simpleMessage("عدد المشاهدات"),
         "volunteer": MessageLookupByLibrary.simpleMessage("تطوعي"),
         "what_is_your_phone_number":
             MessageLookupByLibrary.simpleMessage("ما هو رقم هاتفك؟"),

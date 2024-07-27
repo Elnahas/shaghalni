@@ -77,7 +77,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             buildNavIcon(S.of(context).home, FontAwesomeIcons.house, 0),
-            buildNavIcon(S.of(context).request, FontAwesomeIcons.businessTime, 1),
+            buildNavIcon(S.of(context).requests, FontAwesomeIcons.businessTime, 1),
             horizontalSpace(40), // Space for FAB
             buildNavIcon(S.of(context).blog, FontAwesomeIcons.newspaper, 2),
             buildNavIcon(S.of(context).profile, FontAwesomeIcons.userGear, 3),

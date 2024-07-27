@@ -5,8 +5,6 @@ import 'package:shaghalni/core/data/models/job_model.dart';
 import 'package:shaghalni/features/home/logic/home_cubit.dart';
 import 'package:shaghalni/features/home/logic/home_state.dart';
 import 'package:shaghalni/features/home/ui/widgets/home_shimmer_widget.dart';
-
-import '../../../../core/helpers/spacing.dart';
 import 'home_sections/category_list_section.dart';
 import 'home_sections/job_list_section.dart';
 
@@ -40,7 +38,6 @@ class CategoriesAndJobsBlocBuilder extends StatelessWidget {
     return Column(
       children: [
         CategoryListSection(categoryList: categoryList),
-        verticalSpace(20),
         JobListSection(jobList: jobList),
       ],
     );

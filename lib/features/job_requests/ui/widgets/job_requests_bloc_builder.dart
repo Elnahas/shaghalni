@@ -15,24 +15,25 @@ class JobRequestsBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return            BlocBuilder<JobRequestsCubit, JobRequestsState>(
-            builder: (context, state) {
-              return state.maybeWhen(
-                jobRequestsLoading: () => setupLoading(),
-                noResultsFound: () => setupNoResultsFound(context),
-                jobRequestsFailure: (error) => setupError(error),
-                jobRequestsSuccess: (jobRequests) => setupSuccess(jobRequests),
-                orElse: () => Container(),
-              );
-            },
-          );
+    return BlocBuilder<JobRequestsCubit, JobRequestsState>(
+      builder: (context, state) {
+        return state.maybeWhen(
+          jobRequestsLoading: () => setupLoading(),
+          noResultsFound: () => setupNoResultsFound(context),
+          jobRequestsFailure: (error) => setupError(error),
+          jobRequestsSuccess: (jobRequests) => setupSuccess(jobRequests),
+          orElse: () => Container(),
+        );
+      },
+    );
   }
 
-    Widget setupLoading() {
-    return Expanded(child: Padding(
+  Widget setupLoading() {
+    return Expanded(
+        child: Padding(
       padding: const EdgeInsets.all(14),
       child: JobsShimmerLoading(),
-    )) ;
+    ));
   }
 
   Widget setupError(String error) {
@@ -56,4 +57,3 @@ Widget setupNoResultsFound(BuildContext context) {
 Widget setupSuccess(List<JobModel> jobRequests) {
   return JobRequestsListView(jobsList: jobRequests);
 }
-

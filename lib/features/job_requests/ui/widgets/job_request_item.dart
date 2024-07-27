@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/data/models/job_model.dart';
+import 'package:shaghalni/core/helpers/app_labels.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import '../../../../core/data/enum/job_status.dart';
@@ -49,17 +50,17 @@ class JobRequestItem extends StatelessWidget {
             children: [
               AppImageClipRRect(
                 imageUrl: jobModel.category.coverImageUrl,
-                height: 100,
+                height: 110,
                 width: 100,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(12),
-                  bottomLeft: Radius.circular(12),
-                ),
+                borderRadius: BorderRadiusDirectional.only(
+                  topStart: Radius.circular(12),
+                  bottomStart: Radius.circular(12),
+                ).resolve(Directionality.of(context)),
               ),
               horizontalSpace(10),
               Expanded(
                 child: Container(
-                  height: 100.h,
+                  height: 110.h,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -93,12 +94,13 @@ class JobRequestItem extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          jobModel.status.name,
+                          AppLabels.getStatusLabel(context, jobModel.status)
+                          ,
                           style: AppTextStyles.font12BoldBlue,
                         ),
                       ),
                       Align(
-                        alignment: Alignment.centerRight,
+                        alignment: AlignmentDirectional.centerEnd,
                         child: Text(
                           DateHelper.formatCustomDate(
                             jobModel.createdAt,
