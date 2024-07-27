@@ -43,10 +43,15 @@ class LanguageScreen extends StatelessWidget {
                   AppElevatedButton(
                     buttonText: S.of(context).continue_,
                     onPressed: () async {
+
                       await SharedPrefHelper.setData(
                         SharedPrefKeys.selectedLanguage,
                         locale.languageCode,
                       );
+
+                      selectedLanguage = locale.languageCode;
+
+
 
                       context.pushNamed(Routes.onboarding);
                     },

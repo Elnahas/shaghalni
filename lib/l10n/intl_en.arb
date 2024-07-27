@@ -111,5 +111,8 @@
     "temporary": "Temporary",
     "volunteer": "Volunteer",
     "setting": "Setting",
-    "others": "Others"
+    "others": "Others",
+    "experience_min_year": "{experienceRange_minExperience} Year",
+    "experience_min_years": "{experienceRange_minExperience} Years",
+    "experience_min_max_years": "{experienceRange_minExperience} - {experienceRange_maxExperience} Years"
 }

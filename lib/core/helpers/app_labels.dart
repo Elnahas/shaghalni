@@ -56,24 +56,24 @@ class AppLabels {
     }
   }
 
-
-  static String getExperienceLabel(ExperienceRange experienceRange) {
-  if (experienceRange.minExperience == experienceRange.maxExperience) {
-    return "${experienceRange.minExperience} Year";
-  } else {
-    return "${experienceRange.minExperience} - ${experienceRange.maxExperience} Years";
+  static String getExperienceLabel(
+      ExperienceRange experienceRange, BuildContext context) {
+    if (experienceRange.minExperience == experienceRange.maxExperience) {
+      return S.of(context).experience_min_year(experienceRange.minExperience);
+    } else {
+      return S.of(context).experience_min_max_years(
+          experienceRange.minExperience, experienceRange.maxExperience);
+    }
   }
-}
 
-static String getSelectedLanguageLabel() {
-  switch (selectedLanguage) {
-    case 'en':
-      return 'English';
-    case 'ar':
-      return 'العربية';
-    default:
-      return 'English';
+  static String getSelectedLanguageLabel() {
+    switch (selectedLanguage) {
+      case 'en':
+        return 'English';
+      case 'ar':
+        return 'العربية';
+      default:
+        return 'English';
+    }
   }
-}
-
 }

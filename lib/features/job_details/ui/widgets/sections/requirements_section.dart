@@ -32,7 +32,7 @@ class RequirementsSection extends StatelessWidget {
           verticalSpace(20),
           AppTextAndIcon(
             text: S.of(context).experience_label(
-                AppLabels.getExperienceLabel(experienceRange)),
+                AppLabels.getExperienceLabel(experienceRange , context)),
             icon: Icons.business_center_outlined,
             textColor: Colors.black,
           ),

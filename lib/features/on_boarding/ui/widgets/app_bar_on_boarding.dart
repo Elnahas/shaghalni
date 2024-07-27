@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shaghalni/core/theming/app_text_styles.dart';
+
+import '../../../../generated/l10n.dart';
 
 class AppBarOnBoarding extends StatelessWidget implements PreferredSizeWidget {
   const AppBarOnBoarding({
@@ -30,9 +33,9 @@ class AppBarOnBoarding extends StatelessWidget implements PreferredSizeWidget {
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.easeIn);
             },
-            child: const Text(
-              "Skip",
-              style: TextStyle(color: Colors.black),
+            child:  Text(
+              S.of(context).skip,
+              style: AppTextStyles.font12BlackRegular,
             ))
       ],
     );

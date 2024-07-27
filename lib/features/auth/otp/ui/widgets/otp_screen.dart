@@ -33,7 +33,9 @@ class OtpScreen extends StatelessWidget {
                 phoneNumber: phoneNumber,
               ),
               verticalSpace(30),
-              const PinCodeFields(),
+              Directionality(
+                textDirection: TextDirection.ltr,
+                child: const PinCodeFields()),
               verticalSpace(30),
               Align(
                 alignment: Alignment.centerRight,

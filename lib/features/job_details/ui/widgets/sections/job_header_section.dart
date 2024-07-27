@@ -117,7 +117,7 @@ class JobHeaderSection extends StatelessWidget {
                   DividingLine(),
                   JobDetails(
                     title: S.of(context).experience,
-                    value: AppLabels.getExperienceLabel(experienceRange),
+                    value: AppLabels.getExperienceLabel(experienceRange , context),
                   )
                 ],
               ),

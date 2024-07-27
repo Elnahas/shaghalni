@@ -111,5 +111,8 @@
     "temporary": "مؤقت",
     "volunteer": "تطوعي",
     "setting": "الاعدادات",
-    "others": "اخرى"
+    "others": "اخرى",
+    "experience_min_year": "{experienceRange_minExperience} سنه",
+    "experience_min_years": "{experienceRange_minExperience} سنين",
+    "experience_min_max_years": "{experienceRange_minExperience} - {experienceRange_maxExperience} سنين"
 }

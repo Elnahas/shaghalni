@@ -22,7 +22,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(experienceRange) => "${experienceRange} من الخبرة";
 
-  static String m1(genderLabel, genderSuffix) =>
+  static String m1(
+          experienceRange_minExperience, experienceRange_maxExperience) =>
+      "${experienceRange_minExperience} - ${experienceRange_maxExperience} سنين";
+
+  static String m2(experienceRange_minExperience) =>
+      "${experienceRange_minExperience} سنه";
+
+  static String m3(experienceRange_minExperience) =>
+      "${experienceRange_minExperience} سنين";
+
+  static String m4(genderLabel, genderSuffix) =>
       "الوظيفة متاحة لـ ${genderLabel} ${genderSuffix}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -66,6 +76,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "experience_label": m0,
         "experience_level":
             MessageLookupByLibrary.simpleMessage("مستوى الخبرة"),
+        "experience_min_max_years": m1,
+        "experience_min_year": m2,
+        "experience_min_years": m3,
         "explore_nearby_jobs": MessageLookupByLibrary.simpleMessage(
             "استكشاف\nالوظائف القريبة\nبسهولة"),
         "female": MessageLookupByLibrary.simpleMessage("أنثى"),
@@ -75,7 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "full_time": MessageLookupByLibrary.simpleMessage("دوام كامل"),
         "gallery": MessageLookupByLibrary.simpleMessage("المعرض"),
         "gender": MessageLookupByLibrary.simpleMessage("النوع"),
-        "gender_label": m1,
+        "gender_label": m4,
         "hello": MessageLookupByLibrary.simpleMessage("مرحبًا"),
         "helpCenter": MessageLookupByLibrary.simpleMessage("مركز المساعدة"),
         "hide_salary": MessageLookupByLibrary.simpleMessage("إخفاء الراتب"),

@@ -14,6 +14,7 @@ class PinCodeFields extends StatelessWidget {
       final TextEditingController otpController = TextEditingController();
 
      return PinCodeTextField(
+      
       controller: otpController,
        appContext: context,
        autoFocus: true,
@@ -23,6 +24,7 @@ class PinCodeFields extends StatelessWidget {
        obscureText: false,
        animationType: AnimationType.scale,
        pinTheme: PinTheme(
+        
          shape: PinCodeFieldShape.box,
          borderRadius: BorderRadius.circular(5),
          fieldHeight: 50,

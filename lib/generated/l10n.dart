@@ -1179,6 +1179,37 @@ class S {
       args: [],
     );
   }
+
+  /// `{experienceRange_minExperience} Year`
+  String experience_min_year(Object experienceRange_minExperience) {
+    return Intl.message(
+      '$experienceRange_minExperience Year',
+      name: 'experience_min_year',
+      desc: '',
+      args: [experienceRange_minExperience],
+    );
+  }
+
+  /// `{experienceRange_minExperience} Years`
+  String experience_min_years(Object experienceRange_minExperience) {
+    return Intl.message(
+      '$experienceRange_minExperience Years',
+      name: 'experience_min_years',
+      desc: '',
+      args: [experienceRange_minExperience],
+    );
+  }
+
+  /// `{experienceRange_minExperience} - {experienceRange_maxExperience} Years`
+  String experience_min_max_years(Object experienceRange_minExperience,
+      Object experienceRange_maxExperience) {
+    return Intl.message(
+      '$experienceRange_minExperience - $experienceRange_maxExperience Years',
+      name: 'experience_min_max_years',
+      desc: '',
+      args: [experienceRange_minExperience, experienceRange_maxExperience],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
