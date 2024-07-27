@@ -31,6 +31,7 @@ class _LoginFormState extends State<LoginForm> {
     return Form(
       key: _cubit.loginFormKey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AppTextFormField(
               hintText: S.of(context).phoneNumber,

@@ -640,6 +640,16 @@ class S {
     );
   }
 
+  /// `View All > `
+  String get view_all {
+    return Intl.message(
+      'View All > ',
+      name: 'view_all',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Job Details`
   String get job_details {
     return Intl.message(
@@ -1035,6 +1045,116 @@ class S {
     return Intl.message(
       'Log Out',
       name: 'log_out',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Male`
+  String get male {
+    return Intl.message(
+      'Male',
+      name: 'male',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Female`
+  String get female {
+    return Intl.message(
+      'Female',
+      name: 'female',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Both`
+  String get both {
+    return Intl.message(
+      'Both',
+      name: 'both',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Males`
+  String get males {
+    return Intl.message(
+      'Males',
+      name: 'males',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Females`
+  String get females {
+    return Intl.message(
+      'Females',
+      name: 'females',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full - Time`
+  String get full_time {
+    return Intl.message(
+      'Full - Time',
+      name: 'full_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Part - Time`
+  String get part_time {
+    return Intl.message(
+      'Part - Time',
+      name: 'part_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Internship`
+  String get internship {
+    return Intl.message(
+      'Internship',
+      name: 'internship',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contract`
+  String get contract {
+    return Intl.message(
+      'Contract',
+      name: 'contract',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Temporary`
+  String get temporary {
+    return Intl.message(
+      'Temporary',
+      name: 'temporary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Volunteer`
+  String get volunteer {
+    return Intl.message(
+      'Volunteer',
+      name: 'volunteer',
       desc: '',
       args: [],
     );

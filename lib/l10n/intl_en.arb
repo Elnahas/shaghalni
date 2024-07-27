@@ -58,6 +58,7 @@
     "explore_nearby_jobs": "Explore nearby job\nvacancies\neffortlessly",
     "find_nearby": "Find Nearby",
     "category": "Category",
+    "view_all": "View All > ",
     "job_details": "Job Details",
     "view_job": "View Job",
     "apply": "Apply",
@@ -97,5 +98,16 @@
     "notification": "Notification",
     "confirm": "Confirm",
     "what_language_do_you_prefer": "What language do you prefer?",
-    "log_out": "Log Out"
+    "log_out": "Log Out",
+    "male": "Male",
+    "female": "Female",
+    "both": "Both",
+    "males": "Males",
+    "females": "Females",
+    "full_time": "Full - Time",
+    "part_time": "Part - Time",
+    "internship": "Internship",
+    "contract": "Contract",
+    "temporary": "Temporary",
+    "volunteer": "Volunteer"
 }

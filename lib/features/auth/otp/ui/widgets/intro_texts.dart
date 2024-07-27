@@ -12,6 +12,7 @@ class IntroTexts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(S.of(context).verify_phone_number,
           style: AppTextStyles.font24BoldBlack,

@@ -65,8 +65,9 @@ class JobsBlueContainer extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(
-            right: -20,
+          Positioned.directional(
+            textDirection: Directionality.of(context),
+            end: -20,
             top: 0,
             child: Image.asset(
               'assets/images/worker_home.png',

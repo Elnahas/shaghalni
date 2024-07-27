@@ -40,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "apply": MessageLookupByLibrary.simpleMessage("Apply"),
         "birthDate": MessageLookupByLibrary.simpleMessage("Birth Date"),
         "blog": MessageLookupByLibrary.simpleMessage("Blog"),
+        "both": MessageLookupByLibrary.simpleMessage("Both"),
         "call_now": MessageLookupByLibrary.simpleMessage("Call Now"),
         "camera": MessageLookupByLibrary.simpleMessage("Camera"),
         "categories": MessageLookupByLibrary.simpleMessage("Categories"),
@@ -48,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "city": MessageLookupByLibrary.simpleMessage("City"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "continue_": MessageLookupByLibrary.simpleMessage("Continue"),
+        "contract": MessageLookupByLibrary.simpleMessage("Contract"),
         "create_account":
             MessageLookupByLibrary.simpleMessage("Create Account"),
         "create_an_account":
@@ -69,8 +71,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Experience level"),
         "explore_nearby_jobs": MessageLookupByLibrary.simpleMessage(
             "Explore nearby job\nvacancies\neffortlessly"),
+        "female": MessageLookupByLibrary.simpleMessage("Female"),
+        "females": MessageLookupByLibrary.simpleMessage("Females"),
         "find_nearby": MessageLookupByLibrary.simpleMessage("Find Nearby"),
         "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
+        "full_time": MessageLookupByLibrary.simpleMessage("Full - Time"),
         "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
         "gender_label": m1,
@@ -80,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "how_are_you_today":
             MessageLookupByLibrary.simpleMessage("How are you today?"),
+        "internship": MessageLookupByLibrary.simpleMessage("Internship"),
         "job_description":
             MessageLookupByLibrary.simpleMessage("Description of the job"),
         "job_details": MessageLookupByLibrary.simpleMessage("Job Details"),
@@ -92,6 +98,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
         "log_out": MessageLookupByLibrary.simpleMessage("Log Out"),
+        "male": MessageLookupByLibrary.simpleMessage("Male"),
+        "males": MessageLookupByLibrary.simpleMessage("Males"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "next_step": MessageLookupByLibrary.simpleMessage("Next"),
         "no_job_requests":
@@ -121,6 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "only": MessageLookupByLibrary.simpleMessage("Only"),
         "otp_sent_successfully":
             MessageLookupByLibrary.simpleMessage("OTP sent successfully"),
+        "part_time": MessageLookupByLibrary.simpleMessage("Part - Time"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "pleaseSelectGender":
             MessageLookupByLibrary.simpleMessage("Please select gender"),
@@ -162,6 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "select_type": MessageLookupByLibrary.simpleMessage("Select type"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
+        "temporary": MessageLookupByLibrary.simpleMessage("Temporary"),
         "termsAndConditions":
             MessageLookupByLibrary.simpleMessage("Terms And Conditions"),
         "try_different_search_terms": MessageLookupByLibrary.simpleMessage(
@@ -169,7 +179,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "verify": MessageLookupByLibrary.simpleMessage("Verify"),
         "verify_phone_number":
             MessageLookupByLibrary.simpleMessage("Verify your phone number"),
+        "view_all": MessageLookupByLibrary.simpleMessage("View All > "),
         "view_job": MessageLookupByLibrary.simpleMessage("View Job"),
+        "volunteer": MessageLookupByLibrary.simpleMessage("Volunteer"),
         "what_is_your_phone_number":
             MessageLookupByLibrary.simpleMessage("What is your phone number?"),
         "what_language_do_you_prefer": MessageLookupByLibrary.simpleMessage(

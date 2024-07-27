@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shaghalni/core/data/enum/job_type.dart';
-import 'package:shaghalni/core/helpers/constants.dart';
+import 'package:shaghalni/core/helpers/app_labels.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
-
 import '../../../../core/data/enum/gender.dart';
 import '../../../../core/theming/app_text_styles.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
@@ -101,7 +100,7 @@ class _JobFormState extends State<JobForm> {
                 labelText: S.of(context).job_type,
                 items: JobType.values,
                 getLabel: (JobType jobType) {
-                  return getJobTypeLabel(jobType);
+                  return AppLabels.getJobTypeLabel(context,jobType);
                 },
                 onChanged: (JobType? newValue) {
                   setState(() {
@@ -117,7 +116,7 @@ class _JobFormState extends State<JobForm> {
                 labelText: S.of(context).select_type,
                 items: Gender.values,
                 getLabel: (Gender gender) {
-                  return getGenderJobLabel(gender);
+                  return  AppLabels.getGenderLabel(context, gender);
                 },
                 onChanged: (Gender? newValue) {
                   setState(() {
