@@ -109,5 +109,7 @@
     "internship": "Internship",
     "contract": "Contract",
     "temporary": "Temporary",
-    "volunteer": "Volunteer"
+    "volunteer": "Volunteer",
+    "setting": "Setting",
+    "others": "Others"
 }

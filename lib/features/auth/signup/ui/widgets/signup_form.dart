@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
-import 'package:shaghalni/core/widgets/app_drop_down_button.dart';
 import 'package:shaghalni/core/widgets/app_label_text.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_state.dart';
 import 'package:shaghalni/features/auth/signup/ui/widgets/profile_picture_widget.dart';
+import '../../../../../core/data/enum/gender.dart';
+import '../../../../../core/helpers/app_labels.dart';
 import '../../../../../core/helpers/date_picker_helper.dart';
 import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/widgets/app_drop_down.dart';
 import '../../../../../core/widgets/app_text_form_field.dart';
 import '../../../../../core/widgets/select_list_widget.dart';
 import '../../../../../generated/l10n.dart';
@@ -138,9 +140,20 @@ class _SignupFormState extends State<SignupForm> {
               readOnly: true,
               suffixIcon: const Icon(Icons.calendar_month)),
           verticalSpace(20),
-          AppLabelText(labelText: S.of(context).gender),
-          verticalSpace(10),
-          const AppDropDownButton(),
+          AppDropdown<Gender>(
+            selectedValue: _cubit.selectedGender,
+            labelText: S.of(context).select_type,
+            items: Gender.values.where((gender) => gender != Gender.both).toList(),
+            getLabel: (Gender gender) {
+              return AppLabels.getGenderLabel(context, gender);
+            },
+            onChanged: (Gender? newValue) {
+              setState(() {
+                _cubit.selectedGender = newValue!;
+              });
+            },
+            hint: S.of(context).select_type,
+          ),
           verticalSpace(20),
           BlocBuilder<SignupCubit, SignupState>(
             buildWhen: (previous, current) => current is AgreementState,

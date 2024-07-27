@@ -107,6 +107,7 @@ class _JobFormState extends State<JobForm> {
                     _cubit.selectedJobType = newValue!;
                   });
                 },
+                hint: S.of(context).select_type,
               ),
               verticalSpace(20),
               ExperienceSlider(),
@@ -123,6 +124,7 @@ class _JobFormState extends State<JobForm> {
                     _cubit.selectedGender = newValue!;
                   });
                 },
+                hint: S.of(context).select_type,
               ),
               verticalSpace(40),
             ],

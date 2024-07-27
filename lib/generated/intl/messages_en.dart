@@ -127,6 +127,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboarding_title4":
             MessageLookupByLibrary.simpleMessage("Register and start now"),
         "only": MessageLookupByLibrary.simpleMessage("Only"),
+        "others": MessageLookupByLibrary.simpleMessage("Others"),
         "otp_sent_successfully":
             MessageLookupByLibrary.simpleMessage("OTP sent successfully"),
         "part_time": MessageLookupByLibrary.simpleMessage("Part - Time"),
@@ -169,6 +170,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "select_language":
             MessageLookupByLibrary.simpleMessage("Select Language"),
         "select_type": MessageLookupByLibrary.simpleMessage("Select type"),
+        "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "temporary": MessageLookupByLibrary.simpleMessage("Temporary"),

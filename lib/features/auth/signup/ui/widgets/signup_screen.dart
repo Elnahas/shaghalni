@@ -82,10 +82,14 @@ class _SignupScreenState extends State<SignupScreen> {
   void validateSignup(BuildContext context) async {
     var cubit = context.read<SignupCubit>();
     if (cubit.signupFormKey.currentState!.validate()) {
-      if (cubit.isAgreed) {
-        await cubit.signUp();
+      if (cubit.selectedGender != null) {
+        if (cubit.isAgreed) {
+          await cubit.signUp();
+        } else {
+          showSnackBar(context, S.of(context).accept_terms_conditions);
+        }
       } else {
-        showSnackBar(context, S.of(context).accept_terms_conditions);
+        showSnackBar(context, S.of(context).pleaseSelectGender);
       }
     }
   }

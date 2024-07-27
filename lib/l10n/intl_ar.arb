@@ -5,7 +5,7 @@
     "select_language": "اختر اللغة",
     "You_can_change_the_language_at_any_time": "يمكنك تغيير اللغة في أي وقت",
     "phoneNumber": "رقم الهاتف",
-    "pleaseSelectGender": "يرجى تحديد الجنس",
+    "pleaseSelectGender": "يرجى تحديد النوع",
     "profile": "الملف الشخصي",
     "notifications": "الإشعارات",
     "language": "اللغة",
@@ -33,7 +33,7 @@
     "please_select_city": "يرجى اختيار مدينتك",
     "birthDate": "تاريخ الميلاد",
     "please_select_birth_date": "يرجى اختيار تاريخ الميلاد",
-    "gender": "الجنس",
+    "gender": "النوع",
     "agree_terms_conditions": "أوافق على الشروط والأحكام",
     "accept_terms_conditions": "يرجى قبول الشروط والأحكام",
     "create_account": "إنشاء حساب",
@@ -78,7 +78,7 @@
     "job_vacancy_announcement": "إعلان وظيفة شاغرة",
     "submit": "إرسال",
     "next_step": "الخطوة التالية",
-    "please_select_gender": "يرجى تحديد الجنس",
+    "please_select_gender": "يرجى تحديد النوع",
     "please_select_job_type": "يرجى تحديد نوع الوظيفة",
     "job_title": "عنوان الوظيفة",
     "enter_job_title": "يرجى إدخال عنوان الوظيفة",
@@ -109,5 +109,7 @@
     "internship": "تدريب",
     "contract": "عقد",
     "temporary": "مؤقت",
-    "volunteer": "تطوعي"
+    "volunteer": "تطوعي",
+    "setting": "الاعدادات",
+    "others": "اخرى"
 }

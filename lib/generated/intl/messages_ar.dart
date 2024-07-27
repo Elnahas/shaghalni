@@ -74,7 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
         "full_time": MessageLookupByLibrary.simpleMessage("دوام كامل"),
         "gallery": MessageLookupByLibrary.simpleMessage("المعرض"),
-        "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
+        "gender": MessageLookupByLibrary.simpleMessage("النوع"),
         "gender_label": m1,
         "hello": MessageLookupByLibrary.simpleMessage("مرحبًا"),
         "helpCenter": MessageLookupByLibrary.simpleMessage("مركز المساعدة"),
@@ -123,12 +123,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboarding_title4":
             MessageLookupByLibrary.simpleMessage("سجل وابدأ الآن"),
         "only": MessageLookupByLibrary.simpleMessage("فقط"),
+        "others": MessageLookupByLibrary.simpleMessage("اخرى"),
         "otp_sent_successfully":
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز التحقق بنجاح"),
         "part_time": MessageLookupByLibrary.simpleMessage("دوام جزئي"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "pleaseSelectGender":
-            MessageLookupByLibrary.simpleMessage("يرجى تحديد الجنس"),
+            MessageLookupByLibrary.simpleMessage("يرجى تحديد النوع"),
         "please_enter_first_name":
             MessageLookupByLibrary.simpleMessage("يرجى إدخال الاسم الأول"),
         "please_enter_last_name":
@@ -147,7 +148,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "please_select_city":
             MessageLookupByLibrary.simpleMessage("يرجى اختيار مدينتك"),
         "please_select_gender":
-            MessageLookupByLibrary.simpleMessage("يرجى تحديد الجنس"),
+            MessageLookupByLibrary.simpleMessage("يرجى تحديد النوع"),
         "please_select_job_type":
             MessageLookupByLibrary.simpleMessage("يرجى تحديد نوع الوظيفة"),
         "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
@@ -163,6 +164,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "select_city": MessageLookupByLibrary.simpleMessage("اختر المدينة"),
         "select_language": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
         "select_type": MessageLookupByLibrary.simpleMessage("اختر النوع"),
+        "setting": MessageLookupByLibrary.simpleMessage("الاعدادات"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "submit": MessageLookupByLibrary.simpleMessage("إرسال"),
         "temporary": MessageLookupByLibrary.simpleMessage("مؤقت"),

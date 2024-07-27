@@ -10,6 +10,7 @@ class HeaderTextLoginWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(S.of(context).what_is_your_phone_number,
             style: AppTextStyles.font24BoldBlack),
