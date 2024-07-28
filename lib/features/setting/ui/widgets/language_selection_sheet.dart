@@ -51,7 +51,7 @@ class _LanguageSelectionSheetState extends State<LanguageSelectionSheet> {
             ),
           ),
           Align(
-            alignment: Alignment.centerRight,
+            alignment: AlignmentDirectional.topEnd,
             child: IconButton(
               icon: Icon(FontAwesomeIcons.xmark),
               onPressed: () => Navigator.pop(context),

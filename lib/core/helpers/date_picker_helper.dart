@@ -9,7 +9,7 @@ class DatePickerHelper {
 
   DatePickerHelper({this.selectedDate, this.dateController});
 
-  Future<void> myShowDatePicker(BuildContext context) async {
+  Future<void> myShowDatePicker(BuildContext context, Function(DateTime) onDateSelected) async {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -34,7 +34,8 @@ class DatePickerHelper {
                         selectedDate!,
                         format: 'dd-MM-yyyy');
                   }
-                  Navigator.of(context).pop(); // Close the dialog
+                  onDateSelected(selectedDate!); 
+                  Navigator.of(context).pop(); 
                 }
               },
               selectionMode: DateRangePickerSelectionMode.single,

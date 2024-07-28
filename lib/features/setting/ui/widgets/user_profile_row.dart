@@ -29,7 +29,12 @@ class UserProfileRow extends StatelessWidget {
       ),
       child: Row(
         children: [
-          AppCircleAvatar(imageUrl: userModel!.imageUrl ?? "", radius: 35),
+          AppCircleAvatar(
+            imageUrl: userModel!.imageUrl ?? "",
+            radius: 35,
+            errorWidget:
+                Image.asset("assets/images/ic_profile_placeholder.png"),
+          ),
           horizontalSpace(10),
           Expanded(
             child: Column(
