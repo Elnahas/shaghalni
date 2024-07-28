@@ -43,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("يمكنك تغيير اللغة في أي وقت"),
         "accept_terms_conditions":
             MessageLookupByLibrary.simpleMessage("يرجى قبول الشروط والأحكام"),
+        "account_settings":
+            MessageLookupByLibrary.simpleMessage("اعدادات الحساب"),
         "agree_terms_conditions":
             MessageLookupByLibrary.simpleMessage("أوافق على الشروط والأحكام"),
         "all": MessageLookupByLibrary.simpleMessage("الكل"),
@@ -175,6 +177,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "requests": MessageLookupByLibrary.simpleMessage("الطلبات"),
         "requirements": MessageLookupByLibrary.simpleMessage("المتطلبات"),
         "salary": MessageLookupByLibrary.simpleMessage("الراتب"),
+        "save": MessageLookupByLibrary.simpleMessage("حفظ"),
         "search": MessageLookupByLibrary.simpleMessage("بحث"),
         "search_by_job_title":
             MessageLookupByLibrary.simpleMessage("البحث حسب عنوان الوظيفة"),

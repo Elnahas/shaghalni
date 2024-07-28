@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
 
 import '../../../../core/helpers/constants.dart';
 import '../../../../core/helpers/date_helper.dart';
@@ -30,7 +31,7 @@ class UserProfileRow extends StatelessWidget {
       child: Row(
         children: [
           AppCircleAvatar(
-            imageUrl: userModel!.imageUrl ?? "",
+            imageUrl: userModel!.imageUrl.isNullOrEmpty() ? "" : userModel!.imageUrl!,
             radius: 35,
             errorWidget:
                 Image.asset("assets/images/ic_profile_placeholder.png"),

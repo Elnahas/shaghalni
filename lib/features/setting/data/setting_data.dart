@@ -15,7 +15,9 @@ class SettingData {
       SettingItem(
         title: localizations.profile,
         leadingIcon: FontAwesomeIcons.user,
-        onTap: (context) {},
+        onTap: (context) {
+          context.pushNamed(Routes.profile);
+        },
       ),
       SettingItem(
         title: localizations.notifications,

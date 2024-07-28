@@ -119,5 +119,7 @@
     "open": "مفتوح",
     "closed": "مغلق",
     "pending": "قيد الانتظار",
-    "reject": "مرفوض"
+    "reject": "مرفوض",
+    "account_settings": "اعدادات الحساب",
+    "save": "حفظ"
 }

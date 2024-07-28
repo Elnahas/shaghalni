@@ -11,6 +11,7 @@ import 'package:shaghalni/features/blog/logic/blog_list/blog_list_cubit.dart';
 import 'package:shaghalni/features/category/logic/category_cubit.dart';
 import 'package:shaghalni/features/job_requests/logic/cubit/job_requests_cubit.dart';
 import 'package:shaghalni/features/jobs_list/logic/jobs_list_cubit.dart';
+import 'package:shaghalni/features/profile/logic/profile_cubit.dart';
 import 'package:shaghalni/features/setting/logic/setting_cubit.dart';
 import '../../features/job_details/logic/job_details_cubit.dart';
 import '../../features/language/logic/language_cubit.dart';
@@ -32,6 +33,9 @@ void setupServiceLocator() {
   getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt<AuthRepository>(),
       getIt<UserRepository>(), getIt<CityRepository>()));
 
+  getIt.registerFactory<ProfileCubit>(
+      () => ProfileCubit(getIt<UserRepository>(), getIt<CityRepository>()));
+
   getIt.registerFactory<JobFormCubit>(() => JobFormCubit(
       getIt<CategoryRepository>(),
       getIt<CityRepository>(),
@@ -48,8 +52,11 @@ void setupServiceLocator() {
   getIt.registerFactory<JobsListCubit>(
       () => JobsListCubit(getIt<JobRepository>(), getIt<CategoryRepository>()));
 
-  getIt.registerFactory<BlogListCubit>(() => BlogListCubit(getIt<BlogsRepository>()));
-  getIt.registerFactory<JobRequestsCubit>(() => JobRequestsCubit(getIt<JobRepository>()));
+  getIt.registerFactory<BlogListCubit>(
+      () => BlogListCubit(getIt<BlogsRepository>()));
+  getIt.registerFactory<JobRequestsCubit>(
+      () => JobRequestsCubit(getIt<JobRepository>()));
 
-  getIt.registerFactory<SettingCubit>(() => SettingCubit(getIt<AuthRepository>()));
+  getIt.registerFactory<SettingCubit>(
+      () => SettingCubit(getIt<AuthRepository>()));
 }

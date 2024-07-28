@@ -44,6 +44,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "You can change the language at any time"),
         "accept_terms_conditions": MessageLookupByLibrary.simpleMessage(
             "Please accept the terms and conditions"),
+        "account_settings":
+            MessageLookupByLibrary.simpleMessage("Account Settings"),
         "agree_terms_conditions": MessageLookupByLibrary.simpleMessage(
             "I agree with the Terms and Conditions"),
         "all": MessageLookupByLibrary.simpleMessage("All"),
@@ -179,6 +181,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "requests": MessageLookupByLibrary.simpleMessage("Requests"),
         "requirements": MessageLookupByLibrary.simpleMessage("Requirements"),
         "salary": MessageLookupByLibrary.simpleMessage("Salary"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "search_by_job_title":
             MessageLookupByLibrary.simpleMessage("Search by title job"),

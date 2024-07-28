@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
+import '../../../../../core/widgets/app_circle_avatar.dart';
 import '../../../../../generated/l10n.dart';
+
 class ProfilePicture extends StatefulWidget {
   final Function(File?)? onImageSelected;
   final File? initialImageFile;
 
   const ProfilePicture({
     Key? key,
-     this.onImageSelected,
+    this.onImageSelected,
     this.initialImageFile,
   }) : super(key: key);
 
@@ -74,11 +76,12 @@ class _ProfilePictureState extends State<ProfilePicture> {
       alignment: Alignment.center,
       child: Stack(
         children: [
-          CircleAvatar(
+          AppCircleAvatar(
+            imageUrl:
+                _imageFile != null ? FileImage(_imageFile!).file.path : "",
             radius: 50,
-            backgroundImage: _imageFile != null
-                ? FileImage(_imageFile!)
-                : const AssetImage("assets/images/ic_profile_placeholder.png"),
+            errorWidget:
+                Image.asset("assets/images/ic_profile_placeholder.png"),
           ),
           Positioned(
             bottom: -5,
