@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shaghalni/core/widgets/app_drop_down.dart';
 import 'package:shaghalni/core/widgets/app_text_form_field.dart';
@@ -42,9 +43,8 @@ class UserDetailsForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final DatePickerHelper datePickerHelper =
-        DatePickerHelper(dateController: birthDateController);
+    final DatePickerHelper datePickerHelper = DatePickerHelper(
+        selectedDate: selectedDate, dateController: birthDateController);
 
     return Form(
       key: formKey,
@@ -111,6 +111,8 @@ class UserDetailsForm extends StatelessWidget {
                 return null;
               },
               onTap: () async {
+                print("Timestamp ----  ${Timestamp.fromDate(selectedDate!)}");
+                print("toString ----  ${selectedDate.toString()}");
                 await datePickerHelper.myShowDatePicker(
                     context, onDateSelected);
               },
