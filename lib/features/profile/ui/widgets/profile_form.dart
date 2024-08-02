@@ -24,7 +24,9 @@ class _ProfileFormState extends State<ProfileForm> {
         lastNameController: _cubit.lastNameController,
         cityController: _cubit.cityController,
         birthDateController: _cubit.birthDateController,
+        selectedDate: _cubit.birthDate,
         onDateSelected: (date) {
+          _cubit.birthDate = date;
           _cubit.birthDateController.text =
               DateHelper.formatCustomDate(date, format: 'dd-MM-yyyy');
         },

@@ -47,14 +47,14 @@ class UserRepository {
     required String uid,
     String? firstName,
     String? lastName,
-    String? birthDate,
+    Timestamp? birthDate,
     String? gender,
     CityModel? city,
     File? newImageFile,
   }) async {
     try {
       String? imageUrl;
-      if (newImageFile != null) {
+      if (newImageFile != null && newImageFile.path.isNotEmpty) {
         bool isNetworkImage = newImageFile.path.startsWith('http') ||
             newImageFile.path.startsWith('https');
 
@@ -69,7 +69,7 @@ class UserRepository {
       await userDoc.update({
         if (firstName != null) 'first_name': firstName,
         if (lastName != null) 'last_name': lastName,
-        if (birthDate != null) 'birth_date': birthDate,
+        if (birthDate != null) 'birth_date': birthDate.millisecondsSinceEpoch,
         if (gender != null) 'gender': gender,
         if (city != null) 'city': city.toJson(),
         if (imageUrl != null) 'image_url': imageUrl,

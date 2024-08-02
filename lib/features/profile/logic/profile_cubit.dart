@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shaghalni/core/helpers/constants.dart';
@@ -10,6 +11,7 @@ import 'package:shaghalni/features/profile/logic/profile_state.dart';
 import '../../../core/data/enum/gender.dart';
 import '../../../core/data/models/city_model.dart';
 import '../../../core/data/models/user_model.dart';
+import '../../../core/helpers/date_helper.dart';
 import '../../../core/repositories/city_repository.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
@@ -29,6 +31,8 @@ class ProfileCubit extends Cubit<ProfileState> {
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
 
+  DateTime? birthDate;
+
   Gender? selectedGender;
 
   File? imageFile;
@@ -45,14 +49,14 @@ class ProfileCubit extends Cubit<ProfileState> {
 
       await _userRepository.updateUserProfile(
           uid: FirebaseAuth.instance.currentUser!.uid,
-          birthDate: birthDateController.text,
+          birthDate:Timestamp.fromDate(birthDate!),
           city: city,
           firstName: firstNameController.text,
           gender: selectedGender!.name,
           lastName: lastNameController.text,
           newImageFile: imageFile);
 
-         var _userModel = await _userRepository.getUser();
+      var _userModel = await _userRepository.getUser();
       await _userRepository.saveUserToPreferences(_userModel!);
       userModel = _userModel;
 
@@ -76,7 +80,8 @@ class ProfileCubit extends Cubit<ProfileState> {
 
   void initializeWithJob(UserModel? userModel) {
     if (userModel != null) {
-      birthDateController.text = userModel.birthDate;
+      birthDate = userModel.birthDate.toDate();
+      birthDateController.text = DateHelper.formatCustomDate(userModel.birthDate.toDate(), format: 'dd-MM-yyyy'); ;
       cityController.text = userModel.city.name;
       firstNameController.text = userModel.firstName;
       lastNameController.text = userModel.lastName;

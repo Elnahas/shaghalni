@@ -25,6 +25,9 @@ class _SignupFormState extends State<SignupForm> {
         cityController: _cubit.cityController,
         birthDateController: _cubit.birthDateController,
         onDateSelected: (date) {
+
+          _cubit.birthDate = date;
+
           _cubit.birthDateController.text =
               DateHelper.formatCustomDate(date, format: 'dd-MM-yyyy');
         },

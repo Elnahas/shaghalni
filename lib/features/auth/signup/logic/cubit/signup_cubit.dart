@@ -34,6 +34,8 @@ class SignupCubit extends Cubit<SignupState> {
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
 
+  DateTime? birthDate;
+
   Gender? selectedGender;
 
   File? imageFile;
@@ -63,7 +65,7 @@ class SignupCubit extends Cubit<SignupState> {
           firstName: firstNameController.text,
           lastName: lastNameController.text,
           phoneNumber: phoneNumber,
-          birthDate: birthDateController.text,
+          birthDate: Timestamp.fromDate(birthDate!),
           gender: selectedGender!.name,
           city: city,
           imageUrl: _imageUrl,

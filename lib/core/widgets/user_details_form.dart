@@ -23,6 +23,7 @@ class UserDetailsForm extends StatelessWidget {
   final Function(File?)? onProfileImageSelected;
   final Gender? selectedGender;
   final Function(Gender) onGenderChanged;
+  final DateTime? selectedDate;
 
   const UserDetailsForm({
     required this.firstNameController,
@@ -31,6 +32,7 @@ class UserDetailsForm extends StatelessWidget {
     required this.birthDateController,
     required this.formKey,
     required this.onDateSelected,
+    this.selectedDate,
     required this.onCityTap,
     this.initialProfileImageFile,
     this.onProfileImageSelected,
@@ -40,6 +42,7 @@ class UserDetailsForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final DatePickerHelper datePickerHelper =
         DatePickerHelper(dateController: birthDateController);
 
