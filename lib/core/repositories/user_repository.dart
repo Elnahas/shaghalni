@@ -55,7 +55,12 @@ class UserRepository {
     try {
       String? imageUrl;
       if (newImageFile != null) {
-        imageUrl = await uploadImage(newImageFile);
+        bool isNetworkImage = newImageFile.path.startsWith('http') ||
+            newImageFile.path.startsWith('https');
+
+        if (!isNetworkImage) {
+          imageUrl = await uploadImage(newImageFile);
+        }
       }
 
       final userDoc =

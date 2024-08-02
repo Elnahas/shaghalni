@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shaghalni/core/helpers/constants.dart';
@@ -44,32 +43,17 @@ class ProfileCubit extends Cubit<ProfileState> {
     try {
       emit(const ProfileLoading());
 
-      final createdAt = Timestamp.fromMillisecondsSinceEpoch(
-          DateTime.now().millisecondsSinceEpoch);
-
-      UserModel _userModel = UserModel(
+      await _userRepository.updateUserProfile(
           uid: FirebaseAuth.instance.currentUser!.uid,
-          firstName: firstNameController.text,
-          lastName: lastNameController.text,
-          phoneNumber: phoneNumber,
           birthDate: birthDateController.text,
-          gender: selectedGender!.name,
           city: city,
-          imageUrl: imageFile!.path != "" ? _imageUrl : userModel!.imageUrl,
-          createdAt: createdAt);
+          firstName: firstNameController.text,
+          gender: selectedGender!.name,
+          lastName: lastNameController.text,
+          newImageFile: imageFile);
 
-       await _userRepository.updateUserProfile(
-        uid: FirebaseAuth.instance.currentUser!.uid,
-        birthDate: birthDateController.text ,
-        city: city ,
-        firstName: firstNameController.text,
-        gender:  selectedGender!.name,
-        lastName: lastNameController.text,
-        newImageFile: imageFile
-
-
-       );
-      await _userRepository.saveUserToPreferences(_userModel);
+         var _userModel = await _userRepository.getUser();
+      await _userRepository.saveUserToPreferences(_userModel!);
       userModel = _userModel;
 
       emit(const ProfileSuccess());
@@ -91,14 +75,13 @@ class ProfileCubit extends Cubit<ProfileState> {
   }
 
   void initializeWithJob(UserModel? userModel) {
-
     if (userModel != null) {
       birthDateController.text = userModel.birthDate;
       cityController.text = userModel.city.name;
       firstNameController.text = userModel.firstName;
       lastNameController.text = userModel.lastName;
 
-      selectedGender =  userModel.gender == 'male' ? Gender.male : Gender.female;
+      selectedGender = userModel.gender == 'male' ? Gender.male : Gender.female;
 
       _imageUrl = userModel.imageUrl ?? "";
       imageFile = File(_imageUrl);

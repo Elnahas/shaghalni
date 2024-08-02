@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shaghalni/core/helpers/app_labels.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/routing/routes.dart';
 import '../../../generated/l10n.dart';
+import '../logic/setting_cubit.dart';
 import '../ui/widgets/language_selection_sheet.dart';
 import 'setting_item_model.dart';
 
@@ -15,8 +17,11 @@ class SettingData {
       SettingItem(
         title: localizations.profile,
         leadingIcon: FontAwesomeIcons.user,
-        onTap: (context) {
-          context.pushNamed(Routes.profile);
+        onTap: (context) async {
+          var result = await context.pushNamed(Routes.profile);
+          if (result != null) {
+            context.read<SettingCubit>().updateUserProfile();
+          }
         },
       ),
       SettingItem(

@@ -17,4 +17,8 @@ class SettingCubit extends Cubit<SettingState> {
     }
   }
 
+  void updateUserProfile() {
+    emit(SettingState.updateUserProfile());
+  }
+
 }

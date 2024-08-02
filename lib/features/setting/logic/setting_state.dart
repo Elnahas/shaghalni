@@ -10,5 +10,6 @@ class SettingState with _$SettingState {
   const factory SettingState.logOutLoading() = LogOutLoading;
   const factory SettingState.logOutSuccess() = LogOutSuccess;
   const factory SettingState.logOutFailure(String error) = LogOutFailure;
+  const factory SettingState.updateUserProfile() = UpdateUserProfile;
 
 }

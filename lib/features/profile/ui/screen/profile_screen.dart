@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
 import 'package:shaghalni/features/profile/logic/profile_cubit.dart';
 import 'package:shaghalni/features/profile/logic/profile_state.dart';
@@ -42,7 +41,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             listener: (context, state) {
               state.whenOrNull(
                 profileSuccess: () {
-                  context.pop();
+                   Navigator.pop(context, "Updated Profile Data");
                 },
                 profileFailure: (error) {
                   Navigator.of(context).pop();
