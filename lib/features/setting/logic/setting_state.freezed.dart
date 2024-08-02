@@ -22,6 +22,7 @@ mixin _$SettingState {
     required TResult Function() logOutLoading,
     required TResult Function() logOutSuccess,
     required TResult Function(String error) logOutFailure,
+    required TResult Function() updateUserProfile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$SettingState {
     TResult? Function()? logOutLoading,
     TResult? Function()? logOutSuccess,
     TResult? Function(String error)? logOutFailure,
+    TResult? Function()? updateUserProfile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$SettingState {
     TResult Function()? logOutLoading,
     TResult Function()? logOutSuccess,
     TResult Function(String error)? logOutFailure,
+    TResult Function()? updateUserProfile,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$SettingState {
     required TResult Function(LogOutLoading value) logOutLoading,
     required TResult Function(LogOutSuccess value) logOutSuccess,
     required TResult Function(LogOutFailure value) logOutFailure,
+    required TResult Function(UpdateUserProfile value) updateUserProfile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$SettingState {
     TResult? Function(LogOutLoading value)? logOutLoading,
     TResult? Function(LogOutSuccess value)? logOutSuccess,
     TResult? Function(LogOutFailure value)? logOutFailure,
+    TResult? Function(UpdateUserProfile value)? updateUserProfile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$SettingState {
     TResult Function(LogOutLoading value)? logOutLoading,
     TResult Function(LogOutSuccess value)? logOutSuccess,
     TResult Function(LogOutFailure value)? logOutFailure,
+    TResult Function(UpdateUserProfile value)? updateUserProfile,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() logOutLoading,
     required TResult Function() logOutSuccess,
     required TResult Function(String error) logOutFailure,
+    required TResult Function() updateUserProfile,
   }) {
     return initial();
   }
@@ -139,6 +146,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? logOutLoading,
     TResult? Function()? logOutSuccess,
     TResult? Function(String error)? logOutFailure,
+    TResult? Function()? updateUserProfile,
   }) {
     return initial?.call();
   }
@@ -150,6 +158,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? logOutLoading,
     TResult Function()? logOutSuccess,
     TResult Function(String error)? logOutFailure,
+    TResult Function()? updateUserProfile,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -165,6 +174,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(LogOutLoading value) logOutLoading,
     required TResult Function(LogOutSuccess value) logOutSuccess,
     required TResult Function(LogOutFailure value) logOutFailure,
+    required TResult Function(UpdateUserProfile value) updateUserProfile,
   }) {
     return initial(this);
   }
@@ -176,6 +186,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(LogOutLoading value)? logOutLoading,
     TResult? Function(LogOutSuccess value)? logOutSuccess,
     TResult? Function(LogOutFailure value)? logOutFailure,
+    TResult? Function(UpdateUserProfile value)? updateUserProfile,
   }) {
     return initial?.call(this);
   }
@@ -187,6 +198,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(LogOutLoading value)? logOutLoading,
     TResult Function(LogOutSuccess value)? logOutSuccess,
     TResult Function(LogOutFailure value)? logOutFailure,
+    TResult Function(UpdateUserProfile value)? updateUserProfile,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -242,6 +254,7 @@ class _$LogOutLoadingImpl implements LogOutLoading {
     required TResult Function() logOutLoading,
     required TResult Function() logOutSuccess,
     required TResult Function(String error) logOutFailure,
+    required TResult Function() updateUserProfile,
   }) {
     return logOutLoading();
   }
@@ -253,6 +266,7 @@ class _$LogOutLoadingImpl implements LogOutLoading {
     TResult? Function()? logOutLoading,
     TResult? Function()? logOutSuccess,
     TResult? Function(String error)? logOutFailure,
+    TResult? Function()? updateUserProfile,
   }) {
     return logOutLoading?.call();
   }
@@ -264,6 +278,7 @@ class _$LogOutLoadingImpl implements LogOutLoading {
     TResult Function()? logOutLoading,
     TResult Function()? logOutSuccess,
     TResult Function(String error)? logOutFailure,
+    TResult Function()? updateUserProfile,
     required TResult orElse(),
   }) {
     if (logOutLoading != null) {
@@ -279,6 +294,7 @@ class _$LogOutLoadingImpl implements LogOutLoading {
     required TResult Function(LogOutLoading value) logOutLoading,
     required TResult Function(LogOutSuccess value) logOutSuccess,
     required TResult Function(LogOutFailure value) logOutFailure,
+    required TResult Function(UpdateUserProfile value) updateUserProfile,
   }) {
     return logOutLoading(this);
   }
@@ -290,6 +306,7 @@ class _$LogOutLoadingImpl implements LogOutLoading {
     TResult? Function(LogOutLoading value)? logOutLoading,
     TResult? Function(LogOutSuccess value)? logOutSuccess,
     TResult? Function(LogOutFailure value)? logOutFailure,
+    TResult? Function(UpdateUserProfile value)? updateUserProfile,
   }) {
     return logOutLoading?.call(this);
   }
@@ -301,6 +318,7 @@ class _$LogOutLoadingImpl implements LogOutLoading {
     TResult Function(LogOutLoading value)? logOutLoading,
     TResult Function(LogOutSuccess value)? logOutSuccess,
     TResult Function(LogOutFailure value)? logOutFailure,
+    TResult Function(UpdateUserProfile value)? updateUserProfile,
     required TResult orElse(),
   }) {
     if (logOutLoading != null) {
@@ -356,6 +374,7 @@ class _$LogOutSuccessImpl implements LogOutSuccess {
     required TResult Function() logOutLoading,
     required TResult Function() logOutSuccess,
     required TResult Function(String error) logOutFailure,
+    required TResult Function() updateUserProfile,
   }) {
     return logOutSuccess();
   }
@@ -367,6 +386,7 @@ class _$LogOutSuccessImpl implements LogOutSuccess {
     TResult? Function()? logOutLoading,
     TResult? Function()? logOutSuccess,
     TResult? Function(String error)? logOutFailure,
+    TResult? Function()? updateUserProfile,
   }) {
     return logOutSuccess?.call();
   }
@@ -378,6 +398,7 @@ class _$LogOutSuccessImpl implements LogOutSuccess {
     TResult Function()? logOutLoading,
     TResult Function()? logOutSuccess,
     TResult Function(String error)? logOutFailure,
+    TResult Function()? updateUserProfile,
     required TResult orElse(),
   }) {
     if (logOutSuccess != null) {
@@ -393,6 +414,7 @@ class _$LogOutSuccessImpl implements LogOutSuccess {
     required TResult Function(LogOutLoading value) logOutLoading,
     required TResult Function(LogOutSuccess value) logOutSuccess,
     required TResult Function(LogOutFailure value) logOutFailure,
+    required TResult Function(UpdateUserProfile value) updateUserProfile,
   }) {
     return logOutSuccess(this);
   }
@@ -404,6 +426,7 @@ class _$LogOutSuccessImpl implements LogOutSuccess {
     TResult? Function(LogOutLoading value)? logOutLoading,
     TResult? Function(LogOutSuccess value)? logOutSuccess,
     TResult? Function(LogOutFailure value)? logOutFailure,
+    TResult? Function(UpdateUserProfile value)? updateUserProfile,
   }) {
     return logOutSuccess?.call(this);
   }
@@ -415,6 +438,7 @@ class _$LogOutSuccessImpl implements LogOutSuccess {
     TResult Function(LogOutLoading value)? logOutLoading,
     TResult Function(LogOutSuccess value)? logOutSuccess,
     TResult Function(LogOutFailure value)? logOutFailure,
+    TResult Function(UpdateUserProfile value)? updateUserProfile,
     required TResult orElse(),
   }) {
     if (logOutSuccess != null) {
@@ -496,6 +520,7 @@ class _$LogOutFailureImpl implements LogOutFailure {
     required TResult Function() logOutLoading,
     required TResult Function() logOutSuccess,
     required TResult Function(String error) logOutFailure,
+    required TResult Function() updateUserProfile,
   }) {
     return logOutFailure(error);
   }
@@ -507,6 +532,7 @@ class _$LogOutFailureImpl implements LogOutFailure {
     TResult? Function()? logOutLoading,
     TResult? Function()? logOutSuccess,
     TResult? Function(String error)? logOutFailure,
+    TResult? Function()? updateUserProfile,
   }) {
     return logOutFailure?.call(error);
   }
@@ -518,6 +544,7 @@ class _$LogOutFailureImpl implements LogOutFailure {
     TResult Function()? logOutLoading,
     TResult Function()? logOutSuccess,
     TResult Function(String error)? logOutFailure,
+    TResult Function()? updateUserProfile,
     required TResult orElse(),
   }) {
     if (logOutFailure != null) {
@@ -533,6 +560,7 @@ class _$LogOutFailureImpl implements LogOutFailure {
     required TResult Function(LogOutLoading value) logOutLoading,
     required TResult Function(LogOutSuccess value) logOutSuccess,
     required TResult Function(LogOutFailure value) logOutFailure,
+    required TResult Function(UpdateUserProfile value) updateUserProfile,
   }) {
     return logOutFailure(this);
   }
@@ -544,6 +572,7 @@ class _$LogOutFailureImpl implements LogOutFailure {
     TResult? Function(LogOutLoading value)? logOutLoading,
     TResult? Function(LogOutSuccess value)? logOutSuccess,
     TResult? Function(LogOutFailure value)? logOutFailure,
+    TResult? Function(UpdateUserProfile value)? updateUserProfile,
   }) {
     return logOutFailure?.call(this);
   }
@@ -555,6 +584,7 @@ class _$LogOutFailureImpl implements LogOutFailure {
     TResult Function(LogOutLoading value)? logOutLoading,
     TResult Function(LogOutSuccess value)? logOutSuccess,
     TResult Function(LogOutFailure value)? logOutFailure,
+    TResult Function(UpdateUserProfile value)? updateUserProfile,
     required TResult orElse(),
   }) {
     if (logOutFailure != null) {
@@ -571,4 +601,124 @@ abstract class LogOutFailure implements SettingState {
   @JsonKey(ignore: true)
   _$$LogOutFailureImplCopyWith<_$LogOutFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateUserProfileImplCopyWith<$Res> {
+  factory _$$UpdateUserProfileImplCopyWith(_$UpdateUserProfileImpl value,
+          $Res Function(_$UpdateUserProfileImpl) then) =
+      __$$UpdateUserProfileImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateUserProfileImplCopyWithImpl<$Res>
+    extends _$SettingStateCopyWithImpl<$Res, _$UpdateUserProfileImpl>
+    implements _$$UpdateUserProfileImplCopyWith<$Res> {
+  __$$UpdateUserProfileImplCopyWithImpl(_$UpdateUserProfileImpl _value,
+      $Res Function(_$UpdateUserProfileImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdateUserProfileImpl implements UpdateUserProfile {
+  const _$UpdateUserProfileImpl();
+
+  @override
+  String toString() {
+    return 'SettingState.updateUserProfile()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UpdateUserProfileImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logOutLoading,
+    required TResult Function() logOutSuccess,
+    required TResult Function(String error) logOutFailure,
+    required TResult Function() updateUserProfile,
+  }) {
+    return updateUserProfile();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logOutLoading,
+    TResult? Function()? logOutSuccess,
+    TResult? Function(String error)? logOutFailure,
+    TResult? Function()? updateUserProfile,
+  }) {
+    return updateUserProfile?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logOutLoading,
+    TResult Function()? logOutSuccess,
+    TResult Function(String error)? logOutFailure,
+    TResult Function()? updateUserProfile,
+    required TResult orElse(),
+  }) {
+    if (updateUserProfile != null) {
+      return updateUserProfile();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LogOutLoading value) logOutLoading,
+    required TResult Function(LogOutSuccess value) logOutSuccess,
+    required TResult Function(LogOutFailure value) logOutFailure,
+    required TResult Function(UpdateUserProfile value) updateUserProfile,
+  }) {
+    return updateUserProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LogOutLoading value)? logOutLoading,
+    TResult? Function(LogOutSuccess value)? logOutSuccess,
+    TResult? Function(LogOutFailure value)? logOutFailure,
+    TResult? Function(UpdateUserProfile value)? updateUserProfile,
+  }) {
+    return updateUserProfile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LogOutLoading value)? logOutLoading,
+    TResult Function(LogOutSuccess value)? logOutSuccess,
+    TResult Function(LogOutFailure value)? logOutFailure,
+    TResult Function(UpdateUserProfile value)? updateUserProfile,
+    required TResult orElse(),
+  }) {
+    if (updateUserProfile != null) {
+      return updateUserProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateUserProfile implements SettingState {
+  const factory UpdateUserProfile() = _$UpdateUserProfileImpl;
 }

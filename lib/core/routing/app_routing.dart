@@ -9,7 +9,7 @@ import 'package:shaghalni/features/job_form/ui/screen/job_form_screen.dart';
 import 'package:shaghalni/features/auth/login/logic/login_cubit.dart';
 import 'package:shaghalni/features/auth/otp/logic/otp_cubit.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
-import 'package:shaghalni/features/auth/signup/ui/widgets/signup_screen.dart';
+import 'package:shaghalni/features/auth/signup/ui/screen/signup_screen.dart';
 import 'package:shaghalni/features/category/logic/category_cubit.dart';
 import 'package:shaghalni/features/category/ui/screens/category_screen.dart';
 import 'package:shaghalni/features/home/ui/screens/home_nav_bar_widget.dart';
@@ -21,6 +21,8 @@ import 'package:shaghalni/features/language/ui/screen/language_screen.dart';
 import 'package:shaghalni/features/notification/ui/screen/notification_screen.dart';
 import 'package:shaghalni/features/on_boarding/logic/cubit/page_cubit.dart';
 import 'package:shaghalni/features/on_boarding/ui/screen/on_boarding_screen.dart';
+import 'package:shaghalni/features/profile/logic/profile_cubit.dart';
+import 'package:shaghalni/features/profile/ui/screen/profile_screen.dart';
 import 'package:shaghalni/features/setting/ui/screen/terms_and_conditions_screen.dart';
 import '../../features/auth/login/ui/widgets/login_screen.dart';
 import '../../features/auth/otp/ui/widgets/otp_screen.dart';
@@ -129,6 +131,13 @@ class AppRouting {
 
       case Routes.notification:
         return MaterialPageRoute(builder: (context) => NotificationScreen());
+
+      case Routes.profile:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => ProfileCubit(getIt() , getIt()),
+                  child: ProfileScreen(),
+                ));
 
       default:
         return null;

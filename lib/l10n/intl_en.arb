@@ -119,5 +119,7 @@
     "open": "Open",
     "closed": "Closed",
     "pending": "Pending",
-    "reject": "Reject"
+    "reject": "Reject",
+    "account_settings": "Account Settings",
+    "save": "Save"
 }

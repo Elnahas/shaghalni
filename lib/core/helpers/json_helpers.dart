@@ -10,11 +10,17 @@ dynamic cityModelToJson(CityModel city) {
   return city.toJson();
 }
 
+int timestampToJson(Timestamp timestamp) => timestamp.millisecondsSinceEpoch;
 Timestamp timestampFromJson(dynamic json) {
-  return json is Timestamp
-      ? json
-      : Timestamp.fromMillisecondsSinceEpoch(json as int);
+  if (json is Timestamp) {
+    return json;
+  } else if (json is int) {
+    return Timestamp.fromMillisecondsSinceEpoch(json);
+  } else {
+    throw Exception("Cannot convert json to Timestamp");
+  }
 }
 
-dynamic timestampToJson(Timestamp timestamp) =>
-    timestamp.millisecondsSinceEpoch;
+DateTime dateTimeFromJson(Timestamp timestamp) => timestamp.toDate();
+Timestamp dateTimeToJson(DateTime date) => Timestamp.fromDate(date);
+

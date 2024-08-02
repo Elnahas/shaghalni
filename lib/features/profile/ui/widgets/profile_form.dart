@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
+import 'package:shaghalni/features/profile/logic/profile_cubit.dart';
 import '../../../../../core/helpers/date_helper.dart';
 import '../../../../../core/widgets/select_list_widget.dart';
 import '../../../../../core/widgets/user_details_form.dart';
 import '../../../../../generated/l10n.dart';
 
-class SignupForm extends StatefulWidget {
-  const SignupForm({super.key});
+class ProfileForm extends StatefulWidget {
+  const ProfileForm({super.key});
 
   @override
-  State<SignupForm> createState() => _SignupFormState();
+  State<ProfileForm> createState() => _ProfileFormState();
 }
 
-class _SignupFormState extends State<SignupForm> {
+class _ProfileFormState extends State<ProfileForm> {
   @override
   Widget build(BuildContext context) {
-    final SignupCubit _cubit = context.read<SignupCubit>();
+    final ProfileCubit _cubit = context.read<ProfileCubit>();
 
     return UserDetailsForm(
         formKey: _cubit.signupFormKey,
@@ -24,10 +24,9 @@ class _SignupFormState extends State<SignupForm> {
         lastNameController: _cubit.lastNameController,
         cityController: _cubit.cityController,
         birthDateController: _cubit.birthDateController,
+        selectedDate: _cubit.birthDate,
         onDateSelected: (date) {
-
           _cubit.birthDate = date;
-
           _cubit.birthDateController.text =
               DateHelper.formatCustomDate(date, format: 'dd-MM-yyyy');
         },

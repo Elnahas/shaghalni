@@ -3,10 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shaghalni/core/helpers/extentions.dart';
 import 'package:shaghalni/core/helpers/spacing.dart';
 import 'package:shaghalni/core/theming/app_text_styles.dart';
-import 'package:shaghalni/core/widgets/app_text_button.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:shaghalni/features/auth/signup/logic/cubit/signup_state.dart';
+import 'package:shaghalni/features/auth/signup/ui/widgets/agreement_terms_widget.dart';
 import 'package:shaghalni/features/auth/signup/ui/widgets/shimmer_signup_widget.dart';
+import 'package:shaghalni/features/auth/signup/ui/widgets/signup_button.dart';
 import 'package:shaghalni/features/auth/signup/ui/widgets/signup_form.dart';
 import '../../../../../core/functions/show_snack_bar.dart';
 import '../../../../../core/routing/routes.dart';
@@ -20,9 +21,11 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  late SignupCubit _cubit;
   @override
   void initState() {
-    context.read<SignupCubit>().getCity();
+    _cubit = context.read<SignupCubit>();
+    _cubit.getCity();
     super.initState();
   }
 
@@ -64,12 +67,9 @@ class _SignupScreenState extends State<SignupScreen> {
                           child: ShimmerSignupWidget())
                       : const SignupForm(),
                   verticalSpace(20),
-                  AppTextButton(
-                      isLoading: state is SignupLoading,
-                      buttonText: S.of(context).create_an_account,
-                      onPressed: () {
-                        validateSignup(context);
-                      })
+                  AgreementTermsWidget(),
+                  verticalSpace(20),
+                  SignupButton(),
                 ],
               );
             },

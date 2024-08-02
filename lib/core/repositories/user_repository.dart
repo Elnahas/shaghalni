@@ -7,6 +7,8 @@ import 'package:shaghalni/core/data/models/user_model.dart';
 import 'package:shaghalni/core/helpers/shared_pref_helper.dart';
 import 'package:shaghalni/core/helpers/constants.dart';
 
+import '../data/models/city_model.dart';
+
 class UserRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final storageRef = FirebaseStorage.instance.ref();
@@ -41,6 +43,42 @@ class UserRepository {
     }
   }
 
+  Future<void> updateUserProfile({
+    required String uid,
+    String? firstName,
+    String? lastName,
+    Timestamp? birthDate,
+    String? gender,
+    CityModel? city,
+    File? newImageFile,
+  }) async {
+    try {
+      String? imageUrl;
+      if (newImageFile != null && newImageFile.path.isNotEmpty) {
+        bool isNetworkImage = newImageFile.path.startsWith('http') ||
+            newImageFile.path.startsWith('https');
+
+        if (!isNetworkImage) {
+          imageUrl = await uploadImage(newImageFile);
+        }
+      }
+
+      final userDoc =
+          _firestore.collection(FirestoreCollections.users).doc(uid);
+
+      await userDoc.update({
+        if (firstName != null) 'first_name': firstName,
+        if (lastName != null) 'last_name': lastName,
+        if (birthDate != null) 'birth_date': birthDate.millisecondsSinceEpoch,
+        if (gender != null) 'gender': gender,
+        if (city != null) 'city': city.toJson(),
+        if (imageUrl != null) 'image_url': imageUrl,
+      });
+    } catch (e) {
+      throw Exception('Failed to update profile');
+    }
+  }
+
   Future<void> saveUserToPreferences(UserModel user) async {
     await SharedPrefHelper.setSecuredString(
         SharedPrefKeys.userData, jsonEncode(user.toJson()));
@@ -50,7 +88,6 @@ class UserRepository {
   }
 
   Future<UserModel> getUserFromPreferences() async {
-
     String? userData =
         await SharedPrefHelper.getSecuredString(SharedPrefKeys.userData);
     Map<String, dynamic> userMap = jsonDecode(userData!);

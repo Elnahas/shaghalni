@@ -1,31 +1,33 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shaghalni/core/theming/app_colors.dart';
-
+import '../../../../../core/widgets/app_circle_avatar.dart';
 import '../../../../../generated/l10n.dart';
-import '../../logic/cubit/signup_cubit.dart';
 
-// !! this class need to refactor to can be reusable
 class ProfilePicture extends StatefulWidget {
-  const ProfilePicture({super.key});
+  final Function(File?)? onImageSelected;
+  final File? initialImageFile;
+
+  const ProfilePicture({
+    Key? key,
+    this.onImageSelected,
+    this.initialImageFile,
+  }) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _ProfilePictureState createState() => _ProfilePictureState();
 }
 
 class _ProfilePictureState extends State<ProfilePicture> {
-  late final SignupCubit _cubit;
   late final ImagePicker _picker;
+  File? _imageFile;
 
   @override
   void initState() {
-    _cubit = context.read<SignupCubit>();
     _picker = ImagePicker();
+    _imageFile = widget.initialImageFile;
     super.initState();
   }
 
@@ -62,7 +64,8 @@ class _ProfilePictureState extends State<ProfilePicture> {
 
     setState(() {
       if (croppedFile != null) {
-        _cubit.imageFile = File(croppedFile.path);
+        _imageFile = File(croppedFile.path);
+        widget.onImageSelected!(_imageFile);
       }
     });
   }
@@ -73,11 +76,12 @@ class _ProfilePictureState extends State<ProfilePicture> {
       alignment: Alignment.center,
       child: Stack(
         children: [
-          CircleAvatar(
+          AppCircleAvatar(
+            imageUrl:
+                _imageFile != null ? FileImage(_imageFile!).file.path : "",
             radius: 50,
-            backgroundImage: _cubit.imageFile != null
-                ? FileImage(_cubit.imageFile!)
-                : const AssetImage("assets/images/ic_profile_placeholder.png"),
+            errorWidget:
+                Image.asset("assets/images/ic_profile_placeholder.png"),
           ),
           Positioned(
             bottom: -5,
@@ -108,7 +112,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
         children: [
           ListTile(
             leading: const Icon(Icons.camera),
-            title:  Text(S.of(context).camera),
+            title: Text(S.of(context).camera),
             onTap: () {
               Navigator.of(context).pop();
               _pickAndCropImage(ImageSource.camera);
@@ -116,7 +120,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
           ),
           ListTile(
             leading: const Icon(Icons.photo_library),
-            title:  Text(S.of(context).gallery),
+            title: Text(S.of(context).gallery),
             onTap: () {
               Navigator.of(context).pop();
               _pickAndCropImage(ImageSource.gallery);

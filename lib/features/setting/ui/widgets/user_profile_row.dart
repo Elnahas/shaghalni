@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shaghalni/core/helpers/extentions.dart';
+import 'package:shaghalni/core/routing/routes.dart';
+import 'package:shaghalni/features/setting/logic/setting_cubit.dart';
+import 'package:shaghalni/features/setting/logic/setting_state.dart';
 
 import '../../../../core/helpers/constants.dart';
 import '../../../../core/helpers/date_helper.dart';
@@ -27,36 +32,53 @@ class UserProfileRow extends StatelessWidget {
           ),
         ],
       ),
-      child: Row(
-        children: [
-          AppCircleAvatar(imageUrl: userModel!.imageUrl ?? "", radius: 35),
-          horizontalSpace(10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  userModel!.fullName,
-                  style: AppTextStyles.font18BoldBlack,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+      child: BlocBuilder<SettingCubit,SettingState>(
+        buildWhen: (previous, current) => current is UpdateUserProfile,
+        builder: (context, state) {
+          return Row(
+            children: [
+              AppCircleAvatar(
+                imageUrl: userModel!.imageUrl.isNullOrEmpty()
+                    ? ""
+                    : userModel!.imageUrl!,
+                radius: 35,
+                errorWidget:
+                    Image.asset("assets/images/ic_profile_placeholder.png"),
+              ),
+              horizontalSpace(10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      userModel!.fullName,
+                      style: AppTextStyles.font18BoldBlack,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Text(
+                      DateHelper.formatTimeAgo(
+                          userModel?.createdAt.toDate() ?? DateTime.now()),
+                      style: AppTextStyles.font14LightGrayRegular,
+                    ),
+                  ],
                 ),
-                Text(
-                  DateHelper.formatTimeAgo(
-                      userModel?.createdAt.toDate() ?? DateTime.now()),
-                  style: AppTextStyles.font14LightGrayRegular,
-                ),
-              ],
-            ),
-          ),
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                FontAwesomeIcons.pen,
-                color: AppColors.primaryColor,
-                size: 20,
-              ))
-        ],
+              ),
+              IconButton(
+                  onPressed: () async {
+                    var result = await context.pushNamed(Routes.profile);
+                    if (result != null) {
+                      context.read<SettingCubit>().updateUserProfile();
+                    }
+                  },
+                  icon: Icon(
+                    FontAwesomeIcons.pen,
+                    color: AppColors.primaryColor,
+                    size: 20,
+                  ))
+            ],
+          );
+        },
       ),
     );
   }
